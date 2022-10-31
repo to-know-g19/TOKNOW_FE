@@ -1,0 +1,55 @@
+@import '../assets/styles/common.scss';
+
+
+.sectionOneHome{
+    gap: 3rem;
+    height: 24.625rem;
+
+}
+.landingSubtitle{
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.landingLogin{
+    color: $text-darkblue;
+}
+.landingForm{
+    margin-bottom: 2rem;
+}
+.landingButtons{
+    gap: 10px;
+}
+.forgotPassword{
+    margin-top: 1rem;
+}
+
+.sectionTwoHome {
+    background-color: $dark-orange;
+    height: 21.688rem;
+    gap: 6rem;
+}
+.sectionThreeHome{
+    color: $text-darkblue;
+    background-color: $bg-lightblue;
+    height: 12.563rem;
+}
+
+.landingPicture{
+    height: 31.625rem;
+    width: 100%;
+}
+.landingTextNextToImg{
+    color: $text-darkblue;
+    padding: 4.5rem;
+
+}
+.landingLogoNextToImg{
+    margin-top:1rem;
+    margin-bottom:1rem;
+}
+
+.sectionFiveHome{
+    height: 3.75rem;
+    background-color: $bg-darkblue;
+    color: white;
+}

@@ -1,0 +1,11 @@
+@import '../../assets/styles/common.scss';
+
+.mainBtn{
+    background-color: $secondary-color;
+    border-radius: 10px;
+    border-style: none;
+    padding-left:1.5rem;
+    padding-right: 1.5rem;
+    height: 2.5rem;
+    color: white;
+}
