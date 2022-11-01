@@ -40,12 +40,8 @@
 }
 .landingTextNextToImg{
     color: $text-darkblue;
-    padding: 4.5rem;
+    padding: 3rem;
 
-}
-.landingLogoNextToImg{
-    margin-top:1rem;
-    margin-bottom:1rem;
 }
 
 .sectionFiveHome{
@@ -56,6 +52,9 @@
 .sectionSixHome{
     background-color: $bg-orange;
     height: 21.688rem;
+    text-align: center;
+    padding: 1rem;
+    color: $text-darkblue;
 }
 .sectionSevenHome{
     flex-wrap: wrap;

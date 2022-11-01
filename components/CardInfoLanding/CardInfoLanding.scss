@@ -1,7 +1,12 @@
 
 @import '../../styles/globals.scss';
+
+.cardImg{
+    width: 70%;
+}
 .cardTitle{
-    color:$text-darkorange
+    color:$text-darkorange;
+    margin: 1rem;
 }
 .cardDescription{
     color:$text-lightorange
