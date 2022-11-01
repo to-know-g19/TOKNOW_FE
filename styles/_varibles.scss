@@ -1,12 +1,16 @@
 // Color
+
 $primary-color:#06B1EA;
 $secundary-color:rgba(206, 230, 246, 1);
 $tertiary-color:rgba(255, 164, 36, 1);
 $darkblue:rgba(0, 102, 136, 1);
 $lightblue:rgba(119, 209, 255, 1);
+$lightorange: rgba(255, 238, 223, 1);
+
+
 
 $bg-orange: #FFDDBA;
-$bg-blue: #06B1EA;
+$bg-blue: $primary-color;
 $bg-lightblue: #CEE6F6;
 $bg-darkblue: #004D68;
 $bg-navblue:#F5FAFF;

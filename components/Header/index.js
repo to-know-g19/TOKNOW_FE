@@ -1,9 +1,9 @@
-import Navbar from './Navbar'
+import Navbar from '../Navbar'
 
 export default function Header() {
   return (
     <>
-      <p>este es header</p>
+      <h2>este es header</h2>
       <Navbar/>
       
     </>
