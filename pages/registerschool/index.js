@@ -26,7 +26,7 @@ export default function FormSchool() {
         {errors.name && errors.name.type === "minLength" && <span>El campo debe tener un mínimo de 3 caracteres.</span>}
         {errors.name && errors.name.type === "maxLength" && <span>El campo puede tener un máximo de 30 caracteres.</span>}
 
-        <input {...register("email", { required: true })} placeholder='Email'></input>
+        <input type='email'{...register("email", { required: true })} placeholder='Email'></input>
         {errors.email && errors.email.type === "required" && <span>El campo es requerido.</span>}
 
 
