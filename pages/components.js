@@ -14,14 +14,14 @@ export default function home() {
     
     <div>
     <p>iconos</p>
-      <i class="bi bi-arrow-left-circle"></i>
-      <i class="bi bi-bell"></i>
-      <i class="bi bi-person-fill"></i>
-      <i class="bi bi-list"></i>
-      <i class="bi bi-trash"></i>
-      <i class="bi bi-paperclip"></i>
-      <i class="bi bi-eye"></i>
-      <i class="bi bi-calendar"></i>
+      <i className="bi bi-arrow-left-circle"></i>
+      <i className="bi bi-bell"></i>
+      <i className="bi bi-person-fill"></i>
+      <i className="bi bi-list"></i>
+      <i className="bi bi-trash"></i>
+      <i className="bi bi-paperclip"></i>
+      <i className="bi bi-eye"></i>
+      <i className="bi bi-calendar"></i>
     </div>
     <div>
     <p>botones</p>
@@ -30,7 +30,7 @@ export default function home() {
         <Button text="danger" />
         <Button text="user" /></div>
         <p>Botón para grupos</p>
-    <div className='group-button'>1 B<span className='group-button__action'><i className="bi bi-plus"></i></span></div>
+    <div> <a href="">1 B<span ><i className="bi bi-plus"></i></span></a> </div>
     </Layout>
   )
 }
