@@ -1,5 +1,5 @@
-@import '../assets/styles/common.scss';
 
+@import '../styles/globals.scss';
 
 .sectionOneHome{
     gap: 3rem;
@@ -24,7 +24,7 @@
 }
 
 .sectionTwoHome {
-    background-color: $dark-orange;
+    background-color: $bg-orange;
     height: 21.688rem;
     gap: 6rem;
 }
@@ -52,4 +52,14 @@
     height: 3.75rem;
     background-color: $bg-darkblue;
     color: white;
+}
+.sectionSixHome{
+    background-color: $bg-orange;
+    height: 21.688rem;
+}
+.sectionSevenHome{
+    flex-wrap: wrap;
+}
+.FAQ{
+    padding: 3rem;
 }

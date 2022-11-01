@@ -1,0 +1,42 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: black;
+  }
+}
+
+
+$bg-orange: #FFDDBA;
+$bg-blue: #06B1EA;
+$bg-lightblue: #CEE6F6;
+$bg-darkblue: #004D68;
+
+
+$text-darkorange:#875200;
+$text-lightorange:#CD7F00;
+$text-darkblue: #006688;
+$text-lightblue:#06B1EA;
+
+//todo lo de uso comun va en global
+
+//en la carpeta componentes en estilos los de components
