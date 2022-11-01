@@ -22,7 +22,7 @@ export default function FormSchool() {
       <form onSubmit={handleSubmit(onSubmit)} className='d-flex col-lg-4 flex-column'>
         <div>Registro</div>
         <input {...register("name", { required: true, minLength: 3, maxLength: 30 })} placeholder='Name'></input>
-        {errors.name && errors.name.type === "required" && <span>El campo es requerido.</span>}
+        {errors.name && errors.name.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
         {errors.name && errors.name.type === "minLength" && <span>El campo debe tener un mínimo de 3 caracteres.</span>}
         {errors.name && errors.name.type === "maxLength" && <span>El campo puede tener un máximo de 30 caracteres.</span>}
 
