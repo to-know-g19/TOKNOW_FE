@@ -1,13 +1,17 @@
-export default function Button({ type = "admin", className = "" }) {
+export default function Button({ variant, text, cb, className = "" }) {
     const variantMap = {
         primary: "bg-primary",
         secondary: "bg-secondary text-dark",
         danger: "bg-danger"
       };
     return (
-        <User
-            type={type}
-            className = {`$classname`}
-        />
+        <button
+      onClick={() => {
+        cb ? cb() : console.log("no cb");
+      }}
+      className={`button ${variantMap[variant]}`}
+    >
+      {text}
+    </button>
     )
 }

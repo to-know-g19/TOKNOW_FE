@@ -1,4 +1,4 @@
-//Variables
+
 
 
 html,
@@ -28,6 +28,18 @@ a {
   }
 }
 
+// 1 buttons
+.bg-primary {
+    background-color: blue;
+  }
+  
+  .bg-secondary {
+    background-color: slategray;
+  }
+  
+  .bg-danger {
+    background-color: red;
+  }
 
 $bg-orange: #FFDDBA;
 $bg-blue: #06B1EA;
