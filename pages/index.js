@@ -5,15 +5,11 @@ import Layout from '../components/Layout'
 import ButtonDonate from '../components/ButtonDonate/ButtonDonate'
 import CardInfoLanding from '../components/CardInfoLanding/CardInfoLanding'
 
-// import Navbar from '../components/NavBar/Navbar'
+
 
 export default function home() {
   return (
     <Layout>
-      <div>home</div>
-
-      {/* <Navbar /> */}
-
       <article className='sectionOneHome d-flex d-lg-flex justify-content-lg-center align-items-lg-center'>
         <section className='col-12 col-lg-6'>
           <h2 className=''>toKnow</h2>
@@ -91,7 +87,7 @@ export default function home() {
         <section className='col-6'> <img className='landingPicture' src="/img/kid&parent.jpeg" alt="" /></section>
         <section className='landingTextNextToImg col-6'>
           <h3>Acompañando de la mano</h3>
-          <div className='landingLogoNextToImg'><img src="/img/logos/logo.svg" alt="" /></div>
+          <div ><img className='landingLogoNextToImg' src="/img/logos/logo.svg" alt="" /></div>
           <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed semper urna blandit hendrerit
             placerat. Vestibulum condimentum lorem lacus, in commodo purus consequat vitae.
             Vivamus molestie dui eget fringilla consequat.
