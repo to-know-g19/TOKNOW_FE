@@ -1,6 +1,6 @@
 import React from 'react'
-import Button from '../components/Button/Button'
-import ButtonDonate from '../components/ButtonDonate'
+import Button from '../components/ButtonLand/Button'
+import ButtonDonate from '../components/ButtonDonate/ButtonDonate'
 import CardInfoLanding from '../components/CardInfoLanding/CardInfoLanding'
 import Navbar from '../components/NavBar/Navbar'
 
