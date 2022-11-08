@@ -4,6 +4,7 @@ import Layout from '../components/Layout'
 // import Button from '../components/ButtonLand/Button'
 import ButtonDonate from '../components/ButtonDonate/ButtonDonate'
 import CardInfoLanding from '../components/CardInfoLanding/CardInfoLanding'
+import FormLogin from '../components/FormLogin/FormLogin'
 
 
 
@@ -23,10 +24,11 @@ export default function home() {
 
         <section className='col-12 col-lg-4'>
           <h5 className='landingLogin'>Acceder</h5>
-          <div className='landingForm d-lg-flex flex-lg-column'>
-            <input type="text" placeholder='aquí va form de react hook forms' />
-            <input type="text" />
-          </div>
+          <FormLogin/>
+
+
+
+
           <div className='d-flex justify-content-lg-between'>
             <div className='col-lg-5'>sus datos están seguros con nosotros</div>
             <div className='landingButtons d-flex'>
