@@ -7,30 +7,30 @@ export default function FormLogin() {
 
 const { register, handleSubmit, formState: { errors } } = useForm()
 
-// const onSubmit = (e) => {
-//     // e.preventDefault()
-// 		let result = fetch('https://api.2know.today/login', {
-// 			method: 'POST',
-// 			mode: 'cors',
-// 			headers: {
-// 				'Content-type': 'application/json',
-// 				'Access-Control-Allow-Origin': '*'
-// 			},
-// 			body: JSON.stringify({
-// 				"email": email,
-// 				"originalPassword": originalPassword,
-// 			})
+const onSubmit = (e) => {
+    // e.preventDefault()
+		let result = fetch('https://api.2know.today/login', {
+			method: 'POST',
+			mode: 'cors',
+			headers: {
+				'Content-type': 'application/json',
+				'Access-Control-Allow-Origin': '*'
+			},
+			body: JSON.stringify({
+				"email": email,
+				"originalPassword": originalPassword,
+			})
 
-// 		})
-// 			.then(response => response.json())
-// 			.then(data => {
-// 				localStorage.setItem('userToken', data.token)
-//         if(data.token)
-//         // redirectLinkInquilinos()
-//         console.log("exito en la vida!")
-// 			})
-// 			.catch(error => console.log(error))
-// 	}
+		})
+			.then(response => response.json())
+			.then(data => {
+				localStorage.setItem('userToken', data.token)
+        if(data.token)
+        // redirectLinkInquilinos()
+        console.log("exito en la vida!")
+			})
+			.catch(error => console.log(error))
+	}
 
   return (
     <div className='d-flex col-12 '>
