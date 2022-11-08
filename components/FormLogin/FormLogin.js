@@ -26,7 +26,7 @@ const onSubmit = (e) => {
 			.then(data => {
 				localStorage.setItem('userToken', data.token)
         if(data.token)
-        // redirectLinkInquilinos()
+
         console.log("exito en la vida!")
 			})
 			.catch(error => console.log(error))
