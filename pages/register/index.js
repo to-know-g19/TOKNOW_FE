@@ -30,19 +30,31 @@ export default function index() {
 
   return (
     <Layout>
-    <div className='d-flex col-6 justify-content-center '>
-    <form onSubmit={handleSubmit(onSubmit)} className='d-flex col-12 flex-column justify-content-center'>
+    <div>
+    <form onSubmit={handleSubmit(onSubmit)} className='d-flex flex-column align-items-center'>
 
-        <div className='col-12 '>
-            <div className='d-flex col-12 flex-column'>
+            <h4>Listo para una nueva experiencia en comunicación escolar</h4>
+        <div className='col-lg-4'>
+            <h5>Datos del responsable</h5>
+            <div>
+                <div className='d-flex flex-column'>
+                    <label>Nombre</label>
+                    <input type='text' name='name'  {...register("name", { required: true, minLength: 3 })} placeholder='Nombre'></input>
+                    {errors.name && errors.name.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
+                    {errors.name && errors.name.type === "minLength" && <span className='text-danger'>*El campo requiere más de 3 caracteres</span>}
+                </div>
+            </div>
+
+            <div className='d-flex flex-column'>
                 <label>Correo</label>
                 <input type='email' name='email' {...register("email", { required: true, maxLength: 30 })} placeholder='Correo'></input>
                 {errors.email && errors.email.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
                 {errors.email && errors.email.type === "maxLength" && <span className='text-danger'>*El campo no debe tener más de 30 caracteres. </span>}
             </div>
-
-            <div className='col-12 d-flex flex-row'>
-                <div className='d-flex col-12 flex-column'>
+            
+            <h5>Crea tu contraseña</h5>
+            <div>
+                <div className='d-flex flex-column'>
                     <label>Contraseña</label>
                     <input type='password' name='password'  {...register("password", { required: true, minLength: 3 })} placeholder='Contraseña'></input>
                     {errors.password && errors.password.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
@@ -50,17 +62,9 @@ export default function index() {
                 </div>
             </div>
 
-            <div className='col-12 d-flex flex-row'>
-                <div className='d-flex col-12 flex-column'>
-                    <label>Nombre</label>
-                    <input type='text' name='name'  {...register("name", { required: true, minLength: 3 })} placeholder='Nombre'></input>
-                    {errors.name && errors.name.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
-                    {errors.name && errors.name.type === "minLength" && <span className='text-danger'>*El campo requiere más de 3 caracteres</span>}
-                </div>
-            </div>
         </div>
 
-        <input className='col-3' type='submit'></input>
+        <input className='col-4' type='submit'></input>
     </form>
 </div>
 </Layout>
