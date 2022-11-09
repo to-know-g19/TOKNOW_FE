@@ -1,7 +1,6 @@
 import React from 'react'
 import { useForm } from "react-hook-form"
 import 'bootstrap/dist/css/bootstrap.css'
-import { useState } from "react";
 import Layout from '../../components/Layout';
 
 
