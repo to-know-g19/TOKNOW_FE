@@ -1,39 +1,31 @@
 import React from 'react'
 import { useForm } from "react-hook-form"
 import 'bootstrap/dist/css/bootstrap.css'
+import { useRouter } from 'next/router'
+
 
 export default function FormLogin() {
-
-
 const { register, handleSubmit, formState: { errors } } = useForm()
-
+const router = useRouter()
 
 
 const onSubmit = async data => {
-
-  console.log(data)
   // data.preventDefault(data)
-  
 		let result = await fetch('https://api.2know.today/login', {
 			method: 'POST',
 			mode: 'cors',
 			headers: {
 				'Content-type': 'application/json',
-				'Access-Control-Allow-Origin': '*'
 			},
 			body: JSON.stringify(data)
 		})
-  const response = await data
+  const response = await result.json()
 
-  console.log("respuesta es", response)
-			// .then(response => response.json())
-			// .then(data => {
-			// 	localStorage.setItem('userToken', data.token)
-      //   if(data.token)
-
-      //   console.log("exito en la vida!")
-			// })
-			// .catch(error => console.log(error))
+  const theToken = response.token
+  //poner en local storage
+  localStorage.setItem("el token es", theToken)
+  //cambiar ruta
+    router.push("/register")
 	}
 
 
@@ -59,8 +51,10 @@ const onSubmit = async data => {
                 </div>
             </div>
         </div>
-
-        <input className='col-3' type='submit'></input>
+        <div className='d-flex justify-content-around'>
+        <input className='col-4' type='submit'></input>
+        <button className='col-6'>registrate</button>
+        </div>
     </form>
 </div>
   )
