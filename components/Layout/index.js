@@ -27,7 +27,7 @@ export default function Layout({ children, title, ...props }) {
         <title>{title}</title>
       </Head>
 
-      <div class='conteiner'>
+      <div className='conteiner '>
         <div className="row">
           <Header />
           <main>{children}</main>

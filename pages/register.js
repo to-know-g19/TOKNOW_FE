@@ -31,8 +31,8 @@ export default function index() {
     }
 
     return (
-        <Layout title='toKnow de la mano con tu hijo' description='Aplicación para escuelas, herramienta para desarrollar una comunicación efectiva en la comunidad'>
-            <div>
+        <Layout title='toKnow caambiando la comunicación escolar' description='Registro para escuelas, herramienta para desarrollar una comunicación efectiva en la comunidad'>
+            <div clasName='fullscreen'>
                 <form onSubmit={handleSubmit(onSubmit)} className='d-flex flex-column align-items-center'>
 
                     <h4>Listo para una nueva experiencia en comunicación escolar</h4>
