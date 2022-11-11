@@ -9,7 +9,6 @@ export default function registerschool() {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const router = useRouter()
 
-
     const onSubmit = async data => {
         const token = localStorage.getItem('token')
         let result = await fetch('https://api.2know.today/school', {
@@ -51,14 +50,14 @@ export default function registerschool() {
 
                         <div className='col-6 d-flex flex-row'>
                             <div className='d-flex col-12 flex-column'>
-                                <label>Email</label>
+                                <label>Correo electrónico de la escuela</label>
                                 <input type='email' name='emailSchool' {...register("emailSchool")} placeholder='Email'></input>
 
                             </div>
                         </div>
                         <div className='col-6 d-flex flex-row'>
                             <div className='d-flex col-12 flex-column'>
-                                <label>Tel. Escolar</label>
+                                <label>Teléfono</label>
                                 <input type='number' name='phoneSchool' {...register("phoneSchool")} placeholder='Tel. escolar'></input>
                             </div>
                         </div>
@@ -76,7 +75,7 @@ export default function registerschool() {
                         </div>
                         <div className='col-3 d-flex flex-row'>
                             <div className='d-flex col-12 flex-column'>
-                                <label>código postal</label>
+                                <label>Código postal</label>
                                 <input type='number' name='postalCode' {...register("postalCode")} placeholder='Código Postal'></input>
                             </div>
                         </div>
@@ -88,8 +87,8 @@ export default function registerschool() {
                         </div>
                         <div className='col-6 d-flex flex-row'>
                             <div className='d-flex col-12 flex-column'>
-                                <label>Estado</label>
-                                <input name='state' {...register("state")} placeholder='Estado'></input>
+                                <label>Región/Provincia/Estado</label>
+                                <input name='state' {...register("state")} placeholder='Región/Provincia/Estado'></input>
                             </div>
                         </div>
 
