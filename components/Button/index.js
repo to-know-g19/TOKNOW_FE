@@ -1,20 +1,21 @@
-import './style.module.scss'
-export default function Button({ variant, stade, text, cb, className = "" }) {
-    const variantMap = {
-        primary: "bg-primary",
-        secondary: "bg-secondary text-dark",
-        orange: "bg-orange",
-        danger: "bg-danger"
-      };
-      
+/* default */
+import Link from 'next/link'
+
+/**
+ * Button
+ * @param { children }
+ * @param { string } label (required) -to display in the button - disabled it has children
+ * @param { ...any } props 
+ * @returns component
+ */
+
+export const Button = ( { children, label,  ...props } ) => {    
     return (
-        <button
-      onClick={() => {
-        cb ? cb() : console.log("no cb");
-      }}
-      className={` button ${variantMap[variant]} ` }
-    >
-      {text}
-    </button>
+      <>
+        { props.target === '_blank' ||
+          !props.href && <a {...props}> { children ?? label } </a> ||
+          <Link {...props}> { children ?? label } </Link>
+        }
+      </>
     )
 }

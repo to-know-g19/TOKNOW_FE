@@ -10,7 +10,8 @@ import FormLogin from '../components/FormLogin/FormLogin'
 
 export default function home() {
   return (
-    <Layout>
+
+    <Layout title='toKnow de la mano con tu hijo' description='Aplicación para escuelas, herramienta para desarrollar una comunicación efectiva en la comunidad'>
       <article className='sectionOneHome d-flex d-lg-flex justify-content-lg-center align-items-lg-center'>
         <section className='col-12 col-lg-6'>
           <h2 className=''>toKnow</h2>
@@ -24,11 +25,7 @@ export default function home() {
 
         <section className='col-12 col-lg-4'>
           <h5 className='landingLogin'>Acceder</h5>
-          <FormLogin/>
-
-
-
-
+          <FormLogin/> 
           <div className='d-flex justify-content-lg-between'>
             <div className='col-lg-5'>sus datos están seguros con nosotros</div>
             <div className='landingButtons d-flex'>
