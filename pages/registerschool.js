@@ -25,9 +25,8 @@ export default function registerschool() {
             )
         })
         const schoolInfo = result.json()
-        console.log( schoolInfo)
 
-        router.push("/")
+        router.push("/registergroup")
     }
 
 
