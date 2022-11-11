@@ -21,9 +21,9 @@ const onSubmit = async data => {
 		})
   const response = await result.json()
 
-  const theToken = response.token
+  const token = response.token
   //poner en local storage
-  localStorage.setItem("el token es", theToken)
+  localStorage.setItem("token", token)
   //redireccionar
     router.push("/registerschool")
 	}
