@@ -94,21 +94,10 @@ export default function registerschool() {
                             </div>
                         </div>
 
-
-
-
-
-                        {/* <div className='col-12 d-flex flex-row'>
-                            <div className='d-flex col-12 flex-column'>
-                                <label>Calle</label>
-                                <input name='addressStreet' {...register("addressStreet")} placeholder='Calle'></input>
-                                
-                            </div>
-                        </div> */}
                     </div>
-                    <div className='d-flex justify-content-around'>
+                    <div className='d-flex col-lg-4 justify-content-around'>
                         <input className='col-12' type='submit'></input>
-                        {/* <button className='col-6'>registrate</button> */}
+
                     </div>
                 </form>
             </div>
