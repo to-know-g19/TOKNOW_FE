@@ -11,27 +11,23 @@ export default function registerschool() {
 
 
     const onSubmit = async data => {
-        const userToken = localStorage.getItem('el token es')
+        const token = localStorage.getItem('token')
         let result = await fetch('https://api.2know.today/school', {
             method: 'POST',
             mode: 'cors',
             headers: {
                 'Content-type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
-                "Authorization": `Bearer ${userToken}`
+                
+                "Authorization": `Bearer ${token}`
             },
             body: JSON.stringify(
                 data
             )
         })
-        // const response = await result.json()
+        const schoolInfo = result.json()
+        console.log( schoolInfo)
 
-        // const theToken = response.token
-        // //poner en local storage
-        // localStorage.setItem("el token es", theToken)
-        //redireccionar
-
-        // router.push("/registerschool")
+        router.push("/")
     }
 
 
@@ -39,33 +35,62 @@ export default function registerschool() {
     return (
         <Layout>
             <div className='d-flex col-12 '>
-                <form onSubmit={handleSubmit(onSubmit)} className='d-flex col-12 flex-column justify-content-center'>
+                <form onSubmit={handleSubmit(onSubmit)} className='d-flex col-12 flex-column align-items-center justify-content-center'>
                     <h4>Registra los datos de tu escuela</h4>
-                    <div className='col-12 '>
-                        <div className='col-12 d-flex flex-column'>
+                    <div className='col-12 d-flex flex-wrap justify-content-center'>
+                        <div className='col-6 d-flex flex-column'>
                             <label>Nombre de la escuela</label>
                             <input name='nameSchool' {...register("school")} placeholder='Escuela'></input>
                         </div>
 
-                        <div className='col-12 d-flex flex-row'>
+                        <div className='col-6 d-flex flex-row'>
                             <div className='d-flex col-12 flex-column'>
                                 <label>CCT</label>
                                 <input name='cct' {...register("cct")} placeholder='CCT'></input>
                             </div>
                         </div>
 
-                        <div className='col-12 d-flex flex-row'>
+                        <div className='col-6 d-flex flex-row'>
                             <div className='d-flex col-12 flex-column'>
                                 <label>Email</label>
                                 <input type='email' name='emailSchool' {...register("emailSchool")} placeholder='Email'></input>
 
                             </div>
                         </div>
-                        <div className='col-12 d-flex flex-row'>
+                        <div className='col-6 d-flex flex-row'>
                             <div className='d-flex col-12 flex-column'>
                                 <label>Tel. Escolar</label>
                                 <input type='number' name='phoneSchool' {...register("phoneSchool")} placeholder='Tel. escolar'></input>
-                               
+                            </div>
+                        </div>
+                        <div className='col-6 d-flex flex-row'>
+                            <div className='d-flex col-12 flex-column'>
+                                <label>Calle</label>
+                                <input name='addressStreet' {...register("addressStreet")} placeholder='Calle'></input>
+                            </div>
+                        </div>
+                        <div className='col-3 d-flex flex-row'>
+                            <div className='d-flex col-12 flex-column'>
+                                <label>Número</label>
+                                <input type='number' name='addressNumber' {...register("addressNumber")} placeholder='Número'></input>
+                            </div>
+                        </div>
+                        <div className='col-3 d-flex flex-row'>
+                            <div className='d-flex col-12 flex-column'>
+                                <label>código postal</label>
+                                <input type='number' name='postalCode' {...register("postalCode")} placeholder='Código Postal'></input>
+                            </div>
+                        </div>
+                        <div className='col-6 d-flex flex-row'>
+                            <div className='d-flex col-12 flex-column'>
+                                <label>Ciudad</label>
+                                <input name='city' {...register("city")} placeholder='Ciudad'></input>
+                            </div>
+                        </div>
+                        <div className='col-6 d-flex flex-row'>
+                            <div className='d-flex col-12 flex-column'>
+                                <label>Estado</label>
+                                <input name='state' {...register("state")} placeholder='Estado'></input>
                             </div>
                         </div>
 
@@ -82,7 +107,7 @@ export default function registerschool() {
                         </div> */}
                     </div>
                     <div className='d-flex justify-content-around'>
-                        <input className='col-4' type='submit'></input>
+                        <input className='col-12' type='submit'></input>
                         {/* <button className='col-6'>registrate</button> */}
                     </div>
                 </form>
