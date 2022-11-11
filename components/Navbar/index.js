@@ -1,9 +1,15 @@
-
+/* default */
 import Image from "next/image";
+
+/* imagages*/
 import logo from '../../public/img/logos/logo.svg'
+
+/* styles */
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function Navbar({ children, title }) {
+
+
+export default function Navbar() {
     return (
         <nav className="navigation d-flex col-lg-12 justify-content-around">
             <div className="d-flex  align-items-center">
@@ -12,7 +18,7 @@ export default function Navbar({ children, title }) {
             </div>
             <div className="d-flex  justify-content-center align-items-center">
                 <div><a href=""><i className="bi bi-bell"><span> <i className="bi bi-plus"></i></span></i></a></div>
-                <div><a href=""><button>user</button></a></div>
+                <div><a href="">user</a></div>
 
             </div>
         </nav>

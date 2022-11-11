@@ -1,5 +1,10 @@
+/* package */
 import React from 'react'
+
+/* styles */
 import 'bootstrap/dist/css/bootstrap.css'
+
+
 
 export default function CardInfoLanding({ImgSrc, Title, Description}) {
     return (
