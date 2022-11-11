@@ -1,5 +1,6 @@
 /* default */
-import Image from "next/image";
+import Image from "next/image"
+import Link from 'next/link'
 
 /* imagages*/
 import logo from '../../public/img/logos/logo.svg'
@@ -18,7 +19,8 @@ export default function Navbar() {
             </div>
             <div className="d-flex  justify-content-center align-items-center">
                 <div><a href=""><i className="bi bi-bell"><span> <i className="bi bi-plus"></i></span></i></a></div>
-                <div><a href="">user</a></div>
+                
+                <Link href="" label='user'>user</Link>
 
             </div>
         </nav>
