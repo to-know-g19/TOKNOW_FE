@@ -8,7 +8,7 @@ import GroupsDisplay from '../components/GroupsDisplay/GroupsDisplay'
 
 
 
-export default function grouppage() {
+export default function registergroup() {
 
     return (
 
