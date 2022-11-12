@@ -14,7 +14,7 @@ import GroupCircle from '../GroupCircle/GroupCircle'
 //     },
 // ]
 
-export default function CreateGroupsDisplay() {
+export default function GroupsDisplay() {
     const [grupos, setGrupos] = useState([])
     // const token = localStorage.getItem('token')
     useEffect(() => {
