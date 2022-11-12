@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import GroupCircle from '../../components/GroupCircle/GroupCircle'
+import GroupCircle from '../GroupCircle/GroupCircle'
 
 
 

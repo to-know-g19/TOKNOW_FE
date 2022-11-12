@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 
 import Layout from '../components/Layout'
 import FormGroup from '../components/FormGroup'
-import CreateGroupsDisplay from '../components/CreateGroupsDisplay/CreateGroupsDisplay'
+import CreateGroupsDisplay from '../components/GroupsDisplay/CreateGroupsDisplay'
 
 
 
