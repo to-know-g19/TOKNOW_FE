@@ -15,9 +15,8 @@ export default function grouppage() {
 <Layout>
     
     <GroupsDisplay/>
-
-
     <FormGroup/>
+
 </Layout>
 
 

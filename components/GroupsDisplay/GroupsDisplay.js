@@ -1,42 +1,36 @@
 import React, { useEffect, useState } from 'react'
 import GroupCircle from '../GroupCircle/GroupCircle'
 
-
-
-// const grupos = [
-//     {
-//         grade:"1",
-//         group:"Z"
-//     },
-//     {
-//         grade:"1",
-//         group:"Z"
-//     },
-// ]
-
 export default function GroupsDisplay() {
+
     const [grupos, setGrupos] = useState([])
-    // const token = localStorage.getItem('token')
+    // useEffect(() =>{
+    //     const token = localStorage.getItem('token')
+    // }, [])
+    
+
     useEffect(() => {
+        const token = localStorage.getItem('token')
         fetch('https://api.2know.today/group',{
         mode: 'cors',
         headers: {
             'Content-type': 'application/json',
-            // "Authorization": `Bearer ${token}`
-        },
-        // body: JSON.stringify(group)
-        
-        }
+            "Authorization": `Bearer ${token}`
+        }, }
             )
          .then((response) => response.json())
          .then(data => {
             setGrupos(data.data.groups)
-            console.log("Grupos: ", data)
+            console.log("Grupos: ", data.data.groups)
          })
     }, [])
 
-    // const grupos = fetch('https://api.2know.today/group',{
+    // useEffect(async() =>{
+    //     const groups = await fetch ('https://api.2know.today/group',{
+
+    //     })
     // })
+ 
 
 
     return (
