@@ -2,7 +2,7 @@ import React from 'react'
 import { useForm } from "react-hook-form"
 import 'bootstrap/dist/css/bootstrap.css'
 import { useRouter } from 'next/router'
-import BtnDropdown from '../BtnDropdown/BtnDropdown'
+import ListDropdown from '../ListDropdown/BtnDropdown'
 
 
 export default function FormTeacher() {
@@ -114,12 +114,26 @@ export default function FormTeacher() {
                         <input name='bio' {...register("bio")} placeholder='Bio'></input>
                     </div>
 
-                    <div className='d-flex col-6 flex-column'>
+                    {/* <div className='d-flex col-6 flex-column'>
                         <label>Grado</label>
                         <input type='number' name='grade' {...register("grade", { required: true, min: 1, max: 6 })} placeholder='Grado'></input>
                         {errors.grade && errors.grade.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
                         {errors.grade && errors.grade.type === "min" && <span className='text-danger'>*El grado no puede ser menor a 1</span>}
                         {errors.grade && errors.grade.type === "max" && <span className='text-danger'>*El grado no puede ser mayor a 6</span>}
+
+                    </div> */}
+                    <div className='d-flex col-6 flex-column'>
+                        <label>Grado</label>
+                        <select name='grade' {...register("grade", { required: true, min: 1, max: 6 })} className="form-select" >
+                            <option value="">Grado</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                        {errors.grade && errors.grade.type === "required" && <span className='text-danger'>*Selecciona un grado</span>}
 
                     </div>
 
