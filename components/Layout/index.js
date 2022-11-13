@@ -27,12 +27,13 @@ export default function Layout({ children, title, ...props }) {
         <title>{title}</title>
       </Head>
 
-      <div className='conteiner '>
+      <div className='conteiner'>
         <div className="row">
+          <div className="col">
           <Header />
           <main>{children}</main>
           <Footer />
-        </div>
+        </div></div>
       </div>
     </>
   )

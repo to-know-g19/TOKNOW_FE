@@ -1,7 +1,21 @@
 /* default */
-import React from 'react'
-import { useForm } from "react-hook-form"
 import { useRouter } from 'next/router'
+import React from 'react'
+
+/* package */
+import { useForm } from "react-hook-form"
+import {
+    Form,
+    Button,
+    Row,
+    Col,
+    Label,
+    Input,
+    FormGroup,
+    FormFeedback,
+    FormText,
+} from 'reactstrap';
+
 
 /* components */
 import Layout from '../components/Layout'
@@ -24,7 +38,7 @@ export default function RegisterStudent() {
 
     const onSubmit = async data => {
         const token = localStorage.getItem('token')
-        let result = await fetch('', {
+        let result = await fetch('http://localhost:8080/user', {
             method: 'POST',
             mode: 'cors',
             headers: {
@@ -41,75 +55,149 @@ export default function RegisterStudent() {
     }
 
 
-
     return (
         <Layout>
-            <div className='d-flex col-12 '>
-                <form onSubmit={handleSubmit(onSubmit)} className='d-flex col-12 flex-column align-items-center justify-content-center'>
-                    <h4>Registra los datos de tu escuela</h4>
-                    <div className='col-12 d-flex flex-wrap justify-content-center'>
-                        <div className='col-6 d-flex flex-column'>
-                            <label>Nombre de la escuela</label>
-                            <input name='nameSchool' {...register("school")} placeholder='Escuela'></input>
-                        </div>
-
-                        <div className='col-6 d-flex flex-row'>
-                            <div className='d-flex col-12 flex-column'>
-                                <label>CCT</label>
-                                <input name='cct' {...register("cct")} placeholder='CCT'></input>
-                            </div>
-                        </div>
-
-                        <div className='col-6 d-flex flex-row'>
-                            <div className='d-flex col-12 flex-column'>
-                                <label>Correo electrónico de la escuela</label>
-                                <input type='email' name='emailSchool' {...register("emailSchool")} placeholder='Email'></input>
-
-                            </div>
-                        </div>
-                        <div className='col-6 d-flex flex-row'>
-                            <div className='d-flex col-12 flex-column'>
-                                <label>Teléfono</label>
-                                <input type='number' name='phoneSchool' {...register("phoneSchool")} placeholder='Tel. escolar'></input>
-                            </div>
-                        </div>
-                        <div className='col-6 d-flex flex-row'>
-                            <div className='d-flex col-12 flex-column'>
-                                <label>Calle</label>
-                                <input name='addressStreet' {...register("addressStreet")} placeholder='Calle'></input>
-                            </div>
-                        </div>
-                        <div className='col-3 d-flex flex-row'>
-                            <div className='d-flex col-12 flex-column'>
-                                <label>Número</label>
-                                <input type='number' name='addressNumber' {...register("addressNumber")} placeholder='Número'></input>
-                            </div>
-                        </div>
-                        <div className='col-3 d-flex flex-row'>
-                            <div className='d-flex col-12 flex-column'>
-                                <label>Código postal</label>
-                                <input type='number' name='postalCode' {...register("postalCode")} placeholder='Código Postal'></input>
-                            </div>
-                        </div>
-                        <div className='col-6 d-flex flex-row'>
-                            <div className='d-flex col-12 flex-column'>
-                                <label>Ciudad</label>
-                                <input name='city' {...register("city")} placeholder='Ciudad'></input>
-                            </div>
-                        </div>
-                        <div className='col-6 d-flex flex-row'>
-                            <div className='d-flex col-12 flex-column'>
-                                <label>Región/Provincia/Estado</label>
-                                <input name='state' {...register("state")} placeholder='Región/Provincia/Estado'></input>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div className='d-flex col-lg-4 justify-content-around'>
-                        <input className='col-12' type='submit'></input>
-                    </div>
-                </form>
+            <div>
+                <div><a href="">agregar usuario</a></div>
+                <div><a href="">return</a></div>
             </div>
+
+
+            <Form onSubmit={handleSubmit(onSubmit)}>
+
+                <Row>
+                    <FormText>
+                        Datos del alumno
+                    </FormText>
+                    <Col md={6}>
+                        <div>
+                            <Label htmlFor="">Nombre</Label>
+                            <Input type="text" />
+                            <FormFeedback>
+                                message
+                            </FormFeedback>
+                        </div>
+                        <div>
+                            <Label htmlFor="">Apellido paterno</Label>
+                            <Input type="text" />
+                            <FormFeedback>
+                                message
+                            </FormFeedback>
+                        </div>
+                        <div>
+                            <Label htmlFor="">Apellido materno</Label>
+                            <Input type="text" />
+                            <FormFeedback>
+                                message
+                            </FormFeedback>
+                        </div>
+                    </Col>
+                    <Col md={6}>
+                        <Row>
+                            <Label htmlFor="">Matrícula</Label>
+                            <Input type="text" />
+                            <FormFeedback>
+                                message
+                            </FormFeedback>
+                        </Row>
+                        <Row>
+                            <Col md={6}>
+                                <Label for="exampleSelect">Género</Label>
+                                <Input
+                                    id="exampleSelect"
+                                    name="select"
+                                    type="select"
+                                >
+                                    <option>
+                                        1
+                                    </option>
+                                    <option>
+                                        2
+                                    </option></Input>
+                                <FormFeedback>
+                                    message
+                                </FormFeedback>
+                            </Col>
+                            <Col md={6}>
+                                <Label for="exampleDatetime" >Fecha de nacimiento</Label>
+                                <Input id="exampleDatetime"
+                                    name="datetime"
+                                    placeholder="dd/mm/aaaa"
+                                    type="datetime" />
+                                <FormFeedback>
+                                    message
+                                </FormFeedback>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col md={6}>
+                                <Label htmlFor="">Ciclo</Label>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>Selecciona</option>
+                                    <option value="2022 -2023">2022 -2023</option>
+                                    <option value="2023 -2024">2023 -2024</option>
+                                </select>
+                                <FormFeedback>
+                                    message
+                                </FormFeedback>
+                            </Col>
+                            <Col md={6}>
+                                <Label htmlFor="">Grupo</Label>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>Selecciona un grupo</option>
+                                    <option value="1A">1A</option>
+
+                                </select>
+                                <FormFeedback>
+                                    message
+                                </FormFeedback>
+                            </Col>
+                        </Row>
+                    </Col >
+                    <Row className="row-cols-lg-auto g-3 align-items-center">
+                        Tienes hermanos en la escuela
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                            <label class="form-check-label" for="flexCheckDefault">
+                                si
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked />
+                            <Label class="form-check-label" for="flexCheckChecked">
+                                no
+                            </Label>
+                        </div>
+                    </Row>
+                </Row>
+
+                <Row>
+                    <h4>Datos del padre o tutor</h4>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+                        <span class="input-group-text" id="basic-addon2">@example.com</span>
+                    </div>
+                </Row>
+
+                <Row>
+                    <h4>Datos del padre o  tutor</h4>
+                    <div>
+                        <div>imagen de perfil</div>
+                        <div>
+                            <h4>Nombre Completo</h4>
+                            <p>usuario@correo.com</p>
+                            <p>55 4573 1307</p>
+                        </div>
+                    </div>
+                </Row>
+
+                <Row >
+                    <Input type='submit' />
+                </Row>
+            </Form>
+
+
+
         </Layout>
     )
 }
