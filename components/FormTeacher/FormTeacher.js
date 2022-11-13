@@ -10,7 +10,6 @@ export default function FormTeacher() {
     const router = useRouter()
 
     const onSubmit = async data => {
-        console.log(data)
 
         const token = localStorage.getItem('token')
         let result = await fetch('https://api.2know.today/teacher', {
@@ -27,6 +26,9 @@ export default function FormTeacher() {
         const teacherInfo = await result.json()
 
         console.log('info', teacherInfo)
+        if( teacherInfo.success === true){
+            window.alert("EXITO EN LA VIDA")
+        } else (window.alert("hubo algún problema"))
 
         router.push("/registerteacher")
     }
