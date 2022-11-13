@@ -14,7 +14,7 @@ export default function index() {
     const onSubmit = async data => {
         console.log(data)
         let result = await fetch(
-            'https://api.2know.today/user',
+            'http://localhost:8080/user',
             {
                 method: 'POST',
                 mode: 'cors',
