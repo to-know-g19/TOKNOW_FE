@@ -9,7 +9,6 @@ export default function FormTeacher() {
     const router = useRouter()
 
     const onSubmit = async data => {
-        console.log('la data', data)
 
 
         const token = localStorage.getItem('token')
@@ -24,11 +23,11 @@ export default function FormTeacher() {
                 data
             )
         })
-        const teacherInfo = result.json()
+        const teacherInfo = await result.json()
 
         console.log('info', teacherInfo)
 
-        // router.push("/registergroup")
+        router.push("/registerteacher")
     }
 
 
@@ -76,27 +75,31 @@ export default function FormTeacher() {
 
                     <div className='d-flex col-6 flex-column'>
                         <label>Matrícula</label>
+                        {/* requerido sin mencionarse como tal (tiene min y max) */}
                         <input name='matricula' {...register("matricula")} placeholder='Matrícula'></input>
                     </div>
 
                     <div className='d-flex col-6 flex-column'>
                         <label>Género</label>
+                        {/* tiene que cumplir uno de la lista en el back. hacer con desplegable */}
                         <input name='gender' {...register("gender")} placeholder='Género'></input>
                     </div>
 
                     <div className='d-flex col-6 flex-column'>
                         <label>Fecha nacimiento</label>
-                        <input name='citydateOfBirth' {...register("citydateOfBirth")} placeholder='Fecha nacimiento'></input>
                         {/* hay que ver cómo vamos a implementar la fecha */}
+                        <input name='citydateOfBirth' {...register("citydateOfBirth")} placeholder='Fecha nacimiento'></input>
                     </div>
 
                     <div className='d-flex col-6 flex-column'>
                         <label>Materia</label>
+                        {/* tiene que cumplir uno de la lista en el back. hacer con desplegable */}
                         <input name='materia' {...register("materia")} placeholder='Materia'></input>
                     </div>
 
                     <div className='d-flex col-6 flex-column'>
                         <label>Bio</label>
+                        {/* requerido sin mencionarse como tal (tiene min y max) */}
                         <input name='bio' {...register("bio")} placeholder='Bio'></input>
                     </div>
 
