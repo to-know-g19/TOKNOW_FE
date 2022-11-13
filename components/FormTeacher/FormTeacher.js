@@ -2,6 +2,7 @@ import React from 'react'
 import { useForm } from "react-hook-form"
 import 'bootstrap/dist/css/bootstrap.css'
 import { useRouter } from 'next/router'
+import BtnDropdown from '../BtnDropdown/BtnDropdown'
 
 
 export default function FormTeacher() {
@@ -9,7 +10,7 @@ export default function FormTeacher() {
     const router = useRouter()
 
     const onSubmit = async data => {
-
+        console.log(data)
 
         const token = localStorage.getItem('token')
         let result = await fetch('https://api.2know.today/teacher', {
@@ -38,7 +39,7 @@ export default function FormTeacher() {
 
                     <div className=' d-flex col-6 flex-column'>
                         <label>Nombre</label>
-                        <input name='name' {...register("name", { required: true, minLength: 3, maxLength:30 })} placeholder='Nombre'></input>
+                        <input name='name' {...register("name", { required: true, minLength: 3, maxLength: 30 })} placeholder='Nombre'></input>
                         {errors.name && errors.name.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
                         {errors.name && errors.name.type === "minLength" && <span className='text-danger'>*El campo requiere más de 2 caracteres</span>}
                         {errors.name && errors.name.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 30 caracteres</span>}
@@ -51,7 +52,7 @@ export default function FormTeacher() {
 
                     <div className='d-flex col-6 flex-column'>
                         <label>Apellido Paterno</label>
-                        <input name='lastNameA' {...register("lastNameA", { required: true, minLength: 3, maxLength:30 })} placeholder='Apellido Paterno'></input>
+                        <input name='lastNameA' {...register("lastNameA", { required: true, minLength: 3, maxLength: 30 })} placeholder='Apellido Paterno'></input>
                         {errors.lastNameA && errors.lastNameA.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
                         {errors.lastNameA && errors.lastNameA.type === "minLength" && <span className='text-danger'>*El campo requiere más de 2 caracteres</span>}
                         {errors.lastNameA && errors.lastNameA.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 30 caracteres</span>}
@@ -59,7 +60,7 @@ export default function FormTeacher() {
 
                     <div className='d-flex col-6 flex-column'>
                         <label>Teléfono</label>
-                        <input type='number' name='phone' {...register("phone", { required: true, minLength: 8, maxLength:16 })} placeholder='Teléfono'></input>
+                        <input type='number' name='phone' {...register("phone", { required: true, minLength: 8, maxLength: 16 })} placeholder='Teléfono'></input>
                         {errors.phone && errors.phone.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
                         {errors.phone && errors.phone.type === "minLength" && <span className='text-danger'>*El campo requiere más de 7 caracteres</span>}
                         {errors.phone && errors.phone.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 16 caracteres</span>}
@@ -67,7 +68,7 @@ export default function FormTeacher() {
 
                     <div className='d-flex col-6 flex-column'>
                         <label>Apellido Materno</label>
-                        <input name='lastNameB' {...register("lastNameB", { required: true, minLength: 3, maxLength:30 })} placeholder='Apellido Materno'></input>
+                        <input name='lastNameB' {...register("lastNameB", { required: true, minLength: 3, maxLength: 30 })} placeholder='Apellido Materno'></input>
                         {errors.lastNameB && errors.lastNameB.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
                         {errors.lastNameB && errors.lastNameB.type === "minLength" && <span className='text-danger'>*El campo requiere más de 2 caracteres</span>}
                         {errors.lastNameB && errors.lastNameB.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 30 caracteres</span>}
@@ -79,10 +80,20 @@ export default function FormTeacher() {
                         <input name='matricula' {...register("matricula")} placeholder='Matrícula'></input>
                     </div>
 
-                    <div className='d-flex col-6 flex-column'>
+                    <div className='d-flex col-6 flex-column'> 
                         <label>Género</label>
                         {/* tiene que cumplir uno de la lista en el back. hacer con desplegable */}
-                        <input name='gender' {...register("gender")} placeholder='Género'></input>
+                        {/* <input name='gender' {...register("gender")} placeholder='Género'></input> */}
+                        <select name='gender' {...register("gender", { required: true, })} className="form-select" >
+                            <option value="">Género</option>
+                            <option value="female">female</option>
+                            <option value="male">male</option>
+                            <option value="lgbt">lgbt</option>
+                            <option value="common">common</option>
+                            <option value="neuter">neuter</option>
+                        </select>
+                        {errors.gender && errors.gender.type === "required" && <span className='text-danger'>*Selecciona tu genero.</span>}
+                        {/* {errors.gender && errors.gender.type === "minLenght" && <span className='text-danger'>*Selecciona tu genero.</span>} */}
                     </div>
 
                     <div className='d-flex col-6 flex-column'>
@@ -105,11 +116,11 @@ export default function FormTeacher() {
 
                     <div className='d-flex col-6 flex-column'>
                         <label>Grado</label>
-                        <input type='number' name='grade' {...register("grade", { required: true, min: 1, max:6 })} placeholder='Grado'></input>
+                        <input type='number' name='grade' {...register("grade", { required: true, min: 1, max: 6 })} placeholder='Grado'></input>
                         {errors.grade && errors.grade.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
                         {errors.grade && errors.grade.type === "min" && <span className='text-danger'>*El grado no puede ser menor a 1</span>}
                         {errors.grade && errors.grade.type === "max" && <span className='text-danger'>*El grado no puede ser mayor a 6</span>}
-                        
+
                     </div>
 
                     {/* <div className='d-flex col-6 flex-column'>
