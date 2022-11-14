@@ -24,8 +24,12 @@ const onSubmit = async data => {
   const token = response.token
   //poner en local storage
   localStorage.setItem("token", token)
+  if(!token){
+    window.alert('El correo o contraseña que has introducido es incorrecto.')
+  } else{
   //redireccionar
     router.push("/registerschool")
+  }
 	}
 
 
