@@ -28,8 +28,9 @@ export default function FormTeacher() {
         console.log('info', teacherInfo)
         if( teacherInfo.success === true){
             window.alert("registro exitoso")
-        } else (window.alert("Hubo un problema al envíar la información"))
-
+        } else {
+            (window.alert("Hubo un problema al envíar la información"))
+        }
         router.push("/registerteacher")
     }
 
