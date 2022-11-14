@@ -29,8 +29,7 @@ export default function index() {
 
             })
         const userInfo = await result.json()
-        console.log(userInfo)
-        console.log('este pedo', userInfo.succes)
+
         if(!userInfo.succes){
             //success está escrito con 1 "s" en el back. checarlo
             window.alert('Este correo ya está registrado') 
