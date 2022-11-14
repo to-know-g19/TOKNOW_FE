@@ -21,6 +21,7 @@ export default function GroupsDisplay() {
          .then((response) => response.json())
          .then(data => {
             setGrupos(data.data.groups)
+            //da error cuando se trata de entrar y no hay token en localStorage
             console.log("Grupos: ", data.data.groups)
          })
     }, [])
