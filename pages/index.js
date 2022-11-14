@@ -1,7 +1,8 @@
+/* default */
 import React from 'react'
-import Layout from '../components/Layout'
 
-// import Button from '../components/ButtonLand/Button'
+/* components */
+import Layout from '../components/Layout'
 import ButtonDonate from '../components/ButtonDonate/ButtonDonate'
 import CardInfoLanding from '../components/CardInfoLanding/CardInfoLanding'
 import FormLogin from '../components/FormLogin/FormLogin'

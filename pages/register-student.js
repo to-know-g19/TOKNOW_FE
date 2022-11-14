@@ -101,23 +101,7 @@ export default function RegisterStudent() {
                             </FormFeedback>
                         </Row>
                         <Row>
-                            <Col md={6}>
-                                <Label for="exampleSelect">Género</Label>
-                                <Input
-                                    id="exampleSelect"
-                                    name="select"
-                                    type="select"
-                                >
-                                    <option>
-                                        1
-                                    </option>
-                                    <option>
-                                        2
-                                    </option></Input>
-                                <FormFeedback>
-                                    message
-                                </FormFeedback>
-                            </Col>
+                            
                             <Col md={6}>
                                 <Label for="exampleDatetime" >Fecha de nacimiento</Label>
                                 <Input id="exampleDatetime"
@@ -156,25 +140,25 @@ export default function RegisterStudent() {
                     </Col >
                     <Row className="row-cols-lg-auto g-3 align-items-center">
                         Tienes hermanos en la escuela
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                            <label class="form-check-label" for="flexCheckDefault">
+                        <Col class="form-check">
+                            <Input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                            <Label class="form-check-label" for="flexCheckDefault">
                                 si
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked />
+                            </Label>
+                        </Col>
+                        <Col class="form-check">
+                            <Input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked />
                             <Label class="form-check-label" for="flexCheckChecked">
                                 no
                             </Label>
-                        </div>
+                        </Col>
                     </Row>
                 </Row>
 
                 <Row>
                     <h4>Datos del padre o tutor</h4>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+                        <Input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2" />
                         <span class="input-group-text" id="basic-addon2">@example.com</span>
                     </div>
                 </Row>
@@ -195,9 +179,6 @@ export default function RegisterStudent() {
                     <Input type='submit' />
                 </Row>
             </Form>
-
-
-
         </Layout>
     )
 }

@@ -2,7 +2,7 @@
 import Image from "next/image"
 import Link from 'next/link'
 
-/* imagages*/
+/* images*/
 import logo from '../../public/img/logos/logo.svg'
 
 /* styles */
@@ -19,9 +19,7 @@ export default function Navbar() {
             </div>
             <div className="d-flex  justify-content-center align-items-center">
                 <div><a href=""><i className="bi bi-bell"><span> <i className="bi bi-plus"></i></span></i></a></div>
-                
                 <Link href="" label='user'>user</Link>
-
             </div>
         </nav>
     )
