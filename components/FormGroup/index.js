@@ -22,37 +22,42 @@ export default function FormGroup() {
                 data
             )
         })
-        const groupInfo = result.json()
+        const groupInfo = await result.json()
+        console.log('info', groupInfo)
+        if (groupInfo.success === true) {
+            window.alert("registro de grupo exitoso")
+        } else {
+            (window.alert("Hubo un problema al envíar la información"))
+            }
+            // router.push("/")
+        }
 
-        // router.push("/")
+        return (
+            <div className='d-flex col-12 '>
+                <form onSubmit={handleSubmit(onSubmit)} className='d-flex col-12 flex-column align-items-center'>
+
+                    <div className='col-6 d-flex  justify-content-around'>
+
+                        <div className='d-flex col-3  flex-column'>
+                            <label>Grado</label>
+                            <input name='grade' {...register("grade")} placeholder='Ej. 1'></input>
+                        </div>
+
+                        <div className='d-flex col-3 flex-column'>
+                            <label>Nombre</label>
+                            <input name='name' {...register("name")} placeholder='Ej. A'></input>
+                        </div>
+
+                        <div className='d-flex col-3 flex-column'>
+                            <label>Año</label>
+                            <input name='year' {...register("year")} placeholder='Ej. 2002-2003'></input>
+                        </div>
+                    </div>
+                    <div className='d-flex col-lg-2'>
+                        <input className='col-12' type='submit'></input>
+                    </div>
+                </form>
+            </div>
+        )
     }
-
-    return (
-        <div className='d-flex col-12 '>
-            <form onSubmit={handleSubmit(onSubmit)} className='d-flex col-12 flex-column align-items-center'>
-
-                <div className='col-6 d-flex  justify-content-around'>
-
-                    <div className='d-flex col-3  flex-column'>
-                        <label>Grado</label>
-                        <input name='grade' {...register("grade")} placeholder='Ej. 1'></input>
-                    </div>
-
-                    <div className='d-flex col-3 flex-column'>
-                        <label>Nombre</label>
-                        <input name='name' {...register("name")} placeholder='Ej. A'></input>
-                    </div>
-
-                    <div className='d-flex col-3 flex-column'>
-                        <label>Año</label>
-                        <input name='year' {...register("year")} placeholder='Ej. 2002-2003'></input>
-                    </div>
-                </div>
-                <div className='d-flex col-lg-2'>
-                    <input className='col-12' type='submit'></input>
-                </div>
-            </form>
-        </div>
-    )
-}
 

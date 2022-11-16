@@ -2,6 +2,7 @@ import React from 'react'
 import { useForm } from "react-hook-form"
 import 'bootstrap/dist/css/bootstrap.css'
 import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 import Layout from '../components/Layout'
 
 
@@ -28,7 +29,15 @@ export default function registerschool() {
         router.push("/registergroup")
     }
 
+    
 
+    useEffect(() => {
+        const token = localStorage.getItem('token')
+        if (!token) {
+            router.replace("/")
+            return
+        }
+    })
 
     return (
         <Layout>
