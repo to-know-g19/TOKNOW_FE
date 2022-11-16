@@ -30,6 +30,7 @@ export default function Layout({ children, title, ...props }) {
         <div className="row">
           <div className="col">
             <Header />
+            
             <main>{children}</main>
             <Footer />
           </div>
