@@ -1,14 +1,15 @@
 import React from 'react'
-import TeacherRectangle from '../components/teacherRectangle/TeacherRectangle'
+import Layout from '../components/Layout'
 
-export default function displayTeachers() {
+import TeachersDisplay from '../components/TeachersDisplay/TeachersDisplay'
+
+
+export default function displayteachers() {
   return (
-    <>
 
-    
-    <div>displayteachers</div>
-    <TeacherRectangle
-    />
-    </>
+    <Layout>
+    {/* <div>página displayteachers</div> */}
+    <TeachersDisplay/>
+    </Layout>
   )
 }
