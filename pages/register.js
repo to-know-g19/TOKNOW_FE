@@ -1,7 +1,7 @@
 /* Package */
 import React from 'react'
 import { useForm } from "react-hook-form"
-
+import { useRouter } from 'next/router'
 /* styles */
 import 'bootstrap/dist/css/bootstrap.css'
 
@@ -11,8 +11,9 @@ import Layout from '../components/Layout';
 
 export default function index() {
     const { register, handleSubmit, formState: { errors } } = useForm()
+    const router = useRouter()
     const onSubmit = async data => {
-        console.log(data)
+
         let result = await fetch(
             'https://api.2know.today/user',
             {
@@ -20,19 +21,24 @@ export default function index() {
                 mode: 'cors',
                 headers: {
                     'Content-type': 'application/json',
-                    'Access-Control-Allow-Origin': '*',
+
                 },
                 body: JSON.stringify(
                     data
                 )
 
             })
-        console.log(await result.json())
+        const userInfo = await result.json()
+
+        if(!userInfo.succes){
+            //success está escrito con 1 "s" en el back. checarlo
+            window.alert('Este correo ya está registrado') 
+        } else {router.push("/")}
     }
 
     return (
         <Layout title='toKnow caambiando la comunicación escolar' description='Registro para escuelas, herramienta para desarrollar una comunicación efectiva en la comunidad'>
-            <div clasName='fullscreen'>
+            <div className='fullscreen'>
                 <form onSubmit={handleSubmit(onSubmit)} className='d-flex flex-column align-items-center'>
 
                     <h4>Listo para una nueva experiencia en comunicación escolar</h4>
