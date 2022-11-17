@@ -5,6 +5,7 @@ import { Inter } from '@next/font/google'
 import '../components/Navbar/navbar.scss'
 import '../components/Footer/footer.scss'
 import '../components/GroupCircle/groupCircle.scss'
+import '../components/teacherRectangle/teacherRectangle.scss'
 
 /* styles */
 import 'bootstrap/dist/css/bootstrap.min.css';
