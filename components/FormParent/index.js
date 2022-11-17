@@ -1,88 +1,70 @@
 /* package */
 import { useForm } from "react-hook-form"
-import {    
+import {
     Button,
     Row,
     Col,
     Label,
     Input,
     FormGroup,
-    FormFeedback, 
-    legend,  
+    FormFeedback,
+    legend,
 } from 'reactstrap';
 
 export default function FormParent() {
-    return(
-        <>
-        <Row><legend> Datos del padre o tutor</legend>
-            <Col md={6}>
-            
-                    <FormGroup floating>
-                        <Input
-                            id='name'
-                            name='Nombre'
-                            placeholder='Nombre'
-                            type="text" />
-                        <Label for="name">Nombre</Label>
-                        <FormFeedback>
-                            message
-                        </FormFeedback>
-                    </FormGroup>
-                    <FormGroup floating>
-                        <Input
-                            id='lastNameA'
-                            name='Apellido paterno'
-                            placeholder='Apellido paterno'
-                            type="text" />
-                        <Label for='lastNameA'>Apellido paterno</Label>
-                        <FormFeedback>
-                            message
-                        </FormFeedback>
-                    </FormGroup>
-                    <FormGroup floating>
-                        <Input
-                            id='lastNameB'
-                            name='Apellido materno'
-                            placeholder='Apellido materno'
-                            type="text" />
-                        <Label for='lastNameB'>Apellido materno</Label>
-                        <FormFeedback>
-                            message
-                        </FormFeedback>
-                    </FormGroup>
-                </Col>
-                <Col md={6}>
-                    <FormGroup floating>
-                        <Input
-                            id='email'
-                            name='enrollment'
-                            placeholder='Correo electrónico'
-                            type="email" />
-                        <Label for='email'>Correo electrónico</Label>
-                        <FormFeedback>
-                            message
-                        </FormFeedback>
-                    </FormGroup>
+    return (
 
-                    <FormGroup floating>
-                        <Input
-                            id='phone'
-                            name='phone'
-                            placeholder='Teléfono'
-                            type="number" />
-                        <Label for='phone'>Teléfono</Label>
-                        <FormFeedback>
-                            message
-                        </FormFeedback>
-                    </FormGroup>                  
-                </Col >
-            </Row>
+        <div>
+            <legent>Ingresar los datos del padre o tutor</legent>
 
-            <Row >
-            <Col>
-                <Button type='sumit'>Guardar</Button>
-                </Col>
-            </Row>
-            </>
+            <div className='d-flex '>
+                <div className="col-6">
+                    <div className="form-floating mb-3">
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="name"
+                            placeholder="Nombre" />
+                        <label htmlFor="name">Nombre</label>
+                    </div>
+                    <div className="form-floating mb-3">
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="lastNameA"
+                            placeholder="Apellido paterno" />
+                        <label htmlFor="lastNameA">Apellido paterno</label>
+                    </div>
+                    <div className="form-floating mb-3">
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="lastNameB"
+                            placeholder="Apellido materno" />
+                        <label htmlFor="lastNameB">Apellido materno</label>
+                    </div>
+                </div>
+                <div className="col-6">
+                    <div className="form-floating mb-3">
+                        <input
+                            type="email"
+                            className="form-control"
+                            id="email-parent"
+                            placeholder="Correo electrónico" />
+                        <label htmlFor="email-parent">Correo electrónico</label>
+                    </div>
+                    <div className="form-floating mb-3">
+                        <input
+                            type="number"
+                            className="form-control"
+                            id="phone"
+                            placeholder="Teléfono" />
+                        <label htmlFor="phone">Teléfono</label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
     )
 }
