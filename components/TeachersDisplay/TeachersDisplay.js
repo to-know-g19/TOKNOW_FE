@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import GroupCircle from '../GroupCircle/GroupCircle'
 import TeacherRectangle from '../teacherRectangle/TeacherRectangle'
+import 'bootstrap/dist/css/bootstrap.css'
 
 
 export default function TeachersDisplay() {
@@ -18,7 +19,9 @@ export default function TeachersDisplay() {
     )
       .then((response) => response.json())
       .then(data => {
+        // setTeachers(data.data.teachers)
         setTeachers(data.data.teachers)
+        // console.log("Profesores: ", data.data.teachers)
         console.log("Profesores: ", data.data.teachers)
       })
   }, [])
@@ -27,15 +30,11 @@ export default function TeachersDisplay() {
 
   return (
     <>
-      <div>
+<div className='d-flex justify-content-center flex-wrap'>
         {teachers.map(teacher => {
-          return <TeacherRectangle 
-          teacherName={teacher.name + " "} 
-          lastNameA={teacher.lastNameA} 
-          lastNameB={teacher.lastNameB} 
-          teacherType={teacher.tipoProfesor} />
+          return <TeacherRectangle teacherName={teacher.name} lastNameA={teacher.lastNameA} lastNameB={teacher.lastNameB} teacherType={teacher.tipoProfesor} />
         })}
-      </div>
+</div>
     </>
 
   )
