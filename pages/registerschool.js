@@ -25,7 +25,7 @@ export default function registerschool() {
             )
         })
         const schoolInfo = result.json()
-
+        // consultar estado de success o fail de peticion
         router.push("/registergroup")
     }
 
@@ -47,10 +47,10 @@ export default function registerschool() {
                     <div className='col-10 d-flex flex-wrap justify-content-around'>
                         <div className='d-flex col-5 flex-column'>
                             <label>Nombre de la escuela</label>
-                            <input name='nameSchool' {...register("school", { required: true, minLength: 3, maxLength: 45 })} placeholder='Escuela'></input>
-                            {errors.school && errors.school.type === "required" && <span className='text-danger'>*Este campo es requerido.</span>}
-                            {errors.grade && errors.grade.type === "min" && <span className='text-danger'>*El campo requiere más de 2 caracteres</span>}
-                            {errors.grade && errors.grade.type === "max" && <span className='text-danger'>*El campo requiere menos de 46 caracteres</span>}
+                            <input name='nameSchool' {...register("nameSchool", { required: true, minLength: 3, maxLength: 45 })} placeholder='Escuela'></input>
+                            {errors.nameSchool && errors.nameSchool.type === "required" && <span className='text-danger'>*Este campo es requerido.</span>}
+                            {errors.nameSchool && errors.nameSchool.type === "minLength" && <span className='text-danger'>*El campo requiere más de 2 caracteres</span>}
+                            {errors.nameSchool && errors.nameSchool.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 46 caracteres</span>}
                         </div>
 
 
@@ -63,7 +63,8 @@ export default function registerschool() {
 
                         <div className='d-flex col-5 flex-column'>
                             <label>Correo electrónico de la escuela</label>
-                            <input type='email' name='emailSchool' {...register("emailSchool")} placeholder='Email'></input>
+                            <input type='email' name='emailSchool' {...register("emailSchool", { required: true})} placeholder='Email'></input>
+                            {errors.emailSchool && errors.emailSchool.type === "required" && <span className='text-danger'>*Este campo es requerido.</span>}
                         </div>
 
 
