@@ -1,7 +1,6 @@
 /* default */
 import { useRouter } from 'next/router'
-import { useState } from 'react'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 /* package */
 import { useForm } from "react-hook-form"
@@ -24,7 +23,13 @@ import 'bootstrap/dist/css/bootstrap.css'
  * @returns Register
  */
 
-export default function RegisterStudent() {
+export default function RegisterStudent( ) {
+
+    const [haveParent, setHaveParent] = useState(2)
+    const handleChecked = e => {
+        setHaveParent(e.target.value)
+    }
+    console.log('haveParent', haveParent)
 
     const { register, handleSubmit, formState: { errors } } = useForm()
     const router = useRouter()
@@ -48,11 +53,7 @@ export default function RegisterStudent() {
         router.push("/registerstudent")
     }
 
-    const [haveParent, setHaveParent] = useState(2)
-    const handleChecked = e => {
-        setHaveParent(e.target.value)
-    }
-
+    
     return (
         <Layout>
             <div>
@@ -62,10 +63,8 @@ export default function RegisterStudent() {
 
             <form onSubmit={handleSubmit(onSubmit)} className="row g-3 needs-validation" >
          
-            <FormStudent/>
-
-            <SearchParent/>
-            <FormParent/>
+            <FormStudent onChange={ haveParent } />
+            { haveParent == true ? <SearchParent/> : <FormParent/>}
             
             <div className="col-12">
                 <button className="btn btn-primary" type="submit">Guardar</button>
@@ -74,3 +73,5 @@ export default function RegisterStudent() {
         </Layout >
     )
 }
+
+
