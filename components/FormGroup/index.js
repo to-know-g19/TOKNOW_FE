@@ -2,6 +2,7 @@ import React from 'react'
 import { useForm } from "react-hook-form"
 import 'bootstrap/dist/css/bootstrap.css'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 
 export default function FormGroup() {
@@ -77,9 +78,12 @@ export default function FormGroup() {
                         </select>
                         {errors.year && errors.year.type === "required" && <span className='text-danger'>*Este campo es requerido.</span>}
                     </div>
+                <div className='d-flex col-lg-2 align-items-end'>
+                    <input className='sendBtn col-12' type='submit'></input>
                 </div>
-                <div className='d-flex col-lg-2'>
-                    <input className='col-12' type='submit'></input>
+                </div>
+                <div className='col-lg-2'>
+                <Link  className='col-lg-12' href='/groups'><button className='col-12'>guardar</button></Link>
                 </div>
             </form>
         </div>

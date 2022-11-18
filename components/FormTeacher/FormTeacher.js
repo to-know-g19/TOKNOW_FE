@@ -2,7 +2,7 @@ import React from 'react'
 import { useForm } from "react-hook-form"
 import 'bootstrap/dist/css/bootstrap.css'
 import { useRouter } from 'next/router'
-
+import Link from 'next/link'
 
 export default function FormTeacher() {
     const { register, handleSubmit, formState: { errors } } = useForm()
@@ -25,18 +25,22 @@ export default function FormTeacher() {
         const teacherInfo = await result.json()
 
         console.log('info', teacherInfo)
-        if( teacherInfo.success === true){
-            window.alert("registro exitoso")
+        if (teacherInfo.success === true) {
+            router.push("/teachers")
         } else {
             (window.alert("Hubo un problema al envíar la información"))
         }
-        router.push("/registerteacher")
+        // router.push("/registerteacher")
     }
 
 
     return (
-        <div className='d-flex col-12 '>
-            <form onSubmit={handleSubmit(onSubmit)} className='d-flex col-12 flex-column align-items-center justify-content-center'>
+
+        <div className='d-flex col-12  '>
+            <div className='col-lg-1 '>
+                <Link className='col-lg-12' href='/teachers'><button className='col-12'>profesores</button></Link>
+            </div>
+            <form onSubmit={handleSubmit(onSubmit)} className='d-flex col-10 flex-column align-items-center justify-content-center'>
                 <div className='col-10 d-flex flex-wrap justify-content-around'>
 
                     <div className='d-flex col-5 flex-column'>
