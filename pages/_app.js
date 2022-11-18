@@ -12,6 +12,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/globals.scss'
 import '../pages/home.scss'
 import '../components/CardInfoLanding/CardInfoLanding.scss'
+import '../components/GroupCard/groupCard.scss'
 
 const inter = Inter()
 
