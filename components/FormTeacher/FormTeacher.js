@@ -2,7 +2,6 @@ import React from 'react'
 import { useForm } from "react-hook-form"
 import 'bootstrap/dist/css/bootstrap.css'
 import { useRouter } from 'next/router'
-import ListDropdown from '../ListDropdown/BtnDropdown'
 
 
 export default function FormTeacher() {
@@ -38,94 +37,74 @@ export default function FormTeacher() {
     return (
         <div className='d-flex col-12 '>
             <form onSubmit={handleSubmit(onSubmit)} className='d-flex col-12 flex-column align-items-center justify-content-center'>
-                <div className='col-12 d-flex flex-wrap justify-content-center'>
+                <div className='col-10 d-flex flex-wrap justify-content-around'>
 
-                    <div className=' d-flex col-6 flex-column'>
+                    <div className='d-flex col-5 flex-column'>
                         <label>Nombre</label>
-                        <input name='name' {...register("name", { required: true, minLength: 3, maxLength: 30 })} placeholder='Nombre'></input>
+                        <input name='name' {...register("name", { required: true, minLength: 2, maxLength: 20 })} placeholder='Nombre'></input>
                         {errors.name && errors.name.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
-                        {errors.name && errors.name.type === "minLength" && <span className='text-danger'>*El campo requiere más de 2 caracteres</span>}
-                        {errors.name && errors.name.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 30 caracteres</span>}
+                        {errors.name && errors.name.type === "minLength" && <span className='text-danger'>*El campo requiere al menos 2 caracteres</span>}
+                        {errors.name && errors.name.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 21 caracteres</span>}
                     </div>
 
-                    <div className='d-flex col-6 flex-column'>
+                    <div className='d-flex col-5 flex-column'>
                         <label>Correo</label>
-                        <input name='email' {...register("email")} placeholder='Correo'></input>
+                        <input type="email" name='email' {...register("email")} placeholder='Correo'></input>
+                        {errors.email && errors.email.type === "required" && <span className='text-danger'>*Este campo es requerido</span>}
                     </div>
 
-                    <div className='d-flex col-6 flex-column'>
+                    <div className='d-flex col-5 flex-column'>
                         <label>Apellido Paterno</label>
-                        <input name='lastNameA' {...register("lastNameA", { required: true, minLength: 3, maxLength: 30 })} placeholder='Apellido Paterno'></input>
+                        <input name='lastNameA' {...register("lastNameA", { required: true, minLength: 2, maxLength: 20 })} placeholder='Apellido Paterno'></input>
                         {errors.lastNameA && errors.lastNameA.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
-                        {errors.lastNameA && errors.lastNameA.type === "minLength" && <span className='text-danger'>*El campo requiere más de 2 caracteres</span>}
-                        {errors.lastNameA && errors.lastNameA.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 30 caracteres</span>}
+                        {errors.lastNameA && errors.lastNameA.type === "minLength" && <span className='text-danger'>*El campo requiere al menos 2 caracteres</span>}
+                        {errors.lastNameA && errors.lastNameA.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 21 caracteres</span>}
                     </div>
 
-                    <div className='d-flex col-6 flex-column'>
+                    <div className='d-flex col-5 flex-column'>
                         <label>Teléfono</label>
-                        <input type='number' name='phone' {...register("phone", { required: true, minLength: 8, maxLength: 16 })} placeholder='Teléfono'></input>
-                        {errors.phone && errors.phone.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
-                        {errors.phone && errors.phone.type === "minLength" && <span className='text-danger'>*El campo requiere más de 7 caracteres</span>}
-                        {errors.phone && errors.phone.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 16 caracteres</span>}
+                        <input type='number' name='phone' {...register("phone")} placeholder='Teléfono'></input>
                     </div>
 
-                    <div className='d-flex col-6 flex-column'>
+                    <div className='d-flex col-5 flex-column'>
                         <label>Apellido Materno</label>
-                        <input name='lastNameB' {...register("lastNameB", { required: true, minLength: 3, maxLength: 30 })} placeholder='Apellido Materno'></input>
+                        <input name='lastNameB' {...register("lastNameB", { required: true, minLength: 2, maxLength: 20 })} placeholder='Apellido Materno'></input>
                         {errors.lastNameB && errors.lastNameB.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
-                        {errors.lastNameB && errors.lastNameB.type === "minLength" && <span className='text-danger'>*El campo requiere más de 2 caracteres</span>}
-                        {errors.lastNameB && errors.lastNameB.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 30 caracteres</span>}
+                        {errors.lastNameB && errors.lastNameB.type === "minLength" && <span className='text-danger'>*El campo requiere al menos 2 caracteres</span>}
+                        {errors.lastNameB && errors.lastNameB.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 21 caracteres</span>}
                     </div>
 
-                    <div className='d-flex col-6 flex-column'>
+                    <div className='d-flex col-5 flex-column'>
                         <label>Matrícula</label>
-                        {/* requerido sin mencionarse como tal (tiene min y max) */}
                         <input name='matricula' {...register("matricula")} placeholder='Matrícula'></input>
                     </div>
 
-                    <div className='d-flex col-6 flex-column'> 
-                        <label>Género</label>
-                        {/* tiene que cumplir uno de la lista en el back. hacer con desplegable */}
-                        {/* <input name='gender' {...register("gender")} placeholder='Género'></input> */}
-                        <select name='gender' {...register("gender", { required: true, })} className="form-select" >
-                            <option value="">Género</option>
-                            <option value="female">female</option>
-                            <option value="male">male</option>
-                            <option value="lgbt">lgbt</option>
-                            <option value="common">common</option>
-                            <option value="neuter">neuter</option>
-                        </select>
-                        {errors.gender && errors.gender.type === "required" && <span className='text-danger'>*Selecciona tu genero.</span>}
-                        {/* {errors.gender && errors.gender.type === "minLenght" && <span className='text-danger'>*Selecciona tu genero.</span>} */}
-                    </div>
 
-                    <div className='d-flex col-6 flex-column'>
+
+                    <div className='d-flex col-5 flex-column'>
                         <label>Fecha nacimiento</label>
                         {/* hay que ver cómo vamos a implementar la fecha */}
-                        <input name='citydateOfBirth' {...register("citydateOfBirth")} placeholder='Fecha nacimiento'></input>
+                        <input type='number' name='citydateOfBirth' {...register("citydateOfBirth")} placeholder='Ej. 24011996'></input>
                     </div>
 
-                    <div className='d-flex col-6 flex-column'>
-                        <label>Materia</label>
+                    <div className='d-flex col-5 flex-column'>
+                        <label>Tipo de profesor</label>
                         {/* tiene que cumplir uno de la lista en el back. hacer con desplegable */}
-                        <input name='materia' {...register("materia")} placeholder='Materia'></input>
+                        <select name='tipoProfesor' {...register("tipoProfesor", { required: true })} className="form-select" >
+                            <option value="">Materia</option>
+                            <option value="titular">Titular</option>
+                            <option value="educacion fisica">Educacion física</option>
+                            <option value="ingles">Inglés</option>
+                        </select>
+                        {errors.tipoProfesor && errors.tipoProfesor.type === "required" && <span className='text-danger'>*Selecciona el tipo de profesor</span>}
                     </div>
 
-                    <div className='d-flex col-6 flex-column'>
+                    <div className='d-flex col-5 flex-column'>
                         <label>Bio</label>
-                        {/* requerido sin mencionarse como tal (tiene min y max) */}
                         <input name='bio' {...register("bio")} placeholder='Bio'></input>
                     </div>
 
-                    {/* <div className='d-flex col-6 flex-column'>
-                        <label>Grado</label>
-                        <input type='number' name='grade' {...register("grade", { required: true, min: 1, max: 6 })} placeholder='Grado'></input>
-                        {errors.grade && errors.grade.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
-                        {errors.grade && errors.grade.type === "min" && <span className='text-danger'>*El grado no puede ser menor a 1</span>}
-                        {errors.grade && errors.grade.type === "max" && <span className='text-danger'>*El grado no puede ser mayor a 6</span>}
-
-                    </div> */}
-                    <div className='d-flex col-6 flex-column'>
+                    <div className='d-flex col-5 flex-column'>
                         <label>Grado</label>
                         <select name='grade' {...register("grade", { required: true, min: 1, max: 6 })} className="form-select" >
                             <option value="">Grado</option>

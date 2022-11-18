@@ -1,0 +1,17 @@
+@import '../../styles/globals.scss';
+
+.teacherInfo {
+    // height: 4rem;
+    width: 26rem;
+    margin: 1rem;
+    border-radius: 0.5rem;
+    border-style: solid;
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        padding: .5rem;
+        color: $text-darkblue;
+        margin-left: 2rem;
+    }
+}

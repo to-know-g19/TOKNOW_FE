@@ -47,9 +47,10 @@ export default function index() {
                         <div>
                             <div className='d-flex flex-column'>
                                 <label>Nombre</label>
-                                <input type='text' name='name'  {...register("name", { required: true, minLength: 3 })} placeholder='Nombre'></input>
+                                <input type='text' name='name'  {...register("name", { required: true, minLength: 2, maxLength:20 })} placeholder='Nombre'></input>
                                 {errors.name && errors.name.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
-                                {errors.name && errors.name.type === "minLength" && <span className='text-danger'>*El campo requiere más de 3 caracteres</span>}
+                                {errors.name && errors.name.type === "minLength" && <span className='text-danger'>*El campo requiere más de 1 caracter</span>}
+                                {errors.name && errors.name.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 21 caracteres</span>}
                             </div>
                         </div>
 
@@ -64,9 +65,10 @@ export default function index() {
                         <div>
                             <div className='d-flex flex-column'>
                                 <label>Contraseña</label>
-                                <input type='password' name='password'  {...register("password", { required: true, minLength: 3 })} placeholder='Contraseña'></input>
+                                <input type='password' name='password'  {...register("password", { required: true, minLength: 3, maxLength:30 })} placeholder='Contraseña'></input>
                                 {errors.password && errors.password.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
                                 {errors.password && errors.password.type === "minLength" && <span className='text-danger'>*El campo requiere más de 3 caracteres</span>}
+                                {errors.password && errors.password.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 31 caracteres</span>}
                             </div>
                         </div>
 
