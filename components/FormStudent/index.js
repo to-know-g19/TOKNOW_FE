@@ -1,7 +1,6 @@
 /* package */
-export default function FormStudent( Checked ) {
+export default function FormStudent( { checkhandler } ) {
 
-    console.log(Checked.onChange)
     return (
         <>
             <div><legent>Datos del alumno</legent></div>
@@ -69,28 +68,29 @@ export default function FormStudent( Checked ) {
                             <input 
                             className="form-check-input" 
                             type="radio" 
-                            name="parent" 
-                            id="yes" 
-                            checked={ Checked.onChange == 1 ? true : false }
-                            
-                             />
+                            name="parent"                             
+                            value="1"
+                            onChange= {checkhandler}
+                            defaultChecked                                  
+                            />
                             <label className="form-check-label" htmlFor="yes">
-                                Default radio
+                                Si
                             </label>
                         </div>
                         <div className="form-check">
                             <input
                                 className="form-check-input"
                                 type="radio"
-                                name="parent"
-                                id="no"
-                                checked={ Checked.onChange  ==  2 ? true : false }
-                               
+                                name="parent"                                
+                                value="2"                                                                
+                                //evento
+                                onChange= {checkhandler}
                                  />
                             <label className="form-check-label" htmlFor="no">
-                                Default checked radio
+                                No
                             </label>
                         </div>
+                       
                     </div>
                 </div>
             </div>
