@@ -38,7 +38,7 @@ export default function GroupsDisplay() {
         <>
 
                 <div className='group-Wrapper d-flex'>
-                    <div className='groups-container d-flex'>
+                    <div className='groups-container d-flex justify-content-center'>
                         {grupos.map(grupo => {
                             return <GroupCircle grade={grupo.grade} group={grupo.name} />
                         })}
