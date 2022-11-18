@@ -37,6 +37,7 @@ export default function RegisterStudent() {
                 <div className="col-12">
                     <button className="btn btn-primary" type="submit">Guardar</button>
                 </div>
+                
             </form>
         </Layout >
     )
