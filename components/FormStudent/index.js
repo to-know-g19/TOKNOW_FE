@@ -56,7 +56,7 @@ export default function FormStudent( { checkhandler } ) {
                     </div>
                     <div className="form-floating mb-3">
                         <input
-                            type="text"
+                            type="date"
                             className="form-control"
                             id="dateOfBirth"
                             placeholder="dd/mm/aaaa" />
