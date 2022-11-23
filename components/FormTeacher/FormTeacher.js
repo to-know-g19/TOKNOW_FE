@@ -52,9 +52,15 @@ export default function FormTeacher() {
                     </div>
 
                     <div className='d-flex col-5 flex-column'>
-                        <label>Correo</label>
-                        <input type="email" name='email' {...register("email")} placeholder='Correo'></input>
-                        {errors.email && errors.email.type === "required" && <span className='text-danger'>*Este campo es requerido</span>}
+                        <div className="form-floating mb-3">
+                            <input
+                                type="email"
+                                name='email'
+                                className="form-control"
+                                {...register("email")} placeholder='Correo'></input>
+                            {errors.email && errors.email.type === "required" && <span className='text-danger'>*Este campo es requerido</span>}
+                            <label>Correo</label>
+                        </div>
                     </div>
 
                     <div className='d-flex col-5 flex-column'>
@@ -65,9 +71,15 @@ export default function FormTeacher() {
                         {errors.lastNameA && errors.lastNameA.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 21 caracteres</span>}
                     </div>
 
-                    <div className='d-flex col-5 flex-column'>
-                        <label>Teléfono</label>
-                        <input type='number' name='phone' {...register("phone")} placeholder='Teléfono'></input>
+                    <div className='d-flex col-5 flex-column '>
+                        <div className="form-floating mb-3">
+                            <input
+                                type='number'
+                                name='phone'
+                                className="form-control"
+                                {...register("phone")} placeholder='Teléfono'></input>
+                            <label>Teléfono</label>
+                        </div>
                     </div>
 
                     <div className='d-flex col-5 flex-column'>
