@@ -37,53 +37,68 @@ export default function FormGroup() {
         <div className='d-flex col-12 '>
             <form onSubmit={handleSubmit(onSubmit)} className='d-flex col-12 flex-column align-items-center'>
 
-                <div className='col-7 d-flex  justify-content-around'>
+                <div className='col-7 mt-5 d-flex  justify-content-around'>
 
                     <div className='d-flex col-3  flex-column'>
-                        <label>Grado</label>
-                        <select name='grade' {...register("grade", { required: true, min: 1, max: 6 })} className="form-select" >
-                            <option value="">Grado</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                        </select>
-                        {errors.grade && errors.grade.type === "required" && <span className='text-danger'>*Este campo es requerido.</span>}
-                        {errors.grade && errors.grade.type === "min" && <span className='text-danger'>*El mínimo debe ser 1</span>}
-                        {errors.grade && errors.grade.type === "max" && <span className='text-danger'>*El máximo debe ser 6</span>}
+                        <div className="form-floating mb-3">
+                            <select
+                                name='grade'
+                                className="form-control form-select"
+                                {...register("grade", { required: true, min: 1, max: 6 })}  >
+                                <option value="">Grado</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                            {errors.grade && errors.grade.type === "required" && <span className='text-danger'>*Este campo es requerido.</span>}
+                            {errors.grade && errors.grade.type === "min" && <span className='text-danger'>*El mínimo debe ser 1</span>}
+                            {errors.grade && errors.grade.type === "max" && <span className='text-danger'>*El máximo debe ser 6</span>}
+                            <label>Grado</label>
+                        </div>
                     </div>
 
                     <div className='d-flex col-3 flex-column'>
-                        <label>Grupo</label>
-                        <select name='name' {...register("name", { required: true })} className="form-select" >
-                            <option value="">Grupo</option>
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="C">C</option>
-                            <option value="D">D</option>
-                            <option value="E">E</option>
-                            <option value="F">F</option>
-                        </select>
-                        {errors.name && errors.name.type === "required" && <span className='text-danger'>*Este campo es requerido.</span>}
+                        <div className="form-floating mb-3">
+                            <select
+                                name='name'
+                                className="form-control form-select"
+                                {...register("name", { required: true })}  >
+                                <option value="">Grupo</option>
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                                <option value="D">D</option>
+                                <option value="E">E</option>
+                                <option value="F">F</option>
+                            </select>
+                            {errors.name && errors.name.type === "required" && <span className='text-danger'>*Este campo es requerido.</span>}
+                            <label>Grupo</label>
+                        </div>
                     </div>
 
                     <div className='d-flex col-3 flex-column'>
-                        <label>Año</label>
-                        <select name='year' {...register("year", { required: true })} className="form-select" >
-                            <option value="">Año</option>
-                            <option value="2022-2023">2022-2023</option>
-                            <option value="2023-2024">2023-2024</option>
-                        </select>
-                        {errors.year && errors.year.type === "required" && <span className='text-danger'>*Este campo es requerido.</span>}
+                        <div className="form-floating mb-3">
+                            <select 
+                            name='year'
+                            className="form-control form-select"
+                            {...register("year", { required: true })}  >
+                                <option value="">Año</option>
+                                <option value="2022-2023">2022-2023</option>
+                                <option value="2023-2024">2023-2024</option>
+                            </select>
+                            {errors.year && errors.year.type === "required" && <span className='text-danger'>*Este campo es requerido.</span>}
+                            <label>Año</label>
+                        </div>
                     </div>
-                <div className='d-flex col-lg-2 align-items-end'>
-                    <input className='sendBtn col-12' type='submit'></input>
-                </div>
+                    <div className='d-flex col-lg-2 align-items-end'>
+                        <input className='sendBtn col-12' type='submit'></input>
+                    </div>
                 </div>
                 <div className='col-lg-2'>
-                <Link  className='col-lg-12' href='/groups'><button className='col-12'>guardar</button></Link>
+                    <Link className='col-lg-12' href='/groups'><button className='col-12'>guardar</button></Link>
                 </div>
             </form>
         </div>
