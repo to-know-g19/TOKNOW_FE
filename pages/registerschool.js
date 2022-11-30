@@ -46,61 +46,119 @@ export default function registerschool() {
                     <h4>Registra los datos de tu escuela</h4>
                     <div className='col-10 d-flex flex-wrap justify-content-around'>
                         <div className='d-flex col-5 flex-column'>
-                            <label>Nombre de la escuela</label>
-                            <input name='nameSchool' {...register("nameSchool", { required: true, minLength: 3, maxLength: 45 })} placeholder='Escuela'></input>
-                            {errors.nameSchool && errors.nameSchool.type === "required" && <span className='text-danger'>*Este campo es requerido.</span>}
-                            {errors.nameSchool && errors.nameSchool.type === "minLength" && <span className='text-danger'>*El campo requiere más de 2 caracteres</span>}
-                            {errors.nameSchool && errors.nameSchool.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 46 caracteres</span>}
+                            <div className="form-floating mb-3">
+                                <input
+                                    name='nameSchool'
+                                    className="form-control"
+                                    placeholder='Escuela'
+                                    {...register("nameSchool", { required: true, minLength: 3, maxLength: 45 })} ></input>
+                                {errors.nameSchool && errors.nameSchool.type === "required" && <span className='text-danger'>*Este campo es requerido.</span>}
+                                {errors.nameSchool && errors.nameSchool.type === "minLength" && <span className='text-danger'>*El campo requiere más de 2 caracteres</span>}
+                                {errors.nameSchool && errors.nameSchool.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 46 caracteres</span>}
+                                <label>Nombre de la escuela</label>
+                            </div>
                         </div>
 
 
                         <div className='d-flex col-5 flex-column'>
-                            <label>CCT</label>
-                            <input name='cct' {...register("cct")} placeholder='CCT'></input>
+                            <div className="form-floating mb-3">
+                                <input
+                                    name='cct'
+                                    className="form-control"
+                                    placeholder='CCT'
+                                    {...register("cct")} ></input>
+                                <label>CCT</label>
+                            </div>
                         </div>
 
 
 
                         <div className='d-flex col-5 flex-column'>
-                            <label>Correo electrónico de la escuela</label>
-                            <input type='email' name='emailSchool' {...register("emailSchool", { required: true})} placeholder='Email'></input>
-                            {errors.emailSchool && errors.emailSchool.type === "required" && <span className='text-danger'>*Este campo es requerido.</span>}
+                            <div className="form-floating mb-3">
+                                <input
+                                    type='email'
+                                    name='emailSchool'
+                                    className="form-control"
+                                    placeholder='Email'
+                                    {...register("emailSchool", { required: true })}></input>
+                                {errors.emailSchool && errors.emailSchool.type === "required" && <span className='text-danger'>*Este campo es requerido.</span>}
+                                <label>Correo electrónico de la escuela</label>
+                            </div>
                         </div>
 
 
                         <div className='d-flex col-5 flex-column'>
-                            <label>Teléfono</label>
-                            <input type='number' name='phoneSchool' {...register("phoneSchool")} placeholder='Tel. escolar'></input>
+                            <div className="form-floating mb-3">
+                                <input
+                                    type='number'
+                                    name='phoneSchool'
+                                    className="form-control"
+                                    placeholder='Tel. escolar'
+                                    {...register("phoneSchool")} ></input>
+                                <label>Teléfono</label>
+                            </div>
                         </div>
 
 
                         <div className='d-flex col-5 flex-column'>
-                            <label>Calle</label>
-                            <input name='addressStreet' {...register("addressStreet")} placeholder='Calle'></input>
+                            <div className="form-floating mb-3">
+                                <input
+                                    name='addressStreet'
+                                    className="form-control"
+                                    placeholder='Calle'
+                                    {...register("addressStreet")}></input>
+                                <label>Calle</label>
+                            </div>
                         </div>
 
 
                         <div className='d-flex col-2 flex-column'>
-                            <label>Número</label>
-                            <input type='number' name='addressNumber' {...register("addressNumber")} placeholder='Número'></input>
+                            <div className="form-floating mb-3">
+                                <input
+                                    type='number'
+                                    name='addressNumber'
+                                    className="form-control"
+                                    placeholder='Número'
+                                    {...register("addressNumber")} ></input>
+                                <label>Número</label>
+                            </div>
                         </div>
 
 
                         <div className='d-flex col-2 flex-column'>
-                            <label>Código postal</label>
-                            <input type='number' name='postalCode' {...register("postalCode")} placeholder='Código Postal'></input>
+                            <div className="form-floating mb-3">
+                                <input
+                                    type='number'
+                                    name='postalCode'
+                                    className="form-control"
+                                    placeholder='Código Postal'
+                                    {...register("postalCode")} ></input>
+                                <label>Código postal</label>
+                            </div>
                         </div>
 
 
                         <div className='d-flex col-5 flex-column'>
-                            <label>Ciudad</label>
-                            <input name='city' {...register("city")} placeholder='Ciudad'></input>
+                            <div className="form-floating mb-3">
+                                <input
+                                    name='city'
+                                    className="form-control"
+                                    placeholder='Ciudad'
+                                    {...register("city")} ></input>
+                                <label>Ciudad</label>
+                            </div>
                         </div>
 
 
                         <div className='d-flex col-5 flex-column'>
-                            <label>Región/Provincia/Estado</label>
-                            <input name='state' {...register("state")} placeholder='Región/Provincia/Estado'></input>
+                            <div className="form-floating mb-3">
+                                <input
+                                    name='state'
+                                    className="form-control"
+                                    placeholder='Región/Provincia/Estado'
+                                    {...register("state")} ></input>
+                                <label>Región/Provincia/Estado</label>
+                            </div>
                         </div>
 
 

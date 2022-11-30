@@ -7,7 +7,7 @@ import logo from '../../public/img/logos/logo.svg'
 export default function Footer() {
   return (
     <div className="footer d-flex align-self-end">
-      <div className="d-flex col-lg-6 justify-content-center">
+      <div className="d-flex col-lg-6 justify-content-center align-items-center">
         <Image src={logo} alt="Logo toKnow" />
       </div>
       <div className="d-flex col-lg-6 justify-content-center align-items-center">

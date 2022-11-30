@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import GroupCard from '../GroupCard/GroupCard'
+import Link from 'next/link'
 
 export default function GroupCardDisplay() {
   const [grupos, setGrupos] = useState([])
@@ -25,12 +26,31 @@ export default function GroupCardDisplay() {
 
   return (
     <>
+<<<<<<< HEAD
     <div className='d-flex justify-content-center'>
       <div className='d-flex col-lg-10 flex-wrap justify-content-around '>
       {grupos.map(grupo => {
         return <GroupCard grade={grupo.grade} group={grupo.name} id={grupo._id}/>
       })}
       </div>
+=======
+      <div className='d-flex flex-column align-items-center'>
+
+        <div className='d-flex col-lg-12 justify-content-around'>
+          <div className='col-lg-2 '>
+            <Link className='col-lg-12' href='/registergroup'><button className='col-12'>Crear grupo</button></Link>
+          </div>
+          <div className='col-lg-2'>
+            <Link className='col-lg-12' href='/teachers'><button className='col-12'>Profesores</button></Link>
+          </div>
+        </div>
+
+        <div className='d-flex col-lg-10 flex-wrap justify-content-around '>
+          {grupos.map(grupo => {
+            return <GroupCard grade={grupo.grade} group={grupo.name} />
+          })}
+        </div>
+>>>>>>> develop
       </div>
     </>
   )

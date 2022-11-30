@@ -13,6 +13,7 @@ import '../styles/globals.scss'
 import '../pages/home.scss'
 import '../components/CardInfoLanding/CardInfoLanding.scss'
 import '../components/GroupCard/groupCard.scss'
+import '../components/FormGroup/formGroup.scss'
 
 const inter = Inter()
 
