@@ -28,7 +28,7 @@ export default function GroupCardDisplay() {
     <div className='d-flex justify-content-center'>
       <div className='d-flex col-lg-10 flex-wrap justify-content-around '>
       {grupos.map(grupo => {
-        return <GroupCard grade={grupo.grade} group={grupo.name} />
+        return <GroupCard grade={grupo.grade} group={grupo.name} id={grupo._id}/>
       })}
       </div>
       </div>
