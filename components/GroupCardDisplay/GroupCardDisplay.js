@@ -27,8 +27,9 @@ export default function GroupCardDisplay() {
 
   return (
     <>
-      <div className='d-flex flex-column align-items-center'>
 
+      <div className='d-flex justify-content-center'>
+      
         <div className='d-flex col-lg-12 justify-content-around'>
           <div className='col-lg-2 '>
             <Link className='col-lg-12' href='/registergroup'><button className='col-12'>Crear grupo</button></Link>
@@ -38,11 +39,16 @@ export default function GroupCardDisplay() {
             <Link className='col-lg-12' href='/teachers'><button className='col-12'>Profesores</button></Link>
           </div>
         </div>
+      
+      
+        <div className='d-flex col-lg-10 flex-wrap justify-content-around '>
+          {grupos.map(grupo => (
+            //removí el return reemplazando las llaves despues de la flecha con parentesis
+            <Link href={'/grouplist/' + grupo._id} key={grupo._id} > 
+            <GroupCard grade={grupo.grade} group={grupo.name} />
+            </Link>
+          ))}
 
-        <div className='d-flex col-lg-10 flex-wrap justify-content-center '>
-          {grupos.map(grupo => {
-            return <GroupCard grade={grupo.grade} group={grupo.name} />
-          })}
         </div>
       </div>
     </>
