@@ -4,7 +4,7 @@ import GroupCircle from '../GroupCircle/GroupCircle'
 export default function GroupCard(props) {
   return (
 
-    <div className='groupCard m-4 col-lg-5'>
+    <div className='groupCard m-4 col-lg-12'>
       <div className='d-flex m-4'>
         
         <div className='col-lg-6 d-flex justify-content-center'>
