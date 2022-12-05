@@ -26,13 +26,15 @@ export default function GroupCardDisplay() {
 
   return (
     <>
-    <div className='d-flex justify-content-center'>
-      <div className='d-flex col-lg-10 flex-wrap justify-content-around '>
-      {grupos.map(grupo => (
-        //removí el return reemplazando las llaves despues de la flecha con parentesis
-       <Link href={'/grouplist/' + grupo._id} key={grupo._id} > <GroupCard grade={grupo.grade} group={grupo.name} /></Link>
-      ))}
-      </div>
+      <div className='d-flex justify-content-center'>
+        <div className='d-flex col-lg-10 flex-wrap justify-content-around '>
+          {grupos.map(grupo => (
+            //removí el return reemplazando las llaves despues de la flecha con parentesis
+            <Link href={'/grouplist/' + grupo._id} key={grupo._id} > 
+            <GroupCard grade={grupo.grade} group={grupo.name} />
+            </Link>
+          ))}
+        </div>
       </div>
     </>
   )

@@ -2,11 +2,12 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Layout from '../../../components/Layout'
+import TeacherRectangle from '../../../components/teacherRectangle/TeacherRectangle'
 
 export default function GroupDetail() {
     const router = useRouter()
     const groupId = router.query.groupId
-    const [group, setGroups] = useState([])
+    const [groups, setGroups] = useState([])
 
     useEffect(() => {
        
@@ -21,8 +22,10 @@ export default function GroupDetail() {
         )
             .then((response) => response.json())
             .then(data => {
-                console.log("soy data", data)
-          
+                console.log("soy data", data.data)
+                // console.log("soy data students", data.data.students)
+                // console.log("soy data teachers", data.data.teachers)
+                
                 setGroups(data.data)
                 // console.log(pathName)
                 //  console.log("GRUPOS: ", group)
@@ -40,6 +43,7 @@ export default function GroupDetail() {
                     <li>materias 1</li>
                 </ul>
                 <h2>students</h2>
+
                 <ul>
                     <li>materias 1</li>
                 </ul>

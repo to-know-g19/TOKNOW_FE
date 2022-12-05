@@ -3,7 +3,8 @@ import GroupCircle from '../GroupCircle/GroupCircle'
 
 export default function GroupCard(props) {
   return (
-    <div className='groupCard col-lg-5'>
+    <div className='groupCard col-lg-12'>
+
       <div className='d-flex'>
         <div className='col-lg-6 d-flex justify-content-center'>
         <div className='groupInfo'>
@@ -23,6 +24,7 @@ export default function GroupCard(props) {
       <div className='groupCard__footer d-flex justify-content-end'>
         iconos
       </div>
+      
     </div>
   )
 }
