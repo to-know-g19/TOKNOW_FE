@@ -98,7 +98,7 @@ export default function FormGroup() {
                     </div>
                 </div>
                 <div className='col-lg-2'>
-                    <Link className='col-lg-12' href='/groups'><button className='col-12'>guardar</button></Link>
+                    <Link className='col-lg-12' href='/grouplist'><button className='col-12'>guardar</button></Link>
                 </div>
             </form>
         </div>
