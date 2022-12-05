@@ -37,7 +37,7 @@ export default function index() {
     }
 
     return (
-        <Layout title='toKnow caambiando la comunicación escolar' description='Registro para escuelas, herramienta para desarrollar una comunicación efectiva en la comunidad'>
+        <Layout title='toKnow cambiando la comunicación escolar' description='Registro para escuelas, herramienta para desarrollar una comunicación efectiva en la comunidad'>
             <div className='fullscreen'>
                 <form onSubmit={handleSubmit(onSubmit)} className='d-flex mt-3 flex-column align-items-center'>
 
