@@ -10,7 +10,7 @@ export default function GroupDetail() {
     const [groups, setGroups] = useState([])
 
     useEffect(() => {
-       
+
         const token = localStorage.getItem('token')
         fetch(`https://api.2know.today/group/${groupId}`, {
             mode: 'cors',
@@ -18,19 +18,17 @@ export default function GroupDetail() {
                 'Content-type': 'application/json',
                 "Authorization": `Bearer ${token}`
             },
-        }
-        )
+        })
             .then((response) => response.json())
             .then(data => {
-                console.log("soy data", data.data)
-                // console.log("soy data students", data.data.students)
-                // console.log("soy data teachers", data.data.teachers)
-                
                 setGroups(data.data)
-                // console.log(pathName)
-                //  console.log("GRUPOS: ", group)
+
+                console.log("soy la data.data", data.data)
+                console.log("soy la data.data.groupById.teachers", data.data.groupById.teachers)
+
             })
-    }, [router.query])
+        }, [router.query])
+        console.log("info en el groups", groups)
 
     return (
         <>
@@ -48,6 +46,18 @@ export default function GroupDetail() {
                     <li>materias 1</li>
                 </ul>
                 <h2>Teacher</h2>
+                {/* <div className='d-flex justify-content-center flex-wrap'>
+                    {groups.map(group => {
+                        return <TeacherRectangle
+                            key={group.groupById.teachers._id}
+                            teacherName={group.groupById.teachers.name}
+                            lastNameA={group.groupById.teachers.lastNameA}
+                            lastNameB={group.groupById.teachers.lastNameB}
+                            teacherType={group.groupById.teachers.tipoProfesor} />
+                    })}
+                </div> */}
+
+
                 <ul>
                     <li>materias 1</li>
                 </ul>

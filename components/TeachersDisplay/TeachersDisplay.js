@@ -19,7 +19,9 @@ export default function TeachersDisplay() {
       .then((response) => response.json())
       .then(data => {
         setTeachers(data.data.teachers)
-        // console.log("Profesores: ", data.data.teachers)
+        console.log("Profesores:data ", data)
+        console.log("Profesores:data.data ", data.data)
+        console.log("Profesores:data.data.teachers ", data.data.teachers)
       })
   }, [])
 
