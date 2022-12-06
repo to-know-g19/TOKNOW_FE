@@ -92,6 +92,21 @@ export default function index() {
                                 </div>
                             </div>
                         </div>
+                        <h5>Rol</h5>
+                        <div>
+                            <div className='d-flex flex-column'>
+                                <div className="form-floating mb-3">
+                                    <select
+                                        name='role'
+                                        className="form-control form-select"
+                                        {...register("role", { required: true })}>
+                                        <option value="admin">Admin</option>
+                                    </select>
+                                    {errors.role && errors.role.type === "required" && <span className='text-danger'>*Selecciona el rol</span>}
+                                    <label>Rol</label>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
 
