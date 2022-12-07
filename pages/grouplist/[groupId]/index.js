@@ -8,6 +8,7 @@ export default function GroupDetail() {
     const router = useRouter()
     const groupId = router.query.groupId
     const [groups, setGroups] = useState([])
+    const [students, setStudents] = useState([])
 
     useEffect(() => {
 
@@ -21,14 +22,14 @@ export default function GroupDetail() {
         })
             .then((response) => response.json())
             .then(data => {
-                setGroups(data.data)
+                setGroups(data.data.groupById.teachers), setStudents(data.data.groupById.students)
 
-                console.log("soy la data.data", data.data)
+                console.log("soy la data", data)
                 console.log("soy la data.data.groupById.teachers", data.data.groupById.teachers)
 
             })
-        }, [router.query])
-        console.log("info en el groups", groups)
+    }, [])
+    console.log("info en el groups", groups)
 
     return (
         <>
@@ -40,23 +41,34 @@ export default function GroupDetail() {
                 <ul>
                     <li>materias 1</li>
                 </ul>
-                <h2>students</h2>
 
                 <ul>
                     <li>materias 1</li>
                 </ul>
-                <h2>Teacher</h2>
-                {/* <div className='d-flex justify-content-center flex-wrap'>
-                    {groups.map(group => {
-                        return <TeacherRectangle
-                            key={group.groupById.teachers._id}
-                            teacherName={group.groupById.teachers.name}
-                            lastNameA={group.groupById.teachers.lastNameA}
-                            lastNameB={group.groupById.teachers.lastNameB}
-                            teacherType={group.groupById.teachers.tipoProfesor} />
-                    })}
-                </div> */}
-
+                <div className='d-flex'>
+                    <div className='d-flex flex-column col-lg-6 align-items-center'>
+                        <h4>Profesores</h4>
+                        {groups.map(group => {
+                            return <TeacherRectangle
+                                key={group._id}
+                                teacherName={group.name}
+                                lastNameA={group.lastNameA}
+                                lastNameB={group.lastNameB}
+                                teacherType={group.tipoProfesor} />
+                        })}
+                    </div>
+                    <div className='d-flex flex-column col-lg-6 align-items-center'>
+                        <h4>Alumnos</h4>
+                        {students.map(student => {
+                            return <TeacherRectangle
+                                key={student._id}
+                                teacherName={student.name}
+                                lastNameA={student.lastNameA}
+                                lastNameB={student.lastNameB}
+                                teacherType={student.tipoProfesor} />
+                        })}
+                    </div>
+                </div>
 
                 <ul>
                     <li>materias 1</li>
