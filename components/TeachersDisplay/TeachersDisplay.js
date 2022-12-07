@@ -39,14 +39,14 @@ export default function TeachersDisplay() {
           </div>
         </div>
         <div className='d-flex justify-content-center flex-wrap'>
-          {teachers.map(teacher => {
-            return <TeacherRectangle
+          {teachers.map(teacher => (
+            <TeacherRectangle
               key={teacher._id}
               teacherName={teacher.name}
               lastNameA={teacher.lastNameA}
               lastNameB={teacher.lastNameB}
               teacherType={teacher.tipoProfesor} />
-          })}
+          ))}
         </div>
       </div>
     </>
