@@ -1,4 +1,3 @@
-/* default */
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Layout from '../../../components/Layout'
@@ -23,14 +22,20 @@ export default function GroupDetail() {
         })
             .then((response) => response.json())
             .then(data => {
-                setTeachers(data.data.groupById.teachers), setStudents(data.data.groupById.students)
+                if (data.data) {
+                    setTeachers(data.data.groupById.teachers)
+                    setStudents(data.data.groupById.students)
+
+                }
+                    
 
                 console.log("soy la data", data)
-                console.log("soy la data.data.groupById.teachers", data.data.groupById.teachers)
+                
+                // console.log("soy la data.data.groupById.teachers", data.data.groupById.teachers)
 
             })
-    }, [])
-    console.log("info en el groups", teachers)
+    }, [router.query])
+    console.log("info en el teachers", teachers)
 
     return (
         <>
@@ -41,38 +46,38 @@ export default function GroupDetail() {
                         <div className='d-flex col-lg-8'>
                             <h4>Profesores</h4>
                         </div>
-                        {teachers.map(teacher => (
-                            <Link href={'/grouplist/' + groupId + "/" + teacher._id} key={teacher._id} >
-                                <TeacherRectangle
-                                    key={teacher._id}
-                                    teacherName={teacher.name}
-                                    lastNameA={teacher.lastNameA}
-                                    lastNameB={teacher.lastNameB}
-                                    teacherType={teacher.tipoProfesor} />
-                            </Link>
-                        ))}
+                        {(Array.isArray(teachers) && teachers.length > 0) ?
+                            teachers.map((teacher) => {
+                                return (
+                                    <Link href={'/grouplist/' + groupId + "/" + teacher._id} key={teacher._id} >
+                                        <TeacherRectangle
+                                            key={teacher._id}
+                                            teacher={teacher}
+                                           />
+                                    </Link>
+                                )
+                            }) : <h1>Soy un loader</h1>
+                        }
                     </div>
                     <div className='d-flex flex-column col-lg-6 align-items-center'>
                         <div className='d-flex col-lg-8'>
                             <h4>Alumnos</h4>
                         </div>
-                        {students.map(student => {
+                        {!!students.length &&
+                        students.map(student => {
                             return <TeacherRectangle
                                 key={student._id}
-                                teacherName={student.name}
-                                lastNameA={student.lastNameA}
-                                lastNameB={student.lastNameB}
-                                teacherType={student.tipoProfesor} />
+                                teacher={student} />
                         })}
                     </div>
                 </div>
 
                 <ul>
-                    <li>materias 1</li>
-                    <li>materias 2</li>
-                    <li>materias 3</li>
-                    <li>materias 4</li>
-                    <li>materias 5</li>
+                    <li>materia 1</li>
+                    <li>materia 2</li>
+                    <li>materia 3</li>
+                    <li>materia 4</li>
+                    <li>materia 5</li>
                 </ul>
 
             </Layout>
