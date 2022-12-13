@@ -24,9 +24,16 @@ export default function registerschool() {
                 data
             )
         })
-        const schoolInfo = result.json()
-        // consultar estado de success o fail de peticion
-        router.push("/registergroup")
+        const schoolInfo = await result.json()
+        //log de success:true/false de parte del back
+        console.log(schoolInfo)
+        // agregar estado de success o fail de peticion
+        if (schoolInfo.success === true) {
+            window.alert(router.push("/registergroup"))
+        } else {
+            (window.alert("Hubo un problema al envíar la información"))
+        }
+        // router.push("/registergroup")
     }
 
 

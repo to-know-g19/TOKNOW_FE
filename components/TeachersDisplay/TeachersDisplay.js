@@ -19,7 +19,9 @@ export default function TeachersDisplay() {
       .then((response) => response.json())
       .then(data => {
         setTeachers(data.data.teachers)
-        // console.log("Profesores: ", data.data.teachers)
+        console.log("Profesores:data ", data)
+        console.log("Profesores:data.data ", data.data)
+        console.log("Profesores:data.data.teachers ", data.data.teachers)
       })
   }, [])
 
@@ -37,14 +39,14 @@ export default function TeachersDisplay() {
           </div>
         </div>
         <div className='d-flex justify-content-center flex-wrap'>
-          {teachers.map(teacher => {
-            return <TeacherRectangle
+          {teachers.map(teacher => (
+            <TeacherRectangle
               key={teacher._id}
               teacherName={teacher.name}
               lastNameA={teacher.lastNameA}
               lastNameB={teacher.lastNameB}
               teacherType={teacher.tipoProfesor} />
-          })}
+          ))}
         </div>
       </div>
     </>
