@@ -56,7 +56,7 @@ export default function GroupDetail() {
                                            />
                                     </Link>
                                 )
-                            }) : <h1>Soy un loader</h1>
+                            }) : <p>No hay profesores asignados</p>
                         }
                     </div>
                     <div className='d-flex flex-column col-lg-6 align-items-center'>
