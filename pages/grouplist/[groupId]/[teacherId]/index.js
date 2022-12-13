@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import TeacherRectangle from '../../../../components/teacherRectangle/TeacherRectangle'
 import Layout from '../../../../components/Layout'
+import TeacherInfo from '../../../../components/TeacherInfo/TeacherInfo'
 
 export default function Teacher() {
     const router = useRouter()
@@ -42,8 +43,7 @@ export default function Teacher() {
                         </div>
 
                         {!!teacher &&
-                            <TeacherRectangle
-                                teacher={teacher}
+                            <TeacherInfo
                             />
                         }
                     </div>
