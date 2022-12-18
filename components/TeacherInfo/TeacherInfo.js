@@ -4,10 +4,8 @@ export default function TeacherInfo({teacher}) {
     const {name, email, lastNameA, phone, lastNameB, matricula, dateOfBirth, tipoProfesor, bio, grade} = teacher 
     return (
 
-        <div className='d-flex col-12  '>
-            {/* <div className='col-lg-1 '>
-                <Link className='col-lg-12' href='/teachers'><button className='col-12'>profesores</button></Link>
-            </div> */}
+        <div className='d-flex justify-content-center col-12  '>
+
             <form className='d-flex mt-3 col-10 flex-column align-items-center justify-content-center'>
                 <div className='col-10 d-flex flex-wrap justify-content-around'>
 
