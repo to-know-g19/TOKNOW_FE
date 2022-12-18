@@ -101,12 +101,10 @@ export default function TeacherInfo({teacher}) {
                     <div className='d-flex col-5 flex-column'>
                         {/* tiene que cumplir uno de la lista en el back. hacer con desplegable */}
                         <div className="form-floating mb-3">
-                            <select
+                            <span
                                 name='tipoProfesor'
-                                className="form-control form-select"
-                                >
-                                
-                            </select>
+                                className="form-control"
+                                >{`${tipoProfesor}`}</span>
                             
                             <label>Tipo de profesor</label>
                         </div>
@@ -118,35 +116,24 @@ export default function TeacherInfo({teacher}) {
                                 name='bio'
                                 className="form-control"
                                 placeholder='Bio'
-                                ></span>
+                                >{`${bio}`}</span>
                             <label>Bio</label>
                         </div>
                     </div>
 
                     <div className='d-flex col-5 flex-column'>
                         <div className="form-floating mb-3">
-                            <select
+                            <span
                                 name='grade'
                                 className="form-control form-select"
-                               >
-                               
-                            </select>
+                               >{`${grade}`}</span>
                             
                             <label>Grado</label>
                         </div>
                     </div>
 
-                    {/* <div className='d-flex col-6 flex-column'>
-                        <label>Grupo</label>
-                        <input name='' {...register("")} placeholder='Grupo'></input>
-                        en el modelo se toma de otra colección
-                    </div> */}
 
                 </div>
-
-                {/* <div className='d-flex col-lg-4 justify-content-around'>
-                    <input className='btn col-12' type='submit'></input>
-                </div> */}
 
             </form>
         </div>
