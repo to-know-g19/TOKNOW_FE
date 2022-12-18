@@ -128,10 +128,10 @@ export default function FormTeacher() {
                         <div className="form-floating mb-3">
                             <input
                                 type='number'
-                                name='citydateOfBirth'
+                                name='dateOfBirth'
                                 className="form-control"
                                 placeholder='Ej. 24011996'
-                                {...register("citydateOfBirth")} ></input>
+                                {...register("dateOfBirth")} ></input>
                             <label>Fecha nacimiento</label>
                         </div>
                     </div>
