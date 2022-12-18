@@ -44,6 +44,8 @@ export default function Teacher() {
 
                         {!!teacher &&
                             <TeacherInfo
+                            key={teacher._id}
+                            teacher={teacher}
                             />
                         }
                     </div>

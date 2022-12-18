@@ -1,6 +1,7 @@
 import React from 'react'
 
-export default function TeacherInfo() {
+export default function TeacherInfo({teacher}) {
+    const {name, email, lastNameA, phone, lastNameB, matricula, dateOfBirth, tipoProfesor} = teacher 
     return (
 
         <div className='d-flex col-12  '>
@@ -12,11 +13,11 @@ export default function TeacherInfo() {
 
                     <div className='d-flex col-5 flex-column'>
                         <div className="form-floating mb-3">
-                            <input
+                            <span
                                 name='name'
                                 className="form-control"
                                 placeholder='Nombre'
-                                 ></input>
+                                 >{`${name}`}</span>
                            
                             <label>Nombre</label>
                         </div>
@@ -24,12 +25,12 @@ export default function TeacherInfo() {
 
                     <div className='d-flex col-5 flex-column'>
                         <div className="form-floating mb-3">
-                            <input
+                            <span
                                 type="email"
                                 name='email'
                                 className="form-control"
                                 placeholder='Correo'
-                                ></input>
+                                >{`${email}`}</span>
                             
                             <label>Correo</label>
                         </div>
@@ -37,11 +38,11 @@ export default function TeacherInfo() {
 
                     <div className='d-flex col-5 flex-column'>
                         <div className="form-floating mb-3">
-                            <input
+                            <span
                                 name='lastNameA'
                                 className="form-control"
                                 placeholder='Apellido Paterno'
-                                ></input>
+                                >{`${lastNameA}`}</span>
                             
                             <label>Apellido Paterno</label>
                         </div>
@@ -49,23 +50,23 @@ export default function TeacherInfo() {
 
                     <div className='d-flex col-5 flex-column '>
                         <div className="form-floating mb-3">
-                            <input
+                            <span
                                 type='number'
                                 name='phone'
                                 className="form-control"
                                 placeholder='Teléfono'
-                                ></input>
+                                >{`${phone}`}</span>
                             <label>Teléfono</label>
                         </div>
                     </div>
 
                     <div className='d-flex col-5 flex-column'>
                         <div className="form-floating mb-3">
-                            <input
+                            <span
                                 name='lastNameB'
                                 className="form-control"
                                 placeholder='Apellido Materno'
-                                ></input>
+                                >{`${lastNameB}`}</span>
                             
                             <label>Apellido Materno</label>
                         </div>
@@ -73,11 +74,11 @@ export default function TeacherInfo() {
 
                     <div className='d-flex col-5 flex-column'>
                         <div className="form-floating mb-3">
-                            <input
+                            <span
                                 name='matricula'
                                 className="form-control"
                                 placeholder='Matrícula'
-                                ></input>
+                                >{`${matricula}`}</span>
                             <label>Matrícula</label>
                         </div>
                     </div>
@@ -87,12 +88,12 @@ export default function TeacherInfo() {
                     <div className='d-flex col-5 flex-column'>
                         {/* hay que ver cómo vamos a implementar la fecha */}
                         <div className="form-floating mb-3">
-                            <input
+                            <span
                                 type='number'
-                                name='citydateOfBirth'
+                                name='dateOfBirth'
                                 className="form-control"
                                 placeholder='Ej. 24011996'
-                                ></input>
+                                >{`${dateOfBirth}`}</span>
                             <label>Fecha nacimiento</label>
                         </div>
                     </div>
@@ -113,11 +114,11 @@ export default function TeacherInfo() {
 
                     <div className='d-flex col-5 flex-column'>
                         <div className="form-floating mb-3">
-                            <input
+                            <span
                                 name='bio'
                                 className="form-control"
                                 placeholder='Bio'
-                                ></input>
+                                ></span>
                             <label>Bio</label>
                         </div>
                     </div>
@@ -143,9 +144,9 @@ export default function TeacherInfo() {
 
                 </div>
 
-                <div className='d-flex col-lg-4 justify-content-around'>
+                {/* <div className='d-flex col-lg-4 justify-content-around'>
                     <input className='btn col-12' type='submit'></input>
-                </div>
+                </div> */}
 
             </form>
         </div>
