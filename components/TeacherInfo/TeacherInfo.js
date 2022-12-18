@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function TeacherInfo({teacher}) {
-    const {name, email, lastNameA, phone, lastNameB, matricula, dateOfBirth, tipoProfesor} = teacher 
+    const {name, email, lastNameA, phone, lastNameB, matricula, dateOfBirth, tipoProfesor, bio, grade} = teacher 
     return (
 
         <div className='d-flex col-12  '>
@@ -125,7 +125,7 @@ export default function TeacherInfo({teacher}) {
                         <div className="form-floating mb-3">
                             <span
                                 name='grade'
-                                className="form-control form-select"
+                                className="form-control"
                                >{`${grade}`}</span>
                             
                             <label>Grado</label>
