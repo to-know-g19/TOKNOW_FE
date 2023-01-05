@@ -1,8 +1,15 @@
 @import '../../styles/globals.scss';
 
 
-.navigation{
+.navigation {
     background-color: $secundary-color;
-    height:5rem;
-    gap:0rem;
+    height: 5rem;
+    gap: 0rem;
+
+    &__navmenuBG {
+        background-color: #06b1ea30;
+       border-radius: 50%;
+        height: 2.5rem;
+        width: 2.5rem;
+    }
 }
