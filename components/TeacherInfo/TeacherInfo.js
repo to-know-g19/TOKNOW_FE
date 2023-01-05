@@ -15,7 +15,7 @@ export default function TeacherInfo({teacher}) {
                                 name='name'
                                 className="form-control"
                                 placeholder='Nombre'
-                                 >{`${name}`}</span>
+                                 >{name}</span>
                            
                             <label>Nombre</label>
                         </div>
@@ -28,7 +28,7 @@ export default function TeacherInfo({teacher}) {
                                 name='email'
                                 className="form-control"
                                 placeholder='Correo'
-                                >{`${email}`}</span>
+                                >{email}</span>
                             
                             <label>Correo</label>
                         </div>
@@ -40,7 +40,7 @@ export default function TeacherInfo({teacher}) {
                                 name='lastNameA'
                                 className="form-control"
                                 placeholder='Apellido Paterno'
-                                >{`${lastNameA}`}</span>
+                                >{lastNameA}</span>
                             
                             <label>Apellido Paterno</label>
                         </div>
@@ -53,7 +53,7 @@ export default function TeacherInfo({teacher}) {
                                 name='phone'
                                 className="form-control"
                                 placeholder='Teléfono'
-                                >{`${phone}`}</span>
+                                >{phone}</span>
                             <label>Teléfono</label>
                         </div>
                     </div>
@@ -64,7 +64,7 @@ export default function TeacherInfo({teacher}) {
                                 name='lastNameB'
                                 className="form-control"
                                 placeholder='Apellido Materno'
-                                >{`${lastNameB}`}</span>
+                                >{lastNameB}</span>
                             
                             <label>Apellido Materno</label>
                         </div>
@@ -76,7 +76,7 @@ export default function TeacherInfo({teacher}) {
                                 name='matricula'
                                 className="form-control"
                                 placeholder='Matrícula'
-                                >{`${matricula}`}</span>
+                                >{matricula}</span>
                             <label>Matrícula</label>
                         </div>
                     </div>
@@ -91,7 +91,7 @@ export default function TeacherInfo({teacher}) {
                                 name='dateOfBirth'
                                 className="form-control"
                                 placeholder='Ej. 24011996'
-                                >{`${dateOfBirth}`}</span>
+                                >{dateOfBirth}</span>
                             <label>Fecha nacimiento</label>
                         </div>
                     </div>
@@ -102,7 +102,7 @@ export default function TeacherInfo({teacher}) {
                             <span
                                 name='tipoProfesor'
                                 className="form-control"
-                                >{`${tipoProfesor}`}</span>
+                                >{tipoProfesor}</span>
                             
                             <label>Tipo de profesor</label>
                         </div>
@@ -114,7 +114,7 @@ export default function TeacherInfo({teacher}) {
                                 name='bio'
                                 className="form-control"
                                 placeholder='Bio'
-                                >{`${bio}`}</span>
+                                >{bio}</span>
                             <label>Bio</label>
                         </div>
                     </div>
@@ -124,7 +124,7 @@ export default function TeacherInfo({teacher}) {
                             <span
                                 name='grade'
                                 className="form-control"
-                               >{`${grade}`}</span>
+                               >{grade}</span>
                             
                             <label>Grado</label>
                         </div>
