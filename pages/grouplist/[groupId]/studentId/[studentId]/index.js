@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+
 import Layout from '../../../../components/Layout'
 import TeacherInfo from '../../../../components/TeacherInfo/TeacherInfo'
 
 export default function Teacher() {
     const router = useRouter()
-    const { groupId, teacherId } = router.query
-    const [teacher, setTeacher] = useState({})
+    const { groupId, studentId } = router.query
+    const [student, setStudent] = useState({})
 
     useEffect(() => {
 
         const token = localStorage.getItem('token')
-        fetch(`https://api.2know.today/teacher/${teacherId}`, {
+        fetch(`https://api.2know.today/student/${studentId}`, {
             mode: 'cors',
             headers: {
                 'Content-type': 'application/json',
@@ -21,7 +22,7 @@ export default function Teacher() {
             .then((response) => response.json())
             .then(data => {
                 if (data.data) {
-                    setTeacher(data.data.teacherById)
+                    setStudent(data.data.studentById)
                 }
 
                 console.log("soy la data.data", data.data)
@@ -29,7 +30,7 @@ export default function Teacher() {
 
             })
     }, [router.query])
-    console.log("soy la info en el teachers", teacher)
+    console.log("soy la info en el student", student)
 
     return (
         <>
@@ -38,13 +39,13 @@ export default function Teacher() {
                 <div className='d-flex'>
                     <div className='d-flex flex-column col-lg-12 align-items-center'>
                         <div className='d-flex col-lg-8'>
-                            <h4>Datos del profesor</h4>
+                            <h4>Datos del alumno</h4>
                         </div>
 
-                        {!!teacher &&
+                        {!!student &&
                             <TeacherInfo
-                            key={teacher._id}
-                            teacher={teacher}
+                            key={student._id}
+                            teacher={student}
                             />
                         }
                     </div>

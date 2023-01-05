@@ -27,10 +27,10 @@ export default function GroupDetail() {
                     setStudents(data.data.groupById.students)
 
                 }
-                    
+
 
                 console.log("soy la data", data)
-                
+
                 // console.log("soy la data.data.groupById.teachers", data.data.groupById.teachers)
 
             })
@@ -49,11 +49,11 @@ export default function GroupDetail() {
                         {(Array.isArray(teachers) && teachers.length > 0) ?
                             teachers.map((teacher) => {
                                 return (
-                                    <Link href={'/grouplist/' + groupId + "/" + teacher._id} key={teacher._id} >
+                                    <Link href={'/grouplist/' + groupId + "teacherid/" + teacher._id} key={teacher._id} >
                                         <TeacherRectangle
                                             key={teacher._id}
                                             teacher={teacher}
-                                           />
+                                        />
                                     </Link>
                                 )
                             }) : <p>No hay profesores asignados</p>
@@ -64,11 +64,16 @@ export default function GroupDetail() {
                             <h4>Alumnos</h4>
                         </div>
                         {!!students.length &&
-                        students.map(student => {
-                            return <TeacherRectangle
-                                key={student._id}
-                                teacher={student} />
-                        })}
+                            students.map(student => {
+                                return (
+                                    <Link href={'/grouplist/' + groupId + "studentId/" + student._id} key={student._id} >
+                                        <TeacherRectangle
+                                            key={student._id}
+                                            teacher={student} />
+                                    </Link>
+                                )
+                            })
+                        }
                     </div>
                 </div>
 
