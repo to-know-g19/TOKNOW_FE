@@ -1,12 +1,11 @@
 /* default */
 import Image from "next/image"
 import Link from 'next/link'
-
 /* images*/
 import logo from '../../public/img/logos/logo.svg'
-
 /* styles */
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 
@@ -22,6 +21,15 @@ export default function Navbar() {
             <div className="d-flex col-lg-8 justify-content-center align-items-center">
                 <Link href="/"> <Image src={logo} alt="Logo toKnow" /> </Link>
             </div>
+            <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+                <ul className="nav-menu-items">
+                    <li className="navbar-toggle">
+                        <Link to='#'></Link>
+                    </li>
+                </ul>
+
+            </nav>
+
             {/* <div className="d-flex  justify-content-center align-items-center">
                     <div><a href=""><i className="bi bi-bell"><span> <i className="bi bi-plus"></i></span></i></a></div>
                     <Link href="" label='user'>user</Link>
