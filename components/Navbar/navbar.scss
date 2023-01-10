@@ -1,8 +1,69 @@
 @import '../../styles/globals.scss';
 
-
-.navigation{
+.navigation {
     background-color: $secundary-color;
-    height:5rem;
-    gap:0rem;
+    height: 4rem;
+    gap: 0rem;
+
+    &__navmenuBG {
+        background-color: #06b1ea30;
+        border-radius: 50%;
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+}
+
+.nav-menu { //barra que se despliega
+    background-color: rgba(0, 102, 136, 0.96);
+    width: 12rem;
+    height: 100%;
+    position: fixed;
+    left: -100%;
+    transition: .7s ease;
+    z-index: 1;
+}
+
+.nav-menu.active {
+    left: 0;
+    transition: 300ms;
+}
+
+.menu-bars { //contenedor de icono X
+    font-size: 2rem;
+    color: white;
+    margin-top: .2rem;
+    width: 40%;
+}
+
+.nav-text { //caja de cada enlace
+    padding: 4px 0px 4px 0px;
+    list-style: none;
+    height: 3rem;
+    width: 100%;
+}
+
+.nav-text a { //propiedades de enlaces
+    text-decoration: none;
+    color: white;
+    width: 90%;
+    height: 100%;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+}
+
+.nav-text a:hover {
+    background-color: $bg-lightblue;
+}
+
+.navbar-toggle { //espacio donde se encuentra la caja del icono X
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.nav-span { //span junto a su icono de enlace
+    margin-left: 1rem;
 }
