@@ -30,9 +30,9 @@ export default function Navbar() {
             <nav className={sidebar ? 'nav-menu active' : 'nav-menu'} >
                 <ul className="nav-menu-items" onClick={showSidebar}>
                     <li className="navbar-toggle">
-                        <Link href="/" className="menu-bars">
+                        <a className="menu-bars">
                             <SlClose />
-                        </Link>
+                        </a>
                     </li>
 
                     {SidebarData.map((item, index) => {
@@ -45,7 +45,7 @@ export default function Navbar() {
                             </li>
                         )
                     })}
-                    
+
                 </ul>
             </nav>
 
