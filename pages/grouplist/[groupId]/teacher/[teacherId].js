@@ -29,7 +29,7 @@ export default function Teacher() {
 
             })
     }, [router.query])
-    console.log("soy la info en el teachers", teacher)
+    console.log("soy info en teachers dentro del groups", teacher)
 
     return (
         <>
