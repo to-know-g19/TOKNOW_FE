@@ -49,7 +49,8 @@ export default function GroupDetail() {
                         {(Array.isArray(teachers) && teachers.length > 0) ?
                             teachers.map((teacher) => {
                                 return (
-                                    <Link href={'/grouplist/' + groupId + "teacherid/" + teacher._id} key={teacher._id} >
+                                    <Link href="/grouplist/[groupId]/teacher/[teacherId]" 
+                                    as={`/grouplist/${groupId}/teacher/${teacher._id}`} key={teacher._id} >
                                         <TeacherRectangle
                                             key={teacher._id}
                                             teacher={teacher}
@@ -63,16 +64,17 @@ export default function GroupDetail() {
                         <div className='d-flex col-lg-8'>
                             <h4>Alumnos</h4>
                         </div>
-                        {!!students.length &&
+                        {(Array.isArray(students) && students.length > 0) ?
                             students.map(student => {
                                 return (
-                                    <Link href={'/grouplist/' + groupId + "studentId/" + student._id} key={student._id} >
+                                    <Link href="/grouplist/[groupId]/student/[studentId]" 
+                                    as={`/grouplist/${groupId}/student/${student._id}`} key={student._id} >
                                         <TeacherRectangle
                                             key={student._id}
                                             teacher={student} />
                                     </Link>
                                 )
-                            })
+                            }) : <p>No hay alumnos asignados</p>
                         }
                     </div>
                 </div>
