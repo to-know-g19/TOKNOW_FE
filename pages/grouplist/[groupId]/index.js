@@ -64,7 +64,7 @@ export default function GroupDetail() {
                         <div className='d-flex col-lg-8'>
                             <h4>Alumnos</h4>
                         </div>
-                        {!!students.length &&
+                        {(Array.isArray(students) && students.length > 0) ?
                             students.map(student => {
                                 return (
                                     <Link href="/grouplist/[groupId]/student/[studentId]" 
@@ -74,7 +74,7 @@ export default function GroupDetail() {
                                             teacher={student} />
                                     </Link>
                                 )
-                            })
+                            }) : <p>No hay alumnos asignados</p>
                         }
                     </div>
                 </div>
