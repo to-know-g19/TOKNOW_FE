@@ -7,6 +7,7 @@ import logo from '../../public/img/logos/logo.svg'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from "react";
 import { SlClose } from "react-icons/sl";
+import { FaBars } from "react-icons/fa";
 import { SidebarData } from "../SideBar/SidebarData";
 
 
@@ -15,15 +16,16 @@ export default function Navbar() {
     const showSidebar = () => setSidebar(!sidebar)
 
     return (
-        // removí el primer d-flex para pruebas
+
         <div className="navigation d-flex col-lg-12 ">
 
             <div className="d-flex col-lg-2 justify-content-center  align-items-center">
-                <div className="navigation__navmenuBG d-flex justify-content-center  align-items-center">
-                    <Link onClick={showSidebar} href="#">
-                        <i className=" bi bi-list"></i>
-                    </Link>
-                </div>
+                <Link onClick={showSidebar} href="#">
+                    <div className="navigation__navmenuBG d-flex justify-content-center  align-items-center">
+
+                        <FaBars />
+                    </div>
+                </Link>
             </div>
 
             {/* SIDEBAR */}
