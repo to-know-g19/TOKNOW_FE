@@ -28,7 +28,7 @@ export default function FormTeacher() {
 
         console.log('info', teacherInfo)
         if (teacherInfo.success === true) {
-            router.push("/teachers")
+            router.push(`/grouplist/${groupId}`)
         } else {
             (window.alert("Hubo un problema al envíar la información"))
         }
