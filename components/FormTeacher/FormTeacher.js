@@ -8,6 +8,8 @@ export default function FormTeacher() {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const router = useRouter()
 
+    const groupId = router.query.groupId
+    
     const onSubmit = async data => {
 
         const token = localStorage.getItem('token')

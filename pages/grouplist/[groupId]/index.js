@@ -52,7 +52,8 @@ export default function GroupDetail() {
                                     <h4><FaUserCircle /></h4>
                                     <h4>Profesores</h4>
                                 </div>
-                                <Link href="/registerteacher"><h4><AiFillPlusCircle /></h4></Link>
+                                <Link href="/grouplist/[groupId]/addteacher" 
+                                as={`/grouplist/${groupId}/addteacher`}><h4><AiFillPlusCircle /></h4></Link>
                             </div>
                         </div>
                         {(Array.isArray(teachers) && teachers.length > 0) ?
