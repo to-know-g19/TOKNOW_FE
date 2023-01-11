@@ -9,7 +9,7 @@ export default function FormTeacher() {
     const router = useRouter()
 
     const groupId = router.query.groupId
-    
+
     const onSubmit = async data => {
 
         const token = localStorage.getItem('token')
@@ -34,6 +34,7 @@ export default function FormTeacher() {
         }
         // router.push("/registerteacher")
     }
+    console.log("soy el groupId en formTeacher", groupId)
 
 
     return (
@@ -166,7 +167,7 @@ export default function FormTeacher() {
                         </div>
                     </div>
 
-                    <div className='d-flex col-5 flex-column'>
+                    {/* <div className='d-flex col-5 flex-column'>
                         <div className="form-floating mb-3">
                             <select
                                 name='grade'
@@ -182,6 +183,38 @@ export default function FormTeacher() {
                             </select>
                             {errors.grade && errors.grade.type === "required" && <span className='text-danger'>*Selecciona un grado</span>}
                             <label>Grado</label>
+                        </div>
+                    </div> */}
+                    <div className='d-flex col-5 flex-column'>
+                        <div className="form-floating mb-3">
+                            <select
+                                name='role'
+                                className="form-control"
+                                {...register("role", { required: true, min: 1, max: 6 })} >
+                                <option value="teacher">Profesor</option>
+
+                            </select>
+                            {errors.grade && errors.grade.type === "required" && <span className='text-danger'>*Selecciona un grado</span>}
+                            <label>Rol</label>
+                        </div>
+                    </div>
+
+                    <div className='d-flex col-5 flex-column'>
+                        <div className="form-floating mb-3">
+                            <select
+                                name='groups'
+                                className="form-control form-select"
+                                {...register("groups")} >
+                                <option value={groupId}></option>
+                                {/* <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option> */}
+                            </select>
+                            {errors.grade && errors.grade.type === "required" && <span className='text-danger'>*Selecciona un grado</span>}
+                            <label>aqui va el group ID</label>
                         </div>
                     </div>
 

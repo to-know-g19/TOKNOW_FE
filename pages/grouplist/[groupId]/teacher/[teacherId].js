@@ -30,6 +30,7 @@ export default function Teacher() {
             })
     }, [router.query])
     console.log("soy info en teachers dentro del groups", teacher)
+    console.log("soy el routerquery groupId", groupId)
 
     return (
         <>
