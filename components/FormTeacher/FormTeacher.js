@@ -67,8 +67,8 @@ export default function FormTeacher() {
                                 name='email'
                                 className="form-control"
                                 placeholder='Correo'
-                                {...register("email")} ></input>
-                            {errors.email && errors.email.type === "required" && <span className='text-danger'>*Este campo es requerido</span>}
+                                {...register("email", { required: true})} ></input>
+                            {errors.email && errors.email.type === "required" && <span className='text-danger'>*El campo es requerido</span>}
                             <label>Correo</label>
                         </div>
                     </div>
@@ -171,12 +171,11 @@ export default function FormTeacher() {
                         <div className="form-floating mb-3">
                             <select
                                 name='role'
-                                className="form-control"
-                                {...register("role", { required: true, min: 1, max: 6 })} >
+                                className="form-control form-select"
+                                {...register("role", { required: true })} >
                                 <option value="teacher">Profesor</option>
-
                             </select>
-                            {errors.grade && errors.grade.type === "required" && <span className='text-danger'>*Selecciona un grado</span>}
+                            {errors.grade && errors.grade.type === "required" && <span className='text-danger'>*Selecciona un rol</span>}
                             <label>Rol</label>
                         </div>
                     </div>
