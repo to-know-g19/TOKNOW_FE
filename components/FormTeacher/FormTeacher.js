@@ -32,7 +32,7 @@ export default function FormTeacher() {
         } else {
             (window.alert("Hubo un problema al envíar la información"))
         }
-        // router.push("/registerteacher")
+
     }
     console.log("soy el groupId en formTeacher", groupId)
 
@@ -140,7 +140,7 @@ export default function FormTeacher() {
                     </div>
 
                     <div className='d-flex col-5 flex-column'>
-                        {/* tiene que cumplir uno de la lista en el back. hacer con desplegable */}
+                        {/* tiene que cumplir uno de la lista en el back.*/}
                         <div className="form-floating mb-3">
                             <select
                                 name='tipoProfesor'
@@ -148,7 +148,7 @@ export default function FormTeacher() {
                                 {...register("tipoProfesor", { required: true })}>
                                 <option value="">Materia</option>
                                 <option value="titular">Titular</option>
-                                <option value="educacion fisica">Educacion física</option>
+                                <option value="educacion fisica">Educación física</option>
                                 <option value="ingles">Inglés</option>
                             </select>
                             {errors.tipoProfesor && errors.tipoProfesor.type === "required" && <span className='text-danger'>*Selecciona el tipo de profesor</span>}
@@ -167,24 +167,6 @@ export default function FormTeacher() {
                         </div>
                     </div>
 
-                    {/* <div className='d-flex col-5 flex-column'>
-                        <div className="form-floating mb-3">
-                            <select
-                                name='grade'
-                                className="form-control form-select"
-                                {...register("grade", { required: true, min: 1, max: 6 })} >
-                                <option value="">Grado</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                            </select>
-                            {errors.grade && errors.grade.type === "required" && <span className='text-danger'>*Selecciona un grado</span>}
-                            <label>Grado</label>
-                        </div>
-                    </div> */}
                     <div className='d-flex col-5 flex-column'>
                         <div className="form-floating mb-3">
                             <select
@@ -206,23 +188,12 @@ export default function FormTeacher() {
                                 className="form-control form-select"
                                 {...register("groups")} >
                                 <option value={groupId}></option>
-                                {/* <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option> */}
+
                             </select>
                             {errors.grade && errors.grade.type === "required" && <span className='text-danger'>*Selecciona un grado</span>}
                             <label>aqui va el group ID</label>
                         </div>
                     </div>
-
-                    {/* <div className='d-flex col-6 flex-column'>
-                        <label>Grupo</label>
-                        <input name='' {...register("")} placeholder='Grupo'></input>
-                        en el modelo se toma de otra colección
-                    </div> */}
 
                 </div>
 
