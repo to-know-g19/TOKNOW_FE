@@ -46,13 +46,13 @@ export default function GroupDetail() {
                 {/* <Link> Detalle del grupo {groupId} </Link> */}
                 <div className='d-flex'>
                     <div className='d-flex flex-column col-lg-6 align-items-center'>
-                        <div className='d-flex col-lg-9' >
+                        <div className='d-flex col-lg-8' >
                             <div className='d-flex col-lg-6 justify-content-between'>
                                 <div className='d-flex col-lg-9 justify-content-between'>
                                     <h4><FaUserCircle /></h4>
                                     <h4>Profesores</h4>
                                 </div>
-                                <Link><h4><AiFillPlusCircle /></h4></Link>
+                                <Link href="/registerteacher"><h4><AiFillPlusCircle /></h4></Link>
                             </div>
                         </div>
                         {(Array.isArray(teachers) && teachers.length > 0) ?
