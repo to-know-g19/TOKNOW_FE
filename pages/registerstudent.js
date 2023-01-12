@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form"
 
 /* components */
 import Layout from '../components/Layout'
-import FormStudent from '../components/FormStudent'
+import FormStudent from '../components/FormStudentOld'
 import FormParent from '../components/FormParent'
 import SearchParent from '../components/SearchParent'
 
