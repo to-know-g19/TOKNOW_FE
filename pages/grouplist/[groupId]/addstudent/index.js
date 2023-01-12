@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
-import FormStudent from '../../../../components/formStudent2'
+import FormStudent from '../../../../components/formStudent'
 import Layout from '../../../../components/Layout'
 import { useRouter } from 'next/router'
 
