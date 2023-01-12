@@ -39,10 +39,8 @@ export default function FormStudent() {
 
     return (
 
-        <div className='d-flex col-12  '>
-            <div className='col-lg-1 '>
-                <Link className='col-lg-12' href='/Borrar'><button className='col-12'>BORRARARA</button></Link>
-            </div>
+        <div className='d-flex col-12 justify-content-center '>
+
             <form onSubmit={handleSubmit(onSubmit)} className='d-flex mt-3 col-10 flex-column align-items-center justify-content-center'>
                 <div className='col-10 d-flex flex-wrap justify-content-around'>
 
