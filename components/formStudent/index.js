@@ -42,7 +42,8 @@ export default function FormStudent() {
 
         <div className='d-flex flex-column align-items-center col-12 justify-content-center '>
             <ArrowGoBack
-            btnTxtModal={<h3>Datos del alumno</h3>}/>
+            btnTxtModal={<h4>Datos del alumno</h4>}
+            route={`/grouplist/${groupId}`}/>
             <form onSubmit={handleSubmit(onSubmit)} className='d-flex mt-3 col-10 flex-column align-items-center justify-content-center'>
                 <div className='col-10 d-flex flex-wrap justify-content-around'>
 
