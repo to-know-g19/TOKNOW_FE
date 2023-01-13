@@ -2,6 +2,7 @@ import React from 'react'
 import GroupCircle from '../GroupCircle/GroupCircle'
 import { BsEye } from "react-icons/bs";
 import { BsTrash } from "react-icons/bs";
+import { FaUserCircle } from 'react-icons/fa';
 
 export default function GroupCard(props) {
   return (
@@ -18,9 +19,11 @@ export default function GroupCard(props) {
 
         <div className='col-lg-6 d-flex flex-column align-items-center justify-content-around'>
           <div>
+            <FaUserCircle />
             Profesor
           </div>
           <div>
+            <FaUserCircle />
             Alumnos
           </div>
         </div>
