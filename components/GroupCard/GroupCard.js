@@ -1,12 +1,14 @@
 import React from 'react'
 import GroupCircle from '../GroupCircle/GroupCircle'
+import { BsEye } from "react-icons/bs";
+import { BsTrash } from "react-icons/bs";
 
 export default function GroupCard(props) {
   return (
 
     <div className='groupCard m-4 col-lg-12'>
       <div className='d-flex m-4'>
-        
+
         <div className='col-lg-6 d-flex justify-content-center'>
           <div className='groupInfo'>
             <p>{props.grade}</p>
@@ -24,10 +26,12 @@ export default function GroupCard(props) {
         </div>
 
       </div>
-      <div className='groupCard__footer d-flex p-2 justify-content-end'>
-        iconos
+      <div>
+        <div className='groupCard__footer d-flex p-3 justify-content-end'>
+          <BsEye />
+          <BsTrash />
+        </div>
       </div>
-      
     </div>
   )
 }
