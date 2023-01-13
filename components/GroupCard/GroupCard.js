@@ -1,7 +1,7 @@
 import React from 'react'
 import GroupCircle from '../GroupCircle/GroupCircle'
-import { BsEye } from "react-icons/bs";
-import { BsTrash } from "react-icons/bs";
+import { FaRegEye } from "react-icons/fa";
+import { BsFillTrashFill } from "react-icons/bs";
 import { FaUserCircle } from 'react-icons/fa';
 
 export default function GroupCard(props) {
@@ -32,8 +32,8 @@ export default function GroupCard(props) {
       </div>
       <div className='groupCard__footer d-flex justify-content-center'>
         <div className='groupCard__footer__icons d-flex col-lg-11 p-3 justify-content-between'>
-          <BsEye />
-          <BsTrash />
+          <FaRegEye />
+          <BsFillTrashFill />
         </div>
       </div>
     </div>
