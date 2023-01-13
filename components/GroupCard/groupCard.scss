@@ -1,11 +1,16 @@
 @import '../../styles/globals.scss';
 
-.groupCard{
-border-style:ridge;
-border-radius: .5rem;
-color: $text-darkblue;
-&__footer{
-    background-color: $bg-orange;
-}
+.groupCard {
+    border-style: ridge;
+    border-radius: .5rem;
+    color: $text-darkblue;
+
+    &__footer {
+        background-color: $bg-orange;
+
+        &__icons {
+            font-size: x-large;
+        }
+    }
 
 }

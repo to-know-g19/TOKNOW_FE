@@ -26,8 +26,8 @@ export default function GroupCard(props) {
         </div>
 
       </div>
-      <div>
-        <div className='groupCard__footer d-flex p-3 justify-content-end'>
+      <div className='groupCard__footer d-flex justify-content-center'>
+        <div className='groupCard__footer__icons d-flex col-lg-11 p-3 justify-content-between'>
           <BsEye />
           <BsTrash />
         </div>
