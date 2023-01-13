@@ -5,6 +5,12 @@
     border-radius: .5rem;
     color: $text-darkblue;
 
+    &__circle {
+        height: 6rem;
+        width: 6rem;
+        margin: 0rem; //para quitar el margin que tiene en css de GroupCircle
+    }
+
     &__footer {
         background-color: $bg-orange;
 
