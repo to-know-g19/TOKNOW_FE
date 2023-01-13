@@ -29,21 +29,21 @@ export default function GroupCardDisplay() {
     <>
 
       <div className='d-flex flex-column align-items-center'>
-      
+
         <div className='d-flex col-lg-12 justify-content-around'>
           <div className='col-lg-2 '>
-           
-          <ModalExample/>
+
+            <ModalExample />
           </div>
 
         </div>
-      
-      
-        <div className='d-flex col-lg-10 flex-wrap justify-content-around '>
+
+
+        <div className='d-flex col-lg-10 flex-wrap justify-content-around'>
           {grupos.map(grupo => (
             //removí el return reemplazando las llaves despues de la flecha con parentesis
-            <Link href={'/grouplist/' + grupo._id} key={grupo._id} > 
-            <GroupCard grade={grupo.grade} group={grupo.name} />
+            <Link className='col-lg-5' href={'/grouplist/' + grupo._id} key={grupo._id} >
+              <GroupCard grade={grupo.grade} group={grupo.name} />
             </Link>
           ))}
 
