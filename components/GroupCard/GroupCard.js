@@ -11,7 +11,8 @@ export default function GroupCard(props) {
       <div className='d-flex m-4'>
 
         <div className='col-lg-6 d-flex justify-content-center'>
-          <div className='groupInfo'>
+        {/* CAMBIAR NOMBRE DE CLASE Y agregar estilo para crecer en card sin afectar ventana registergrupos*/}
+          <div className='groupInfo'> 
             <p>{props.grade}</p>
             <p>{props.group}</p>
           </div>
