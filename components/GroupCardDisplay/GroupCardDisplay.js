@@ -35,9 +35,7 @@ export default function GroupCardDisplay() {
            
           <ModalExample/>
           </div>
-          <div className='col-lg-1'>
-            <Link className='col-lg-12' href='/teachers'><button className='col-12'>Profesores</button></Link>
-          </div>
+
         </div>
       
       
