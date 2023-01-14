@@ -108,10 +108,9 @@ export default function FormStudent() {
                         {/* hay que ver cómo vamos a implementar la fecha */}
                         <div className="form-floating mb-3">
                             <input
-                                type='date'
+                                type='Date'
                                 name='dateOfBirth'
                                 className="form-control"
-                                placeholder='Ej. 24011996'
                                 {...register("dateOfBirth")} ></input>
                             <label>Fecha nacimiento</label>
                         </div>
