@@ -58,14 +58,14 @@ export default function GroupDetail() {
                                         <h4>Profesores</h4>
                                     </div>
                                     <Link href="/grouplist/[groupId]/addteacher"
-                                        as={`/grouplist/${groupId}/addteacher`}><h4><AiFillPlusCircle /></h4></Link>
+                                        as={`/grouplist/${groupId}/addteacher`} style={{ textDecoration: 'none' }}><h4><AiFillPlusCircle /></h4></Link>
                                 </div>
                             </div>
                             {(Array.isArray(teachers) && teachers.length > 0) ?
                                 teachers.map((teacher) => {
                                     return (
                                         <Link href="/grouplist/[groupId]/teacher/[teacherId]"
-                                            as={`/grouplist/${groupId}/teacher/${teacher._id}`} key={teacher._id} >
+                                            as={`/grouplist/${groupId}/teacher/${teacher._id}`} key={teacher._id} style={{ textDecoration: 'none' }} >
                                             <TeacherRectangle
                                                 key={teacher._id}
                                                 teacher={teacher}
@@ -83,14 +83,14 @@ export default function GroupDetail() {
                                         <h4>Alumnos</h4>
                                     </div>
                                     <Link href="/grouplist/[groupId]/addstudent"
-                                        as={`/grouplist/${groupId}/addstudent`}><h4><AiFillPlusCircle /></h4></Link>
+                                        as={`/grouplist/${groupId}/addstudent`} style={{ textDecoration: 'none' }}><h4><AiFillPlusCircle /></h4></Link>
                                 </div>
                             </div>
                             {(Array.isArray(students) && students.length > 0) ?
                                 students.map(student => {
                                     return (
                                         <Link href="/grouplist/[groupId]/student/[studentId]"
-                                            as={`/grouplist/${groupId}/student/${student._id}`} key={student._id} >
+                                            as={`/grouplist/${groupId}/student/${student._id}`} key={student._id} style={{ textDecoration: 'none' }} >
                                             <TeacherRectangle
                                                 key={student._id}
                                                 teacher={student} />

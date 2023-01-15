@@ -46,7 +46,7 @@ export default function GroupCardDisplay() {
         <div className='d-flex col-lg-10 flex-wrap justify-content-around'>
           {grupos.map(grupo => (
             //removí el return reemplazando las llaves despues de la flecha con parentesis
-            <Link className='col-lg-5' href={'/grouplist/' + grupo._id} key={grupo._id} >
+            <Link className='col-lg-5' href={'/grouplist/' + grupo._id} key={grupo._id} style={{ textDecoration: 'none' }} >
               <GroupCard grade={grupo.grade} group={grupo.name} />
             </Link>
           ))}
