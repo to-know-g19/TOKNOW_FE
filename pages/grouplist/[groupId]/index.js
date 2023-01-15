@@ -54,7 +54,7 @@ export default function GroupDetail() {
                             <div className='d-flex col-lg-8' >
                                 <div className='d-flex col-lg-6 justify-content-between'>
                                     <div className='d-flex col-lg-9 justify-content-between'>
-                                        <h4 className='user-circle user-circle__teacher'><FaUserCircle /></h4>
+                                        <h4><FaUserCircle className='user-circle user-circle__teacher'/></h4>
                                         <h4>Profesores</h4>
                                     </div>
                                     <Link href="/grouplist/[groupId]/addteacher"
@@ -79,7 +79,7 @@ export default function GroupDetail() {
                             <div className='d-flex col-lg-8' >
                                 <div className='d-flex col-lg-6 justify-content-between'>
                                     <div className='d-flex col-lg-9 justify-content-between'>
-                                        <h4 className='user-circle user-circle__student'><FaUserCircle /></h4>
+                                        <h4><FaUserCircle className='user-circle user-circle__student' /></h4>
                                         <h4>Alumnos</h4>
                                     </div>
                                     <Link href="/grouplist/[groupId]/addstudent"

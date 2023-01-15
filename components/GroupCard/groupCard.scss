@@ -11,6 +11,16 @@
         margin: 0rem; //para quitar el margin que tiene en css de GroupCircle
     }
 
+    &__user{
+        height: 2.2rem;
+        width: 2.2rem;
+        &__teacher{
+            color: $darkblue;
+        }
+        &__student{
+            color: $primary-color;
+        }
+    }
     &__footer {
         background-color: $bg-orange;
 

@@ -20,11 +20,11 @@ export default function GroupCard(props) {
 
         <div className='col-lg-6 d-flex flex-column align-items-center justify-content-around'>
           <div>
-            <FaUserCircle className='user-circle user-circle__teacher' />
+            <FaUserCircle className='groupCard__user groupCard__user__teacher' />
             Profesor
           </div>
           <div>
-            <FaUserCircle className='user-circle user-circle__teacher'/>
+            <FaUserCircle className='groupCard__user groupCard__user__student'/>
             Alumnos
           </div>
         </div>
