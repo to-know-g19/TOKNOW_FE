@@ -1,17 +1,22 @@
 @import '../../styles/globals.scss';
 
 .teacherInfo {
-    // height: 4rem;
-    width: 26rem;
+    height: 4rem;
+    width: 24rem;
     margin: 1rem;
     border-radius: 0.5rem;
     border-style:ridge;
 
     &__wrapper {
-        display: flex;
-        flex-direction: column;
+        // display: flex;
+        // flex-direction: column;
         padding: .5rem;
         color: $text-darkblue;
-        margin-left: 2rem;
+        margin-left: .4rem;
+    }
+    &__userCircle{
+        height:2.8rem;
+        width:2.8rem;
+        color: #CEE6F6;
     }
 }
