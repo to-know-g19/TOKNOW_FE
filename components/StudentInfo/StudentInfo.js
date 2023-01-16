@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function StudentInfo({student}) {
-    const {name, lastNameA,  lastNameB, matricula, dateOfBirth } = student 
+    const {name, lastNameA,  lastNameB, matricula, dateOfBirth } = student
     return (
 
         <div className='d-flex justify-content-center col-12  '>

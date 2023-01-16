@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-
 import Layout from '../../../../components/Layout'
-import TeacherInfo from '../../../../components/TeacherInfo/TeacherInfo'
+import StudentInfo from '../../../../components/StudentInfo/StudentInfo'
 import ArrowGoBack from '../../../../components/ArrowGoBack/ArrowGoBack'
 
 export default function Teacher() {
@@ -45,9 +44,9 @@ export default function Teacher() {
                         />
 
                         {!!student &&
-                            <TeacherInfo
+                            <StudentInfo
                             key={student._id}
-                            teacher={student}
+                            student={student}
                             />
                         }
                     </div>
