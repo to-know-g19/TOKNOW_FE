@@ -110,7 +110,7 @@ export default function index() {
 
                     </div>
 
-                    <input className='col-4' type='submit'></input>
+                    <input className='btn-form col-4' type='submit'></input>
                 </form>
             </div>
         </Layout>

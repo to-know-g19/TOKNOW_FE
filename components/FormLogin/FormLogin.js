@@ -71,8 +71,8 @@ export default function FormLogin() {
           </div>
         </div>
         <div className='d-flex justify-content-around'>
-          <input className='col-4' type='submit'></input>
-          <Link className='col-6' href='/register'><button className='col-10'>registrate</button></Link>
+          <input className='btn-form col-4' type='submit'></input>
+          <Link className='col-6' href='/register'><button className='btn-form col-10'>registrate</button></Link>
         </div>
       </form>
     </div>
