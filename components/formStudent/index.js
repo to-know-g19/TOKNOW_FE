@@ -2,7 +2,6 @@ import React from 'react'
 import { useForm } from "react-hook-form"
 import 'bootstrap/dist/css/bootstrap.css'
 import { useRouter } from 'next/router'
-import Link from 'next/link'
 import ArrowGoBack from '../ArrowGoBack/ArrowGoBack'
 
 export default function FormStudent() {
@@ -134,7 +133,7 @@ export default function FormStudent() {
                 </div>
 
                 <div className='d-flex col-lg-4 justify-content-around'>
-                    <input className='btn col-12' type='submit'></input>
+                    <button className='btn-form' type='submit'> Registrar </button>
                 </div>
 
             </form>
