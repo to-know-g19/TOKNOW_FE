@@ -12,7 +12,7 @@ export default function registerschool() {
 
     const onSubmit = async data => {
         const token = localStorage.getItem('token')
-        let result = await fetch('https://api.2know.today/school', {
+        let result = await fetch('https://api.toknow.online/school', {
             method: 'POST',
             mode: 'cors',
             headers: {
