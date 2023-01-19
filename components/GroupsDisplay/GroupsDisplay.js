@@ -11,7 +11,7 @@ export default function GroupsDisplay() {
 
     useEffect(() => {
         const token = localStorage.getItem('token')
-        fetch('https://api.2know.today/group',{
+        fetch('https://api.toknow.online/group',{
         mode: 'cors',
         headers: {
             'Content-type': 'application/json',
