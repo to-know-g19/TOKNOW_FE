@@ -11,7 +11,7 @@ export default function FormGroup() {
 
     const onSubmit = async data => {
         const token = localStorage.getItem('token')
-        let result = await fetch('https://api.2know.today/group', {
+        let result = await fetch('https://api.toknow.online/group', {
             method: 'POST',
             mode: 'cors',
             headers: {
@@ -98,7 +98,7 @@ export default function FormGroup() {
                     </div>
                 </div>
                 <div className='col-lg-2'>
-                    <Link className='col-lg-12' href='/grouplist'><button className='btn-form col-12'>continuar</button></Link>
+                    <Link className='col-lg-12' href='/grouplist'><button className='btn-form col-12'>Continuar</button></Link>
                 </div>
             </form>
         </div>
