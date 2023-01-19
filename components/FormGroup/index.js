@@ -94,11 +94,11 @@ export default function FormGroup() {
                         </div>
                     </div>
                     <div className='d-flex col-lg-2 align-items-end'>
-                        <input className='btn-form col-12' type='submit'></input>
+                        <button className='btn-form col-12' type='submit'>Registrar</button>
                     </div>
                 </div>
                 <div className='col-lg-2'>
-                    <Link className='col-lg-12' href='/grouplist'><button className='btn-form col-12'>guardar</button></Link>
+                    <Link className='col-lg-12' href='/grouplist'><button className='btn-form col-12'>continuar</button></Link>
                 </div>
             </form>
         </div>

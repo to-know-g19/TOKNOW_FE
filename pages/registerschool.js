@@ -171,7 +171,7 @@ export default function registerschool() {
 
                     </div>
                     <div className='d-flex col-lg-4 justify-content-around'>
-                        <input className='btn-form col-12' type='submit'></input>
+                        <button className='btn-form col-5' type='submit'>Registrar escuela</button>
 
                     </div>
                 </form>
