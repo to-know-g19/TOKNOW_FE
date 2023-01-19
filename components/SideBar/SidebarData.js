@@ -1,8 +1,9 @@
 import React from 'react'
-import { IoIosBackspace } from "react-icons/io";
 import { AiFillHome } from "react-icons/ai";
 import { RiFolderUserFill} from "react-icons/ri";
-import { MdGroups } from "react-icons/md";
+import { FaChalkboardTeacher } from "react-icons/fa";
+import { HiUserGroup } from "react-icons/hi";
+import { RiParentFill } from "react-icons/ri";
 
 
 export const SidebarData = [
@@ -21,7 +22,19 @@ export const SidebarData = [
   {
     title: 'Profesores',
     path: '/teachers',
-    icon: <MdGroups/>,
+    icon: <FaChalkboardTeacher/>,
+    className: 'nav-text',
+  },
+  {
+    title: 'Alumnos',
+    path: '/students',
+    icon: <HiUserGroup/>,
+    className: 'nav-text',
+  },
+  {
+    title: 'Padres',
+    path: '/students',
+    icon: <RiParentFill/>,
     className: 'nav-text',
   },
 ]

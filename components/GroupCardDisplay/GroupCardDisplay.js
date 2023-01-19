@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react'
 import GroupCard from '../GroupCard/GroupCard'
 import Link from 'next/link'
 import ModalExample from '../GroupModal/GroupModal'
+import { BsArrowLeftCircle } from 'react-icons/bs';
+import { FiArrowLeftCircle } from 'react-icons/fi';
+import { HiOutlineArrowCircleLeft } from 'react-icons/hi';
+import ArrowGoBack from '../ArrowGoBack/ArrowGoBack';
 
 export default function GroupCardDisplay() {
   const [grupos, setGrupos] = useState([])
@@ -29,23 +33,21 @@ export default function GroupCardDisplay() {
     <>
 
       <div className='d-flex flex-column align-items-center'>
-      
+
         <div className='d-flex col-lg-12 justify-content-around'>
-          <div className='col-lg-2 '>
-           
-          <ModalExample/>
-          </div>
-          <div className='col-lg-1'>
-            <Link className='col-lg-12' href='/teachers'><button className='col-12'>Profesores</button></Link>
-          </div>
+
+          <ArrowGoBack
+          btnTxtModal={<ModalExample/>}
+          route={'/registergroup'}/>
+
         </div>
-      
-      
-        <div className='d-flex col-lg-10 flex-wrap justify-content-around '>
+
+
+        <div className='d-flex col-lg-10 flex-wrap justify-content-around'>
           {grupos.map(grupo => (
             //removí el return reemplazando las llaves despues de la flecha con parentesis
-            <Link href={'/grouplist/' + grupo._id} key={grupo._id} > 
-            <GroupCard grade={grupo.grade} group={grupo.name} />
+            <Link className='col-lg-5' href={'/grouplist/' + grupo._id} key={grupo._id} style={{ textDecoration: 'none' }} >
+              <GroupCard grade={grupo.grade} group={grupo.name} />
             </Link>
           ))}
 

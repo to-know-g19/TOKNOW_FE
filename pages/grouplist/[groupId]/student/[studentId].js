@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-
 import Layout from '../../../../components/Layout'
-import TeacherInfo from '../../../../components/TeacherInfo/TeacherInfo'
+import StudentInfo from '../../../../components/StudentInfo/StudentInfo'
+import ArrowGoBack from '../../../../components/ArrowGoBack/ArrowGoBack'
 
 export default function Teacher() {
     const router = useRouter()
@@ -38,14 +38,15 @@ export default function Teacher() {
             <Layout>
                 <div className='d-flex'>
                     <div className='d-flex flex-column col-lg-12 align-items-center'>
-                        <div className='d-flex col-lg-8'>
-                            <h4>Datos del alumno</h4>
-                        </div>
+                        <ArrowGoBack
+                        btnTxtModal={<h4>Datos del alumno</h4>}
+                        route={`/grouplist/${groupId}`}
+                        />
 
                         {!!student &&
-                            <TeacherInfo
+                            <StudentInfo
                             key={student._id}
-                            teacher={student}
+                            student={student}
                             />
                         }
                     </div>

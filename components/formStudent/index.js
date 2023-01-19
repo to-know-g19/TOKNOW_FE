@@ -2,7 +2,7 @@ import React from 'react'
 import { useForm } from "react-hook-form"
 import 'bootstrap/dist/css/bootstrap.css'
 import { useRouter } from 'next/router'
-import Link from 'next/link'
+import ArrowGoBack from '../ArrowGoBack/ArrowGoBack'
 
 export default function FormStudent() {
     const { register, handleSubmit, formState: { errors } } = useForm()
@@ -39,8 +39,10 @@ export default function FormStudent() {
 
     return (
 
-        <div className='d-flex col-12 justify-content-center '>
-
+        <div className='d-flex flex-column align-items-center col-12 justify-content-center '>
+            <ArrowGoBack
+            btnTxtModal={<h4>Datos del alumno</h4>}
+            route={`/grouplist/${groupId}`}/>
             <form onSubmit={handleSubmit(onSubmit)} className='d-flex mt-3 col-10 flex-column align-items-center justify-content-center'>
                 <div className='col-10 d-flex flex-wrap justify-content-around'>
 
@@ -105,10 +107,9 @@ export default function FormStudent() {
                         {/* hay que ver cómo vamos a implementar la fecha */}
                         <div className="form-floating mb-3">
                             <input
-                                type='date'
+                                type='Date'
                                 name='dateOfBirth'
                                 className="form-control"
-                                placeholder='Ej. 24011996'
                                 {...register("dateOfBirth")} ></input>
                             <label>Fecha nacimiento</label>
                         </div>
@@ -132,7 +133,7 @@ export default function FormStudent() {
                 </div>
 
                 <div className='d-flex col-lg-4 justify-content-around'>
-                    <input className='btn col-12' type='submit'></input>
+                    <button className='btn-form' type='submit'> Registrar </button>
                 </div>
 
             </form>

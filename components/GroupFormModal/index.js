@@ -95,7 +95,7 @@ export default function GroupFormModal() {
                     </div>
                     <div className='d-flex col-lg-8 justify-content-end'>
                         <div className='d-flex mt-4 col-lg-4 align-items-end'>
-                            <input className='sendBtn col-12' type='submit' ></input>
+                            <button className='btn-form col-12' type='submit'>Registrar</button>
                         </div>
                     </div>
                 </div>

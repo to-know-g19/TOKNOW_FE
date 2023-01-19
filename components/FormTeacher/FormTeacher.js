@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form"
 import 'bootstrap/dist/css/bootstrap.css'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import ArrowGoBack from '../ArrowGoBack/ArrowGoBack'
 
 export default function FormTeacher() {
     const { register, handleSubmit, formState: { errors } } = useForm()
@@ -39,10 +40,10 @@ export default function FormTeacher() {
 
     return (
 
-        <div className='d-flex col-12  '>
-            <div className='col-lg-1 '>
-                <Link className='col-lg-12' href='/teachers'><button className='col-12'>profesores</button></Link>
-            </div>
+        <div className='d-flex flex-column align-items-center col-12 justify-content-center '>
+            <ArrowGoBack
+                btnTxtModal={<h4>Datos del profesor</h4>}
+                route={`/grouplist/${groupId}`} />
             <form onSubmit={handleSubmit(onSubmit)} className='d-flex mt-3 col-10 flex-column align-items-center justify-content-center'>
                 <div className='col-10 d-flex flex-wrap justify-content-around'>
 
@@ -67,7 +68,7 @@ export default function FormTeacher() {
                                 name='email'
                                 className="form-control"
                                 placeholder='Correo'
-                                {...register("email", { required: true})} ></input>
+                                {...register("email", { required: true })} ></input>
                             {errors.email && errors.email.type === "required" && <span className='text-danger'>*El campo es requerido</span>}
                             <label>Correo</label>
                         </div>
@@ -197,7 +198,7 @@ export default function FormTeacher() {
                 </div>
 
                 <div className='d-flex col-lg-4 justify-content-around'>
-                    <input className='btn col-12' type='submit'></input>
+                    <button className='btn-form' type='submit'>Registrar</button>
                 </div>
 
             </form>
