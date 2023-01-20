@@ -12,7 +12,7 @@ export default function registerschool() {
 
     const onSubmit = async data => {
         const token = localStorage.getItem('token')
-        let result = await fetch('https://api.2know.today/school', {
+        let result = await fetch('https://api.toknow.online/school', {
             method: 'POST',
             mode: 'cors',
             headers: {
@@ -29,7 +29,7 @@ export default function registerschool() {
         console.log(schoolInfo)
         // agregar estado de success o fail de peticion
         if (schoolInfo.success === true) {
-            window.alert(router.push("/registergroup"))
+            router.push("/registergroup")
         } else {
             (window.alert("Hubo un problema al envíar la información"))
         }

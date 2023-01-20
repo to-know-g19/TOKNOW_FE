@@ -13,7 +13,7 @@ export default function FormStudent() {
     const onSubmit = async data => {
 
         const token = localStorage.getItem('token')
-        let result = await fetch('https://api.2know.today/student', {
+        let result = await fetch('https://api.toknow.online/student', {
             method: 'POST',
             mode: 'cors',
             headers: {

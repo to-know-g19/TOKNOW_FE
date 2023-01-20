@@ -11,7 +11,7 @@ export default function GroupFormModal() {
 
     const onSubmit = async data => {
         const token = localStorage.getItem('token')
-        let result = await fetch('https://api.2know.today/group', {
+        let result = await fetch('https://api.toknow.online/group', {
             method: 'POST',
             mode: 'cors',
             headers: {

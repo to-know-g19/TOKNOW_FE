@@ -12,7 +12,7 @@ export default function FormLogin() {
 
   const onSubmit = async data => {
     // data.preventDefault(data)
-    let result = await fetch('https://api.2know.today/login', {
+    let result = await fetch('https://api.toknow.online/login', {
       method: 'POST',
       mode: 'cors',
       headers: {
