@@ -89,8 +89,8 @@ export default function GroupDetail() {
                             {(Array.isArray(students) && students.length > 0) ?
                                 students.map(student => {
                                     return (
-                                        <Link href="/grouplist/[groupId]/student/[studentId]"
-                                            as={`/grouplist/${groupId}/student/${student._id}`} key={student._id} style={{ textDecoration: 'none' }} >
+                                        <Link href="/grouplist/[groupId]/[studentId]"
+                                            as={`/grouplist/${groupId}/${student._id}`} key={student._id} style={{ textDecoration: 'none' }} >
                                             <TeacherRectangle
                                                 key={student._id}
                                                 teacher={student} />
