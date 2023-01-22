@@ -8,7 +8,9 @@ export default function FormParent() {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const router = useRouter()
 
+    const studentId = router.query.studentId
     const groupId = router.query.groupId
+   
 
     const onSubmit = async data => {
 
@@ -28,13 +30,13 @@ export default function FormParent() {
 
         console.log('info', parentInfo)
         if (parentInfo.success === true) {
-            router.push(`/grouplist/${groupId}`)
+            router.push(`/grouplist/${groupId}/${studentId}`)
         } else {
             (window.alert("Hubo un problema al envíar la información"))
         }
 
     }
-    console.log("soy el groupId en formParent", groupId)
+    console.log("soy el studentId en formParent", studentId)
 
 
     return (
@@ -42,7 +44,7 @@ export default function FormParent() {
         <div className='d-flex flex-column align-items-center col-12 justify-content-center '>
             <ArrowGoBack
                 btnTxtModal={<h4>Datos del padre</h4>}
-                route={`/grouplist/${groupId}`} />
+                route={`/grouplist/${groupId}/${studentId}`} />
             <form onSubmit={handleSubmit(onSubmit)} className='d-flex mt-3 col-10 flex-column align-items-center justify-content-center'>
                 <div className='col-10 d-flex flex-wrap justify-content-around'>
 
@@ -117,6 +119,7 @@ export default function FormParent() {
                         <div className="form-floating mb-3">
                             <input
                                 name='password'
+                                type='password'
                                 className="form-control"
                                 placeholder='Contraseña'
                                 {...register("password", { required: true, minLength: 3, maxLength: 20 })} ></input>
@@ -143,14 +146,14 @@ export default function FormParent() {
                     <div className='d-flex col-5 flex-column'>
                         <div className="form-floating mb-3">
                             <select
-                                name='groups'
+                                name='students'
                                 className="form-control form-select"
-                                {...register("groups")} >
-                                <option value={groupId}></option>
+                                {...register("students")} >
+                                <option value={studentId}></option>
 
                             </select>
-                            {errors.grade && errors.grade.type === "required" && <span className='text-danger'>*Selecciona un grado</span>}
-                            <label>aqui va el group ID</label>
+                            {errors.students && errors.students.type === "required" && <span className='text-danger'>*Selecciona un grado</span>}
+                            <label>aqui va el student ID</label>
                         </div>
                     </div>
 
