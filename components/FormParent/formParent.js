@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import { useRouter } from 'next/router'
 import ArrowGoBack from '../ArrowGoBack/ArrowGoBack'
 
-export default function FormStudent() {
+export default function FormParent() {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const router = useRouter()
 
