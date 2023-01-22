@@ -24,17 +24,17 @@ export default function FormParent() {
                 data
             )
         })
-        const teacherInfo = await result.json()
+        const parentInfo = await result.json()
 
-        console.log('info', teacherInfo)
-        if (teacherInfo.success === true) {
+        console.log('info', parentInfo)
+        if (parentInfo.success === true) {
             router.push(`/grouplist/${groupId}`)
         } else {
             (window.alert("Hubo un problema al envíar la información"))
         }
 
     }
-    console.log("soy el groupId en formStudent", groupId)
+    console.log("soy el groupId en formParent", groupId)
 
 
     return (
@@ -133,7 +133,7 @@ export default function FormParent() {
                                 name='role'
                                 className="form-control form-select"
                                 {...register("role", { required: true })} >
-                                <option value="teacher">Profesor</option>
+                                <option value="parent">Madre/Padre/Tutor</option>
                             </select>
                             {errors.grade && errors.grade.type === "required" && <span className='text-danger'>*Selecciona un rol</span>}
                             <label>Rol</label>
