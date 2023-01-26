@@ -31,8 +31,8 @@ export default function Parent() {
 
             })
     }, [router.query])
-    console.log("soy info en parents dentro del groups", parent)
-    console.log("soy el routerquery groupId", groupId)
+    console.log("soy info en parents(parentsById) dentro del groups", parent)
+    // console.log("soy el routerquery groupId", groupId)
 
     return (
         <>
@@ -47,7 +47,7 @@ export default function Parent() {
                         {!!parent &&
                             <ParentInfo
                             key={parent._id}
-                            teacher={parent}
+                            parent={parent}
                             />
                         }
                     </div>

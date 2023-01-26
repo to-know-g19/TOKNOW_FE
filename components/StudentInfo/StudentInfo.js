@@ -5,7 +5,7 @@ import TeacherRectangle from '../teacherRectangle/TeacherRectangle'
 
 export default function StudentInfo({student}) {
     const {name, lastNameA,  lastNameB, matricula, dateOfBirth } = student
-//    aquí todo el router y peticiones
+//    aquí todo el router y peticiones para la card del parent
 const router = useRouter()
 const studentId = router.query.studentId
 const groupId = router.query.groupId
@@ -29,11 +29,7 @@ useEffect(() => {
                 setParents(data.data.studentById.parents)
 
             }
-
-
             console.log("soy la data del hijo del papá", parents)
-
-            // console.log("soy la data.data.groupById.teachers", data.data.groupById.teachers)
 
         })
 }, [router.query])
@@ -108,7 +104,7 @@ useEffect(() => {
 
                 </div>
                     <div className='d-flex align-items-center justify-content-center col-5 flex-column'>
-                    {(Array.isArray(parents) && parents.length > 0) ?
+                    {(parents.length > 0) ?
                                 parents.map(parent => {
                                     return (
                                         <Link href="/grouplist/[groupId]/[studentId]/parent/[parentId]"

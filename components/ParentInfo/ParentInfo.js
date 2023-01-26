@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ParentInfo(parent) {
+export default function ParentInfo({parent}) {
     const {name, email, lastNameA, phone, lastNameB } = parent 
     return (
 
