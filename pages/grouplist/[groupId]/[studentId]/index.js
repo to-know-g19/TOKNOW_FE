@@ -25,12 +25,12 @@ export default function Teacher() {
                     setStudent(data.data.studentById)
                 }
 
-                console.log("soy la data.data", data.data)
-                // console.log("soy la data.data.groupById.teachers", data.data.groupById.teachers)
+                // console.log("soy la data.data", data.data)
+               
 
             })
     }, [router.query])
-    console.log("soy la info en el student", student)
+    // console.log("soy la info en el student", student)
 
     return (
         <>

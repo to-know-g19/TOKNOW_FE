@@ -12,7 +12,7 @@ export default function Parent() {
     useEffect(() => {
 
         const token = localStorage.getItem('token')
-        fetch(`https://api.2know.today/parent/${parentId}`, {
+        fetch(`https://api.toknow.online/parent/${parentId}`, {
             mode: 'cors',
             headers: {
                 'Content-type': 'application/json',

@@ -1,7 +1,39 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 
 export default function StudentInfo({student}) {
     const {name, lastNameA,  lastNameB, matricula, dateOfBirth } = student
+//    aquí todo el router y peticiones
+const router = useRouter()
+const studentId = router.query.studentId
+const [parents, setParents] = useState([])
+
+useEffect(() => {
+
+    const token = localStorage.getItem('token')
+    fetch(`https://api.2know.today/student/${studentId}`, {
+        mode: 'cors',
+        headers: {
+            'Content-type': 'application/json',
+            "Authorization": `Bearer ${token}`
+        },
+    })
+        .then((response) => response.json())
+        .then(data => {
+            if (data.data) {
+                
+                setParents(data.data.studentById.parents)
+
+            }
+
+
+            console.log("soy la data del hijo del papá", parents)
+
+            // console.log("soy la data.data.groupById.teachers", data.data.groupById.teachers)
+
+        })
+}, [router.query])
+   
     return (
 
         <div className='d-flex justify-content-center col-12  '>
@@ -67,6 +99,8 @@ export default function StudentInfo({student}) {
                             <label>Fecha nacimiento</label>
                         </div>
                     </div>
+
+                    {/* link al parent */}
 
                 </div>
             </form>
