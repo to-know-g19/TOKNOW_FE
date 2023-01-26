@@ -1,28 +1,29 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import Layout from '../../../../components/Layout'
-import StudentInfo from '../../../../components/StudentInfo/StudentInfo'
-import ArrowGoBack from '../../../../components/ArrowGoBack/ArrowGoBack'
+import Layout from '../../../../../../components/Layout'
+import ParentInfo from '../../../../../../components/ParentInfo/ParentInfo'
+import ArrowGoBack from '../../../../../../components/ArrowGoBack/ArrowGoBack'
 
-export default function Teacher() {
+export default function Parent() {
     const router = useRouter()
-    const { groupId, studentId } = router.query
-    const [student, setStudent] = useState({})
+    const { groupId, studentId, parentId } = router.query
+    const [parent, setParent] = useState({})
 
     useEffect(() => {
 
         const token = localStorage.getItem('token')
-        fetch(`https://api.2know.today/student/${studentId}`, {
+        fetch(`https://api.toknow.online/parent/${parentId}`, {
             mode: 'cors',
             headers: {
                 'Content-type': 'application/json',
                 "Authorization": `Bearer ${token}`
             },
         })
+        
             .then((response) => response.json())
             .then(data => {
                 if (data.data) {
-                    setStudent(data.data.studentById)
+                    setParent(data.data.parentById)
                 }
 
                 console.log("soy la data.data", data.data)
@@ -30,7 +31,8 @@ export default function Teacher() {
 
             })
     }, [router.query])
-    console.log("soy la info en el student", student)
+    console.log("soy info en parents(parentsById) dentro del groups", parent)
+    // console.log("soy el routerquery groupId", groupId)
 
     return (
         <>
@@ -39,14 +41,13 @@ export default function Teacher() {
                 <div className='d-flex'>
                     <div className='d-flex flex-column col-lg-12 align-items-center'>
                         <ArrowGoBack
-                        btnTxtModal={<h4>Datos del alumno</h4>}
-                        route={`/grouplist/${groupId}`}
-                        />
+                        btnTxtModal={<h4>Datos de Madre/Padre/Tutor</h4>}
+                        route={`/grouplist/${groupId}/${studentId}`}/>
 
-                        {!!student &&
-                            <StudentInfo
-                            key={student._id}
-                            student={student}
+                        {!!parent &&
+                            <ParentInfo
+                            key={parent._id}
+                            parent={parent}
                             />
                         }
                     </div>
