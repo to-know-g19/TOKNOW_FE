@@ -41,7 +41,7 @@ export default function Parent() {
                 <div className='d-flex'>
                     <div className='d-flex flex-column col-lg-12 align-items-center'>
                         <ArrowGoBack
-                        btnTxtModal={<h4>Datos del padre</h4>}
+                        btnTxtModal={<h4>Datos de Madre/Padre/Tutor</h4>}
                         route={`/grouplist/${groupId}/${studentId}`}/>
 
                         {!!parent &&
