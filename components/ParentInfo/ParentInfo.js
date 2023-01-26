@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function ParentInfo({parent}) {
-    const {name, email, lastNameA, phone, lastNameB } = parent 
+export default function ParentInfo({ parent }) {
+    const { name, email, lastNameA, phone, lastNameB } = parent
     return (
 
         <div className='d-flex justify-content-center col-12  '>
@@ -15,9 +15,33 @@ export default function ParentInfo({parent}) {
                                 name='name'
                                 className="form-control"
                                 placeholder='Nombre'
-                                 >{name}</span>
-                           
+                            >{name}</span>
+
                             <label>Nombre</label>
+                        </div>
+                    </div>
+
+                    <div className='d-flex col-5 flex-column'>
+                        <div className="form-floating mb-3">
+                            <span
+                                name='lastNameA'
+                                className="form-control"
+                                placeholder='Apellido Paterno'
+                            >{lastNameA}</span>
+
+                            <label>Apellido Paterno</label>
+                        </div>
+                    </div>
+
+                    <div className='d-flex col-5 flex-column'>
+                        <div className="form-floating mb-3">
+                            <span
+                                name='lastNameB'
+                                className="form-control"
+                                placeholder='Apellido Materno'
+                            >{lastNameB}</span>
+
+                            <label>Apellido Materno</label>
                         </div>
                     </div>
 
@@ -28,21 +52,9 @@ export default function ParentInfo({parent}) {
                                 name='email'
                                 className="form-control"
                                 placeholder='Correo'
-                                >{email}</span>
-                            
-                            <label>Correo</label>
-                        </div>
-                    </div>
+                            >{email}</span>
 
-                    <div className='d-flex col-5 flex-column'>
-                        <div className="form-floating mb-3">
-                            <span
-                                name='lastNameA'
-                                className="form-control"
-                                placeholder='Apellido Paterno'
-                                >{lastNameA}</span>
-                            
-                            <label>Apellido Paterno</label>
+                            <label>Correo</label>
                         </div>
                     </div>
 
@@ -53,23 +65,11 @@ export default function ParentInfo({parent}) {
                                 name='phone'
                                 className="form-control"
                                 placeholder='Teléfono'
-                                >{phone}</span>
+                            >{phone}</span>
                             <label>Teléfono</label>
                         </div>
                     </div>
 
-                    <div className='d-flex col-5 flex-column'>
-                        <div className="form-floating mb-3">
-                            <span
-                                name='lastNameB'
-                                className="form-control"
-                                placeholder='Apellido Materno'
-                                >{lastNameB}</span>
-                            
-                            <label>Apellido Materno</label>
-                        </div>
-                    </div>
-                    
                 </div>
 
             </form>
