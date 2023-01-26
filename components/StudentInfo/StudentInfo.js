@@ -8,6 +8,8 @@ export default function StudentInfo({student}) {
 //    aquí todo el router y peticiones
 const router = useRouter()
 const studentId = router.query.studentId
+const groupId = router.query.groupId
+
 const [parents, setParents] = useState([])
 
 useEffect(() => {
@@ -109,12 +111,12 @@ useEffect(() => {
                     {(Array.isArray(parents) && parents.length > 0) ?
                                 parents.map(parent => {
                                     return (
-                                        // <Link href="/grouplist/[groupId]/[studentId]"
-                                        //     as={`/grouplist/${groupId}/${parent._id}`} key={parent._id} style={{ textDecoration: 'none' }} >
+                                        <Link href="/grouplist/[groupId]/[studentId]/parent/[parentId]"
+                                            as={`/grouplist/${groupId}/${studentId}/parent/${parent._id}`} key={parent._id} style={{ textDecoration: 'none' }} >
                                             <TeacherRectangle
                                                 key={parent._id}
                                                 teacher={parent} />
-                                        // </Link>
+                                        </Link>
                                     )
                                 }) : <p>Aún NO HAY padres BOTÓN AL FORM</p>
                             }
