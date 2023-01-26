@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
+import TeacherRectangle from '../teacherRectangle/TeacherRectangle'
 
 export default function StudentInfo({student}) {
     const {name, lastNameA,  lastNameB, matricula, dateOfBirth } = student
@@ -103,6 +105,20 @@ useEffect(() => {
                     {/* link al parent */}
 
                 </div>
+                    <div className='d-flex align-items-center justify-content-center col-5 flex-column'>
+                    {(Array.isArray(parents) && parents.length > 0) ?
+                                parents.map(parent => {
+                                    return (
+                                        // <Link href="/grouplist/[groupId]/[studentId]"
+                                        //     as={`/grouplist/${groupId}/${parent._id}`} key={parent._id} style={{ textDecoration: 'none' }} >
+                                            <TeacherRectangle
+                                                key={parent._id}
+                                                teacher={parent} />
+                                        // </Link>
+                                    )
+                                }) : <p>Aún NO HAY padres BOTÓN AL FORM</p>
+                            }
+                    </div>
             </form>
         </div>
     )
