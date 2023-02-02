@@ -11,29 +11,47 @@ export default function FormLogin() {
 
 
   const onSubmit = async data => {
-    // data.preventDefault(data)
+    // Login request
     let result = await fetch('https://api.toknow.online/login', {
       method: 'POST',
       mode: 'cors',
       headers: {
         'Content-type': 'application/json',
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify({ ...data, role: "admin" })
     })
     const response = await result.json()
-
+    console.log("i am the response", response)
     const token = response.token
-    //poner en local storage
+    //poner en local storage 
     localStorage.setItem("token", token)
+
+    // Fetch array of users data request
+    let usersResult = await fetch(`https://api.toknow.online/user`, {
+      method: 'GET',
+      mode: 'cors',
+      headers: {
+        'Authorization': `Bearer ${token}`
+      },
+    })
+    const usersData = await usersResult.json()
+    console.log("user data", usersData)
+
+    // Check if user has school data
+    const user = usersData.data.userAll.find(user => user.email === data.email);
     if (!token) {
       window.alert('El correo o contraseña que has introducido es incorrecto.')
-    } else {
-      //redireccionar
-      router.push("/registerschool")
     }
+    else {
+      if (user && user.school) {
+        router.push("/grouplist");
+      } else {
+        router.push("/registerschool");
+      }
+    }
+
   }
-
-
+  //necesito acceder al usuario por medio del correo al que estoy proporcionando para ver si tiene school.
 
   return (
     <div className='d-flex col-12 '>
