@@ -15,7 +15,7 @@ export default function StudentInfo({ student }) {
     useEffect(() => {
 
         const token = localStorage.getItem('token')
-        fetch(`https://api.2know.today/student/${studentId}`, {
+        fetch(`https://api.toknow.online/student/${studentId}`, {
             mode: 'cors',
             headers: {
                 'Content-type': 'application/json',
@@ -119,7 +119,7 @@ export default function StudentInfo({ student }) {
                             <p>Aún no hay un tutor registrado.  </p>
                             <p><Link href="/grouplist/[groupId]/[studentId]/parent/addparent" 
                             as={`/grouplist/${groupId}/${studentId}/parent/addparent`}>
-                                Registrar </Link> </p>
+                                Clic para registrar </Link> </p>
                         </div>
                     }
                 </div>

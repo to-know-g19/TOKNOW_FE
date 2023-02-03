@@ -12,7 +12,7 @@ export default function Teacher() {
     useEffect(() => {
 
         const token = localStorage.getItem('token')
-        fetch(`https://api.2know.today/teacher/${teacherId}`, {
+        fetch(`https://api.toknow.online/teacher/${teacherId}`, {
             mode: 'cors',
             headers: {
                 'Content-type': 'application/json',
