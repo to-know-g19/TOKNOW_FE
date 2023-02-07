@@ -23,7 +23,12 @@ export default function GroupsDisplay() {
                 console.log("soy data", data);
                 const schools = data.data.schools;
                 console.log("soy schools", schools);
-
+                schools.forEach(school => {
+                    if (school.user._id === userId) {
+                        setGrupos(school.groups);
+                        console.log("Grupos: ", school.groups);
+                    }
+                });
             });
     }, []);
     
