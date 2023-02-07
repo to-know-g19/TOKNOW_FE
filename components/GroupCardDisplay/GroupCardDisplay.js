@@ -8,25 +8,34 @@ import { HiOutlineArrowCircleLeft } from 'react-icons/hi';
 import ArrowGoBack from '../ArrowGoBack/ArrowGoBack';
 
 export default function GroupCardDisplay() {
-  const [grupos, setGrupos] = useState([])
+  const [grupos, setGrupos] = useState([]);
 
   useEffect(() => {
-    const token = localStorage.getItem('token')
-    fetch('https://api.toknow.online/group', {
-      mode: 'cors',
-      headers: {
-        'Content-type': 'application/json',
-        "Authorization": `Bearer ${token}`
-      },
-    }
-    )
-      .then((response) => response.json())
-      .then(data => {
-        setGrupos(data.data.groups)
-        //da error cuando se trata de entrar y no hay token en localStorage
-        console.log("Grupos: ", data.data.groups)
+      const token = localStorage.getItem("token");
+      const userData = JSON.parse(atob(token.split(".")[1]));
+      const userId = userData.id;
+      console.log('user id', userId)
+  
+      fetch(`https://api.toknow.online/school`, {
+          mode: "cors",
+          headers: {
+              "Content-type": "application/json",
+              "Authorization": `Bearer ${token}`
+          }
       })
-  }, [])
+          .then(response => response.json())
+          .then(data => {
+              console.log("soy data", data);
+              const schools = data.data.schools;
+              console.log("soy schools", schools);
+              schools.forEach(school => {
+                  if (school.user._id === userId) {
+                      setGrupos(school.groups);
+                      console.log("Grupos: ", school.groups);
+                  }
+              });
+          });
+  }, []);
 
 
   return (
