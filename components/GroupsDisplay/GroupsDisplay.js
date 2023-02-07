@@ -7,6 +7,9 @@ export default function GroupsDisplay() {
 
     useEffect(() => {
         const token = localStorage.getItem("token");
+        const userData = JSON.parse(atob(token.split(".")[1]));
+        const userId = userData.id;
+        console.log('user id', userId)
     
         fetch(`https://api.toknow.online/school`, {
             mode: "cors",
