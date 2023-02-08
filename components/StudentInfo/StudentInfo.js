@@ -56,6 +56,17 @@ export default function StudentInfo({ student }) {
                     <div className='d-flex col-5 flex-column'>
                         <div className="form-floating mb-3">
                             <span
+                                name='matricula'
+                                className="form-control"
+                                placeholder='Matrícula'
+                            >{matricula}</span>
+                            <label>Matrícula</label>
+                        </div>
+                    </div>
+                    
+                    <div className='d-flex col-5 flex-column'>
+                        <div className="form-floating mb-3">
+                            <span
                                 name='lastNameA'
                                 className="form-control"
                                 placeholder='Apellido Paterno'
@@ -77,16 +88,6 @@ export default function StudentInfo({ student }) {
                         </div>
                     </div>
 
-                    <div className='d-flex col-5 flex-column'>
-                        <div className="form-floating mb-3">
-                            <span
-                                name='matricula'
-                                className="form-control"
-                                placeholder='Matrícula'
-                            >{matricula}</span>
-                            <label>Matrícula</label>
-                        </div>
-                    </div>
 
                     <div className='d-flex col-5 flex-column'>
                         <div className="form-floating mb-3">
