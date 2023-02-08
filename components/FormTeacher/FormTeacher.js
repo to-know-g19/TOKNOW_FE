@@ -211,7 +211,7 @@ export default function FormTeacher() {
                         </div>
                     </div>
 
-                    <div className='d-flex col-5 flex-column'>
+                    <div className='d-none d-flex col-5 flex-column'>
                         <div className="form-floating mb-3">
                             <select
                                 name='groups'
