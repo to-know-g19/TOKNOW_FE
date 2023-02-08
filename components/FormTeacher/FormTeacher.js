@@ -211,6 +211,8 @@ export default function FormTeacher() {
                         </div>
                     </div>
 
+                    {/* campo escondido con d-none pero necesario para tomar id de grupo y enviarlo
+                    en formulario del teacher */}
                     <div className='d-none d-flex col-5 flex-column'>
                         <div className="form-floating mb-3">
                             <select
@@ -220,7 +222,6 @@ export default function FormTeacher() {
                                 <option value={groupId}></option>
 
                             </select>
-                            {errors.grade && errors.grade.type === "required" && <span className='text-danger'>*Selecciona un grado</span>}
                             <label>aqui va el group ID</label>
                         </div>
                     </div>
