@@ -16,8 +16,19 @@ export default function ParentInfo({ parent }) {
                                 className="form-control"
                                 placeholder='Nombre'
                             >{name}</span>
-
                             <label>Nombre</label>
+                        </div>
+                    </div>
+
+                    <div className='d-flex col-5 flex-column'>
+                        <div className="form-floating mb-3">
+                            <span
+                                type="email"
+                                name='email'
+                                className="form-control"
+                                placeholder='Correo'
+                            >{email}</span>
+                            <label>Correo</label>
                         </div>
                     </div>
 
@@ -28,7 +39,6 @@ export default function ParentInfo({ parent }) {
                                 className="form-control"
                                 placeholder='Apellido Paterno'
                             >{lastNameA}</span>
-
                             <label>Apellido Paterno</label>
                         </div>
                     </div>
@@ -42,19 +52,6 @@ export default function ParentInfo({ parent }) {
                             >{lastNameB}</span>
 
                             <label>Apellido Materno</label>
-                        </div>
-                    </div>
-
-                    <div className='d-flex col-5 flex-column'>
-                        <div className="form-floating mb-3">
-                            <span
-                                type="email"
-                                name='email'
-                                className="form-control"
-                                placeholder='Correo'
-                            >{email}</span>
-
-                            <label>Correo</label>
                         </div>
                     </div>
 
