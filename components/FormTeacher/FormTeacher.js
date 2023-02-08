@@ -27,7 +27,22 @@ export default function FormTeacher() {
         })
         const teacherInfo = await result.json()
 
+        const resultUserTeacher = await fetch ('https://api.toknow.online/user', {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Content-type': 'application/json',
+                "Authorization": `Bearer ${token}`
+            },
+            body: JSON.stringify(
+                data
+            )
+        })
+        const userTeacher = await resultUserTeacher.json()
+
+
         console.log('info', teacherInfo)
+        console.log('USER teach', userTeacher)
         if (teacherInfo.success === true) {
             router.push(`/grouplist/${groupId}`)
         } else {
@@ -35,7 +50,7 @@ export default function FormTeacher() {
         }
 
     }
-    console.log("soy el groupId en formTeacher", groupId)
+    // console.log("soy el groupId en formTeacher", groupId)
 
 
     return (
@@ -114,7 +129,7 @@ export default function FormTeacher() {
                         </div>
                     </div>
 
-                    <div className='d-flex col-5 flex-column'>
+                    {/* <div className='d-flex col-5 flex-column'>
                         <div className="form-floating mb-3">
                             <input
                                 name='matricula'
@@ -123,12 +138,12 @@ export default function FormTeacher() {
                                 {...register("matricula")} ></input>
                             <label>Matrícula</label>
                         </div>
-                    </div>
+                    </div> */}
 
 
 
-                    <div className='d-flex col-5 flex-column'>
-                        {/* hay que ver cómo vamos a implementar la fecha */}
+                    {/* <div className='d-flex col-5 flex-column'>
+                        
                         <div className="form-floating mb-3">
                             <input
                                 type='number'
@@ -138,7 +153,7 @@ export default function FormTeacher() {
                                 {...register("dateOfBirth")} ></input>
                             <label>Fecha nacimiento</label>
                         </div>
-                    </div>
+                    </div> */}
 
                     <div className='d-flex col-5 flex-column'>
                         {/* tiene que cumplir uno de la lista en el back.*/}
@@ -157,7 +172,7 @@ export default function FormTeacher() {
                         </div>
                     </div>
 
-                    <div className='d-flex col-5 flex-column'>
+                    {/* <div className='d-flex col-5 flex-column'>
                         <div className="form-floating mb-3">
                             <input
                                 name='bio'
@@ -166,7 +181,7 @@ export default function FormTeacher() {
                                 {...register("bio")} ></input>
                             <label>Bio</label>
                         </div>
-                    </div>
+                    </div> */}
 
                     <div className='d-flex col-5 flex-column'>
                         <div className="form-floating mb-3">
@@ -178,6 +193,21 @@ export default function FormTeacher() {
                             </select>
                             {errors.grade && errors.grade.type === "required" && <span className='text-danger'>*Selecciona un rol</span>}
                             <label>Rol</label>
+                        </div>
+                    </div>
+
+                    <div className='d-flex col-5 flex-column'>
+                        <div className="form-floating mb-3">
+                            <input
+                                name='password'
+                                type='password'
+                                className="form-control"
+                                placeholder='Contraseña'
+                                {...register("password", { required: true, minLength: 3, maxLength: 20 })} ></input>
+                            {errors.password && errors.password.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
+                            {errors.password && errors.password.type === "minLength" && <span className='text-danger'>*El campo requiere al menos 3 caracteres</span>}
+                            {errors.password && errors.password.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 21 caracteres</span>}
+                            <label>Contraseña</label>
                         </div>
                     </div>
 
