@@ -39,6 +39,23 @@ export default function GroupCardDisplay() {
   const handleEyeClick = (id) => {
     router.push('/grouplist/' + id)
   };
+  const handleTrashClick = (id) => {
+    const token = localStorage.getItem("token");
+    fetch(`https://api.toknow.online/group/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json",
+        "Authorization": `Bearer ${token}`
+      }
+    })
+    .then(response => {
+      console.log('response en delete group',response)
+      if (response.ok === true) 
+      {
+        window.location.reload();
+      }
+    })
+  };
 
 
 
@@ -62,7 +79,12 @@ export default function GroupCardDisplay() {
             //removí el return reemplazando las llaves despues de la flecha con parentesis
             // <Link className='col-lg-5' href={'/grouplist/' + grupo._id} key={grupo._id} style={{ textDecoration: 'none' }} >
             <div className='col-lg-5'>
-              <GroupCard key={grupo._id} grade={grupo.grade} group={grupo.name} onEyeClick={() => handleEyeClick(grupo._id)} />
+              <GroupCard 
+              key={grupo._id} 
+              grade={grupo.grade} 
+              group={grupo.name} 
+              onEyeClick={() => handleEyeClick(grupo._id)}
+              onTrashClick={() => handleTrashClick(grupo._id)} />
             </div>
           ))}
 
