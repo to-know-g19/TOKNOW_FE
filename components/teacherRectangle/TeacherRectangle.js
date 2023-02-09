@@ -13,15 +13,19 @@ export default function TeacherRectangle({ teacher }) {
         <div className='d-flex col-lg-2 justify-content-center align-items-center'>
           <FaUserCircle className='teacherInfo__userCircle'/>
         </div>
-        <div className='col-lg-8'>
+        <div className='col-lg-7'>
           <div>
             <span>{` ${name} ${lastNameA} ${lastNameB} `}</span>
           </div>
           <span>{tipoProfesor}</span>
         </div>
-        <div className='teacherInfo__icons d-flex col-lg-2 align-items-center justify-content-around'>
-          <FaRegEye />
-          <BsFillTrashFill />
+        <div className='teacherInfo__icons d-flex col-lg-3 align-items-center justify-content-around'>
+        <button  className='btn btn-outline-primary'>
+            <FaRegEye />
+          </button>
+          <button  className='btn btn-outline-danger'>
+            <BsFillTrashFill />
+          </button>
         </div>
       </div>
     </div>
