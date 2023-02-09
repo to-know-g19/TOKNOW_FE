@@ -31,15 +31,17 @@ export default function GroupDetail() {
                     setStudents(data.data.groupById.students)
 
                 }
-
-
                 // console.log("soy data en pag group", data)
-
                 // console.log("soy la data.data.groupById.teachers", data.data.groupById.teachers)
 
             })
     }, [router.query])
     // console.log("info en el teachers", teachers)
+    const handleEyeClick = (groupId, userId) => {
+        router.push(`/grouplist/${groupId}/teacher/${userId}`)
+        console.log('it works')
+      };
+      
 
     return (
         <>
@@ -64,13 +66,17 @@ export default function GroupDetail() {
                             {(Array.isArray(teachers) && teachers.length > 0) ?
                                 teachers.map((teacher) => {
                                     return (
-                                        <Link href="/grouplist/[groupId]/teacher/[teacherId]"
-                                            as={`/grouplist/${groupId}/teacher/${teacher._id}`} key={teacher._id} style={{ textDecoration: 'none' }} >
+                                        // <Link href="/grouplist/[groupId]/teacher/[teacherId]"
+                                        //     as={`/grouplist/${groupId}/teacher/${teacher._id}`} key={teacher._id} style={{ textDecoration: 'none' }} >
                                             <TeacherRectangle
                                                 key={teacher._id}
-                                                teacher={teacher}
+                                                name={teacher.name}
+                                                lastNameA={teacher.lastNameA}
+                                                lastNameB={teacher.lastNameB}
+                                                tipoProfesor={teacher.tipoProfesor}
+                                                onEyeClick={() => handleEyeClick(groupId, teacher._id)}
                                             />
-                                        </Link>
+                                        // </Link>
                                     )
                                 }) : <p>No hay profesores asignados</p>
                             }
@@ -89,12 +95,17 @@ export default function GroupDetail() {
                             {(Array.isArray(students) && students.length > 0) ?
                                 students.map(student => {
                                     return (
-                                        <Link href="/grouplist/[groupId]/[studentId]"
-                                            as={`/grouplist/${groupId}/${student._id}`} key={student._id} style={{ textDecoration: 'none' }} >
+                                        // <Link href="/grouplist/[groupId]/[studentId]"
+                                        //     as={`/grouplist/${groupId}/${student._id}`} key={student._id} style={{ textDecoration: 'none' }} >
                                             <TeacherRectangle
-                                                key={student._id}
-                                                teacher={student} />
-                                        </Link>
+                                            key={student._id}
+                                            name={student.name}
+                                            lastNameA={student.lastNameA}
+                                            lastNameB={student.lastNameB}
+                                            tipoProfesor={student.tipoProfesor}
+                                            onEyeClick={() => handleEyeClick(groupId, student._id)}
+                                            />
+                                        // </Link>
                                     )
                                 }) : <p>No hay alumnos asignados</p>
                             }

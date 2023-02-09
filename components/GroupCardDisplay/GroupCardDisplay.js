@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import GroupCard from '../GroupCard/GroupCard'
-import Link from 'next/link'
 import ModalExample from '../GroupModal/GroupModal'
 import ArrowGoBack from '../ArrowGoBack/ArrowGoBack';
 import { useRouter } from 'next/router';
@@ -39,6 +38,7 @@ export default function GroupCardDisplay() {
   const handleEyeClick = (id) => {
     router.push('/grouplist/' + id)
   };
+
   const handleTrashClick = (id) => {
     const token = localStorage.getItem("token");
     fetch(`https://api.toknow.online/group/${id}`, {
@@ -48,13 +48,12 @@ export default function GroupCardDisplay() {
         "Authorization": `Bearer ${token}`
       }
     })
-    .then(response => {
-      console.log('response en delete group',response)
-      if (response.ok === true) 
-      {
-        window.location.reload();
-      }
-    })
+      .then(response => {
+        console.log('response en delete group', response)
+        if (response.ok === true) {
+          window.location.reload();
+        }
+      })
   };
 
 
@@ -79,12 +78,12 @@ export default function GroupCardDisplay() {
             //removí el return reemplazando las llaves despues de la flecha con parentesis
             // <Link className='col-lg-5' href={'/grouplist/' + grupo._id} key={grupo._id} style={{ textDecoration: 'none' }} >
             <div className='col-lg-5'>
-              <GroupCard 
-              key={grupo._id} 
-              grade={grupo.grade} 
-              group={grupo.name} 
-              onEyeClick={() => handleEyeClick(grupo._id)}
-              onTrashClick={() => handleTrashClick(grupo._id)} />
+              <GroupCard
+                key={grupo._id}
+                grade={grupo.grade}
+                group={grupo.name}
+                onEyeClick={() => handleEyeClick(grupo._id)}
+                onTrashClick={() => handleTrashClick(grupo._id)} />
             </div>
           ))}
 
