@@ -33,13 +33,13 @@ export default function GroupDetail() {
                 }
 
 
-                console.log("soy la data", data)
+                // console.log("soy data en pag group", data)
 
                 // console.log("soy la data.data.groupById.teachers", data.data.groupById.teachers)
 
             })
     }, [router.query])
-    console.log("info en el teachers", teachers)
+    // console.log("info en el teachers", teachers)
 
     return (
         <>

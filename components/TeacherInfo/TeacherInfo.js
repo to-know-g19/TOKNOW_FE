@@ -70,7 +70,7 @@ export default function TeacherInfo({teacher}) {
                         </div>
                     </div>
 
-                    <div className='d-flex col-5 flex-column'>
+                    {/* <div className='d-flex col-5 flex-column'>
                         <div className="form-floating mb-3">
                             <span
                                 name='matricula'
@@ -79,12 +79,12 @@ export default function TeacherInfo({teacher}) {
                                 >{matricula}</span>
                             <label>Matrícula</label>
                         </div>
-                    </div>
+                    </div> */}
 
 
 
-                    <div className='d-flex col-5 flex-column'>
-                        {/* hay que ver cómo vamos a implementar la fecha */}
+                    {/* <div className='d-flex col-5 flex-column'>
+                     
                         <div className="form-floating mb-3">
                             <span
                                 type='number'
@@ -94,7 +94,7 @@ export default function TeacherInfo({teacher}) {
                                 >{dateOfBirth}</span>
                             <label>Fecha nacimiento</label>
                         </div>
-                    </div>
+                    </div> */}
 
                     <div className='d-flex col-5 flex-column'>
                         {/* tiene que cumplir uno de la lista en el back. hacer con desplegable */}
@@ -108,7 +108,7 @@ export default function TeacherInfo({teacher}) {
                         </div>
                     </div>
 
-                    <div className='d-flex col-5 flex-column'>
+                    {/* <div className='d-flex col-5 flex-column'>
                         <div className="form-floating mb-3">
                             <span
                                 name='bio'
@@ -117,7 +117,7 @@ export default function TeacherInfo({teacher}) {
                                 >{bio}</span>
                             <label>Bio</label>
                         </div>
-                    </div>
+                    </div> */}
 
                     <div className='d-flex col-5 flex-column'>
                         <div className="form-floating mb-3">

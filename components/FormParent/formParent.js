@@ -28,7 +28,21 @@ export default function FormParent() {
         })
         const parentInfo = await result.json()
 
+        const resultUserParent = await fetch ('https://api.toknow.online/user', {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Content-type': 'application/json',
+                "Authorization": `Bearer ${token}`
+            },
+            body: JSON.stringify(
+                data
+            )
+        })
+        const userParent = await resultUserParent.json()
+
         console.log('info', parentInfo)
+        console.log('USER parent', userParent)
         if (parentInfo.success === true) {
             router.push(`/grouplist/${groupId}/${studentId}`)
         } else {
@@ -143,7 +157,9 @@ export default function FormParent() {
                         </div>
                     </div>
 
-                    <div className='d-flex col-5 flex-column'>
+                    {/* campo escondido con d-none pero necesario para tomar id de grupo y enviarlo
+                    en formulario del teacher */}
+                    <div className='d-none d-flex col-5 flex-column'>
                         <div className="form-floating mb-3">
                             <select
                                 name='students'
