@@ -28,7 +28,7 @@ export default function home() {
           <h5 className='landingLogin'>Acceder</h5>
           <FormLogin/> 
           <div className='d-flex justify-content-lg-between'>
-            <div className='col-lg-5'>sus datos están seguros con nosotros</div>
+            {/* <div className='col-lg-5'>sus datos están seguros con nosotros</div> */}
             <div className='landingButtons d-flex'>
               {/* <Button
                 text='Ingresa' />
@@ -36,7 +36,7 @@ export default function home() {
                 text='Registrate' /> */}
             </div>
           </div>
-          <div className='forgotPassword'>¿Olvidaste la contraseña?</div>
+          {/* <div className='forgotPassword'>¿Olvidaste la contraseña?</div> */}
         </section>
       </article>
 

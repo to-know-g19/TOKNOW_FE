@@ -92,9 +92,9 @@ export default function index() {
                                 </div>
                             </div>
                         </div>
-                        <h5>Rol</h5>
+                        {/* <h5>Rol</h5> */}
                         <div>
-                            <div className='d-flex flex-column'>
+                            <div className='d-none d-flex flex-column'>
                                 <div className="form-floating mb-3">
                                     <select
                                         name='role'
