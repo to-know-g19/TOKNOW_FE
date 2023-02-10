@@ -27,6 +27,7 @@ export default function GroupFormModal() {
         console.log('info', groupInfo)
         if (groupInfo.success === true) {
             window.alert("registro de grupo exitoso")
+            window.location.reload();
         } else {
             (window.alert("Hubo un problema al envíar la información"))
         }

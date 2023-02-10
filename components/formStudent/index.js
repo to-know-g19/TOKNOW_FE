@@ -100,11 +100,7 @@ export default function FormStudent() {
                         </div>
                     </div>
 
-
-
-
-                    <div className='d-flex col-5 flex-column'>
-                        {/* hay que ver cómo vamos a implementar la fecha */}
+                    {/* <div className='d-flex col-5 flex-column'>
                         <div className="form-floating mb-3">
                             <input
                                 type='Date'
@@ -113,10 +109,9 @@ export default function FormStudent() {
                                 {...register("dateOfBirth")} ></input>
                             <label>Fecha nacimiento</label>
                         </div>
-                    </div>
+                    </div> */}
 
-
-                    <div className='d-flex col-5 flex-column'>
+                    <div className='d-none d-flex col-5 flex-column'>
                         <div className="form-floating mb-3">
                             <select
                                 name='groups'
