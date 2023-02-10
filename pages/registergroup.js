@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 // import { useForm } from "react-hook-form"
 import 'bootstrap/dist/css/bootstrap.css'
 // import { useRouter } from 'next/router'
@@ -20,12 +20,12 @@ export default function registergroup() {
     })
     return (
 
-<Layout>
-    
-    <GroupsDisplay/>
-    <FormGroup/>
-
-</Layout>
+        <Layout>
+            <div className='fullscreen'>
+                <GroupsDisplay />
+                <FormGroup />
+            </div>
+        </Layout>
 
 
     )
