@@ -48,9 +48,10 @@ export default function registerschool() {
 
     return (
         <Layout>
+            <div className='fullscreen'>
             <div className='d-flex col-12 '>
                 <form onSubmit={handleSubmit(onSubmit)} className='d-flex col-12 flex-column align-items-center justify-content-center'>
-                    <h4>Registra los datos de tu escuela</h4>
+                    <h4 className='m-4'>Registra los datos de tu escuela</h4>
                     <div className='col-10 d-flex flex-wrap justify-content-around'>
                         <div className='d-flex col-5 flex-column'>
                             <div className="form-floating mb-3">
@@ -175,6 +176,7 @@ export default function registerschool() {
 
                     </div>
                 </form>
+            </div>
             </div>
         </Layout>
     )
