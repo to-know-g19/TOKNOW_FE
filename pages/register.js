@@ -41,7 +41,7 @@ export default function index() {
             <div className='fullscreen'>
                 <form onSubmit={handleSubmit(onSubmit)} className='d-flex mt-3 flex-column align-items-center'>
 
-                    <h4>Una nueva experiencia en comunicación escolar</h4>
+                    <h4>Registrate y comienza a administrar tu escuela</h4>
                     <div className='mt-3 col-lg-4'>
                         <h5>Datos del responsable</h5>
                         <div>
