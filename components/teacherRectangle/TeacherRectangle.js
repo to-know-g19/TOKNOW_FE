@@ -23,7 +23,7 @@ export default function TeacherRectangle( props ) {
           <button onClick={props.onEyeClick} className='btn btn-outline-primary'>
             <FaRegEye />
           </button>
-          <button className='btn btn-outline-danger'>
+          <button onClick={props.onTrashClick}className='btn btn-outline-danger'>
             <BsFillTrashFill />
           </button>
         </div>

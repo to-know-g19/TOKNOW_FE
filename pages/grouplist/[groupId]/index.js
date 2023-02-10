@@ -42,6 +42,22 @@ export default function GroupDetail() {
         console.log('funciona el eyeClic')
     };
 
+    const handleTrashClick = (strRoute, userId) => {
+        const token = localStorage.getItem("token");
+        fetch(`https://api.toknow.online/${strRoute}/${userId}`, {
+          method: "DELETE",
+          headers: {
+            "Content-type": "application/json",
+            "Authorization": `Bearer ${token}`
+          }
+        })
+          .then(response => {
+            console.log('response en delete group', response)
+            if (response.ok === true) {
+              window.location.reload();
+            }
+          })
+      };
 
     return (
         <>
@@ -75,6 +91,7 @@ export default function GroupDetail() {
                                             lastNameB={teacher.lastNameB}
                                             tipoProfesor={teacher.tipoProfesor}
                                             onEyeClick={() => handleEyeClick(groupId, teacher._id, "teacher")}
+                                            onTrashClick={() => handleTrashClick("teacher", teacher._id)}
                                         />
                                         // </Link>
                                     )
