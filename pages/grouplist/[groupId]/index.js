@@ -63,8 +63,8 @@ export default function GroupDetail() {
         <>
             <Layout>
                 {/* <Link> Detalle del grupo {groupId} </Link> */}
-                <div>
-                    <div className='d-flex col-lg-11 justify-content-end'>
+                <div className='fullscreen'>
+                    <div className=' d-flex col-lg-11 justify-content-end'>
                         <Link href={"/grouplist"} className='arrow-go-back '><BsArrowLeftCircle /></Link>
                     </div>
                     <div className='d-flex'>
