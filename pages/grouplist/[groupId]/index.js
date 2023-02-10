@@ -31,15 +31,33 @@ export default function GroupDetail() {
                     setStudents(data.data.groupById.students)
 
                 }
-
-
                 // console.log("soy data en pag group", data)
-
                 // console.log("soy la data.data.groupById.teachers", data.data.groupById.teachers)
 
             })
     }, [router.query])
     // console.log("info en el teachers", teachers)
+    const handleEyeClick = (groupId, userId , strRutaExtra) => {
+        router.push(`/grouplist/${groupId}/${strRutaExtra}/${userId}`)
+        console.log('funciona el eyeClic')
+    };
+
+    const handleTrashClick = (strRoute, userId) => {
+        const token = localStorage.getItem("token");
+        fetch(`https://api.toknow.online/${strRoute}/${userId}`, {
+          method: "DELETE",
+          headers: {
+            "Content-type": "application/json",
+            "Authorization": `Bearer ${token}`
+          }
+        })
+          .then(response => {
+            console.log('response en delete group', response)
+            if (response.ok === true) {
+              window.location.reload();
+            }
+          })
+      };
 
     return (
         <>
@@ -54,7 +72,7 @@ export default function GroupDetail() {
                             <div className='d-flex col-lg-8' >
                                 <div className='d-flex col-lg-6 justify-content-between'>
                                     <div className='d-flex col-lg-9 justify-content-between'>
-                                        <h4><FaUserCircle className='user-circle user-circle__teacher'/></h4>
+                                        <h4><FaUserCircle className='user-circle user-circle__teacher' /></h4>
                                         <h4>Profesores</h4>
                                     </div>
                                     <Link href="/grouplist/[groupId]/addteacher"
@@ -64,13 +82,18 @@ export default function GroupDetail() {
                             {(Array.isArray(teachers) && teachers.length > 0) ?
                                 teachers.map((teacher) => {
                                     return (
-                                        <Link href="/grouplist/[groupId]/teacher/[teacherId]"
-                                            as={`/grouplist/${groupId}/teacher/${teacher._id}`} key={teacher._id} style={{ textDecoration: 'none' }} >
-                                            <TeacherRectangle
-                                                key={teacher._id}
-                                                teacher={teacher}
-                                            />
-                                        </Link>
+                                        // <Link href="/grouplist/[groupId]/teacher/[teacherId]"
+                                        //     as={`/grouplist/${groupId}/teacher/${teacher._id}`} key={teacher._id} style={{ textDecoration: 'none' }} >
+                                        <TeacherRectangle
+                                            key={teacher._id}
+                                            name={teacher.name}
+                                            lastNameA={teacher.lastNameA}
+                                            lastNameB={teacher.lastNameB}
+                                            tipoProfesor={teacher.tipoProfesor}
+                                            onEyeClick={() => handleEyeClick(groupId, teacher._id, "teacher")}
+                                            onTrashClick={() => handleTrashClick("teacher", teacher._id)}
+                                        />
+                                        // </Link>
                                     )
                                 }) : <p>No hay profesores asignados</p>
                             }
@@ -89,12 +112,18 @@ export default function GroupDetail() {
                             {(Array.isArray(students) && students.length > 0) ?
                                 students.map(student => {
                                     return (
-                                        <Link href="/grouplist/[groupId]/[studentId]"
-                                            as={`/grouplist/${groupId}/${student._id}`} key={student._id} style={{ textDecoration: 'none' }} >
-                                            <TeacherRectangle
-                                                key={student._id}
-                                                teacher={student} />
-                                        </Link>
+                                        // <Link href="/grouplist/[groupId]/[studentId]"
+                                        //     as={`/grouplist/${groupId}/${student._id}`} key={student._id} style={{ textDecoration: 'none' }} >
+                                        <TeacherRectangle
+                                            key={student._id}
+                                            name={student.name}
+                                            lastNameA={student.lastNameA}
+                                            lastNameB={student.lastNameB}
+                                            tipoProfesor={student.tipoProfesor}
+                                            onEyeClick={() => handleEyeClick(groupId, student._id,"")}
+                                            onTrashClick={() => handleTrashClick("student", student._id)}
+                                        />
+                                        // </Link>
                                     )
                                 }) : <p>No hay alumnos asignados</p>
                             }
@@ -102,13 +131,13 @@ export default function GroupDetail() {
                     </div>
                 </div>
 
-                <ul>
+                {/* <ul>
                     <li>materia 1</li>
                     <li>materia 2</li>
                     <li>materia 3</li>
                     <li>materia 4</li>
                     <li>materia 5</li>
-                </ul>
+                </ul> */}
 
             </Layout>
         </>

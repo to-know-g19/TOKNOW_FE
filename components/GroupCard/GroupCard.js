@@ -1,5 +1,4 @@
 import React from 'react'
-import GroupCircle from '../GroupCircle/GroupCircle'
 import { FaRegEye } from "react-icons/fa";
 import { BsFillTrashFill } from "react-icons/bs";
 import { FaUserCircle } from 'react-icons/fa';
@@ -11,8 +10,8 @@ export default function GroupCard(props) {
       <div className='d-flex m-4'>
 
         <div className='col-lg-6 d-flex justify-content-center'>
-        {/* CAMBIAR NOMBRE DE CLASE Y agregar estilo para crecer en card sin afectar ventana registergrupos*/}
-          <div className='groupInfo groupCard__circle'> 
+          {/* CAMBIAR NOMBRE DE CLASE Y agregar estilo para crecer en card sin afectar ventana registergrupos*/}
+          <div className='groupInfo groupCard__circle'>
             <p>{props.grade}</p>
             <p>{props.group}</p>
           </div>
@@ -24,7 +23,7 @@ export default function GroupCard(props) {
             Profesor
           </div>
           <div className='d-flex col-lg-8 justify-content-around align-items-center'>
-            <FaUserCircle className='groupCard__user groupCard__user__student'/>
+            <FaUserCircle className='groupCard__user groupCard__user__student' />
             Alumnos
           </div>
         </div>
@@ -32,8 +31,12 @@ export default function GroupCard(props) {
       </div>
       <div className='groupCard__footer d-flex justify-content-center'>
         <div className='groupCard__footer__icons d-flex col-lg-11 p-3 justify-content-between'>
-          <FaRegEye />
-          <BsFillTrashFill />
+          <button onClick={props.onEyeClick} className='btn btn-outline-primary'>
+            <FaRegEye />
+          </button>
+          <button onClick={props.onTrashClick} className='btn btn-outline-danger'>
+            <BsFillTrashFill />
+          </button>
         </div>
       </div>
     </div>
