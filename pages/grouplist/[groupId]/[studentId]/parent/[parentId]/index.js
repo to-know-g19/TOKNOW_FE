@@ -38,7 +38,7 @@ export default function Parent() {
         <>
             {/* <h5>El maestro con id {teacherId} del grupo {groupId} </h5> */}
             <Layout>
-                <div className='d-flex'>
+                <div className='fullscreen d-flex'>
                     <div className='d-flex flex-column col-lg-12 align-items-center'>
                         <ArrowGoBack
                         btnTxtModal={<h4>Datos de Madre/Padre/Tutor</h4>}
