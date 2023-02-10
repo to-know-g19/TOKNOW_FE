@@ -121,6 +121,7 @@ export default function GroupDetail() {
                                             lastNameB={student.lastNameB}
                                             tipoProfesor={student.tipoProfesor}
                                             onEyeClick={() => handleEyeClick(groupId, student._id,"")}
+                                            onTrashClick={() => handleTrashClick("student", student._id)}
                                         />
                                         // </Link>
                                     )
@@ -130,13 +131,13 @@ export default function GroupDetail() {
                     </div>
                 </div>
 
-                <ul>
+                {/* <ul>
                     <li>materia 1</li>
                     <li>materia 2</li>
                     <li>materia 3</li>
                     <li>materia 4</li>
                     <li>materia 5</li>
-                </ul>
+                </ul> */}
 
             </Layout>
         </>
