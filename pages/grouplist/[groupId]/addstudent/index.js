@@ -18,8 +18,9 @@ export default function addStudent() {
 
     return (
         <Layout>
-            <FormStudent />
-
+            <div className='fullscreen'>
+                <FormStudent />
+            </div>
         </Layout>
     )
 }
