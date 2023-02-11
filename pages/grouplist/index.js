@@ -5,14 +5,14 @@ import React from 'react'
 import GroupCardDisplay from '../../components/GroupCardDisplay/GroupCardDisplay'
 import Layout from '../../components/Layout'
 
-function GroupList(){
-    return(
+function GroupList() {
+    return (
         <Layout >
-    <div>
-        <GroupCardDisplay/>
-    </div>
-    </Layout>
-  
+            <div>
+                <GroupCardDisplay />
+            </div>
+        </Layout>
+
     )
 }
 export default GroupList

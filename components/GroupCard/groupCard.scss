@@ -1,7 +1,9 @@
 @import '../../styles/globals.scss';
 
 .groupCard {
-    border-style: ridge;
+    border-style:inset ;
+    border-color: gray;
+    border-width: 1px;
     border-radius: .5rem;
     color: $text-darkblue;
 
@@ -23,6 +25,7 @@
     }
     &__footer {
         background-color: $bg-orange;
+        border-radius: 0rem 0rem .5rem .5rem;
 
         &__icons {
             color: #FFA424;

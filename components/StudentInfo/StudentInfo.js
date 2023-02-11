@@ -89,7 +89,7 @@ export default function StudentInfo({ student }) {
                     </div>
 
 
-                    <div className='d-flex col-5 flex-column'>
+                    {/* <div className='d-flex col-5 flex-column'>
                         <div className="form-floating mb-3">
                             <span
                                 type='date'
@@ -99,7 +99,7 @@ export default function StudentInfo({ student }) {
                             >{dateOfBirth}</span>
                             <label>Fecha nacimiento</label>
                         </div>
-                    </div>
+                    </div> */}
 
                     {/* link al parent */}
 

@@ -10,10 +10,16 @@ import Layout from '../components/Layout';
 
 
 export default function index() {
-    const { register, handleSubmit, formState: { errors } } = useForm()
+    const { register, handleSubmit, formState: { errors }, setError } = useForm()
     const router = useRouter()
     const onSubmit = async data => {
-
+        if (data.password !== data.confirmPassword) {
+            setError("confirmPassword", {
+                type: "passwordMismatch",
+                message: "*Las contraseñas no coinciden"
+            });
+            return;
+        }
         let result = await fetch(
             'https://api.toknow.online/user',
             {
@@ -41,7 +47,7 @@ export default function index() {
             <div className='fullscreen'>
                 <form onSubmit={handleSubmit(onSubmit)} className='d-flex mt-3 flex-column align-items-center'>
 
-                    <h4>Listo para una nueva experiencia en comunicación escolar</h4>
+                    <h4>Registrate y comienza a administrar tu escuela</h4>
                     <div className='mt-3 col-lg-4'>
                         <h5>Datos del responsable</h5>
                         <div>
@@ -70,7 +76,7 @@ export default function index() {
                                     placeholder='Correo'
                                     {...register("email", { required: true, maxLength: 30 })} ></input>
                                 {errors.email && errors.email.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
-                                {errors.email && errors.email.type === "maxLength" && <span className='text-danger'>*El campo no debe tener más de 30 caracteres. </span>}
+                                {errors.email && errors.email.type === "maxLength" && <span className='text-danger'>*El campo no debe tener más de 30 caracteres.</span>}
                                 <label>Correo</label>
                             </div>
                         </div>
@@ -86,15 +92,29 @@ export default function index() {
                                         placeholder='Contraseña'
                                         {...register("password", { required: true, minLength: 3, maxLength: 30 })} ></input>
                                     {errors.password && errors.password.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
-                                    {errors.password && errors.password.type === "minLength" && <span className='text-danger'>*El campo requiere más de 3 caracteres</span>}
-                                    {errors.password && errors.password.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 31 caracteres</span>}
+                                    {errors.password && errors.password.type === "minLength" && <span className='text-danger'>*El campo requiere más de 3 caracteres.</span>}
+                                    {errors.password && errors.password.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 31 caracteres.</span>}
                                     <label>Contraseña</label>
                                 </div>
                             </div>
                         </div>
-                        <h5>Rol</h5>
+                        <div className="form-floating mb-3">
+                            <input
+                                type='password'
+                                name='confirmPassword'
+                                className="form-control"
+                                placeholder='Confirme su contraseña'
+                                {...register("confirmPassword", { required: true, minLength: 3, maxLength: 30 })} >
+                            </input>
+                            {errors.confirmPassword && errors.confirmPassword.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
+                            {errors.confirmPassword && errors.confirmPassword.type === "minLength" && <span className='text-danger'>*El campo requiere más de 3 caracteres.</span>}
+                            {errors.confirmPassword && errors.confirmPassword.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 31 caracteres.</span>}
+                            {errors.confirmPassword && errors.confirmPassword.type === "passwordMismatch" && <span className='text-danger'>{errors.confirmPassword.message}</span>}
+                            <label>Confirme su contraseña</label>
+                        </div>
+                        {/* <h5>Rol</h5> */}
                         <div>
-                            <div className='d-flex flex-column'>
+                            <div className='d-none d-flex flex-column'>
                                 <div className="form-floating mb-3">
                                     <select
                                         name='role'
