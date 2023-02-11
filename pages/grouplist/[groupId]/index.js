@@ -67,8 +67,8 @@ export default function GroupDetail() {
                     <div className=' d-flex col-lg-11 justify-content-end'>
                         <Link href={"/grouplist"} className='arrow-go-back '><BsArrowLeftCircle /></Link>
                     </div>
-                    <div className='d-flex'>
-                        <div className='d-flex flex-column col-lg-6 align-items-center'>
+                    <div className='d-flex justify-content-around'>
+                        <div className='d-flex flex-column col-lg-5 align-items-center'>
                             <div className='d-flex col-lg-8' >
                                 <div className='d-flex col-lg-6 justify-content-between'>
                                     <div className='d-flex col-lg-9 justify-content-between'>
@@ -98,7 +98,7 @@ export default function GroupDetail() {
                                 }) : <p>No hay profesores asignados</p>
                             }
                         </div>
-                        <div className='d-flex flex-column col-lg-6 align-items-center'>
+                        <div className='d-flex flex-column col-lg-5 align-items-center'>
                             <div className='d-flex col-lg-8' >
                                 <div className='d-flex col-lg-6 justify-content-between'>
                                     <div className='d-flex col-lg-9 justify-content-between'>

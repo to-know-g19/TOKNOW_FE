@@ -8,7 +8,7 @@ export default function TeacherRectangle( props ) {
   // const { name, lastNameA, lastNameB, tipoProfesor, onEyeClick } = teacher
   // console.log("tipo de teacher", tipoProfesor)
   return (
-    <div className='teacherInfo'>
+    <div className='teacherInfo d-flex col-lg-12'>
       <div className='teacherInfo__wrapper d-flex col-lg-12'>
         <div className='d-flex col-lg-2 justify-content-center align-items-center'>
           <FaUserCircle className='teacherInfo__userCircle' />
