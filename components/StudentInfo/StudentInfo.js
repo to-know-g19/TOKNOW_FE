@@ -9,7 +9,8 @@ export default function StudentInfo({ student }) {
     const router = useRouter()
     const studentId = router.query.studentId
     const groupId = router.query.groupId
-
+    console.log('soy student id:', studentId)
+    console.log('soy grupo id:', groupId)
     const [parents, setParents] = useState([])
 
     useEffect(() => {
@@ -29,10 +30,32 @@ export default function StudentInfo({ student }) {
                     setParents(data.data.studentById.parents)
 
                 }
-                console.log("soy la data del hijo del papá", parents)
 
             })
     }, [router.query])
+    console.log("soy la data del del papá", parents)
+
+    const handleEyeClick = (groupId, student, strRutaExtra , userId) => {
+        router.push(`/grouplist/${groupId}/${student}/${strRutaExtra}/${userId}`)
+        console.log('funciona el eyeClic')
+    };
+
+    const handleTrashClick = (strRoute, parentId) => {
+        const token = localStorage.getItem("token");
+        fetch(`https://api.toknow.online/${strRoute}/${parentId}`, {
+            method: "DELETE",
+            headers: {
+                "Content-type": "application/json",
+                "Authorization": `Bearer ${token}`
+            }
+        })
+            .then(response => {
+                console.log('response en delete group', response)
+                if (response.ok === true) {
+                    window.location.reload();
+                }
+            })
+    };
 
     return (
 
@@ -63,7 +86,7 @@ export default function StudentInfo({ student }) {
                             <label>Matrícula</label>
                         </div>
                     </div>
-                    
+
                     <div className='d-flex col-5 flex-column'>
                         <div className="form-floating mb-3">
                             <span
@@ -109,17 +132,24 @@ export default function StudentInfo({ student }) {
                     {(parents.length) ?
                         parents.map(parent => {
                             return (
-                                <Link href="/grouplist/[groupId]/[studentId]/parent/[parentId]"
-                                    as={`/grouplist/${groupId}/${studentId}/parent/${parent._id}`} key={parent._id} style={{ textDecoration: 'none' }} >
-                                    <TeacherRectangle
-                                        key={parent._id}
-                                        teacher={parent} />
-                                </Link>
+                                // <Link href="/grouplist/[groupId]/[studentId]/parent/[parentId]"
+                                //     as={`/grouplist/${groupId}/${studentId}/parent/${parent._id}`} key={parent._id} style={{ textDecoration: 'none' }} >
+                                <TeacherRectangle
+                                    key={parent._id}
+                                    name={parent.name}
+                                    lastNameA={parent.lastNameA}
+                                    lastNameB={parent.lastNameB}
+                                    tipoProfesor={parent.tipoProfesor}
+                                    // al dejar la ruta parent(carpeta) hay error. pero al cambiarlo por otra palabra manda al enlace
+                                    onEyeClick={() => handleEyeClick(groupId, studentId, "parent", parent._id)}
+                                    onTrashClick={() => handleTrashClick("parent", parent._id)}
+                                />
+                                // </Link>
                             )
                         }) : <div>
                             <p>Aún no hay un tutor registrado.  </p>
-                            <p><Link href="/grouplist/[groupId]/[studentId]/parent/addparent" 
-                            as={`/grouplist/${groupId}/${studentId}/parent/addparent`}>
+                            <p><Link href="/grouplist/[groupId]/[studentId]/parent/addparent"
+                                as={`/grouplist/${groupId}/${studentId}/parent/addparent`}>
                                 Clic para registrar </Link> </p>
                         </div>
                     }
