@@ -140,6 +140,7 @@ export default function StudentInfo({ student }) {
                                     lastNameA={parent.lastNameA}
                                     lastNameB={parent.lastNameB}
                                     tipoProfesor={parent.tipoProfesor}
+                                    // al dejar la ruta parent(carpeta) hay error. pero al cambiarlo por otra palabra manda al enlace
                                     onEyeClick={() => handleEyeClick(groupId, studentId, "parent", parent._id)}
                                     onTrashClick={() => handleTrashClick("parent", parent._id)}
                                 />
