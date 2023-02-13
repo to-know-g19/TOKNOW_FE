@@ -32,9 +32,9 @@ export default function FormTeacher() {
 
             })
     }, [router.query])
-    console.log("Soy la info del setSchoolId", schoolId)
+    console.log("Soy SchoolId", schoolId)
     // console.log("soy el routerquery groupId", groupId)
-    
+
 
     const onSubmit = async data => {
 
@@ -66,8 +66,8 @@ export default function FormTeacher() {
         const userTeacher = await resultUserTeacher.json()
 
 
-        console.log('info', teacherInfo)
-        console.log('USER teach', userTeacher)
+        console.log('info /teach', teacherInfo)
+        console.log('teach /user', userTeacher)
         if (teacherInfo.success === true) {
             router.push(`/grouplist/${groupId}`)
         } else {
@@ -238,7 +238,7 @@ export default function FormTeacher() {
 
                     {/* campo escondido con d-none pero necesario para tomar id de grupo y enviarlo
                     en formulario del teacher */}
-                    <div className='d-none d-flex col-5 flex-column'>
+                    <div className=' d-flex col-5 flex-column'>
                         <div className="form-floating mb-3">
                             <select
                                 name='groups'
@@ -250,6 +250,23 @@ export default function FormTeacher() {
                             <label>aqui va el group ID</label>
                         </div>
                     </div>
+
+                    {/* campo escondido con d-none pero necesario para tomar id de SCHOOL y 
+                        QUE EL TEACHER DE RUTA API /USER tenga escuela a la que acceder  */}
+                    <div className=' d-flex col-5 flex-column'>
+                        <div className="form-floating mb-3">
+                            <select
+                                name='school'
+                                className="form-control form-select"
+                                {...register("school")} >
+                                <option value={schoolId}></option>
+
+                            </select>
+                            <label>aqui va el school ID</label>
+                        </div>
+                    </div>
+
+
 
                 </div>
 
