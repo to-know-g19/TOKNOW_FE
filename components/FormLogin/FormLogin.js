@@ -35,7 +35,7 @@ export default function FormLogin() {
       },
     })
     const usersData = await usersResult.json()
-    console.log("user data", usersData)
+    console.log("users data", usersData)
 
     // Check if user has school data
     const user = usersData.data.userAll.find(user => user.email === data.email);
