@@ -33,6 +33,8 @@ export default function FormTeacher() {
             })
     }, [router.query])
     console.log("Soy SchoolId", schoolId)
+    const schoolIdStr = schoolId.toString()
+    console.log('soy string :3', schoolIdStr)
     // console.log("soy el routerquery groupId", groupId)
 
 
@@ -259,8 +261,7 @@ export default function FormTeacher() {
                                 name='school'
                                 className="form-control form-select"
                                 {...register("school")} >
-                                <option value={schoolId}></option>
-
+                                <option value={schoolIdStr}></option>
                             </select>
                             <label>aqui va el school ID</label>
                         </div>
