@@ -2,6 +2,7 @@ import React from 'react'
 import { FaRegEye } from "react-icons/fa";
 import { BsFillTrashFill } from "react-icons/bs";
 import { FaUserCircle } from 'react-icons/fa';
+import DeleteModal from '../DeleteModal/deleteModal';
 
 export default function GroupCard(props) {
   return (
@@ -20,7 +21,7 @@ export default function GroupCard(props) {
         <div className='col-lg-6 d-flex flex-column align-items-center justify-content-around'>
           <div className='d-flex col-lg-8 justify-content-around align-items-center'>
             <FaUserCircle className='groupCard__user groupCard__user__teacher' />
-            Profesor
+            Profesores
           </div>
           <div className='d-flex col-lg-8 justify-content-around align-items-center'>
             <FaUserCircle className='groupCard__user groupCard__user__student' />
@@ -34,9 +35,13 @@ export default function GroupCard(props) {
           <button onClick={props.onEyeClick} className='btn btn-outline-primary'>
             <FaRegEye />
           </button>
-          <button onClick={props.onTrashClick} className='btn btn-outline-danger'>
+          <div>
+            <DeleteModal/>
+          </div>
+          {/* <button onClick={props.onTrashClick} className='btn btn-outline-danger'>
             <BsFillTrashFill />
-          </button>
+          </button> */}
+
         </div>
       </div>
     </div>
