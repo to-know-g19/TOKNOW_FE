@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useForm } from "react-hook-form"
 import 'bootstrap/dist/css/bootstrap.css'
 import { useRouter } from 'next/router'
@@ -7,21 +7,32 @@ import Link from 'next/link'
 
 export default function FormLogin() {
   const { register, handleSubmit, formState: { errors } } = useForm()
-  const router = useRouter()
+  const [selectedRole, setSelectedRole] = useState('user');
+  const router = useRouter();
 
+  const handleRoleChange = (event) => {
+    setSelectedRole(event.target.value);
+  };
 
   const onSubmit = async data => {
     // Login request
-    let result = await fetch('https://api.toknow.online/login', {
+    let url = ''
+    if (selected === 'user') {
+      url = 'https://api.toknow.online/login/'
+    } else {
+      url = `https://api.toknow.online/login/${selectedRole}`
+    }
+    let result = await fetch(url, {
       method: 'POST',
       mode: 'cors',
       headers: {
         'Content-type': 'application/json',
       },
-      body: JSON.stringify({ ...data, role: "admin" })
+      body: JSON.stringify({ ...data, role: data.role })
     })
     const response = await result.json()
     console.log("i am the response", response)
+    console.log("i am the data", data)
     const token = response.token
     //poner en local storage 
     localStorage.setItem("token", token)
@@ -56,6 +67,40 @@ export default function FormLogin() {
   return (
     <div className='d-flex col-12 '>
       <form onSubmit={handleSubmit(onSubmit)} className='d-flex col-12 flex-column justify-content-center'>
+
+      <div>
+        <label>
+          <input
+            type="radio"
+            value="user"
+            checked={selectedRole === 'user'}
+            onChange={handleRoleChange}
+          />
+          Usuario
+        </label>
+      </div>
+      <div>
+        <label>
+          <input
+            type="radio"
+            value="teacher"
+            checked={selectedRole === 'teacher'}
+            onChange={handleRoleChange}
+          />
+          Maestro
+        </label>
+      </div>
+      <div>
+        <label>
+          <input
+            type="radio"
+            value="parent"
+            checked={selectedRole === 'parent'}
+            onChange={handleRoleChange}
+          />
+          Papá
+        </label>
+      </div>
 
         <div className='col-12 '>
           <div className='d-flex col-12 flex-column'>
