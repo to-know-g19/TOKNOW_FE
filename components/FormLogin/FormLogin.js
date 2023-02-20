@@ -17,7 +17,7 @@ export default function FormLogin() {
   const onSubmit = async data => {
     // Login request
     let url = ''
-    if (selected === 'user') {
+    if (selectedRole === 'user') {
       url = 'https://api.toknow.online/login/'
     } else {
       url = `https://api.toknow.online/login/${selectedRole}`
