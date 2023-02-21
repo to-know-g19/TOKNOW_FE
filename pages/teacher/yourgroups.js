@@ -26,33 +26,33 @@ export default function yourgroups() {
       .then(response => response.json())
       .then(data => {
         if (data.data) {
-          setGrupos(data.data)
+          setGrupos(data.data.groups)
           console.log(data.data)
         }
       }
       );
   }, [router.query]);
 
-  // const handleEyeClick = (id) => {
-  //   router.push('/grouplist/' + id)
-  // };
+  const handleEyeClick = (id) => {
+    router.push('/grouplist/' + id)
+  };
 
-  // const handleTrashClick = (id) => {
-  //   const token = localStorage.getItem("token");
-  //   fetch(`https://api.toknow.online/group/${id}`, {
-  //     method: "DELETE",
-  //     headers: {
-  //       "Content-type": "application/json",
-  //       "Authorization": `Bearer ${token}`
-  //     }
-  //   })
-  //     .then(response => {
-  //       console.log('response en delete group', response)
-  //       if (response.ok === true) {
-  //         window.location.reload();
-  //       }
-  //     })
-  // };
+  const handleTrashClick = (id) => {
+    const token = localStorage.getItem("token");
+    fetch(`https://api.toknow.online/group/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json",
+        "Authorization": `Bearer ${token}`
+      }
+    })
+      .then(response => {
+        console.log('response en delete group', response)
+        if (response.ok === true) {
+          window.location.reload();
+        }
+      })
+  };
 
 
 
@@ -65,8 +65,8 @@ export default function yourgroups() {
         <div className='d-flex col-lg-12 justify-content-around'>
 
           <ArrowGoBack
-            btnTxtModal={<ModalExample />}
-            route={'/registergroup'} />
+            btnTxtModal={<h4>TUS GRUPOS</h4>}
+            route={''} />
 
         </div>
 
