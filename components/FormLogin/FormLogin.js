@@ -15,13 +15,14 @@ export default function FormLogin() {
   };
 
   const onSubmit = async data => {
-    // Login request
+    //condición para petición de login según el rol
     let url = ''
     if (selectedRole === 'user') {
       url = 'https://api.toknow.online/login/'
     } else {
       url = `https://api.toknow.online/login/${selectedRole}`
     }
+    // Login request
     let result = await fetch(url, {
       method: 'POST',
       mode: 'cors',
@@ -36,8 +37,14 @@ export default function FormLogin() {
     const token = response.token
     //poner en local storage 
     localStorage.setItem("token", token)
+    //desencriptando el token para acceder a su info
+    const userData = JSON.parse(atob(token.split(".")[1]));
+    const userId = userData.id;
+    const userRole = userData.role;
+    console.log('soy id en tkn', userId)
+    console.log('soy rol en tkn', userRole)
 
-    // Fetch array of users data request
+    // Fetch de users para filtrar con el mail que haga match
     let usersResult = await fetch(`https://api.toknow.online/user`, {
       method: 'GET',
       mode: 'cors',
@@ -53,13 +60,18 @@ export default function FormLogin() {
     if (!token) {
       window.alert('El correo o contraseña que has introducido es incorrecto.')
     }
-    else {
-      if (user && user.school) {
-        router.push("/grouplist");
+    else{
+      if(userRole === "teacher"){
+        router.push("/teacher/yourgroups")
       } else {
-        router.push("/registerschool");
+        if (user && user.school) {
+          router.push("/grouplist");
+        } else {
+          router.push("/registerschool");
+        }
       }
     }
+ 
 
   }
   //necesito acceder al usuario por medio del correo al que estoy proporcionando para ver si tiene school.
