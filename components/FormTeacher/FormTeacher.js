@@ -35,6 +35,7 @@ export default function FormTeacher() {
     console.log("Soy SchoolId", schoolId)
     const schoolIdStr = schoolId.toString()
     console.log('soy string :3', schoolIdStr)
+    const laSkul = schoolIdStr
     // console.log("soy el routerquery groupId", groupId)
 
 
@@ -54,22 +55,22 @@ export default function FormTeacher() {
         })
         const teacherInfo = await result.json()
 
-        const resultUserTeacher = await fetch('https://api.toknow.online/user', {
-            method: 'POST',
-            mode: 'cors',
-            headers: {
-                'Content-type': 'application/json',
-                "Authorization": `Bearer ${token}`
-            },
-            body: JSON.stringify(
-                data
-            )
-        })
-        const userTeacher = await resultUserTeacher.json()
+        // const resultUserTeacher = await fetch('https://api.toknow.online/user', {
+        //     method: 'POST',
+        //     mode: 'cors',
+        //     headers: {
+        //         'Content-type': 'application/json',
+        //         "Authorization": `Bearer ${token}`
+        //     },
+        //     body: JSON.stringify(
+        //         data
+        //     )
+        // })
+        // const userTeacher = await resultUserTeacher.json()
 
 
         console.log('info /teach', teacherInfo)
-        console.log('teach /user', userTeacher)
+        // console.log('teach /user', userTeacher)
         if (teacherInfo.success === true) {
             router.push(`/grouplist/${groupId}`)
         } else {
@@ -261,7 +262,7 @@ export default function FormTeacher() {
                                 name='school'
                                 className="form-control form-select"
                                 {...register("school")} >
-                                <option value={schoolIdStr}></option>
+                                <option value={laSkul}></option>
                             </select>
                             <label>aqui va el school ID</label>
                         </div>
