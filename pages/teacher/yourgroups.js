@@ -6,6 +6,8 @@ import { useRouter } from 'next/router';
 
 export default function yourgroups() {
   const [grupos, setGrupos] = useState([]);
+  const [profe, setProfe] = useState([]);
+
   const router = useRouter()
 
   useEffect(() => {
@@ -13,8 +15,8 @@ export default function yourgroups() {
     const userData = JSON.parse(atob(token.split(".")[1]));
     const userId = userData.id;
     const userRole = userData.role;
-    console.log('user id', userId)
-    console.log('user role', userRole)
+    // console.log('user id', userId)
+    // console.log('user role', userRole)
 
     fetch(`https://api.toknow.online/group`, {
       mode: "cors",
@@ -25,17 +27,33 @@ export default function yourgroups() {
     })
       .then(response => response.json())
       .then(data => {
+        console.log('data-t/yougroups', data)
         if (data.data) {
-          setGrupos(data.data.groups)
-          console.log(data.data)
+          const allGroups = data.data.groups
+          console.log('allGroups-t/yourgroups', allGroups)
+          allGroups.forEach(group => {
+            group.teachers.forEach( teacher => {
+              if (teacher._id === userId) {
+                console.log('grupo t/yourgroups', group)
+                console.log('teacher t/yourgroups', teacher)
+                setGrupos(group)
+                setProfe(teacher)
+              }
+            })
+          })
+
         }
       }
       );
   }, [router.query]);
 
+
+
+
   const handleEyeClick = (id) => {
     router.push('/grouplist/' + id)
   };
+
 
   const handleTrashClick = (id) => {
     const token = localStorage.getItem("token");
