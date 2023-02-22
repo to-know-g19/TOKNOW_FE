@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 export default function FormLogin() {
   const { register, handleSubmit, formState: { errors } } = useForm()
-  const [selectedRole, setSelectedRole] = useState('user');
+  const [selectedRole, setSelectedRole] = useState('parent');
   const router = useRouter();
 
   const handleRoleChange = (event) => {
