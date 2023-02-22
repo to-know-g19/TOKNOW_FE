@@ -55,20 +55,6 @@ export default function FormTeacher() {
         })
         const teacherInfo = await result.json()
 
-        // const resultUserTeacher = await fetch('https://api.toknow.online/user', {
-        //     method: 'POST',
-        //     mode: 'cors',
-        //     headers: {
-        //         'Content-type': 'application/json',
-        //         "Authorization": `Bearer ${token}`
-        //     },
-        //     body: JSON.stringify(
-        //         data
-        //     )
-        // })
-        // const userTeacher = await resultUserTeacher.json()
-
-
         console.log('info /teach', teacherInfo)
         // console.log('teach /user', userTeacher)
         if (teacherInfo.success === true) {
@@ -157,32 +143,6 @@ export default function FormTeacher() {
                         </div>
                     </div>
 
-                    {/* <div className='d-flex col-5 flex-column'>
-                        <div className="form-floating mb-3">
-                            <input
-                                name='matricula'
-                                className="form-control"
-                                placeholder='Matrícula'
-                                {...register("matricula")} ></input>
-                            <label>Matrícula</label>
-                        </div>
-                    </div> */}
-
-
-
-                    {/* <div className='d-flex col-5 flex-column'>
-                        
-                        <div className="form-floating mb-3">
-                            <input
-                                type='number'
-                                name='dateOfBirth'
-                                className="form-control"
-                                placeholder='Ej. 24011996'
-                                {...register("dateOfBirth")} ></input>
-                            <label>Fecha nacimiento</label>
-                        </div>
-                    </div> */}
-
                     <div className='d-flex col-5 flex-column'>
                         {/* tiene que cumplir uno de la lista en el back.*/}
                         <div className="form-floating mb-3">
@@ -199,17 +159,6 @@ export default function FormTeacher() {
                             <label>Tipo de profesor</label>
                         </div>
                     </div>
-
-                    {/* <div className='d-flex col-5 flex-column'>
-                        <div className="form-floating mb-3">
-                            <input
-                                name='bio'
-                                className="form-control"
-                                placeholder='Bio'
-                                {...register("bio")} ></input>
-                            <label>Bio</label>
-                        </div>
-                    </div> */}
 
                     <div className='d-none d-flex col-5 flex-column'>
                         <div className="form-floating mb-3">
