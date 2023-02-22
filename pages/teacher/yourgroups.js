@@ -6,7 +6,6 @@ import { useRouter } from 'next/router';
 
 export default function yourgroups() {
   const [grupos, setGrupos] = useState([]);
-  const [profe, setProfe] = useState([]);
 
   const router = useRouter()
 
@@ -25,27 +24,28 @@ export default function yourgroups() {
         "Authorization": `Bearer ${token}`
       }
     })
-      .then(response => response.json())
-      .then(data => {
-        console.log('data-t/yougroups', data)
-        if (data.data) {
-          const allGroups = data.data.groups
-          console.log('allGroups-t/yourgroups', allGroups)
-          allGroups.forEach(group => {
-            group.teachers.forEach( teacher => {
-              if (teacher._id === userId) {
-                console.log('grupo t/yourgroups', group)
-                console.log('teacher t/yourgroups', teacher)
-                setGrupos(group)
-                setProfe(teacher)
-              }
-            })
+    .then(response => response.json())
+    .then(data => {
+      console.log('data-t/yougroups', data)
+      const userGroups = [];
+      if (data.data) {
+        const allGroups = data.data.groups
+        console.log('allGroups-t/yourgroups', allGroups)
+        allGroups.forEach(group => {
+          group.teachers.forEach( teacher => {
+            if (teacher._id === userId) {
+              userGroups.push(group)
+              console.log('grupo t/yourgroups', group)
+            }
           })
+        })
+        setGrupos(userGroups)
 
-        }
       }
-      );
-  }, [router.query]);
+    }
+    );
+}, [router.query]);
+  
 
 
 
