@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from "react-hook-form"
 import 'bootstrap/dist/css/bootstrap.css'
 import { useRouter } from 'next/router'
@@ -8,8 +8,36 @@ import ArrowGoBack from '../ArrowGoBack/ArrowGoBack'
 export default function FormTeacher() {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const router = useRouter()
-
     const groupId = router.query.groupId
+    const [schoolId, setSchoolId] = useState({})
+
+    useEffect(() => {
+
+        const token = localStorage.getItem('token')
+        fetch(`https://api.toknow.online/group/${groupId}`, {
+            mode: 'cors',
+            headers: {
+                'Content-type': 'application/json',
+                "Authorization": `Bearer ${token}`
+            },
+        })
+            .then((response) => response.json())
+            .then(data => {
+                if (data.data) {
+                    setSchoolId(data.data.groupById.school._id)
+                }
+
+                // console.log("soy la data.data OJO AQUÍ", data.data.school._id)
+                // console.log("soy la data.data.groupById.teachers", data.data.groupById.teachers)
+
+            })
+    }, [router.query])
+    console.log("Soy SchoolId", schoolId)
+    const schoolIdStr = schoolId.toString()
+    console.log('soy string :3', schoolIdStr)
+    const laSkul = schoolIdStr
+    // console.log("soy el routerquery groupId", groupId)
+
 
     const onSubmit = async data => {
 
@@ -27,22 +55,22 @@ export default function FormTeacher() {
         })
         const teacherInfo = await result.json()
 
-        const resultUserTeacher = await fetch ('https://api.toknow.online/user', {
-            method: 'POST',
-            mode: 'cors',
-            headers: {
-                'Content-type': 'application/json',
-                "Authorization": `Bearer ${token}`
-            },
-            body: JSON.stringify(
-                data
-            )
-        })
-        const userTeacher = await resultUserTeacher.json()
+        // const resultUserTeacher = await fetch('https://api.toknow.online/user', {
+        //     method: 'POST',
+        //     mode: 'cors',
+        //     headers: {
+        //         'Content-type': 'application/json',
+        //         "Authorization": `Bearer ${token}`
+        //     },
+        //     body: JSON.stringify(
+        //         data
+        //     )
+        // })
+        // const userTeacher = await resultUserTeacher.json()
 
 
-        console.log('info', teacherInfo)
-        console.log('USER teach', userTeacher)
+        console.log('info /teach', teacherInfo)
+        // console.log('teach /user', userTeacher)
         if (teacherInfo.success === true) {
             router.push(`/grouplist/${groupId}`)
         } else {
@@ -213,7 +241,7 @@ export default function FormTeacher() {
 
                     {/* campo escondido con d-none pero necesario para tomar id de grupo y enviarlo
                     en formulario del teacher */}
-                    <div className='d-none d-flex col-5 flex-column'>
+                    <div className=' d-flex col-5 flex-column'>
                         <div className="form-floating mb-3">
                             <select
                                 name='groups'
@@ -225,6 +253,22 @@ export default function FormTeacher() {
                             <label>aqui va el group ID</label>
                         </div>
                     </div>
+
+                    {/* campo escondido con d-none pero necesario para tomar id de SCHOOL y 
+                        QUE EL TEACHER DE RUTA API /USER tenga escuela a la que acceder  */}
+                    <div className=' d-flex col-5 flex-column'>
+                        <div className="form-floating mb-3">
+                            <select
+                                name='school'
+                                className="form-control form-select"
+                                {...register("school")} >
+                                <option value={laSkul}></option>
+                            </select>
+                            <label>aqui va el school ID</label>
+                        </div>
+                    </div>
+
+
 
                 </div>
 
