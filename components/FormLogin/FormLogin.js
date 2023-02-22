@@ -67,13 +67,17 @@ export default function FormLogin() {
     else{
       if(userRole === "teacher"){
         router.push("/teacher/yourgroups")
-      } else {
-        if (user && user.school) {
-          router.push("/grouplist");
+      }else {
+        if(userRole ==="parent"){
+          router.push("/parent/yourgroups")
         } else {
-          router.push("/registerschool");
+            if (user && user.school) {
+             router.push("/grouplist");
+            } else {
+               router.push("/registerschool");
+              }
+          }
         }
-      }
     }
  
 
