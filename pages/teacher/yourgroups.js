@@ -4,19 +4,15 @@ import Layout from '../../components/Layout';
 import ArrowGoBack from '../../components/ArrowGoBack/ArrowGoBack';
 import { useRouter } from 'next/router';
 
-
 export default function yourgroups() {
   const [grupos, setGrupos] = useState([]);
-
   const router = useRouter()
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     const userData = JSON.parse(atob(token.split(".")[1]));
     const userId = userData.id;
-    const userRole = userData.role;
     // console.log('user id', userId)
-    // console.log('user role', userRole)
 
     fetch(`https://api.toknow.online/group`, {
       mode: "cors",
@@ -48,32 +44,9 @@ export default function yourgroups() {
   }, [router.query]);
 
 
-
-
-
   const handleEyeClick = (id) => {
     router.push('/grouplist/' + id)
   };
-
-
-  const handleTrashClick = (id) => {
-    const token = localStorage.getItem("token");
-    fetch(`https://api.toknow.online/group/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-type": "application/json",
-        "Authorization": `Bearer ${token}`
-      }
-    })
-      .then(response => {
-        console.log('response en delete group', response)
-        if (response.ok === true) {
-          window.location.reload();
-        }
-      })
-  };
-
-
 
 
   return (
@@ -82,13 +55,10 @@ export default function yourgroups() {
         <div className='d-flex flex-column align-items-center'>
 
           <div className='d-flex col-lg-12 justify-content-around'>
-
             <ArrowGoBack
               btnTxtModal={<h4>TUS GRUPOS</h4>}
               route={''} />
-
           </div>
-
 
           <div className='d-flex col-lg-10 flex-wrap justify-content-around'>
             {grupos.map(grupo => (
@@ -100,10 +70,9 @@ export default function yourgroups() {
                   grade={grupo.grade}
                   group={grupo.name}
                   onEyeClick={() => handleEyeClick(grupo._id)}
-                  onTrashClick={() => handleTrashClick(grupo._id)} />
+                />
               </div>
             ))}
-
           </div>
         </div>
       </Layout>
