@@ -13,6 +13,9 @@ export default function GroupDetail() {
     const groupId = router.query.groupId
     const [teachers, setTeachers] = useState([])
     const [students, setStudents] = useState([])
+    const token = localStorage.getItem('token')
+    const userData = JSON.parse(atob(token.split(".")[1]));
+    const userRole = userData.role;
 
     useEffect(() => {
 
@@ -58,14 +61,24 @@ export default function GroupDetail() {
             }
           })
       };
-
+      //condición para rutas de componente ArrowGoBack
+      let route =("")
+      if (userRole == "user") {
+        route = "/grouplist"
+      } else {
+        if (userRole == "parent"){
+            route = "/parent/yourgroups"
+        } else {
+                route = "/teacher/yourgroups"
+        }
+      }
     return (
         <>
             <Layout>
                 {/* <Link> Detalle del grupo {groupId} </Link> */}
                 <div className='fullscreen'>
                     <div className=' d-flex col-lg-11 justify-content-end'>
-                        <Link href={"/grouplist"} className='arrow-go-back '><BsArrowLeftCircle /></Link>
+                        <Link href={`${route}`} className='arrow-go-back '><BsArrowLeftCircle /></Link>
                     </div>
                     <div className='d-flex justify-content-around'>
                         <div className='d-flex flex-column col-lg-5 align-items-center'>
