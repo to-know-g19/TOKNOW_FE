@@ -5,7 +5,6 @@ import ArrowGoBack from '../../components/ArrowGoBack/ArrowGoBack';
 import { useRouter } from 'next/router';
 
 export default function yourgroups() {
-  const [studentId, setStudentId] = useState("");
   const [grupos, setGrupos] = useState([]);
   const router = useRouter()
 
@@ -31,14 +30,11 @@ export default function yourgroups() {
           allStudents.forEach(student => {
             student.parents.forEach( parent => {
               if (parent._id === userId) {
-                console.log('studemt parent/yourgroups', student)
+                console.log('student parent/yourgroups', student)
                 student.groups.forEach(group => {
-                    console.log('array de grupos del alumno', group)
+                    console.log('grupo del alumno', group)
                     setGrupos([group])
                 })
-                console.log('parent parent/yourgroups', parent)
-                setStudentId(studentId)
-                
               }
             })
           })
@@ -46,36 +42,6 @@ export default function yourgroups() {
         }
       }
       );
-
-
-    // fetch(`https://api.toknow.online/student`, {
-    //   mode: "cors",
-    //   headers: {
-    //     "Content-type": "application/json",
-    //     "Authorization": `Bearer ${token}`
-    //   }
-    // })
-    //   .then(response => response.json())
-    //   .then(data => {
-    //     console.log('data-Prnt/yougroups', data)
-    //     // const userGroups = [];
-    //     if (data.data) {
-    //       const allGroups = data.data.groups
-    //       console.log('allGroups-t/yourgroups', allGroups)
-    //       allGroups.forEach(group => {
-    //         group.teachers.forEach(teacher => {
-    //           if (teacher._id === userId) {
-    //             userGroups.push(group)
-    //             console.log('grupo t/yourgroups', group)
-    //           }
-    //         })
-    //       })
-    //       setGrupos(userGroups)
-
-    //     }
-    //   }
-    //   );
-
   }, [router.query]);
 
 
@@ -97,8 +63,7 @@ export default function yourgroups() {
 
           <div className='d-flex col-lg-10 flex-wrap justify-content-around'>
             {grupos.map(grupo => (
-              //removí el return reemplazando las llaves despues de la flecha con parentesis
-              // <Link className='col-lg-5' href={'/grouplist/' + grupo._id} key={grupo._id} style={{ textDecoration: 'none' }} >
+              
               <div className='col-lg-5'>
                 <GroupCard
                   key={grupo._id}
