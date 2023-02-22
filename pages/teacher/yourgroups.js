@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import GroupCard from '../../components/GroupCard/GroupCard';
-import ModalExample from '../../components/GroupModal/GroupModal';
+import Layout from '../../components/Layout';
 import ArrowGoBack from '../../components/ArrowGoBack/ArrowGoBack';
 import { useRouter } from 'next/router';
+
 
 export default function yourgroups() {
   const [grupos, setGrupos] = useState([]);
@@ -24,28 +25,28 @@ export default function yourgroups() {
         "Authorization": `Bearer ${token}`
       }
     })
-    .then(response => response.json())
-    .then(data => {
-      console.log('data-t/yougroups', data)
-      const userGroups = [];
-      if (data.data) {
-        const allGroups = data.data.groups
-        console.log('allGroups-t/yourgroups', allGroups)
-        allGroups.forEach(group => {
-          group.teachers.forEach( teacher => {
-            if (teacher._id === userId) {
-              userGroups.push(group)
-              console.log('grupo t/yourgroups', group)
-            }
+      .then(response => response.json())
+      .then(data => {
+        console.log('data-t/yougroups', data)
+        const userGroups = [];
+        if (data.data) {
+          const allGroups = data.data.groups
+          console.log('allGroups-t/yourgroups', allGroups)
+          allGroups.forEach(group => {
+            group.teachers.forEach(teacher => {
+              if (teacher._id === userId) {
+                userGroups.push(group)
+                console.log('grupo t/yourgroups', group)
+              }
+            })
           })
-        })
-        setGrupos(userGroups)
+          setGrupos(userGroups)
 
+        }
       }
-    }
-    );
-}, [router.query]);
-  
+      );
+  }, [router.query]);
+
 
 
 
@@ -77,34 +78,36 @@ export default function yourgroups() {
 
   return (
     <>
+      <Layout>
+        <div className='d-flex flex-column align-items-center'>
 
-      <div className='d-flex flex-column align-items-center'>
+          <div className='d-flex col-lg-12 justify-content-around'>
 
-        <div className='d-flex col-lg-12 justify-content-around'>
+            <ArrowGoBack
+              btnTxtModal={<h4>TUS GRUPOS</h4>}
+              route={''} />
 
-          <ArrowGoBack
-            btnTxtModal={<h4>TUS GRUPOS</h4>}
-            route={''} />
+          </div>
 
+
+          <div className='d-flex col-lg-10 flex-wrap justify-content-around'>
+            {grupos.map(grupo => (
+              //removí el return reemplazando las llaves despues de la flecha con parentesis
+              // <Link className='col-lg-5' href={'/grouplist/' + grupo._id} key={grupo._id} style={{ textDecoration: 'none' }} >
+              <div className='col-lg-5'>
+                <GroupCard
+                  key={grupo._id}
+                  grade={grupo.grade}
+                  group={grupo.name}
+                  onEyeClick={() => handleEyeClick(grupo._id)}
+                  onTrashClick={() => handleTrashClick(grupo._id)} />
+              </div>
+            ))}
+
+          </div>
         </div>
-
-
-        <div className='d-flex col-lg-10 flex-wrap justify-content-around'>
-          {grupos.map(grupo => (
-            //removí el return reemplazando las llaves despues de la flecha con parentesis
-            // <Link className='col-lg-5' href={'/grouplist/' + grupo._id} key={grupo._id} style={{ textDecoration: 'none' }} >
-            <div className='col-lg-5'>
-              <GroupCard
-                key={grupo._id}
-                grade={grupo.grade}
-                group={grupo.name}
-                onEyeClick={() => handleEyeClick(grupo._id)}
-                onTrashClick={() => handleTrashClick(grupo._id)} />
-            </div>
-          ))}
-
-        </div>
-      </div>
+      </Layout>
     </>
+
   )
 }
