@@ -241,7 +241,7 @@ export default function FormTeacher() {
 
                     {/* campo escondido con d-none pero necesario para tomar id de grupo y enviarlo
                     en formulario del teacher */}
-                    <div className=' d-flex col-5 flex-column'>
+                    <div className='d-none d-flex col-5 flex-column'>
                         <div className="form-floating mb-3">
                             <select
                                 name='groups'
@@ -251,20 +251,6 @@ export default function FormTeacher() {
 
                             </select>
                             <label>aqui va el group ID</label>
-                        </div>
-                    </div>
-
-                    {/* campo escondido con d-none pero necesario para tomar id de SCHOOL y 
-                        QUE EL TEACHER DE RUTA API /USER tenga escuela a la que acceder  */}
-                    <div className=' d-flex col-5 flex-column'>
-                        <div className="form-floating mb-3">
-                            <select
-                                name='school'
-                                className="form-control form-select"
-                                {...register("school")} >
-                                <option value={laSkul}></option>
-                            </select>
-                            <label>aqui va el school ID</label>
                         </div>
                     </div>
 
