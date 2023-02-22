@@ -6,7 +6,7 @@ import Link from 'next/link'
 import ArrowGoBack from '../ArrowGoBack/ArrowGoBack'
 
 export default function FormTeacher() {
-    const { register, handleSubmit, formState: { errors } } = useForm()
+    const { register, handleSubmit, formState: { errors }, setError } = useForm()
     const router = useRouter()
     const groupId = router.query.groupId
     const [schoolId, setSchoolId] = useState({})
@@ -40,8 +40,16 @@ export default function FormTeacher() {
 
 
     const onSubmit = async data => {
-
         const token = localStorage.getItem('token')
+
+        if (data.password !== data.confirmPassword) {
+            setError("confirmPassword", {
+                type: "passwordMismatch",
+                message: "*Las contraseñas no coinciden"
+            });
+            return;
+        }
+
         let result = await fetch('https://api.toknow.online/teacher', {
             method: 'POST',
             mode: 'cors',
@@ -185,6 +193,22 @@ export default function FormTeacher() {
                             {errors.password && errors.password.type === "minLength" && <span className='text-danger'>*El campo requiere al menos 3 caracteres</span>}
                             {errors.password && errors.password.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 21 caracteres</span>}
                             <label>Contraseña</label>
+                        </div>
+                    </div>
+                    <div className='d-flex col-5 flex-column'>
+                        <div className="form-floating mb-3">
+                            <input
+                                type='password'
+                                name='confirmPassword'
+                                className="form-control"
+                                placeholder='Confirme su contraseña'
+                                {...register("confirmPassword", { required: true, minLength: 3, maxLength: 30 })} >
+                            </input>
+                            {errors.confirmPassword && errors.confirmPassword.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
+                            {errors.confirmPassword && errors.confirmPassword.type === "minLength" && <span className='text-danger'>*El campo requiere más de 3 caracteres.</span>}
+                            {errors.confirmPassword && errors.confirmPassword.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 31 caracteres.</span>}
+                            {errors.confirmPassword && errors.confirmPassword.type === "passwordMismatch" && <span className='text-danger'>{errors.confirmPassword.message}</span>}
+                            <label>Confirme su contraseña</label>
                         </div>
                     </div>
 
