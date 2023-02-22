@@ -6,7 +6,7 @@ import Link from 'next/link'
 import ArrowGoBack from '../ArrowGoBack/ArrowGoBack'
 
 export default function FormTeacher() {
-    const { register, handleSubmit, formState: { errors } } = useForm()
+    const { register, handleSubmit, formState: { errors }, setError } = useForm()
     const router = useRouter()
     const groupId = router.query.groupId
     const [schoolId, setSchoolId] = useState({})
@@ -40,8 +40,16 @@ export default function FormTeacher() {
 
 
     const onSubmit = async data => {
-
         const token = localStorage.getItem('token')
+
+        if (data.password !== data.confirmPassword) {
+            setError("confirmPassword", {
+                type: "passwordMismatch",
+                message: "*Las contraseñas no coinciden"
+            });
+            return;
+        }
+
         let result = await fetch('https://api.toknow.online/teacher', {
             method: 'POST',
             mode: 'cors',
@@ -54,20 +62,6 @@ export default function FormTeacher() {
             )
         })
         const teacherInfo = await result.json()
-
-        // const resultUserTeacher = await fetch('https://api.toknow.online/user', {
-        //     method: 'POST',
-        //     mode: 'cors',
-        //     headers: {
-        //         'Content-type': 'application/json',
-        //         "Authorization": `Bearer ${token}`
-        //     },
-        //     body: JSON.stringify(
-        //         data
-        //     )
-        // })
-        // const userTeacher = await resultUserTeacher.json()
-
 
         console.log('info /teach', teacherInfo)
         // console.log('teach /user', userTeacher)
@@ -157,32 +151,6 @@ export default function FormTeacher() {
                         </div>
                     </div>
 
-                    {/* <div className='d-flex col-5 flex-column'>
-                        <div className="form-floating mb-3">
-                            <input
-                                name='matricula'
-                                className="form-control"
-                                placeholder='Matrícula'
-                                {...register("matricula")} ></input>
-                            <label>Matrícula</label>
-                        </div>
-                    </div> */}
-
-
-
-                    {/* <div className='d-flex col-5 flex-column'>
-                        
-                        <div className="form-floating mb-3">
-                            <input
-                                type='number'
-                                name='dateOfBirth'
-                                className="form-control"
-                                placeholder='Ej. 24011996'
-                                {...register("dateOfBirth")} ></input>
-                            <label>Fecha nacimiento</label>
-                        </div>
-                    </div> */}
-
                     <div className='d-flex col-5 flex-column'>
                         {/* tiene que cumplir uno de la lista en el back.*/}
                         <div className="form-floating mb-3">
@@ -199,17 +167,6 @@ export default function FormTeacher() {
                             <label>Tipo de profesor</label>
                         </div>
                     </div>
-
-                    {/* <div className='d-flex col-5 flex-column'>
-                        <div className="form-floating mb-3">
-                            <input
-                                name='bio'
-                                className="form-control"
-                                placeholder='Bio'
-                                {...register("bio")} ></input>
-                            <label>Bio</label>
-                        </div>
-                    </div> */}
 
                     <div className='d-none d-flex col-5 flex-column'>
                         <div className="form-floating mb-3">
@@ -238,10 +195,26 @@ export default function FormTeacher() {
                             <label>Contraseña</label>
                         </div>
                     </div>
+                    <div className='d-flex col-5 flex-column'>
+                        <div className="form-floating mb-3">
+                            <input
+                                type='password'
+                                name='confirmPassword'
+                                className="form-control"
+                                placeholder='Confirme su contraseña'
+                                {...register("confirmPassword", { required: true, minLength: 3, maxLength: 30 })} >
+                            </input>
+                            {errors.confirmPassword && errors.confirmPassword.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
+                            {errors.confirmPassword && errors.confirmPassword.type === "minLength" && <span className='text-danger'>*El campo requiere más de 3 caracteres.</span>}
+                            {errors.confirmPassword && errors.confirmPassword.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 31 caracteres.</span>}
+                            {errors.confirmPassword && errors.confirmPassword.type === "passwordMismatch" && <span className='text-danger'>{errors.confirmPassword.message}</span>}
+                            <label>Confirme su contraseña</label>
+                        </div>
+                    </div>
 
                     {/* campo escondido con d-none pero necesario para tomar id de grupo y enviarlo
                     en formulario del teacher */}
-                    <div className=' d-flex col-5 flex-column'>
+                    <div className='d-none d-flex col-5 flex-column'>
                         <div className="form-floating mb-3">
                             <select
                                 name='groups'
@@ -251,20 +224,6 @@ export default function FormTeacher() {
 
                             </select>
                             <label>aqui va el group ID</label>
-                        </div>
-                    </div>
-
-                    {/* campo escondido con d-none pero necesario para tomar id de SCHOOL y 
-                        QUE EL TEACHER DE RUTA API /USER tenga escuela a la que acceder  */}
-                    <div className=' d-flex col-5 flex-column'>
-                        <div className="form-floating mb-3">
-                            <select
-                                name='school'
-                                className="form-control form-select"
-                                {...register("school")} >
-                                <option value={laSkul}></option>
-                            </select>
-                            <label>aqui va el school ID</label>
                         </div>
                     </div>
 
