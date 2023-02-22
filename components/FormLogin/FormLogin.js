@@ -37,7 +37,11 @@ export default function FormLogin() {
     const token = response.token
     //poner en local storage 
     localStorage.setItem("token", token)
-    //desencriptando el token para acceder a su info
+    //condición para evitar el error al desencriptar token:"undefined"
+    if (token === undefined){
+      window.alert("las credenciales introducidas son incorrectas")
+    } else {
+      //desencriptando el token para acceder a su info
     const userData = JSON.parse(atob(token.split(".")[1]));
     const userId = userData.id;
     const userRole = userData.role;
@@ -58,7 +62,7 @@ export default function FormLogin() {
     // Check if user has school data
     const user = usersData.data.userAll.find(user => user.email === data.email);
     if (!token) {
-      window.alert('El correo o contraseña que has introducido es incorrecto.')
+      window.alert('las credenciales introducidas son incorrectas')
     }
     else{
       if(userRole === "teacher"){
@@ -73,7 +77,7 @@ export default function FormLogin() {
     }
  
 
-  }
+  }}
   //necesito acceder al usuario por medio del correo al que estoy proporcionando para ver si tiene school.
 
   return (
