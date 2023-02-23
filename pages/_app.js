@@ -15,6 +15,7 @@ import '../components/CardInfoLanding/CardInfoLanding.scss'
 import '../components/GroupCard/groupCard.scss'
 import '../components/GroupCardDisplay/groupCardDisplay.scss'
 import '../pages/grouplist/[groupId]/groupId.scss'
+import '../components/Layout/layout.scss'
 
 const inter = Inter()
 
