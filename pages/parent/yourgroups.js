@@ -4,7 +4,7 @@ import Layout from '../../components/Layout';
 import ArrowGoBack from '../../components/ArrowGoBack/ArrowGoBack';
 import { useRouter } from 'next/router';
 
-export default function yourgroups() {
+export default function Yourgroups() {
   const [grupos, setGrupos] = useState([]);
   const router = useRouter()
 
@@ -62,17 +62,17 @@ export default function yourgroups() {
           </div>
 
           <div className='d-flex col-lg-10 flex-wrap justify-content-around'>
+            <div className='col-lg-5'>
             {grupos.map(grupo => (
               
-              <div className='col-lg-5'>
                 <GroupCard
                   key={grupo._id}
                   grade={grupo.grade}
                   group={grupo.name}
                   onEyeClick={() => handleEyeClick(grupo._id)}
                 />
-              </div>
-            ))}
+                ))}
+                </div>
           </div>
         </div>
       </Layout>

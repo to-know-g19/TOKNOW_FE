@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '../components/Layout'
-import Button from '../components/Button'
+// import Button from '../components/Button'
 
 export default function home() {
   return (
@@ -18,10 +18,11 @@ export default function home() {
       </div>
       <div>
         <h2>botones</h2>
-        <Button variant="primary" text="primary" />
+        {/* <Button variant="primary" text="primary" />
         <Button variant="orange" text="secundary" />
         <Button variant="primary" text="danger" />
-        <Button text="user" /></div>
+        <Button text="user" /> */}
+        </div>
       <h2>Botón para grupos</h2>
       <div> <a href="">1 B<span ><i className="bi bi-plus"></i></span></a> </div>
     </Layout>

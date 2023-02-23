@@ -4,7 +4,7 @@ import FormTeacher from '../../../../components/FormTeacher/FormTeacher'
 import Layout from '../../../../components/Layout'
 import { useRouter } from 'next/router'
 
-export default function registerteacher() {
+export default function Registerteacher() {
 
     const router = useRouter();
 

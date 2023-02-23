@@ -6,7 +6,7 @@ import { useEffect } from 'react'
 import Layout from '../components/Layout'
 
 
-export default function registerschool() {
+export default function Registerschool() {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const router = useRouter()
 

@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import Layout from '../components/Layout';
 
 
-export default function index() {
+export default function Index() {
     const { register, handleSubmit, formState: { errors }, setError } = useForm()
     const router = useRouter()
     const onSubmit = async data => {
