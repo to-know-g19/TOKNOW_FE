@@ -8,7 +8,7 @@ import GroupsDisplay from '../components/GroupsDisplay/GroupsDisplay'
 import { useRouter } from 'next/router'
 
 
-export default function registergroup() {
+export default function Registergroup() {
     const router = useRouter();
 
     useEffect(() => {

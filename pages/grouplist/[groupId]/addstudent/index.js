@@ -4,7 +4,7 @@ import FormStudent from '../../../../components/formStudent'
 import Layout from '../../../../components/Layout'
 import { useRouter } from 'next/router'
 
-export default function addStudent() {
+export default function AddStudent() {
 
     const router = useRouter();
 

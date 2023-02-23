@@ -3,7 +3,7 @@ import FormParent from '../../../../../../components/FormParent/formParent';
 import Layout from '../../../../../../components/Layout'
 import { useRouter } from 'next/router'
 
-export default function index() {
+export default function Index() {
 
     const router = useRouter();
 
