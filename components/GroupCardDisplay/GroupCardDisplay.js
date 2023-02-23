@@ -74,18 +74,18 @@ export default function GroupCardDisplay() {
 
 
         <div className='d-flex col-lg-10 flex-wrap justify-content-around'>
+          <div className='col-lg-5'>
           {grupos.map(grupo => (
             //removí el return reemplazando las llaves despues de la flecha con parentesis
             // <Link className='col-lg-5' href={'/grouplist/' + grupo._id} key={grupo._id} style={{ textDecoration: 'none' }} >
-            <div className='col-lg-5'>
               <GroupCard
                 key={grupo._id}
                 grade={grupo.grade}
                 group={grupo.name}
                 onEyeClick={() => handleEyeClick(grupo._id)}
                 onTrashClick={() => handleTrashClick(grupo._id)} />
-            </div>
-          ))}
+                ))}
+                </div>
 
         </div>
       </div>
