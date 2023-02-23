@@ -25,14 +25,14 @@ export default function Layout({ children, title, ...props }) {
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <title>{title}</title>
       </Head>
-
       <div className='conteiner'>
         <div className="row">
           <div className="col">
+            <div className='wwrapper'>
             <Header />
-            
-            <main>{children}</main>
+            <main className='content'>{children}</main>
             <Footer />
+            </div>
           </div>
         </div>
       </div>

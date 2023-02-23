@@ -19,22 +19,22 @@ export const SidebarData = [
     icon: <RiFolderUserFill/>,
     className: 'nav-text',
   },
-  {
-    title: 'Profesores',
-    path: '/teachers',
-    icon: <FaChalkboardTeacher/>,
-    className: 'nav-text',
-  },
-  {
-    title: 'Alumnos',
-    path: '/students',
-    icon: <HiUserGroup/>,
-    className: 'nav-text',
-  },
-  {
-    title: 'Padres',
-    path: '/students',
-    icon: <RiParentFill/>,
-    className: 'nav-text',
-  },
+  // {
+  //   title: 'Profesores',
+  //   path: '/teachers',
+  //   icon: <FaChalkboardTeacher/>,
+  //   className: 'nav-text',
+  // },
+  // {
+  //   title: 'Alumnos',
+  //   path: '/students',
+  //   icon: <HiUserGroup/>,
+  //   className: 'nav-text',
+  // },
+  // {
+  //   title: 'Padres',
+  //   path: '/students',
+  //   icon: <RiParentFill/>,
+  //   className: 'nav-text',
+  // },
 ]
