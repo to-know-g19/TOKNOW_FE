@@ -1,0 +1,78 @@
+@import '../styles/globals.scss';
+
+.sectionOneHome{
+    gap: 3rem;
+    height: 24.625rem;
+
+}
+.landingSubtitle{
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.landingLogin{
+    color: $text-darkblue;
+}
+.landingForm{
+    margin-bottom: 2rem;
+}
+.landingButtons{
+    gap: 10px;
+}
+.forgotPassword{
+    margin-top: 1rem;
+}
+
+.sectionTwoHome {
+    background-color: $bg-orange;
+    height: 21.688rem;
+    gap: 6rem;
+}
+.sectionThreeHome{
+    color: $text-darkblue;
+    background-color: $bg-lightblue;
+    height: 12.563rem;
+}
+
+.landingPicture{
+    height: 27.6rem;
+    width: 100%;
+}
+.landingTextNextToImg{
+    color: $text-darkblue;
+    padding: 1rem;
+
+}
+.landingLogoNextToImg{
+    height: 3.5rem;
+    width:16rem ;
+}
+
+.sectionFiveHome{
+    height: 3.75rem;
+    background-color: $bg-darkblue;
+    color: white;
+}
+.sectionSixHome{
+    background-color: $bg-orange;
+    height: 21.688rem;
+    text-align: center;
+    padding: 1rem;
+    color: $text-darkblue;
+}
+.sectionSevenHome{
+    flex-wrap: wrap;
+}
+.FAQ{
+    padding: 3rem;
+}
+
+.btn-form{
+    margin: 1rem;
+    width: 7rem;
+    height: 2rem;
+    color:white;
+    background-color: $bg-blue;
+    border-radius: 10px;
+    font-weight:500;
+    border-style: none;
+}

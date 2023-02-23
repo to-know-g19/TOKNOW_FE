@@ -1,0 +1,36 @@
+@import '../../styles/globals.scss';
+
+.groupCard {
+    border-style:inset ;
+    border-color: gray;
+    border-width: 1px;
+    border-radius: .5rem;
+    color: $text-darkblue;
+
+    &__circle {
+        height: 6rem;
+        width: 6rem;
+        margin: 0rem; //para quitar el margin que tiene en css de GroupCircle
+    }
+
+    &__user{
+        height: 2.4rem;
+        width: 2.4rem;
+        &__teacher{
+            color: $darkblue;
+        }
+        &__student{
+            color: $primary-color;
+        }
+    }
+    &__footer {
+        background-color: $bg-orange;
+        border-radius: 0rem 0rem .5rem .5rem;
+
+        &__icons {
+            color: #FFA424;
+            font-size: x-large;
+        }
+    }
+
+}
