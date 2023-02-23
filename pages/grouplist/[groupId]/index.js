@@ -13,6 +13,7 @@ export default function GroupDetail() {
     const groupId = router.query.groupId
     const [teachers, setTeachers] = useState([])
     const [students, setStudents] = useState([])
+    const [route, setRoute] = useState("")
 
     useEffect(() => {
 
@@ -58,28 +59,31 @@ export default function GroupDetail() {
             }
           })
       };
+      useEffect(() =>{
+          const token = localStorage.getItem('token')
+          const userData = JSON.parse(atob(token.split(".")[1]));
+          const userRole = userData.role;
+          console.log("eeeeee", userRole)
+          //condición para rutas de componente ArrowGoBack
+          let route =("")
+          if (userRole == "admin") {
+            route = "/grouplist"
+          } else {
+            if (userRole == "parent"){
+                route = "/parent/yourgroups"
+            } else {
+                    route = "/teacher/yourgroups"
+            }
+          }
+          setRoute(route)
 
-      const token = localStorage.getItem('token')
-      const userData = JSON.parse(atob(token.split(".")[1]));
-      const userRole = userData.role;
-      console.log("eeeeee", userRole)
-      //condición para rutas de componente ArrowGoBack
-      let route =("")
-      if (userRole == "admin") {
-        route = "/grouplist"
-      } else {
-        if (userRole == "parent"){
-            route = "/parent/yourgroups"
-        } else {
-                route = "/teacher/yourgroups"
-        }
-      }
+      }, [])
       
     return (
         <>
             <Layout>
                 {/* <Link> Detalle del grupo {groupId} </Link> */}
-                <div className='fullscreen'>
+                <div>
                     <div className=' d-flex col-lg-11 justify-content-end'>
                         <Link href={`${route}`} className='arrow-go-back '><BsArrowLeftCircle /></Link>
                     </div>
