@@ -13,9 +13,6 @@ export default function GroupDetail() {
     const groupId = router.query.groupId
     const [teachers, setTeachers] = useState([])
     const [students, setStudents] = useState([])
-    const token = localStorage.getItem('token')
-    const userData = JSON.parse(atob(token.split(".")[1]));
-    const userRole = userData.role;
 
     useEffect(() => {
 
@@ -61,9 +58,14 @@ export default function GroupDetail() {
             }
           })
       };
+
+      const token = localStorage.getItem('token')
+      const userData = JSON.parse(atob(token.split(".")[1]));
+      const userRole = userData.role;
+      console.log("eeeeee", userRole)
       //condición para rutas de componente ArrowGoBack
       let route =("")
-      if (userRole == "user") {
+      if (userRole == "admin") {
         route = "/grouplist"
       } else {
         if (userRole == "parent"){
@@ -72,6 +74,7 @@ export default function GroupDetail() {
                 route = "/teacher/yourgroups"
         }
       }
+      
     return (
         <>
             <Layout>
