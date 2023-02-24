@@ -12,7 +12,7 @@ export default function GroupCardDisplay() {
     const token = localStorage.getItem("token");
     const userData = JSON.parse(atob(token.split(".")[1]));
     const userId = userData.id;
-    console.log('user id', userId)
+    // console.log('user id', userId)
 
     fetch(`https://api.toknow.online/school`, {
       mode: "cors",
@@ -23,13 +23,13 @@ export default function GroupCardDisplay() {
     })
       .then(response => response.json())
       .then(data => {
-        console.log("soy data", data);
-        const schools = data.data.schools;
-        console.log("soy schools", schools);
+        // console.log("soy data", data)
+        const schools = data.data.schools
+        // console.log("soy schools", schools)
         schools.forEach(school => {
           if (school.user._id === userId) {
             setGrupos(school.groups);
-            console.log("Grupos: ", school.groups);
+            // console.log("Grupos: ", school.groups)
           }
         });
       });
@@ -49,7 +49,7 @@ export default function GroupCardDisplay() {
       }
     })
       .then(response => {
-        console.log('response en delete group', response)
+        // console.log('response en delete group', response)
         if (response.ok === true) {
           window.location.reload();
         }
@@ -74,18 +74,18 @@ export default function GroupCardDisplay() {
 
 
         <div className='d-flex col-lg-10 flex-wrap justify-content-around'>
-          <div className='col-lg-5'>
           {grupos.map(grupo => (
             //removí el return reemplazando las llaves despues de la flecha con parentesis
             // <Link className='col-lg-5' href={'/grouplist/' + grupo._id} key={grupo._id} style={{ textDecoration: 'none' }} >
+            <div className='col-lg-5' key={grupo._id}>
               <GroupCard
-                key={grupo._id}
+
                 grade={grupo.grade}
                 group={grupo.name}
                 onEyeClick={() => handleEyeClick(grupo._id)}
                 onTrashClick={() => handleTrashClick(grupo._id)} />
-                ))}
-                </div>
+            </div>
+          ))}
 
         </div>
       </div>
