@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaRegEye } from "react-icons/fa";
 import { BsFillTrashFill } from "react-icons/bs";
 import { FaUserCircle } from 'react-icons/fa';
 
 export default function GroupCard(props) {
+const [userRole, setUserRole] = useState("")
+  useEffect(() =>{
+    const token = localStorage.getItem("token");
+    const userData = JSON.parse(atob(token.split(".")[1]));
+    const userId = userData.id;
+    setUserRole (userData.role)
+    console.log('soy id en tkn', userId)
+    console.log('123rol GROUPCARD', userData.role)
+    
+  }, [])
+  console.log('123rol GROUPCARD', userRole)
+  
   return (
 
     <div className='groupCard mt-4 mb-3 col-lg-12'>
@@ -34,9 +46,12 @@ export default function GroupCard(props) {
           <button onClick={props.onEyeClick} className='btn btn-outline-primary'>
             <FaRegEye />
           </button>
-          <button onClick={props.onTrashClick} className='btn btn-outline-danger'>
+
+          {(userRole == "admin") ?
+            <button onClick={props.onTrashClick} className='btn btn-outline-danger'>
             <BsFillTrashFill />
-          </button>
+          </button> : <p></p>
+          }
         </div>
       </div>
     </div>
