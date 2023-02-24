@@ -12,7 +12,7 @@ export default function GroupCardDisplay() {
     const token = localStorage.getItem("token");
     const userData = JSON.parse(atob(token.split(".")[1]));
     const userId = userData.id;
-    console.log('user id', userId)
+    // console.log('user id', userId)
 
     fetch(`https://api.toknow.online/school`, {
       mode: "cors",
@@ -23,13 +23,13 @@ export default function GroupCardDisplay() {
     })
       .then(response => response.json())
       .then(data => {
-        console.log("soy data", data);
-        const schools = data.data.schools;
-        console.log("soy schools", schools);
+        // console.log("soy data", data)
+        const schools = data.data.schools
+        // console.log("soy schools", schools)
         schools.forEach(school => {
           if (school.user._id === userId) {
             setGrupos(school.groups);
-            console.log("Grupos: ", school.groups);
+            // console.log("Grupos: ", school.groups)
           }
         });
       });
@@ -49,7 +49,7 @@ export default function GroupCardDisplay() {
       }
     })
       .then(response => {
-        console.log('response en delete group', response)
+        // console.log('response en delete group', response)
         if (response.ok === true) {
           window.location.reload();
         }
