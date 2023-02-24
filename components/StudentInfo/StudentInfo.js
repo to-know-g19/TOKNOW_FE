@@ -12,10 +12,13 @@ export default function StudentInfo({ student }) {
     console.log('soy student id:', studentId)
     console.log('soy grupo id:', groupId)
     const [parents, setParents] = useState([])
+    const [userRole, setUserRole] = useState('')
 
     useEffect(() => {
 
         const token = localStorage.getItem('token')
+        const userData = JSON.parse(atob(token.split(".")[1]));
+        setUserRole(userData.id)
         fetch(`https://api.toknow.online/student/${studentId}`, {
             mode: 'cors',
             headers: {
@@ -148,9 +151,11 @@ export default function StudentInfo({ student }) {
                             )
                         }) : <div>
                             <p>Aún no hay un tutor registrado.  </p>
+                            {(userRole == "admin") ?
                             <p><Link href="/grouplist/[groupId]/[studentId]/parent/addparent"
                                 as={`/grouplist/${groupId}/${studentId}/parent/addparent`}>
-                                Clic para registrar </Link> </p>
+                                Clic aquí para registrar </Link> </p> : <p></p>
+                            }
                         </div>
                     }
                 </div>
