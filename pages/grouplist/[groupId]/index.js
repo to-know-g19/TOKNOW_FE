@@ -36,7 +36,7 @@ export default function GroupDetail() {
 
             })
     }, [router.query])
-    const handleEyeClick = (groupId, userId , strRutaExtra) => {
+    const handleEyeClick = (groupId, userId, strRutaExtra) => {
         router.push(`/grouplist/${groupId}/${strRutaExtra}/${userId}`)
         console.log('funciona el eyeClic')
     };
@@ -44,39 +44,39 @@ export default function GroupDetail() {
     const handleTrashClick = (strRoute, userId) => {
         const token = localStorage.getItem("token");
         fetch(`https://api.toknow.online/${strRoute}/${userId}`, {
-          method: "DELETE",
-          headers: {
-            "Content-type": "application/json",
-            "Authorization": `Bearer ${token}`
-          }
-        })
-          .then(response => {
-            // console.log('response en delete group', response)
-            if (response.ok === true) {
-              window.location.reload();
+            method: "DELETE",
+            headers: {
+                "Content-type": "application/json",
+                "Authorization": `Bearer ${token}`
             }
-          })
-      };
-      useEffect(() =>{
-          const token = localStorage.getItem('token')
-          const userData = JSON.parse(atob(token.split(".")[1]));
-          const userRole = userData.role;
-          setUserRole(userData.role)
-          //condición para rutas de componente ArrowGoBack
-          let route =("")
-          if (userRole == "admin") {
+        })
+            .then(response => {
+                // console.log('response en delete group', response)
+                if (response.ok === true) {
+                    window.location.reload();
+                }
+            })
+    };
+    useEffect(() => {
+        const token = localStorage.getItem('token')
+        const userData = JSON.parse(atob(token.split(".")[1]));
+        const userRole = userData.role;
+        setUserRole(userData.role)
+        //condición para rutas de componente ArrowGoBack
+        let route = ("")
+        if (userRole == "admin") {
             route = "/grouplist"
-          } else {
-            if (userRole == "parent"){
+        } else {
+            if (userRole == "parent") {
                 route = "/parent/yourgroups"
             } else {
-                    route = "/teacher/yourgroups"
+                route = "/teacher/yourgroups"
             }
-          }
-          setRoute(route)
+        }
+        setRoute(route)
 
-      }, [])
-      
+    }, [])
+
     return (
         <>
             <Layout>
@@ -94,9 +94,9 @@ export default function GroupDetail() {
                                         <h4>Profesores</h4>
                                     </div>
                                     {(userRole == "admin") && (teachers.length < 3) &&
-                                    <Link href="/grouplist/[groupId]/addteacher"
-                                        as={`/grouplist/${groupId}/addteacher`} style={{ textDecoration: 'none' }}><h4><AiFillPlusCircle /></h4>
-                                    </Link>
+                                        <Link href="/grouplist/[groupId]/addteacher"
+                                            as={`/grouplist/${groupId}/addteacher`} style={{ textDecoration: 'none' }}><h4><AiFillPlusCircle /></h4>
+                                        </Link>
                                     }
                                 </div>
                             </div>
@@ -127,9 +127,9 @@ export default function GroupDetail() {
                                         <h4>Alumnos</h4>
                                     </div>
                                     {(userRole == "admin") ?
-                                    <Link href="/grouplist/[groupId]/addstudent"
-                                        as={`/grouplist/${groupId}/addstudent`} style={{ textDecoration: 'none' }}><h4><AiFillPlusCircle /></h4>
-                                    </Link> : <p></p>
+                                        <Link href="/grouplist/[groupId]/addstudent"
+                                            as={`/grouplist/${groupId}/addstudent`} style={{ textDecoration: 'none' }}><h4><AiFillPlusCircle /></h4>
+                                        </Link> : <p></p>
                                     }
                                 </div>
                             </div>
@@ -144,7 +144,7 @@ export default function GroupDetail() {
                                             lastNameA={student.lastNameA}
                                             lastNameB={student.lastNameB}
                                             tipoProfesor={student.tipoProfesor}
-                                            onEyeClick={() => handleEyeClick(groupId, student._id,"")}
+                                            onEyeClick={() => handleEyeClick(groupId, student._id, "")}
                                             onTrashClick={() => handleTrashClick("student", student._id)}
                                         />
                                         // </Link>
