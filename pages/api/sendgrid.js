@@ -160,7 +160,7 @@ async function sendEmail(req, res) {
       
       <!-->
           <div id="emailPreHeader" style="mso-hide:all; visibility:hidden; opacity:0; color:transparent; mso-line-height-rule:exactly; line-height:0; font-size:0px; overflow:hidden; border-width:0; display:none !important;">
-            Discover more with Google. Complete your profile to get tailored content relevant to your professional interests
+            Discover more with toknow. Complete your profile and get started
           </div>
           <div style="display: none; max-height: 0px; overflow: hidden;">
             &nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌
@@ -196,7 +196,7 @@ async function sendEmail(req, res) {
                                                       <tr>
                                                         <td style="width:150px;">
                                                           <div class="mktoImg" id="kimage-71lw840qe" mktolockimgsize="true" mktolockimgstyle="false">
-                                                            <img alt height="auto" src="https://lp.thinkwithgoogle.com/rs/172-GOP-811/images/Think-with-Google-logo-master-2x.png" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="150">
+                                                            <img alt height="auto" src="" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="150">
                                                           </div>
       
                                                           <!--[if !mso 9]>
@@ -233,7 +233,7 @@ async function sendEmail(req, res) {
                   </tr>
                 </tbody>
               </table>
-              <table align="center" background="https://lp.thinkwithgoogle.com/rs/googlemst2/images/zz3Udj3BFTCYn6LGeIWAXwDCwXw2r8CgSWjylaix.png" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#F8F9FA;background-image:url(https://lp.thinkwithgoogle.com/rs/googlemst2/images/zz3Udj3BFTCYn6LGeIWAXwDCwXw2r8CgSWjylaix.png);background-position:center top;background-size:100% 100%;background-repeat:no-repeat;width:100%;" class="section">
+              <table align="center" background="" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#F8F9FA;background-image:url();background-position:center top;background-size:100% 100%;background-repeat:no-repeat;width:100%;" class="section">
                 <tbody>
                   <tr>
                     <td align="center" style="mso-padding-left-alt:0;">
@@ -1434,7 +1434,7 @@ async function sendEmail(req, res) {
                                                   <!--[if mso]><table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;"><tr><td align="left"><a:roundrect xmlns:a="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href=
       "https://mail.thinkwithgoogle.com/dc/sw2Jv2lliV95Sp9FKmB-yk9n2CCc1w7JrXRK_U_6bTcvd-GC1xCHffLSkRA9B3DqspmDnlOvj5Cdpj04iJ4KwjlWxnKlxGwEM4ozKZ6vrXOYuLpCRnvmErV6hkD-sLXqtQ0VwnFHYLn9AaYRupPHAIrZCyjxyRg5X0G6m0OVhbUoNwSjy8RpIyeVQvoukjakeHvY7fPOpOGxwh1L9eM5qwaw1eWpVKqUVChfzdsyLcPJTuhIaObZPk8oPJEtRpVT/MTcyLUdPUC04MTEAAAGHtF6BZXSELDirVPJN9L-R6jbSGm9wTch5hpISrYBbeHKokdoCD8uT4LiTSwUlUiKh4_0E0Zs=" fillcolor="#1A73E8" arcsize="8%" style="v-text-anchor:middle;width:103.5pt;height:36pt;" stroke="f" 
       ><w:anchorlock/><a:textbox inset="0,0,0,0"><center style="color:#ffffff; font-family:sans-serif, Arial; font-size:16px"><![endif]-->
-                                                  <a href="https://mail.thinkwithgoogle.com/dc/sw2Jv2lliV95Sp9FKmB-yk9n2CCc1w7JrXRK_U_6bTcvd-GC1xCHffLSkRA9B3DqspmDnlOvj5Cdpj04iJ4KwjlWxnKlxGwEM4ozKZ6vrXOYuLpCRnvmErV6hkD-sLXqtQ0VwnFHYLn9AaYRupPHAIrZCyjxyRg5X0G6m0OVhbUoNwSjy8RpIyeVQvoukjakeHvY7fPOpOGxwh1L9eM5qwaw1eWpVKqUVChfzdsyLcPJTuhIaObZPk8oPJEtRpVT/MTcyLUdPUC04MTEAAAGHtF6BZXSELDirVPJN9L-R6jbSGm9wTch5hpISrYBbeHKokdoCD8uT4LiTSwUlUiKh4_0E0Zs=" style="display: inline-block; background: #1A73E8; color: #FFFFFF; font-family: 'Google Sans', sans-serif; font-size: 16px; font-weight: bold; line-height: 1.5; margin: 0; text-align: center; text-decoration: none; text-transform: none; padding: 12px 25px 12px 25px; mso-padding-alt: 0px; border-radius: 4px; mso-border-alt: none; box-sizing: border-box; mso-line-height-alt: 48px;" target="_blank" width="138">Explore now </a>
+                                                  <a href="https://toknow-fe.vercel.app/" style="display: inline-block; background: #1A73E8; color: #FFFFFF; font-family: 'Google Sans', sans-serif; font-size: 16px; font-weight: bold; line-height: 1.5; margin: 0; text-align: center; text-decoration: none; text-transform: none; padding: 12px 25px 12px 25px; mso-padding-alt: 0px; border-radius: 4px; mso-border-alt: none; box-sizing: border-box; mso-line-height-alt: 48px;" target="_blank" width="138">Explore now </a>
       
                                                   <!--[if mso]></center></a:textbox></a:roundrect></td></tr></table><![endif]-->
       
@@ -1442,7 +1442,7 @@ async function sendEmail(req, res) {
       
       <!-->
                                                   <div class="mktEditable" id="button-plain-text-7ikrlv73m" style="mso-hide:all; visibility:hidden; opacity:0; color:transparent; mso-line-height-rule:exactly; line-height:0; font-size:0px; overflow:hidden; border-width:0; display:none !important;">
-                                                    Explore now [[https://www.thinkwithgoogle.com/?utm_medium=email&amp;utm_source=d-onboarding&amp;utm_team=twg-us&amp;utm_campaign=TwG-US-ONB-2022-Q2-00-Welcome-Campaign&amp;utm_content=cta-btn]]
+                                                    Explore now [[https://toknow-fe.vercel.app/]]
                                                   </div>
       
                                                   <!--<![endif]-->
