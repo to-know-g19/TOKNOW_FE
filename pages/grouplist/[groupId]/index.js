@@ -51,7 +51,6 @@ export default function GroupDetail() {
             }
         })
             .then(response => {
-                // console.log('response en delete group', response)
                 if (response.ok === true) {
                     window.location.reload();
                 }
@@ -80,7 +79,6 @@ export default function GroupDetail() {
     return (
         <>
             <Layout>
-                {/* <Link> Detalle del grupo {groupId} </Link> */}
                 <div>
                     <div className=' d-flex col-lg-11 justify-content-end'>
                         <Link href={`${route}`} className='arrow-go-back '><BsArrowLeftCircle /></Link>
@@ -136,8 +134,6 @@ export default function GroupDetail() {
                             {(Array.isArray(students) && students.length > 0) ?
                                 students.map(student => {
                                     return (
-                                        // <Link href="/grouplist/[groupId]/[studentId]"
-                                        //     as={`/grouplist/${groupId}/${student._id}`} key={student._id} style={{ textDecoration: 'none' }} >
                                         <TeacherRectangle
                                             key={student._id}
                                             name={student.name}
@@ -147,7 +143,6 @@ export default function GroupDetail() {
                                             onEyeClick={() => handleEyeClick(groupId, student._id, "")}
                                             onTrashClick={() => handleTrashClick("student", student._id)}
                                         />
-                                        // </Link>
                                     )
                                 }) : <p>No hay alumnos asignados</p>
                             }
