@@ -33,13 +33,10 @@ export default function GroupDetail() {
                     setStudents(data.data.groupById.students)
 
                 }
-                // console.log("soy data en pag group", data)
-                // console.log("soy la data.data.groupById.teachers", data.data.groupById.teachers)
 
             })
     }, [router.query])
-    // console.log("info en el teachers", teachers)
-    const handleEyeClick = (groupId, userId , strRutaExtra) => {
+    const handleEyeClick = (groupId, userId, strRutaExtra) => {
         router.push(`/grouplist/${groupId}/${strRutaExtra}/${userId}`)
         console.log('funciona el eyeClic')
     };
@@ -47,44 +44,41 @@ export default function GroupDetail() {
     const handleTrashClick = (strRoute, userId) => {
         const token = localStorage.getItem("token");
         fetch(`https://api.toknow.online/${strRoute}/${userId}`, {
-          method: "DELETE",
-          headers: {
-            "Content-type": "application/json",
-            "Authorization": `Bearer ${token}`
-          }
-        })
-          .then(response => {
-            console.log('response en delete group', response)
-            if (response.ok === true) {
-              window.location.reload();
+            method: "DELETE",
+            headers: {
+                "Content-type": "application/json",
+                "Authorization": `Bearer ${token}`
             }
-          })
-      };
-      useEffect(() =>{
-          const token = localStorage.getItem('token')
-          const userData = JSON.parse(atob(token.split(".")[1]));
-          const userRole = userData.role;
-          setUserRole(userData.role)
-          console.log("eeeeee", userRole)
-          //condición para rutas de componente ArrowGoBack
-          let route =("")
-          if (userRole == "admin") {
+        })
+            .then(response => {
+                if (response.ok === true) {
+                    window.location.reload();
+                }
+            })
+    };
+    useEffect(() => {
+        const token = localStorage.getItem('token')
+        const userData = JSON.parse(atob(token.split(".")[1]));
+        const userRole = userData.role;
+        setUserRole(userData.role)
+        //condición para rutas de componente ArrowGoBack
+        let route = ("")
+        if (userRole == "admin") {
             route = "/grouplist"
-          } else {
-            if (userRole == "parent"){
+        } else {
+            if (userRole == "parent") {
                 route = "/parent/yourgroups"
             } else {
-                    route = "/teacher/yourgroups"
+                route = "/teacher/yourgroups"
             }
-          }
-          setRoute(route)
+        }
+        setRoute(route)
 
-      }, [])
-      
+    }, [])
+
     return (
         <>
             <Layout>
-                {/* <Link> Detalle del grupo {groupId} </Link> */}
                 <div>
                     <div className=' d-flex col-lg-11 justify-content-end'>
                         <Link href={`${route}`} className='arrow-go-back '><BsArrowLeftCircle /></Link>
@@ -97,10 +91,10 @@ export default function GroupDetail() {
                                         <h4><FaUserCircle className='user-circle user-circle__teacher' /></h4>
                                         <h4>Profesores</h4>
                                     </div>
-                                    {(userRole == "admin") ?
-                                    <Link href="/grouplist/[groupId]/addteacher"
-                                        as={`/grouplist/${groupId}/addteacher`} style={{ textDecoration: 'none' }}><h4><AiFillPlusCircle /></h4>
-                                    </Link> : <p></p>
+                                    {(userRole == "admin") && (teachers.length < 3) &&
+                                        <Link href="/grouplist/[groupId]/addteacher"
+                                            as={`/grouplist/${groupId}/addteacher`} style={{ textDecoration: 'none' }}><h4><AiFillPlusCircle /></h4>
+                                        </Link>
                                     }
                                 </div>
                             </div>
@@ -131,27 +125,24 @@ export default function GroupDetail() {
                                         <h4>Alumnos</h4>
                                     </div>
                                     {(userRole == "admin") ?
-                                    <Link href="/grouplist/[groupId]/addstudent"
-                                        as={`/grouplist/${groupId}/addstudent`} style={{ textDecoration: 'none' }}><h4><AiFillPlusCircle /></h4>
-                                    </Link> : <p></p>
+                                        <Link href="/grouplist/[groupId]/addstudent"
+                                            as={`/grouplist/${groupId}/addstudent`} style={{ textDecoration: 'none' }}><h4><AiFillPlusCircle /></h4>
+                                        </Link> : <p></p>
                                     }
                                 </div>
                             </div>
                             {(Array.isArray(students) && students.length > 0) ?
                                 students.map(student => {
                                     return (
-                                        // <Link href="/grouplist/[groupId]/[studentId]"
-                                        //     as={`/grouplist/${groupId}/${student._id}`} key={student._id} style={{ textDecoration: 'none' }} >
                                         <TeacherRectangle
                                             key={student._id}
                                             name={student.name}
                                             lastNameA={student.lastNameA}
                                             lastNameB={student.lastNameB}
                                             tipoProfesor={student.tipoProfesor}
-                                            onEyeClick={() => handleEyeClick(groupId, student._id,"")}
+                                            onEyeClick={() => handleEyeClick(groupId, student._id, "")}
                                             onTrashClick={() => handleTrashClick("student", student._id)}
                                         />
-                                        // </Link>
                                     )
                                 }) : <p>No hay alumnos asignados</p>
                             }

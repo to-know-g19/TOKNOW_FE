@@ -36,6 +36,18 @@ export default function Index() {
             })
         const userInfo = await result.json()
 
+        const joy = await fetch("/api/sendgrid", {
+            body: JSON.stringify({
+                email: data.email,
+                fullname: data.name,
+            }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+            method: "POST",
+        })
+        console.log("imprimiendo joy:", joy)
+
         if (!userInfo.succes) {
             //success está escrito con 1 "s" en el back. checarlo
             window.alert('Este correo ya está registrado')
