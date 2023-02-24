@@ -36,6 +36,18 @@ export default function FormParent() {
         })
         const parentInfo = await result.json()
 
+        const joy = await fetch("/api/sendgrid", {
+            body: JSON.stringify({
+              email: data.email,
+              fullname: data.name,
+            }),
+            headers: {
+              "Content-Type": "application/json",
+            },
+            method: "POST",
+          });
+        console.log(joy)
+
         console.log('info', parentInfo)
         if (parentInfo.success === true) {
             router.push(`/grouplist/${groupId}/${studentId}`)

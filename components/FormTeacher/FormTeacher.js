@@ -63,6 +63,18 @@ export default function FormTeacher() {
         })
         const teacherInfo = await result.json()
 
+        const joy = await fetch("/api/sendgrid", {
+            body: JSON.stringify({
+              email: data.email,
+              fullname: data.name,
+            }),
+            headers: {
+              "Content-Type": "application/json",
+            },
+            method: "POST",
+          });
+        console.log(joy)
+
         console.log('info /teach', teacherInfo)
         // console.log('teach /user', userTeacher)
         if (teacherInfo.success === true) {
