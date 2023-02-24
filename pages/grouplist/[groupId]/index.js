@@ -33,12 +33,9 @@ export default function GroupDetail() {
                     setStudents(data.data.groupById.students)
 
                 }
-                // console.log("soy data en pag group", data)
-                // console.log("soy la data.data.groupById.teachers", data.data.groupById.teachers)
 
             })
     }, [router.query])
-    // console.log("info en el teachers", teachers)
     const handleEyeClick = (groupId, userId , strRutaExtra) => {
         router.push(`/grouplist/${groupId}/${strRutaExtra}/${userId}`)
         console.log('funciona el eyeClic')
@@ -54,7 +51,7 @@ export default function GroupDetail() {
           }
         })
           .then(response => {
-            console.log('response en delete group', response)
+            // console.log('response en delete group', response)
             if (response.ok === true) {
               window.location.reload();
             }
@@ -65,7 +62,6 @@ export default function GroupDetail() {
           const userData = JSON.parse(atob(token.split(".")[1]));
           const userRole = userData.role;
           setUserRole(userData.role)
-          console.log("eeeeee", userRole)
           //condición para rutas de componente ArrowGoBack
           let route =("")
           if (userRole == "admin") {
@@ -97,10 +93,10 @@ export default function GroupDetail() {
                                         <h4><FaUserCircle className='user-circle user-circle__teacher' /></h4>
                                         <h4>Profesores</h4>
                                     </div>
-                                    {(userRole == "admin") ?
+                                    {(userRole == "admin") && (teachers.length < 3) &&
                                     <Link href="/grouplist/[groupId]/addteacher"
                                         as={`/grouplist/${groupId}/addteacher`} style={{ textDecoration: 'none' }}><h4><AiFillPlusCircle /></h4>
-                                    </Link> : <p></p>
+                                    </Link>
                                     }
                                 </div>
                             </div>
