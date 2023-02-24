@@ -14,6 +14,7 @@ export default function GroupDetail() {
     const [teachers, setTeachers] = useState([])
     const [students, setStudents] = useState([])
     const [route, setRoute] = useState("")
+    const [userRole, setUserRole] = useState("")
 
     useEffect(() => {
 
@@ -63,6 +64,7 @@ export default function GroupDetail() {
           const token = localStorage.getItem('token')
           const userData = JSON.parse(atob(token.split(".")[1]));
           const userRole = userData.role;
+          setUserRole(userData.role)
           console.log("eeeeee", userRole)
           //condición para rutas de componente ArrowGoBack
           let route =("")
@@ -95,8 +97,11 @@ export default function GroupDetail() {
                                         <h4><FaUserCircle className='user-circle user-circle__teacher' /></h4>
                                         <h4>Profesores</h4>
                                     </div>
+                                    {(userRole == "admin") ?
                                     <Link href="/grouplist/[groupId]/addteacher"
-                                        as={`/grouplist/${groupId}/addteacher`} style={{ textDecoration: 'none' }}><h4><AiFillPlusCircle /></h4></Link>
+                                        as={`/grouplist/${groupId}/addteacher`} style={{ textDecoration: 'none' }}><h4><AiFillPlusCircle /></h4>
+                                    </Link> : <p></p>
+                                    }
                                 </div>
                             </div>
                             {(Array.isArray(teachers) && teachers.length > 0) ?
@@ -125,8 +130,11 @@ export default function GroupDetail() {
                                         <h4><FaUserCircle className='user-circle user-circle__student' /></h4>
                                         <h4>Alumnos</h4>
                                     </div>
+                                    {(userRole == "admin") ?
                                     <Link href="/grouplist/[groupId]/addstudent"
-                                        as={`/grouplist/${groupId}/addstudent`} style={{ textDecoration: 'none' }}><h4><AiFillPlusCircle /></h4></Link>
+                                        as={`/grouplist/${groupId}/addstudent`} style={{ textDecoration: 'none' }}><h4><AiFillPlusCircle /></h4>
+                                    </Link> : <p></p>
+                                    }
                                 </div>
                             </div>
                             {(Array.isArray(students) && students.length > 0) ?
