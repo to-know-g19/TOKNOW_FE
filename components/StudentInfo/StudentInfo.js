@@ -9,8 +9,8 @@ export default function StudentInfo({ student }) {
     const router = useRouter()
     const studentId = router.query.studentId
     const groupId = router.query.groupId
-    console.log('soy student id:', studentId)
-    console.log('soy grupo id:', groupId)
+    // console.log('soy student id:', studentId)
+    // console.log('soy grupo id:', groupId)
     const [parents, setParents] = useState([])
     const [userRole, setUserRole] = useState('')
 
@@ -18,7 +18,7 @@ export default function StudentInfo({ student }) {
 
         const token = localStorage.getItem('token')
         const userData = JSON.parse(atob(token.split(".")[1]));
-        setUserRole(userData.id)
+        setUserRole(userData.role)
         fetch(`https://api.toknow.online/student/${studentId}`, {
             mode: 'cors',
             headers: {
@@ -38,7 +38,7 @@ export default function StudentInfo({ student }) {
     }, [router.query])
     console.log("soy la data del del papá", parents)
 
-    const handleEyeClick = (groupId, student, strRutaExtra , userId) => {
+    const handleEyeClick = (groupId, student, strRutaExtra, userId) => {
         router.push(`/grouplist/${groupId}/${student}/${strRutaExtra}/${userId}`)
         console.log('funciona el eyeClic')
     };
@@ -152,9 +152,9 @@ export default function StudentInfo({ student }) {
                         }) : <div>
                             <p>Aún no hay un tutor registrado.  </p>
                             {(userRole == "admin") ?
-                            <p><Link href="/grouplist/[groupId]/[studentId]/parent/addparent"
-                                as={`/grouplist/${groupId}/${studentId}/parent/addparent`}>
-                                Clic aquí para registrar </Link> </p> : <p></p>
+                                <p><Link href="/grouplist/[groupId]/[studentId]/parent/addparent"
+                                    as={`/grouplist/${groupId}/${studentId}/parent/addparent`}>
+                                    Clic aquí para registrar </Link> </p> : <p></p>
                             }
                         </div>
                     }
