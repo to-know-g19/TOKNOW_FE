@@ -15,12 +15,12 @@ export default function Navbar() {
     const [sidebar, setSidebar] = useState(false)
     const showSidebar = () => setSidebar(!sidebar)
     const [userRole, setUserRole] = useState("")
-    useEffect(() =>{
-      const token = localStorage.getItem("token");
-      if (token){
-      const userData = JSON.parse(atob(token.split(".")[1]));
-      setUserRole (userData.role)
-    }
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (token) {
+            const userData = JSON.parse(atob(token.split(".")[1]));
+            setUserRole(userData.role)
+        }
     }, [])
 
     return (
@@ -29,12 +29,12 @@ export default function Navbar() {
 
             <div className="d-flex col-lg-2 justify-content-center  align-items-center">
                 {(userRole == "admin") ?
-                <Link onClick={showSidebar} href="#">
-                    <div className="navigation__navmenuBG d-flex justify-content-center  align-items-center">
+                    <Link onClick={showSidebar} href="#">
+                        <div className="navigation__navmenuBG d-flex justify-content-center  align-items-center">
 
-                        <FaBars />
-                    </div>
-                </Link>: <p></p>
+                            <FaBars />
+                        </div>
+                    </Link> : <p></p>
                 }
             </div>
 
