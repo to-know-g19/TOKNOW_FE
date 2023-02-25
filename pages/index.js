@@ -6,6 +6,7 @@ import Layout from '../components/Layout'
 import ButtonDonate from '../components/ButtonDonate/ButtonDonate'
 import CardInfoLanding from '../components/CardInfoLanding/CardInfoLanding'
 import FormLogin from '../components/FormLogin/FormLogin'
+import Link from 'next/link'
 
 
 
@@ -66,8 +67,9 @@ export default function home() {
           <div>¡Regístrate ahora mismo para disfrutar de todos los servicios que nuestra aplicación tiene para ofrecerte! Podrás crear tu escuela y hacer grupos con profesores y alumnos.</div>
         </section>
         <section className='d-flex col-lg-4 justify-content-center align-items-center '>
-          {/* <Button
-            text='Registrate' /> */}
+        <div className='d-flex justify-content-around'>
+          <Link className='col-12' href='/register'><button className='btn-form col-12'>Regístrate</button></Link>
+        </div>
         </section>
       </article>
 
