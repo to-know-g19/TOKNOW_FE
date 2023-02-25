@@ -105,7 +105,7 @@ export default function home() {
         </div>
         <div className='FAQ col-lg-6'>FAQ #3 ¿Cómo puedo ver los grupos de mi hij@?
           <div>
-          Para ver los grupos en los que está inscrit@ tu hij@ primero debes ingresar con tu cuenta de usuario y seleccionar el grupo correspondiente al grado que está cursando. Luego, encontrarás una sección de "Profesores" y otra de "Alumnos" donde podrás visualizar la información que necesitas.
+          Para ver los grupos en los que está inscrito tu hijo primero debes ingresar con tu cuenta de usuario y seleccionar el grupo correspondiente al grado que está cursando. Luego, encontrarás una sección de Profesores y otra de Alumnos donde podrás visualizar la información que necesitas.
           </div>
         </div>
         <div className='FAQ col-lg-6'>FAQ #4 ¿La aplicación de toKnow tiene algún costo?
