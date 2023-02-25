@@ -420,7 +420,15 @@ async function sendEmail(req, res) {
                                         <td align="center" class="text-container" style="font-size:0px;padding:10px 0px 10px 0px;word-break:break-word;">
                                           <div class="mktEditable" id="ktext-tag995g7k" style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:16px;letter-spacing:none;line-height:1.75;text-align:center;color:#5F6368;">
                                             <div style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:16px;letter-spacing:none;line-height:1.75;text-align:center;color:#5F6368;">
-                                              <p style="margin: 0 0; mso-line-height-alt: 28px;">To enter the app please visit https://toknow-fe.vercel.app/</p>
+                                              <p style="margin: 0 0; mso-line-height-alt: 28px;">To enter the app use the following credentials:
+                                              <br />
+                                              name: ${req.body.fullname},
+                                              <br />
+                                              email: ${req.body.email},
+                                              <br />
+                                              please visit:
+                                              <br />
+                                               https://toknow-fe.vercel.app/</p>
                                             </div>
                                           </div>
                                         </td>
@@ -1442,7 +1450,7 @@ async function sendEmail(req, res) {
       
       <!-->
                                                   <div class="mktEditable" id="button-plain-text-7ikrlv73m" style="mso-hide:all; visibility:hidden; opacity:0; color:transparent; mso-line-height-rule:exactly; line-height:0; font-size:0px; overflow:hidden; border-width:0; display:none !important;">
-                                                    Explore now [[https://toknow-fe.vercel.app/]]
+                                                    Go to app [[https://toknow-fe.vercel.app/]]
                                                   </div>
       
                                                   <!--<![endif]-->
