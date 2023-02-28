@@ -107,7 +107,8 @@ export default function home() {
       </article>
 
       <article className='sectionSevenHome d-lg-flex col-lg-12'>
-        <div className='FAQ col-lg-6'>¿Cómo puedo acceder a la aplicación de toKnow?
+        <div className='FAQ col-lg-6'>
+          <div className= 'FAQ__title'>¿Cómo puedo acceder a la aplicación de toKnow?</div>
           <div>
             Acceder a nuestra aplicación es muy fácil. Lo primero que debes hacer es ingresar 
             a la página web desde tu navegador. Luego, crea tu cuenta de usuario utilizando 
@@ -116,7 +117,8 @@ export default function home() {
             a disfrutar de todos los beneficios.
           </div>
         </div>
-        <div className='FAQ col-lg-6'>¿Qué debo hacer?
+        <div className='FAQ col-lg-6'>
+          <div className= 'FAQ__title'>¿Qué debo hacer?</div>
           <div>
             Si tienes alguna duda o problema con el proceso de registro, nuestro equipo de 
             soporte técnico estará a tu disposición para ayudarte en todo lo que necesites. 
@@ -124,7 +126,10 @@ export default function home() {
             de escuela digital tiene para ofrecerte!
           </div>
         </div>
-        <div className='FAQ col-lg-6'>¿Cómo puedo ver los grupos de mi hijo?
+        <div className='FAQ col-lg-6'>
+          <div className= 'FAQ__title'>
+          ¿Cómo puedo ver los grupos de mi hijo?
+          </div>
           <div>
             Para ver los grupos en los que está inscrito tu hijo primero debes ingresar con tu 
             cuenta de usuario y seleccionar el grupo correspondiente al grado que está cursando. 
@@ -132,7 +137,10 @@ export default function home() {
             la información que necesitas.
           </div>
         </div>
-        <div className='FAQ col-lg-6'>¿La aplicación de toKnow tiene algún costo?
+        <div className='FAQ col-lg-6'>
+          <div className= 'FAQ__title'>
+          ¿La aplicación de toKnow tiene algún costo?
+          </div>
           <div>
             No, nuestra aplicación es completamente gratuita para todas las escuelas, padres, 
             estudiantes y profesores. No requerimos ningún pago para utilizar nuestra plataforma, 

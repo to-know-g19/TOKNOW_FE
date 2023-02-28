@@ -35,17 +35,19 @@
 }
 
 .landingPicture{
-    height: 27.6rem;
+    height: 100%;
     width: 100%;
 }
 .landingTextNextToImg{
     color: $text-darkblue;
-    padding: 1rem;
+    padding: 2rem 5rem 0rem 2rem;
+    text-align: justify;
 
 }
 .landingLogoNextToImg{
     height: 3.5rem;
     width:16rem ;
+    margin:1rem
 }
 
 .sectionFiveHome{
@@ -62,9 +64,14 @@
 }
 .sectionSevenHome{
     flex-wrap: wrap;
+    padding: 2rem 2rem 2rem 2rem;
+    text-align: justify;
 }
 .FAQ{
-    padding: 3rem;
+    padding: 1rem 1.5rem 1rem 1.5rem;
+    &__title{
+        font-weight: bold;
+    }
 }
 
 .btn-form{
