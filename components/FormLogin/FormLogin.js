@@ -90,36 +90,6 @@ export default function FormLogin() {
       <form onSubmit={handleSubmit(onSubmit)} className='d-flex col-12 flex-column justify-content-center'>
 
 
-
-        <div className='col-12 '>
-          <div className='d-flex col-12 flex-column'>
-            <div className="form-floating mb-3">
-              <input
-                type='email'
-                name='email'
-                className="form-control"
-                placeholder='Correo'
-                {...register("email", { required: true, maxLength: 30 })}></input>
-              {errors.email && errors.email.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
-              {errors.email && errors.email.type === "maxLength" && <span className='text-danger'>*El campo no debe tener más de 30 caracteres. </span>}
-              <label>Correo</label>
-            </div>
-          </div>
-          <div className='col-12 d-flex flex-row'>
-            <div className='d-flex col-12 flex-column'>
-              <div className="form-floating mb-3">
-                <input
-                  type='password'
-                  name='password'
-                  className="form-control"
-                  placeholder='Contraseña'
-                  {...register("password", { required: true, minLength: 3 })} ></input>
-                {errors.password && errors.password.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
-                {errors.password && errors.password.type === "minLength" && <span className='text-danger'>*El campo requiere más de 3 caracteres</span>}
-                <label>Contraseña</label>
-              </div>
-            </div>
-          </div>
           <h6 className='landingLogin'>Selecciona tu rol</h6>
           <div className='d-flex justify-content-around'>
             <div>
@@ -154,6 +124,36 @@ export default function FormLogin() {
                 />
                 Administrador
               </label>
+            </div>
+          </div>
+
+        <div className='col-12 '>
+          <div className='d-flex col-12 flex-column'>
+            <div className="form-floating mb-3">
+              <input
+                type='email'
+                name='email'
+                className="form-control"
+                placeholder='Correo'
+                {...register("email", { required: true, maxLength: 30 })}></input>
+              {errors.email && errors.email.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
+              {errors.email && errors.email.type === "maxLength" && <span className='text-danger'>*El campo no debe tener más de 30 caracteres. </span>}
+              <label>Correo</label>
+            </div>
+          </div>
+          <div className='col-12 d-flex flex-row'>
+            <div className='d-flex col-12 flex-column'>
+              <div className="form-floating mb-3">
+                <input
+                  type='password'
+                  name='password'
+                  className="form-control"
+                  placeholder='Contraseña'
+                  {...register("password", { required: true, minLength: 3 })} ></input>
+                {errors.password && errors.password.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
+                {errors.password && errors.password.type === "minLength" && <span className='text-danger'>*El campo requiere más de 3 caracteres</span>}
+                <label>Contraseña</label>
+              </div>
             </div>
           </div>
 
