@@ -23,11 +23,11 @@ export default function GroupCardDisplay() {
     })
       .then(response => response.json())
       .then(data => {
-        // console.log("soy data", data)
+        console.log("soy data", data)
         const schools = data.data.schools
-        // console.log("soy schools", schools)
+        console.log("soy schools", schools)
         schools.forEach(school => {
-          if (school.user._id === userId) {
+          if (school.user !== null && school.user._id === userId) {
             setGrupos(school.groups);
             // console.log("Grupos: ", school.groups)
           }
