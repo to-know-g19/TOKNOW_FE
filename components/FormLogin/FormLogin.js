@@ -158,9 +158,9 @@ export default function FormLogin() {
           </div>
 
         </div>
-        <div className='d-flex justify-content-around'>
-          <button className='btn-form col-4' type='submit'>Ingresar</button>
-          <Link className='col-6' href='/register'><button className='btn-form col-10'>Regístrate</button></Link>
+        <div className='d-flex justify-content-end'>
+          <button className='btn-form col-5' type='submit'>Ingresar</button>
+          
         </div>
       </form>
     </div>

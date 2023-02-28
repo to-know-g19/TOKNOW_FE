@@ -22,6 +22,7 @@ export default function home() {
             Somos una plataforma que te ayudará a conectar con la comunidad escolar de tus hijos y alumnos.
             En esta página encontrarás información útil sobre tu escuela, incluyendo detalles de grupos y
             sus profesores. </div>
+            <Link className='col-6' href='/register'><button className='btn-form col-5 bg-success'>Regístra tu escuela</button></Link>
         </section>
 
         <section className='col-12 col-lg-4'>
@@ -74,7 +75,7 @@ export default function home() {
         </section>
         <section className='d-flex col-lg-4 justify-content-center align-items-center '>
           <div className='d-flex justify-content-around'>
-            <Link className='col-12' href='/register'><button className='btn-form col-12'>Regístrate</button></Link>
+            <Link className='col-12' href='/register'><button className='btn-form col-12 bg-success'>Regístrarse</button></Link>
           </div>
         </section>
       </article>
