@@ -87,7 +87,7 @@ export default function GroupDetail() {
                         <div className='d-flex flex-column col-lg-5 align-items-center'>
                             <div className='d-flex col-lg-8' >
                                 <div className='d-flex col-lg-6 justify-content-between'>
-                                    <div className='d-flex col-lg-9 justify-content-between'>
+                                    <div className='d-flex col-8 col-lg-9 justify-content-around'>
                                         <h4><FaUserCircle className='user-circle user-circle__teacher' /></h4>
                                         <h4>Profesores</h4>
                                     </div>
@@ -120,7 +120,7 @@ export default function GroupDetail() {
                         <div className='d-flex flex-column col-lg-5 align-items-center'>
                             <div className='d-flex col-lg-8' >
                                 <div className='d-flex col-lg-6 justify-content-between'>
-                                    <div className='d-flex col-lg-9 justify-content-between'>
+                                    <div className='d-flex col-8 col-lg-9 justify-content-around'>
                                         <h4><FaUserCircle className='user-circle user-circle__student' /></h4>
                                         <h4>Alumnos</h4>
                                     </div>
