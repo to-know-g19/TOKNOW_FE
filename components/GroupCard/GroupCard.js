@@ -39,16 +39,18 @@ export default function GroupCard(props) {
 
       </div>
       <div className='groupCard__footer d-flex justify-content-center'>
-        <div className='groupCard__footer__icons d-flex col-lg-11 p-3 justify-content-between'>
-          <button onClick={props.onEyeClick} className='btn btn-outline-primary'>
-            <FaRegEye />
-          </button>
+        <div className='groupCard__footer__icons d-flex col-11 col-lg-11 p-3 justify-content-between'>
 
           {(userRole == "admin") ?
             <button onClick={props.onTrashClick} className='btn btn-outline-danger'>
               <BsFillTrashFill />
             </button> : <p></p>
           }
+
+          <button onClick={props.onEyeClick} className='btn btn-outline-primary'>
+            <FaRegEye />
+          </button>
+
         </div>
       </div>
     </div>
