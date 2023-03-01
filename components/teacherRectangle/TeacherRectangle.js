@@ -31,14 +31,14 @@ export default function TeacherRectangle( props ) {
         </div>
 
         <div className='teacherInfo__icons d-flex col-4 col-lg-3 align-items-center justify-content-around justify-content-lg-around'>
-          <button onClick={props.onEyeClick} className='btn btn-outline-primary'>
-            <FaRegEye />
-          </button>
           {(userRole == "admin") ?
           <button onClick={props.onTrashClick}className='btn btn-outline-danger'>
             <BsFillTrashFill />
           </button> : <p></p>
           }
+          <button onClick={props.onEyeClick} className='btn btn-outline-primary'>
+            <FaRegEye />
+          </button>
         </div>
 
       </div>
