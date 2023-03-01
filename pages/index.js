@@ -28,7 +28,7 @@ export default function home() {
         </section>
 
         <section className='col-12 col-lg-4'>
-          <h5 className='landingLogin'>Acceder</h5>
+          <h5 className='landingLogin mt-3'>Acceder</h5>
           <FormLogin />
           <div className='d-flex justify-content-lg-between'>
             {/* <div className='col-lg-5'>sus datos están seguros con nosotros</div> */}
