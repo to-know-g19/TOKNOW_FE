@@ -65,11 +65,11 @@ export default function StudentInfo({ student }) {
         <div className='d-flex justify-content-center col-12 flex-column align-items-center'>
 
             <form className='d-flex mt-3 col-lg-10 flex-column align-items-center justify-content-center'>
-                <div className='col-10 d-flex flex-wrap justify-content-around'>
+                <div className='col-12 d-flex flex-wrap justify-content-around'>
 
                     <div className='d-flex col-12 col-lg-5 flex-column justify-content-center align-items-center'>
 
-                        <div className='d-flex col-10 col-lg-12 flex-column'>
+                        <div className='d-flex col-11 col-lg-12 flex-column'>
                             <div className="form-floating mb-3">
                                 <span
                                     name='name'
@@ -81,7 +81,7 @@ export default function StudentInfo({ student }) {
                             </div>
                         </div>
 
-                        <div className='d-flex col-10 col-lg-12 flex-column'>
+                        <div className='d-flex col-11 col-lg-12 flex-column'>
                             <div className="form-floating mb-3">
                                 <span
                                     name='lastNameA'
@@ -95,9 +95,9 @@ export default function StudentInfo({ student }) {
 
                     </div>
 
-                    <div className='d-flex col-10 col-lg-5 flex-column justify-content-center align-items-center'>
+                    <div className='d-flex col-12 col-lg-5 flex-column justify-content-center align-items-center'>
 
-                        <div className='d-flex col-12 col-lg-12 flex-column'>
+                        <div className='d-flex col-11 col-lg-12 flex-column'>
                             <div className="form-floating mb-3">
                                 <span
                                     name='lastNameB'
@@ -109,7 +109,7 @@ export default function StudentInfo({ student }) {
                             </div>
                         </div>
 
-                        <div className='d-flex col-12 col-lg-12 flex-column'>
+                        <div className='d-flex col-11 col-lg-12 flex-column'>
                             <div className="form-floating mb-3">
                                 <span
                                     name='matricula'
@@ -142,7 +142,7 @@ export default function StudentInfo({ student }) {
 
                 <div className='d-flex col-lg-10 flex-wrap justify-content-around'>
 
-                    <div className='d-flex col-10 col-10 col-lg-5 flex-column align-items-center justify-content-center'>
+                    <div className='d-flex col-10 col-lg-5 flex-column align-items-center justify-content-center'>
                         <h4>Datos del tutor</h4>
                         {(parents.length) ?
                             parents.map(parent => {
