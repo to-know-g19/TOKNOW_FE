@@ -62,56 +62,64 @@ export default function StudentInfo({ student }) {
 
     return (
 
-        <div className='d-flex justify-content-center col-12  '>
+        <div className='d-flex justify-content-center col-12 flex-column align-items-center'>
 
-            <form className='d-flex mt-3 col-10 flex-column align-items-center justify-content-center'>
-                <div className='col-10 d-flex flex-wrap justify-content-around'>
+            <form className='d-flex mt-3 col-lg-10 flex-column align-items-center justify-content-center'>
+                <div className='col-12 d-flex flex-wrap justify-content-around'>
 
-                    <div className='d-flex col-5 flex-column'>
-                        <div className="form-floating mb-3">
-                            <span
-                                name='name'
-                                className="form-control"
-                                placeholder='Nombre'
-                            >{name}</span>
+                    <div className='d-flex col-12 col-lg-5 flex-column justify-content-center align-items-center'>
 
-                            <label>Nombre</label>
+                        <div className='d-flex col-11 col-lg-12 flex-column'>
+                            <div className="form-floating mb-3">
+                                <span
+                                    name='name'
+                                    className="form-control"
+                                    placeholder='Nombre'
+                                >{name}</span>
+
+                                <label>Nombre</label>
+                            </div>
                         </div>
+
+                        <div className='d-flex col-11 col-lg-12 flex-column'>
+                            <div className="form-floating mb-3">
+                                <span
+                                    name='lastNameA'
+                                    className="form-control"
+                                    placeholder='Apellido Paterno'
+                                >{lastNameA}</span>
+
+                                <label>Apellido Paterno</label>
+                            </div>
+                        </div>
+
                     </div>
 
-                    <div className='d-flex col-5 flex-column'>
-                        <div className="form-floating mb-3">
-                            <span
-                                name='matricula'
-                                className="form-control"
-                                placeholder='Matrícula'
-                            >{matricula}</span>
-                            <label>Matrícula</label>
+                    <div className='d-flex col-12 col-lg-5 flex-column justify-content-center align-items-center'>
+
+                        <div className='d-flex col-11 col-lg-12 flex-column'>
+                            <div className="form-floating mb-3">
+                                <span
+                                    name='lastNameB'
+                                    className="form-control"
+                                    placeholder='Apellido Materno'
+                                >{lastNameB}</span>
+
+                                <label>Apellido Materno</label>
+                            </div>
                         </div>
-                    </div>
 
-                    <div className='d-flex col-5 flex-column'>
-                        <div className="form-floating mb-3">
-                            <span
-                                name='lastNameA'
-                                className="form-control"
-                                placeholder='Apellido Paterno'
-                            >{lastNameA}</span>
-
-                            <label>Apellido Paterno</label>
+                        <div className='d-flex col-11 col-lg-12 flex-column'>
+                            <div className="form-floating mb-3">
+                                <span
+                                    name='matricula'
+                                    className="form-control"
+                                    placeholder='Matrícula'
+                                >{matricula}</span>
+                                <label>Matrícula</label>
+                            </div>
                         </div>
-                    </div>
 
-                    <div className='d-flex col-5 flex-column'>
-                        <div className="form-floating mb-3">
-                            <span
-                                name='lastNameB'
-                                className="form-control"
-                                placeholder='Apellido Materno'
-                            >{lastNameB}</span>
-
-                            <label>Apellido Materno</label>
-                        </div>
                     </div>
 
 
@@ -130,35 +138,43 @@ export default function StudentInfo({ student }) {
                     {/* link al parent */}
 
                 </div>
-                <div className='d-flex align-items-center justify-content-center col-5 flex-column'>
-                    <h4>Datos del tutor</h4>
-                    {(parents.length) ?
-                        parents.map(parent => {
-                            return (
-                                // <Link href="/grouplist/[groupId]/[studentId]/parent/[parentId]"
-                                //     as={`/grouplist/${groupId}/${studentId}/parent/${parent._id}`} key={parent._id} style={{ textDecoration: 'none' }} >
-                                <TeacherRectangle
-                                    key={parent._id}
-                                    name={parent.name}
-                                    lastNameA={parent.lastNameA}
-                                    lastNameB={parent.lastNameB}
-                                    tipoProfesor={parent.tipoProfesor}
-                                    // al dejar la ruta parent(carpeta) hay error. pero al cambiarlo por otra palabra manda al enlace
-                                    onEyeClick={() => handleEyeClick(groupId, studentId, "parent", parent._id)}
-                                    onTrashClick={() => handleTrashClick("parent", parent._id)}
-                                />
-                                // </Link>
-                            )
-                        }) : <div>
-                            <p>Aún no hay un tutor registrado.  </p>
-                            {(userRole == "admin") ?
-                                <p><Link href="/grouplist/[groupId]/[studentId]/parent/addparent"
-                                    as={`/grouplist/${groupId}/${studentId}/parent/addparent`}>
-                                    Clic aquí para registrar </Link> </p> : <p></p>
-                            }
-                        </div>
-                    }
+
+
+                <div className='d-flex col-lg-10 flex-wrap justify-content-around'>
+
+                    <div className='d-flex col-10 col-lg-5 flex-column align-items-center justify-content-center'>
+                        <h4>Datos del tutor</h4>
+                        {(parents.length) ?
+                            parents.map(parent => {
+                                return (
+                                    // <Link href="/grouplist/[groupId]/[studentId]/parent/[parentId]"
+                                    //     as={`/grouplist/${groupId}/${studentId}/parent/${parent._id}`} key={parent._id} style={{ textDecoration: 'none' }} >
+                                    <TeacherRectangle
+                                        key={parent._id}
+                                        name={parent.name}
+                                        lastNameA={parent.lastNameA}
+                                        lastNameB={parent.lastNameB}
+                                        tipoProfesor={parent.tipoProfesor}
+                                        // al dejar la ruta parent(carpeta) hay error. pero al cambiarlo por otra palabra manda al enlace
+                                        onEyeClick={() => handleEyeClick(groupId, studentId, "parent", parent._id)}
+                                        onTrashClick={() => handleTrashClick("parent", parent._id)}
+                                    />
+                                    // </Link>
+                                )
+                            }) : <div>
+                                <p>Aún no hay un tutor registrado.  </p>
+                                {(userRole == "admin") ?
+                                    <p><Link href="/grouplist/[groupId]/[studentId]/parent/addparent"
+                                        as={`/grouplist/${groupId}/${studentId}/parent/addparent`}>
+                                        Clic aquí para registrar </Link> </p> : <p></p>
+                                }
+                            </div>
+                        }
+                    </div>
                 </div>
+                
+
+
             </form>
         </div>
     )
