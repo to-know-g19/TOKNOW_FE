@@ -89,14 +89,14 @@ export default function FormTeacher() {
 
     return (
 
-        <div className='d-flex flex-column align-items-center col-12 justify-content-center '>
+        <div className='d-flex flex-column align-items-center col-12 col-lg-12 justify-content-center '>
             <ArrowGoBack
                 btnTxtModal={<h4>Datos del profesor</h4>}
                 route={`/grouplist/${groupId}`} />
             <form onSubmit={handleSubmit(onSubmit)} className='d-flex mt-3 col-10 flex-column align-items-center justify-content-center'>
                 <div className='col-10 d-flex flex-wrap justify-content-around'>
 
-                    <div className='d-flex col-5 flex-column'>
+                    <div className='d-flex col-12 col-lg-5 flex-column'>
                         <div className="form-floating mb-3">
                             <input
                                 name='name'
@@ -110,7 +110,7 @@ export default function FormTeacher() {
                         </div>
                     </div>
 
-                    <div className='d-flex col-5 flex-column'>
+                    <div className='d-flex col-12 col-lg-5 flex-column'>
                         <div className="form-floating mb-3">
                             <input
                                 type="email"
@@ -123,7 +123,7 @@ export default function FormTeacher() {
                         </div>
                     </div>
 
-                    <div className='d-flex col-5 flex-column'>
+                    <div className='d-flex col-12 col-lg-5 flex-column'>
                         <div className="form-floating mb-3">
                             <input
                                 name='lastNameA'
@@ -137,7 +137,7 @@ export default function FormTeacher() {
                         </div>
                     </div>
 
-                    <div className='d-flex col-5 flex-column '>
+                    <div className='d-flex col-12 col-lg-5 flex-column '>
                         <div className="form-floating mb-3">
                             <input
                                 type='number'
@@ -149,7 +149,7 @@ export default function FormTeacher() {
                         </div>
                     </div>
 
-                    <div className='d-flex col-5 flex-column'>
+                    <div className='d-flex col-12 col-lg-5 flex-column'>
                         <div className="form-floating mb-3">
                             <input
                                 name='lastNameB'
@@ -163,7 +163,7 @@ export default function FormTeacher() {
                         </div>
                     </div>
 
-                    <div className='d-flex col-5 flex-column'>
+                    <div className='d-flex col-12 col-lg-5 flex-column'>
                         {/* tiene que cumplir uno de la lista en el back.*/}
                         <div className="form-floating mb-3">
                             <select
@@ -180,7 +180,7 @@ export default function FormTeacher() {
                         </div>
                     </div>
 
-                    <div className='d-none d-flex col-5 flex-column'>
+                    <div className='d-none d-flex col-8 col-lg-5 flex-column'>
                         <div className="form-floating mb-3">
                             <select
                                 name='role'
@@ -193,7 +193,7 @@ export default function FormTeacher() {
                         </div>
                     </div>
 
-                    <div className='d-flex col-5 flex-column'>
+                    <div className='d-flex col-12 col-lg-5 flex-column'>
                         <div className="form-floating mb-3">
                             <input
                                 name='password'
@@ -207,7 +207,7 @@ export default function FormTeacher() {
                             <label>Contraseña</label>
                         </div>
                     </div>
-                    <div className='d-flex col-5 flex-column'>
+                    <div className='d-flex col-12 col-lg-5 flex-column'>
                         <div className="form-floating mb-3">
                             <input
                                 type='password'
@@ -226,7 +226,7 @@ export default function FormTeacher() {
 
                     {/* campo escondido con d-none pero necesario para tomar id de grupo y enviarlo
                     en formulario del teacher */}
-                    <div className='d-none d-flex col-5 flex-column'>
+                    <div className='d-none d-flex col-12 col-lg-5 flex-column'>
                         <div className="form-floating mb-3">
                             <select
                                 name='groups'
