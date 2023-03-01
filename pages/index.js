@@ -83,8 +83,8 @@ export default function home() {
       </article>
 
       <article className='sectionFourHome d-lg-flex col-lg-12'>
-        <section className='col-6'> <img className='landingPicture' src="/img/kid&parent.jpeg" alt="" /></section>
-        <section className='landingTextNextToImg col-6'>
+        <section className='col-12 col-lg-6'> <img className='landingPicture' src="/img/kid&parent.jpeg" alt="" /></section>
+        <section className='landingTextNextToImg col-12 col-lg-6'>
           <h3>Acompañando de la mano</h3>
           <div ><img className='landingLogoNextToImg' src="/img/logos/logo.svg" alt="" /></div>
           <div>Nuestra aplicación de escuela digital te brinda la oportunidad de estar al tanto
