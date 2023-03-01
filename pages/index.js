@@ -22,8 +22,8 @@ export default function home() {
             Somos una plataforma que te ayudará a conectar con la comunidad escolar de tus hijos y alumnos.
             En esta página encontrarás información útil sobre tu escuela, incluyendo detalles de grupos y
             sus profesores. </div>
-          <Link className='links col-12 col-lg-8 d-flex justify-content-lg-start justify-content-center' href='/register'>
-            <button className='btn-form col-6 bg-success'>Regístra tu escuela</button>
+          <Link className='links col-12 col-lg-6 d-flex justify-content-lg-start justify-content-center' href='/register'>
+            <button className='btn-form col-8 bg-success'>Regístra tu escuela</button>
           </Link>
         </section>
 

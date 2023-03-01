@@ -32,6 +32,7 @@
 .sectionThreeHome{
     color: $text-darkblue;
     background-color: $bg-lightblue;
+    text-align: justify;
     // height: 12.563rem;
     padding: 3rem;
 }
@@ -79,7 +80,7 @@
 .btn-form{
     margin: 1rem;
     width: 7rem;
-    height: 2rem;
+    height: 3rem;
     color:white;
     background-color: $bg-blue;
     border-radius: 10px;
