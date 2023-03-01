@@ -14,15 +14,15 @@ export default function home() {
   return (
 
     <Layout title='toKnow de la mano con tu hijo' description='Aplicación para escuelas, herramienta para desarrollar una comunicación efectiva en la comunidad'>
-      <article className='sectionOneHome d-flex d-lg-flex justify-content-lg-center align-items-lg-center'>
-        <section className='col-12 col-lg-6'>
-          <h2 className=''>toKnow</h2>
+      <article className='sectionOneHome d-lg-flex justify-content-lg-around align-items-lg-center'>
+        <section className='flex-direction-column col-12 col-lg-6 align-items-end'>
+          <h2 className='landingTitle'>toKnow</h2>
           <h5 className='landingSubtitle'>Conectando a la comunidad escolar</h5>
           <div className=''>¡Bienvenidos a toKnow!
             Somos una plataforma que te ayudará a conectar con la comunidad escolar de tus hijos y alumnos.
             En esta página encontrarás información útil sobre tu escuela, incluyendo detalles de grupos y
             sus profesores. </div>
-            <Link className='col-6' href='/register'><button className='btn-form col-5 bg-success'>Regístra tu escuela</button></Link>
+            <Link href='/register'><button className='btn-form col-6 bg-success'>Regístra tu escuela</button></Link>
         </section>
 
         <section className='col-12 col-lg-4'>
@@ -41,7 +41,7 @@ export default function home() {
         </section>
       </article>
 
-      <article className='sectionTwoHome d-flex col-lg-12 justify-content-around'>
+      <article className='sectionTwoHome d-lg-flex col-lg-12 justify-content-around'>
         <CardInfoLanding
           ImgSrc='/img/Frame1.png'
           Title='#1 Estamos a un click'
@@ -67,7 +67,7 @@ export default function home() {
           estar al tanto de lo que sucede en tu escuela' />
       </article>
 
-      <article className='sectionThreeHome d-flex col-lg-12 justify-content-end align-items-center'>
+      <article className='sectionThreeHome d-lg-flex col-lg-12 justify-content-end align-items-center'>
         <section className='col-lg-7'>
           <h3>Registrate para disfrutar del servicio</h3>
           <div>¡Regístrate ahora mismo para disfrutar de todos los servicios que nuestra aplicación tiene 

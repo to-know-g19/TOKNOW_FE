@@ -1,13 +1,18 @@
 @import '../styles/globals.scss';
 
 .sectionOneHome{
-    gap: 3rem;
-    height: 24.625rem;
+    padding: 1.5rem;
+    text-align: justify;
+    // height: 24.625rem;
 
 }
+// .landingTitle{
+
+// }
+
 .landingSubtitle{
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 .landingLogin{
     color: $text-darkblue;
@@ -31,7 +36,8 @@
 .sectionThreeHome{
     color: $text-darkblue;
     background-color: $bg-lightblue;
-    height: 12.563rem;
+    // height: 12.563rem;
+    padding: 3rem;
 }
 
 .landingPicture{
