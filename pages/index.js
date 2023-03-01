@@ -77,7 +77,9 @@ export default function home() {
         </section>
         <section className='d-flex col-lg-4 justify-content-center align-items-center '>
           <div className='d-flex justify-content-around'>
-            <Link className='col-12' href='/register'><button className='btn-form col-12 bg-success'>Regístrarse</button></Link>
+            <Link className='links d-flex col-12 justify-content-around' href='/register'>
+              <button className='btn-form col-12 bg-success'>Registrarse</button>
+            </Link>
           </div>
         </section>
       </article>
