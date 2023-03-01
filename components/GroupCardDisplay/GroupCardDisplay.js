@@ -72,7 +72,7 @@ export default function GroupCardDisplay() {
           {grupos.map(grupo => (
             //removí el return reemplazando las llaves despues de la flecha con parentesis
             // <Link className='col-lg-5' href={'/grouplist/' + grupo._id} key={grupo._id} style={{ textDecoration: 'none' }} >
-            <div className='col-lg-5' key={grupo._id}>
+            <div className='col-9 col-lg-5' key={grupo._id}>
               <GroupCard
 
                 grade={grupo.grade}
