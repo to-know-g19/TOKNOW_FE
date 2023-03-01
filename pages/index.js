@@ -96,7 +96,7 @@ export default function home() {
         </section>
       </article>
 
-      <article className='sectionFiveHome d-lg-flex col-lg-12 justify-content-center align-items-center'>
+      <article className='sectionFiveHome d-flex col-12 col-lg-12 justify-content-center align-items-center'>
         <h4>Cómo contribuir</h4>
       </article>
 
