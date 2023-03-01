@@ -64,14 +64,9 @@ export default function GroupCardDisplay() {
 
       <div className='d-flex flex-column align-items-center'>
 
-        <div className='d-flex col-lg-12 justify-content-around'>
-
           <ArrowGoBack
             btnTxtModal={<ModalExample />}
-            route={'/registergroup'} />
-
-        </div>
-
+            route={'/registergroup'} />   
 
         <div className='d-flex col-lg-10 flex-wrap justify-content-around'>
           {grupos.map(grupo => (
