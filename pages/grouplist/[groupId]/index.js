@@ -7,6 +7,7 @@ import Link from 'next/link'
 import { FaUserCircle } from 'react-icons/fa';
 import { AiFillPlusCircle } from 'react-icons/ai';
 import { BsArrowLeftCircle } from 'react-icons/bs';
+import ArrowGoBack from '../../../components/ArrowGoBack/ArrowGoBack'
 
 export default function GroupDetail() {
     const router = useRouter()
@@ -80,14 +81,14 @@ export default function GroupDetail() {
         <>
             <Layout>
                 <div>
-                    <div className=' d-flex col-lg-11 justify-content-end'>
-                        <Link href={`${route}`} className='arrow-go-back '><BsArrowLeftCircle /></Link>
-                    </div>
-                    <div className='d-flex justify-content-around'>
+                    <ArrowGoBack
+                    route={`${route}`}/>
+                    
+                    <div className='d-flex flex-column flex-lg-row justify-content-lg-around'>
                         <div className='d-flex flex-column col-lg-5 align-items-center'>
                             <div className='d-flex col-lg-8' >
                                 <div className='d-flex col-lg-6 justify-content-between'>
-                                    <div className='d-flex col-lg-9 justify-content-between'>
+                                    <div className='d-flex col-8 col-lg-9 justify-content-around'>
                                         <h4><FaUserCircle className='user-circle user-circle__teacher' /></h4>
                                         <h4>Profesores</h4>
                                     </div>
@@ -120,7 +121,7 @@ export default function GroupDetail() {
                         <div className='d-flex flex-column col-lg-5 align-items-center'>
                             <div className='d-flex col-lg-8' >
                                 <div className='d-flex col-lg-6 justify-content-between'>
-                                    <div className='d-flex col-lg-9 justify-content-between'>
+                                    <div className='d-flex col-8 col-lg-9 justify-content-around'>
                                         <h4><FaUserCircle className='user-circle user-circle__student' /></h4>
                                         <h4>Alumnos</h4>
                                     </div>
