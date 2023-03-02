@@ -48,12 +48,13 @@ export default function Registerschool() {
 
     return (
         <Layout>
-            <div className='fullscreen'>
+
             <div className='d-flex col-12 '>
                 <form onSubmit={handleSubmit(onSubmit)} className='d-flex col-12 flex-column align-items-center justify-content-center'>
                     <h4 className='m-4'>Registra los datos de tu escuela</h4>
-                    <div className='col-10 d-flex flex-wrap justify-content-around'>
-                        <div className='d-flex col-5 flex-column'>
+                    <div className='col-10 d-flex flex-column flex-lg-row flex-wrap justify-content-lg-around align-items-center'>
+
+                        <div className='d-flex col-10 col-lg-5 flex-column'>
                             <div className="form-floating mb-3">
                                 <input
                                     name='nameSchool'
@@ -68,7 +69,7 @@ export default function Registerschool() {
                         </div>
 
 
-                        <div className='d-flex col-5 flex-column'>
+                        <div className='d-flex col-10 col-lg-5 flex-column'>
                             <div className="form-floating mb-3">
                                 <input
                                     name='cct'
@@ -81,7 +82,7 @@ export default function Registerschool() {
 
 
 
-                        <div className='d-flex col-5 flex-column'>
+                        <div className='d-flex col-10 col-lg-5 flex-column'>
                             <div className="form-floating mb-3">
                                 <input
                                     type='email'
@@ -95,7 +96,7 @@ export default function Registerschool() {
                         </div>
 
 
-                        <div className='d-flex col-5 flex-column'>
+                        <div className='d-flex col-10 col-lg-5 flex-column'>
                             <div className="form-floating mb-3">
                                 <input
                                     type='number'
@@ -108,7 +109,7 @@ export default function Registerschool() {
                         </div>
 
 
-                        <div className='d-flex col-5 flex-column'>
+                        <div className='d-flex col-10 col-lg-5 flex-column'>
                             <div className="form-floating mb-3">
                                 <input
                                     name='addressStreet'
@@ -119,34 +120,35 @@ export default function Registerschool() {
                             </div>
                         </div>
 
+                        <div className='d-flex col-10 col-lg-5 justify-content-between  '>
+                            <div className='d-flex col-5 col-lg-5 flex-column'>
+                                <div className="form-floating mb-3">
+                                    <input
+                                        type='number'
+                                        name='addressNumber'
+                                        className="form-control"
+                                        placeholder='Número'
+                                        {...register("addressNumber")} ></input>
+                                    <label>Número</label>
+                                </div>
+                            </div>
 
-                        <div className='d-flex col-2 flex-column'>
-                            <div className="form-floating mb-3">
-                                <input
-                                    type='number'
-                                    name='addressNumber'
-                                    className="form-control"
-                                    placeholder='Número'
-                                    {...register("addressNumber")} ></input>
-                                <label>Número</label>
+
+                            <div className='d-flex col-6 col-lg-6 flex-column'>
+                                <div className="form-floating mb-3">
+                                    <input
+                                        type='number'
+                                        name='postalCode'
+                                        className="form-control"
+                                        placeholder='Código Postal'
+                                        {...register("postalCode")} ></input>
+                                    <label>Código postal</label>
+                                </div>
                             </div>
                         </div>
 
 
-                        <div className='d-flex col-2 flex-column'>
-                            <div className="form-floating mb-3">
-                                <input
-                                    type='number'
-                                    name='postalCode'
-                                    className="form-control"
-                                    placeholder='Código Postal'
-                                    {...register("postalCode")} ></input>
-                                <label>Código postal</label>
-                            </div>
-                        </div>
-
-
-                        <div className='d-flex col-5 flex-column'>
+                        <div className='d-flex col-10 col-lg-5 flex-column'>
                             <div className="form-floating mb-3">
                                 <input
                                     name='city'
@@ -158,7 +160,7 @@ export default function Registerschool() {
                         </div>
 
 
-                        <div className='d-flex col-5 flex-column'>
+                        <div className='d-flex col-10 col-lg-5 flex-column'>
                             <div className="form-floating mb-3">
                                 <input
                                     name='state'
@@ -171,13 +173,13 @@ export default function Registerschool() {
 
 
                     </div>
-                    <div className='d-flex col-lg-4 justify-content-around'>
-                        <button className='btn-form col-5' type='submit'>Registrar escuela</button>
+                    <div className='d-flex justify-content-around'>
+                        <button className='btn-form col-12' type='submit'>Registrar escuela</button>
 
                     </div>
                 </form>
             </div>
-            </div>
+
         </Layout>
     )
 }
