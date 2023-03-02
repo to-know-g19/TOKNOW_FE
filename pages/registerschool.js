@@ -52,8 +52,7 @@ export default function Registerschool() {
             <div className='d-flex col-12 '>
                 <form onSubmit={handleSubmit(onSubmit)} className='d-flex col-12 flex-column align-items-center justify-content-center'>
                     <h4 className='m-4'>Registra los datos de tu escuela</h4>
-                    <div className='col-10 d-flex flex-direction-column d-lg-flex flex-wrap justify-content-lg-around'>
-                        
+                    <div className='col-10 d-flex flex-column flex-lg-row flex-wrap justify-content-lg-around align-items-center'>
                         
                         <div className='d-flex col-10 col-lg-5 flex-column'>
                             <div className="form-floating mb-3">
