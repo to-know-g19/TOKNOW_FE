@@ -48,12 +48,12 @@ export default function Registerschool() {
 
     return (
         <Layout>
-            <div className='fullscreen'>
+
             <div className='d-flex col-12 '>
                 <form onSubmit={handleSubmit(onSubmit)} className='d-flex col-12 flex-column align-items-center justify-content-center'>
                     <h4 className='m-4'>Registra los datos de tu escuela</h4>
                     <div className='col-10 d-flex flex-column flex-lg-row flex-wrap justify-content-lg-around align-items-center'>
-                        
+
                         <div className='d-flex col-10 col-lg-5 flex-column'>
                             <div className="form-floating mb-3">
                                 <input
@@ -120,32 +120,32 @@ export default function Registerschool() {
                             </div>
                         </div>
 
-                    <div className='d-flex col-10 col-lg-5 justify-content-between  '>
-                        <div className='d-flex col-5 col-lg-5 flex-column'>
-                            <div className="form-floating mb-3">
-                                <input
-                                    type='number'
-                                    name='addressNumber'
-                                    className="form-control"
-                                    placeholder='Número'
-                                    {...register("addressNumber")} ></input>
-                                <label>Número</label>
+                        <div className='d-flex col-10 col-lg-5 justify-content-between  '>
+                            <div className='d-flex col-5 col-lg-5 flex-column'>
+                                <div className="form-floating mb-3">
+                                    <input
+                                        type='number'
+                                        name='addressNumber'
+                                        className="form-control"
+                                        placeholder='Número'
+                                        {...register("addressNumber")} ></input>
+                                    <label>Número</label>
+                                </div>
                             </div>
-                        </div>
 
 
-                        <div className='d-flex col-6 col-lg-6 flex-column'>
-                            <div className="form-floating mb-3">
-                                <input
-                                    type='number'
-                                    name='postalCode'
-                                    className="form-control"
-                                    placeholder='Código Postal'
-                                    {...register("postalCode")} ></input>
-                                <label>Código postal</label>
+                            <div className='d-flex col-6 col-lg-6 flex-column'>
+                                <div className="form-floating mb-3">
+                                    <input
+                                        type='number'
+                                        name='postalCode'
+                                        className="form-control"
+                                        placeholder='Código Postal'
+                                        {...register("postalCode")} ></input>
+                                    <label>Código postal</label>
+                                </div>
                             </div>
                         </div>
-                     </div>
 
 
                         <div className='d-flex col-10 col-lg-5 flex-column'>
@@ -179,7 +179,7 @@ export default function Registerschool() {
                     </div>
                 </form>
             </div>
-            </div>
+
         </Layout>
     )
 }
