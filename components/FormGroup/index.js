@@ -38,9 +38,9 @@ export default function FormGroup() {
             <form onSubmit={handleSubmit(onSubmit)} className='d-flex col-12 flex-column align-items-center'>
                 <div className='col-7 mt-5 d-flex  justify-content-center align-items-center'>
                 
-                <div className='d-flex flex-column flex-lg-row col-12 col-lg-8 justify-content-around'>
+                <div className='d-flex flex-column flex-lg-row col-12 col-lg-8 align-items-center justify-content-around'>
 
-                    <div className='d-flex col-3  flex-column'>
+                    <div className='d-flex col-9 col-lg-3  flex-column'>
                         <div className="form-floating mb-3">
                             <select
                                 name='grade'
@@ -61,7 +61,7 @@ export default function FormGroup() {
                         </div>
                     </div>
 
-                    <div className='d-flex col-3 flex-column'>
+                    <div className='d-flex col-9 col-lg-3 flex-column'>
                         <div className="form-floating mb-3">
                             <select
                                 name='name'
@@ -80,7 +80,7 @@ export default function FormGroup() {
                         </div>
                     </div>
 
-                    <div className='d-flex col-3 flex-column'>
+                    <div className='d-flex col-9 col-lg-3 flex-column'>
                         <div className="form-floating mb-3">
                             <select 
                             name='year'
