@@ -36,11 +36,11 @@ export default function FormGroup() {
     return (
         <div className='d-flex col-12 '>
             <form onSubmit={handleSubmit(onSubmit)} className='d-flex col-12 flex-column align-items-center'>
-                <div className='col-7 mt-5 d-flex  justify-content-center align-items-center'>
+                <div className='col-8 mt-5 d-flex  justify-content-center align-items-center'>
 
-                    <div className='d-flex flex-column flex-lg-row col-12 col-lg-8 align-items-center justify-content-around'>
+                    <div className='d-flex flex-column flex-lg-row col-7 col-lg-8 align-items-center justify-content-around'>
 
-                        <div className='d-flex col-9 col-lg-3  flex-column'>
+                        <div className='d-flex col-12 col-lg-3  flex-column'>
                             <div className="form-floating mb-3">
                                 <select
                                     name='grade'
@@ -61,7 +61,7 @@ export default function FormGroup() {
                             </div>
                         </div>
 
-                        <div className='d-flex col-9 col-lg-3 flex-column'>
+                        <div className='d-flex col-12 col-lg-3 flex-column'>
                             <div className="form-floating mb-3">
                                 <select
                                     name='name'
@@ -80,7 +80,7 @@ export default function FormGroup() {
                             </div>
                         </div>
 
-                        <div className='d-flex col-9 col-lg-3 flex-column'>
+                        <div className='d-flex col-12 col-lg-3 flex-column'>
                             <div className="form-floating mb-3">
                                 <select
                                     name='year'
@@ -96,11 +96,11 @@ export default function FormGroup() {
                         </div>
                     </div>
 
-                    <button className='btn-form col-6 col-lg-2' type='submit'>Registrar</button>
+                    <button className='btn-form col-5 col-lg-2' type='submit'>Registrar</button>
 
                 </div>
-                <div className='col-lg-2'>
-                    <Link className='col-lg-12' href='/grouplist'><button className='bg-success btn-form col-12'>Continuar</button></Link>
+                <div className='col-lg-2 col-4'>
+                    <Link href='/grouplist'><button className='bg-success btn-form col-12'>Continuar</button></Link>
                 </div>
             </form>
         </div>
