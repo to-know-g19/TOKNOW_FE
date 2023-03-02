@@ -120,8 +120,8 @@ export default function Registerschool() {
                             </div>
                         </div>
 
-
-                        <div className='d-flex col-4 col-lg-2 flex-column'>
+                    <div className='d-flex col-10 col-lg-5 justify-content-between  '>
+                        <div className='d-flex col-5 col-lg-5 flex-column'>
                             <div className="form-floating mb-3">
                                 <input
                                     type='number'
@@ -134,7 +134,7 @@ export default function Registerschool() {
                         </div>
 
 
-                        <div className='d-flex col-4 col-lg-2 flex-column'>
+                        <div className='d-flex col-6 col-lg-6 flex-column'>
                             <div className="form-floating mb-3">
                                 <input
                                     type='number'
@@ -145,6 +145,7 @@ export default function Registerschool() {
                                 <label>Código postal</label>
                             </div>
                         </div>
+                     </div>
 
 
                         <div className='d-flex col-10 col-lg-5 flex-column'>
