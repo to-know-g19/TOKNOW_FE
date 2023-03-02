@@ -18,7 +18,7 @@ export default function Registerteacher() {
 
     return (
         <Layout>
-            <div className='fullscreen'>
+            <div>
             <FormTeacher />
             </div>
         </Layout>
