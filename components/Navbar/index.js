@@ -25,9 +25,9 @@ export default function Navbar() {
 
     return (
 
-        <div className="navigation d-flex col-lg-12 ">
+        <div className="navigation d-flex col-12 col-lg-12 ">
 
-            <div className="d-flex col-lg-2 justify-content-center  align-items-center">
+            <div className="d-flex col-2 col-lg-2 justify-content-center  align-items-center">
                 {(userRole == "admin") ?
                     <Link onClick={showSidebar} href="#">
                         <div className="navigation__navmenuBG d-flex justify-content-center  align-items-center">
@@ -62,7 +62,7 @@ export default function Navbar() {
             </nav>
 
             {/* LOGO ToKnow */}
-            <div className="d-flex col-lg-8 justify-content-center align-items-center">
+            <div className="d-flex col-8 col-lg-8 justify-content-center align-items-center">
                 <Link href="/"> <Image src={logo} alt="Logo toKnow" /> </Link>
             </div>
 
