@@ -1,17 +1,5 @@
 @import '../../styles/globals.scss';
 
-.group-Wrapper{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-.groups-container{
-    display: flex;
-
-    width: 40rem;
-
-    flex-wrap: wrap;
-}
 .groupInfo{
     padding-top: .7rem;
     font-size: larger;
