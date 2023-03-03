@@ -56,11 +56,11 @@ export default function Index() {
 
     return (
         <Layout title='toKnow cambiando la comunicación escolar' description='Registro para escuelas, herramienta para desarrollar una comunicación efectiva en la comunidad'>
-            <div className='fullscreen'>
-                <form onSubmit={handleSubmit(onSubmit)} className='d-flex mt-3 flex-column align-items-center'>
+            <div>
+                <form onSubmit={handleSubmit(onSubmit)} className='d-flex col-12 mt-3 flex-column justify-content-center align-items-center'>
 
-                    <h4>Registrate y comienza a administrar tu escuela</h4>
-                    <div className='mt-3 col-lg-4'>
+                    <h4 className='p-3'>Regístrate como administrador</h4>
+                    <div className='mt-3 col-10 col-lg-4'>
                         <h5>Datos del responsable</h5>
                         <div>
                             <div className='d-flex flex-column'>

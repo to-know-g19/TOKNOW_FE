@@ -38,7 +38,7 @@ export default function GroupDetail() {
             })
     }, [router.query])
     const handleEyeClick = (groupId, userId, strRutaExtra) => {
-        router.push(`/grouplist/${groupId}/${strRutaExtra}/${userId}`)
+        router.push(`/grouplist/${groupId}/${strRutaExtra}${userId}`)
         console.log('funciona el eyeClic')
     };
 
@@ -110,7 +110,7 @@ export default function GroupDetail() {
                                             lastNameA={teacher.lastNameA}
                                             lastNameB={teacher.lastNameB}
                                             tipoProfesor={teacher.tipoProfesor}
-                                            onEyeClick={() => handleEyeClick(groupId, teacher._id, "teacher")}
+                                            onEyeClick={() => handleEyeClick(groupId, teacher._id, "teacher/")}
                                             onTrashClick={() => handleTrashClick("teacher", teacher._id)}
                                         />
                                         // </Link>

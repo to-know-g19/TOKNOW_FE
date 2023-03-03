@@ -91,7 +91,7 @@ export default function FormLogin() {
 
 
           <h6 className='landingLogin'>Selecciona tu rol</h6>
-          <div className='d-flex justify-content-around'>
+          <div className='d-flex pt-1 pb-3 justify-content-around'>
             <div>
               <label>
                 <input
