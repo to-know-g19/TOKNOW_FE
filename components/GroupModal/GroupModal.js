@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import GroupFormModal from '../GroupFormModal';
+import {BsPlusCircle } from 'react-icons/bs';
 
 class ModalExample extends React.Component {
   constructor(props) {
@@ -20,8 +21,8 @@ class ModalExample extends React.Component {
 
   render() {
     return (
-      <div>
-        <Button color="primary" onClick={this.toggle}> Grupos +{this.props.buttonLabel}</Button>
+      <div className='d-flex align-items-center'>
+        <Button className="bg-success" onClick={this.toggle}> Grupo <BsPlusCircle/>{this.props.buttonLabel}</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>Crea un nuevo grupo</ModalHeader>
           <ModalBody>
