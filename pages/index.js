@@ -103,8 +103,7 @@ export default function home() {
       </article>
 
       <article className='sectionSixHome d-flex justify-content-around align-items-center flex-column'>
-        <h5 className='col-lg-6'>Un donativo mensual es una forma constante de lograr que madres y padres
-          puedan comunicarse y estar pendientes de sus hijos.</h5>
+        <h5 className='col-lg-6'>toKnow es una plataforma gratuita y con causa social. Ha sido diseñada para ayudar a las escuelas abriendo canales de comunicación entre profesores, padres y comunidad escolar. Gracias a tu donativo fortalecemos juntos la educación!</h5>
         <div>
           <ButtonDonate />
         </div>
