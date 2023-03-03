@@ -43,28 +43,28 @@ export default function home() {
         </section>
       </article>
 
-      <article className='sectionTwoHome d-lg-flex col-lg-12 justify-content-around text-start'>
+      <article className='sectionTwoHome d-lg-flex col-lg-12 justify-content-around text-center'>
         <CardInfoLanding
           ImgSrc='/img/Frame1.png'
-          Title='#1 Estamos a un click'
+          Title='Estamos a un click'
           Description='Haz click en el botón de Registro y comienza a explorar todas las 
           herramientas que tenemos para tí' />
 
         <CardInfoLanding
           ImgSrc='/img/Frame2.png'
-          Title='#2 Accede a tu grupo'
+          Title='Accede a tu grupo'
           Description='Acceder a los grupos de clase de tus hijos nunca fue tan fácil, tan solo 
           ingresa a la plataforma y escoge el grupo que deseas entrar' />
 
         <CardInfoLanding
           ImgSrc='/img/Frame3.png'
-          Title='#3 Información a la mano'
+          Title='Información a la mano'
           Description='Con toKnow la información que necesitas está siempre a la mano, encuentra 
           todo lo que necesitas saber de la comunidad escolar' />
 
         <CardInfoLanding
           ImgSrc='/img/Frame4.png'
-          Title='#4 El poder de estar conectado!'
+          Title='El poder de estar conectado!'
           Description='Descubre el poder de nuestra aplicación, donde podrás ingresar fácilmente y 
           estar al tanto de lo que sucede en tu escuela' />
       </article>
