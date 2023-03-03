@@ -17,8 +17,8 @@ export default function home() {
       <article className='sectionOneHome d-lg-flex justify-content-lg-around align-items-lg-center'>
         <section className='flex-direction-column col-12 col-lg-6 align-items-end '>
           <h2 className='landingTitle'>toKnow</h2>
-          <h5 className='landingSubtitle'>Conectando a la comunidad escolar</h5>
-          <div className=''>¡Bienvenidos a toKnow!
+          <h5 className='landingSubtitle text-start'>Conectando a la comunidad escolar</h5>
+          <div className='text-start'>¡Bienvenidos a toKnow!
             Somos una plataforma que te ayudará a conectar con la comunidad escolar de tus hijos y alumnos.
             En esta página encontrarás información útil sobre tu escuela, incluyendo detalles de grupos y
             sus profesores. </div>
@@ -43,7 +43,7 @@ export default function home() {
         </section>
       </article>
 
-      <article className='sectionTwoHome d-lg-flex col-lg-12 justify-content-around'>
+      <article className='sectionTwoHome d-lg-flex col-lg-12 justify-content-around text-start'>
         <CardInfoLanding
           ImgSrc='/img/Frame1.png'
           Title='#1 Estamos a un click'
@@ -70,7 +70,7 @@ export default function home() {
       </article>
 
       <article className='sectionThreeHome d-lg-flex col-lg-12 justify-content-end align-items-center'>
-        <section className='col-lg-7'>
+        <section className='col-lg-7 text-start'>
           <h3>Registrate para disfrutar del servicio</h3>
           <div>¡Regístrate ahora mismo para disfrutar de todos los servicios que nuestra aplicación tiene
             para ofrecerte! Podrás crear tu escuela y hacer grupos con profesores y alumnos.</div>
@@ -86,7 +86,7 @@ export default function home() {
 
       <article className='sectionFourHome d-lg-flex col-lg-12'>
         <section className='col-12 col-lg-6'> <img className='landingPicture' src="/img/kid&parent.jpeg" alt="" /></section>
-        <section className='landingTextNextToImg col-12 col-lg-6'>
+        <section className='landingTextNextToImg col-12 col-lg-6 text-start'>
           <h3>Acompañando de la mano</h3>
           <div ><img className='landingLogoNextToImg' src="/img/logos/logo.svg" alt="" /></div>
           <div>Nuestra aplicación de escuela digital te brinda la oportunidad de estar al tanto
@@ -110,7 +110,7 @@ export default function home() {
         </div>
       </article>
 
-      <article className='sectionSevenHome d-lg-flex col-lg-12'>
+      <article className='sectionSevenHome d-lg-flex col-lg-12 text-start'>
         <div className='FAQ col-lg-6'>
           <div className='FAQ__title'>¿Cómo puedo acceder a la aplicación de toKnow?</div>
           <div>
