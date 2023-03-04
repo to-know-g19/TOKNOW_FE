@@ -2,7 +2,11 @@ import React, { useState } from 'react'
 import { useForm } from "react-hook-form"
 import 'bootstrap/dist/css/bootstrap.css'
 import { useRouter } from 'next/router'
-import Link from 'next/link'
+
+/* toastify */
+import { ToastContainer, toast } from 'react-toastify';
+/* custom hook para toastify */
+import useToastify from '../NotificationToast';
 
 
 export default function FormLogin() {
@@ -13,6 +17,7 @@ export default function FormLogin() {
   const handleRoleChange = (event) => {
     setSelectedRole(event.target.value);
   };
+  const notify = useToastify("las credenciales introducidas son incorrectas");
 
   const onSubmit = async data => {
     //condición para petición de login según el rol
@@ -39,7 +44,7 @@ export default function FormLogin() {
     localStorage.setItem("token", token)
     //condición para evitar el error al desencriptar token:"undefined"
     if (token === undefined) {
-      window.alert("las credenciales introducidas son incorrectas")
+      notify()
     } else {
       //desencriptando el token para acceder a su info
       const userData = JSON.parse(atob(token.split(".")[1]));
@@ -163,6 +168,7 @@ export default function FormLogin() {
           
         </div>
       </form>
+      <ToastContainer />
     </div>
   )
 }
