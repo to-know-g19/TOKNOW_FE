@@ -18,7 +18,7 @@ export default function FormLogin() {
     setSelectedRole(event.target.value);
   };
   //se llama al custom hook para toastify y se le dan props
-  const notify = useToastify("las credenciales introducidas son incorrectas");
+  const notify = useToastify("error", "las credenciales introducidas son incorrectas");
 
   const onSubmit = async data => {
     //condición para petición de login según el rol
