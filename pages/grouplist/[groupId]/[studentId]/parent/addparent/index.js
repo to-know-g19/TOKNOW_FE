@@ -17,7 +17,7 @@ export default function Index() {
 
     return (
         <Layout>
-            <div className='fullscreen'>
+            <div className=''>
                 <FormParent />
             </div>
         </Layout>
