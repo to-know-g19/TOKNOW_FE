@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 /* toastify */
 import { ToastContainer, toast } from 'react-toastify';
 /* custom hook para toastify */
-import useToastify from '../NotificationToast';
+import useToastify from '../useToastify';
 
 
 export default function FormLogin() {
@@ -17,6 +17,7 @@ export default function FormLogin() {
   const handleRoleChange = (event) => {
     setSelectedRole(event.target.value);
   };
+  //se llama al custom hook para toastify y se le dan props
   const notify = useToastify("las credenciales introducidas son incorrectas");
 
   const onSubmit = async data => {
