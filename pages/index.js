@@ -1,12 +1,12 @@
 /* default */
 import React from 'react'
+import Link from 'next/link'
 
 /* components */
 import Layout from '../components/Layout'
 import ButtonDonate from '../components/ButtonDonate/ButtonDonate'
 import CardInfoLanding from '../components/CardInfoLanding/CardInfoLanding'
 import FormLogin from '../components/FormLogin/FormLogin'
-import Link from 'next/link'
 
 
 

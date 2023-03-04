@@ -17,6 +17,9 @@ import '../components/GroupCardDisplay/groupCardDisplay.scss'
 import '../pages/grouplist/[groupId]/groupId.scss'
 import '../components/Layout/layout.scss'
 
+/*toastify notifications*/
+import 'react-toastify/dist/ReactToastify.css';
+
 const inter = Inter()
 
 function MyApp({ Component, pageProps }) {
