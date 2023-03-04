@@ -4,24 +4,24 @@ import 'bootstrap/dist/css/bootstrap.css'
 import { useRouter } from 'next/router'
 
 /* toastify */
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify'
 /* custom hook para toastify */
-import useToastify from '../useToastify';
+import useToastify from '../useToastify'
 
 
 export default function FormLogin() {
   const { register, handleSubmit, formState: { errors } } = useForm()
-  const [selectedRole, setSelectedRole] = useState('parent');
-  const router = useRouter();
-
+  const [selectedRole, setSelectedRole] = useState('parent')
+  const router = useRouter()
+  //handle de radio buttons
   const handleRoleChange = (event) => {
-    setSelectedRole(event.target.value);
-  };
-  //se llama al custom hook para toastify y se le dan props
-  const notify = useToastify("error", "las credenciales introducidas son incorrectas");
+    setSelectedRole(event.target.value)
+  }
+  //se llama al custom hook para toastify y se le dan valores
+  const notifyError = useToastify("error", "las credenciales introducidas son incorrectas")
 
   const onSubmit = async data => {
-    //condición para petición de login según el rol
+    //condición para petición de login según el rol del radio button
     let url = ''
     if (selectedRole === 'user') {
       url = 'https://api.toknow.online/login/'
@@ -45,12 +45,12 @@ export default function FormLogin() {
     localStorage.setItem("token", token)
     //condición para evitar el error al desencriptar token:"undefined"
     if (token === undefined) {
-      notify()
+      notifyError()
     } else {
       //desencriptando el token para acceder a su info
       const userData = JSON.parse(atob(token.split(".")[1]));
-      const userId = userData.id;
-      const userRole = userData.role;
+      const userId = userData.id
+      const userRole = userData.role
       console.log('soy id en tkn', userId)
       console.log('soy rol en tkn', userRole)
 
@@ -65,8 +65,8 @@ export default function FormLogin() {
       const usersData = await usersResult.json()
       console.log("users data", usersData)
 
-      // Check if user has school data
-      const user = usersData.data.userAll.find(user => user.email === data.email);
+      //necesito acceder al usuario por medio del correo al que estoy proporcionando para ver si tiene school.
+      const user = usersData.data.userAll.find(user => user.email === data.email)
       if (!token) {
         window.alert('las credenciales introducidas son incorrectas')
       }
@@ -78,9 +78,9 @@ export default function FormLogin() {
             router.push("/parent/yourgroups")
           } else {
             if (user && user.school) {
-              router.push("/grouplist");
+              router.push("/grouplist")
             } else {
-              router.push("/registerschool");
+              router.push("/registerschool")
             }
           }
         }
@@ -89,7 +89,6 @@ export default function FormLogin() {
 
     }
   }
-  //necesito acceder al usuario por medio del correo al que estoy proporcionando para ver si tiene school.
 
   return (
     <div className='d-flex col-12 '>
