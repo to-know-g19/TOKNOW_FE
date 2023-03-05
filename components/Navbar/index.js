@@ -17,7 +17,7 @@ export default function Navbar() {
     const [userRole, setUserRole] = useState("")
     useEffect(() => {
         const token = localStorage.getItem("token");
-        if (token) {
+        if (token && token !== "undefined") {
             const userData = JSON.parse(atob(token.split(".")[1]));
             setUserRole(userData.role)
         }
