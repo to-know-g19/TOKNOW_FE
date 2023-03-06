@@ -12,36 +12,7 @@ export default function FormTeacher() {
     const { register, handleSubmit, formState: { errors }, setError } = useForm()
     const router = useRouter()
     const groupId = router.query.groupId
-    const [schoolId, setSchoolId] = useState({})
     const notifyError = useToastify("error", "Hubo un problema al envíar la información")
-
-    useEffect(() => {
-
-        const token = localStorage.getItem('token')
-        fetch(`https://api.toknow.online/group/${groupId}`, {
-            mode: 'cors',
-            headers: {
-                'Content-type': 'application/json',
-                "Authorization": `Bearer ${token}`
-            },
-        })
-            .then((response) => response.json())
-            .then(data => {
-                if (data.data) {
-                    setSchoolId(data.data.groupById.school._id)
-                }
-
-                // console.log("soy la data.data OJO AQUÍ", data.data.school._id)
-                // console.log("soy la data.data.groupById.teachers", data.data.groupById.teachers)
-
-            })
-    }, [router.query])
-    console.log("Soy SchoolId", schoolId)
-    const schoolIdStr = schoolId.toString()
-    console.log('soy string :3', schoolIdStr)
-    const laSkul = schoolIdStr
-    // console.log("soy el routerquery groupId", groupId)
-
 
     const onSubmit = async data => {
         const token = localStorage.getItem('token')
@@ -77,9 +48,9 @@ export default function FormTeacher() {
             },
             method: "POST",
           });
-        console.log(joy)
+        // console.log(joy)
 
-        console.log('info /teach', teacherInfo)
+        // console.log('info /teach', teacherInfo)
         // console.log('teach /user', userTeacher)
         if (teacherInfo.success === true) {
             router.push(`/grouplist/${groupId}`)
