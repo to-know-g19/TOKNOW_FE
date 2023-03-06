@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useForm } from "react-hook-form"
 import 'bootstrap/dist/css/bootstrap.css'
-import { useRouter } from 'next/router'
 //toastify imports
 import { ToastContainer } from 'react-toastify'
 import useToastify from '../useToastify'
@@ -9,8 +8,7 @@ import useToastify from '../useToastify'
 
 export default function GroupFormModal() {
     const { register, handleSubmit, formState: { errors } } = useForm()
-    const router = useRouter()
-    const notifySuccess = useToastify("success", "Registro de grupo exitoso")
+
     const notifyError = useToastify("error", "Hubo un problema al envíar la información")
 
     const onSubmit = async data => {
@@ -28,7 +26,7 @@ export default function GroupFormModal() {
             )
         })
         const groupInfo = await result.json()
-        console.log('info', groupInfo)
+
         if (groupInfo.success === true) {
             //en la página de grouplist se checa el item y se cambia a false después de la mostrar la notificación
             localStorage.setItem('notifGroupCreation', 'true')
@@ -36,7 +34,6 @@ export default function GroupFormModal() {
         } else {
             notifyError()
         }
-        // router.push("/")
     }
 
     return (
