@@ -4,12 +4,16 @@ import 'bootstrap/dist/css/bootstrap.css'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import ArrowGoBack from '../ArrowGoBack/ArrowGoBack'
+//toastify imports
+import { ToastContainer } from 'react-toastify'
+import useToastify from '../useToastify'
 
 export default function FormTeacher() {
     const { register, handleSubmit, formState: { errors }, setError } = useForm()
     const router = useRouter()
     const groupId = router.query.groupId
     const [schoolId, setSchoolId] = useState({})
+    const notifyError = useToastify("error", "Hubo un problema al envíar la información")
 
     useEffect(() => {
 
@@ -80,7 +84,7 @@ export default function FormTeacher() {
         if (teacherInfo.success === true) {
             router.push(`/grouplist/${groupId}`)
         } else {
-            (window.alert("Hubo un problema al envíar la información"))
+            notifyError()
         }
 
     }
@@ -251,6 +255,7 @@ export default function FormTeacher() {
                 </div>
 
             </form>
+            <ToastContainer/>
         </div>
     )
 }
