@@ -3,10 +3,14 @@ import GroupCard from '../GroupCard/GroupCard'
 import ModalExample from '../GroupModal/GroupModal'
 import ArrowGoBack from '../ArrowGoBack/ArrowGoBack';
 import { useRouter } from 'next/router';
+//toastify imports
+import { ToastContainer } from 'react-toastify'
+import useToastify from '../useToastify'
 
 export default function GroupCardDisplay() {
   const [grupos, setGrupos] = useState([]);
   const router = useRouter()
+  const notifySuccess = useToastify("success", "Registro de grupo exitoso")
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -23,9 +27,9 @@ export default function GroupCardDisplay() {
     })
       .then(response => response.json())
       .then(data => {
-        
+
         const schools = data.data.schools
-        
+
         schools.forEach(school => {
           if (school.user !== null && school.user._id === userId) {
             setGrupos(school.groups);
@@ -54,7 +58,15 @@ export default function GroupCardDisplay() {
           window.location.reload();
         }
       })
-  };
+  }
+
+  useEffect(() => {
+    const notifGroupCreation = localStorage.getItem('notifGroupCreation')
+    if (notifGroupCreation === 'true') {
+      notifySuccess()
+      localStorage.setItem('notifGroupCreation', 'false')
+    }
+  }, [])
 
 
 
@@ -64,9 +76,9 @@ export default function GroupCardDisplay() {
 
       <div className='d-flex flex-column align-items-center'>
 
-          <ArrowGoBack
-            btnTxtModal={<ModalExample />}
-            route={'/registergroup'} />   
+        <ArrowGoBack
+          btnTxtModal={<ModalExample />}
+          route={'/registergroup'} />
 
         <div className='d-flex col-lg-10 flex-wrap justify-content-around'>
           {grupos.map(grupo => (
@@ -84,6 +96,7 @@ export default function GroupCardDisplay() {
 
         </div>
       </div>
+      <ToastContainer />
     </>
   )
 }

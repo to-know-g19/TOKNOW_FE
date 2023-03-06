@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm } from "react-hook-form"
 import 'bootstrap/dist/css/bootstrap.css'
 import { useRouter } from 'next/router'
@@ -30,10 +30,11 @@ export default function GroupFormModal() {
         const groupInfo = await result.json()
         console.log('info', groupInfo)
         if (groupInfo.success === true) {
-            notifySuccess()
-            window.location.reload();
+            //en la página de grouplist se checa el item y se cambia a false después de la mostrar la notificación
+            localStorage.setItem('notifGroupCreation', 'true')
+            window.location.reload()
         } else {
-            notifyError
+            notifyError()
         }
         // router.push("/")
     }
