@@ -28,13 +28,11 @@ export default function FormGroup() {
             )
         })
         const groupInfo = await result.json()
-        console.log('info', groupInfo)
         if (groupInfo.success === true) {
             notifySuccess()
         } else {
             notifyError()
         }
-        // router.push("/")
     }
 
     return (
