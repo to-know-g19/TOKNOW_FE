@@ -3,12 +3,15 @@ import { useForm } from "react-hook-form"
 import 'bootstrap/dist/css/bootstrap.css'
 import { useRouter } from 'next/router'
 import ArrowGoBack from '../ArrowGoBack/ArrowGoBack'
+//toastify imports
+import { ToastContainer } from 'react-toastify'
+import useToastify from '../useToastify'
 
 export default function FormStudent() {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const router = useRouter()
-
     const groupId = router.query.groupId
+    const notifyError = useToastify("error", "Hubo un problema al envíar la información")
 
     const onSubmit = async data => {
 
@@ -26,15 +29,12 @@ export default function FormStudent() {
         })
         const teacherInfo = await result.json()
 
-        console.log('info', teacherInfo)
         if (teacherInfo.success === true) {
             router.push(`/grouplist/${groupId}`)
         } else {
-            (window.alert("Hubo un problema al envíar la información"))
+            notifyError()
         }
-
     }
-    console.log("soy el groupId en formStudent", groupId)
 
 
     return (
@@ -131,6 +131,7 @@ export default function FormStudent() {
                 </div>
 
             </form>
+            <ToastContainer/>
         </div>
     )
 }

@@ -3,11 +3,15 @@ import { useForm } from "react-hook-form"
 import 'bootstrap/dist/css/bootstrap.css'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-
+//toastify imports
+import { ToastContainer } from 'react-toastify'
+import useToastify from '../useToastify'
 
 export default function FormGroup() {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const router = useRouter()
+    const notifySuccess = useToastify("success", "Registro exitoso. Actualiza o continúa para ver tus grupos")
+    const notifyError = useToastify("error", "Hubo un problema al envíar la información")
 
     const onSubmit = async data => {
         const token = localStorage.getItem('token')
@@ -24,13 +28,11 @@ export default function FormGroup() {
             )
         })
         const groupInfo = await result.json()
-        console.log('info', groupInfo)
         if (groupInfo.success === true) {
-            window.alert("registro de grupo exitoso")
+            notifySuccess()
         } else {
-            (window.alert("Hubo un problema al envíar la información"))
+            notifyError()
         }
-        // router.push("/")
     }
 
     return (
@@ -103,6 +105,7 @@ export default function FormGroup() {
                     <Link href='/grouplist'><button className='bg-success btn-form col-12'>Continuar</button></Link>
                 </div>
             </form>
+            <ToastContainer />
         </div>
     )
 }
