@@ -3,13 +3,16 @@ import { useForm } from "react-hook-form"
 import 'bootstrap/dist/css/bootstrap.css'
 import { useRouter } from 'next/router'
 import ArrowGoBack from '../ArrowGoBack/ArrowGoBack'
+//toastify imports
+import { ToastContainer } from 'react-toastify'
+import useToastify from '../useToastify'
 
 export default function FormParent() {
     const { register, handleSubmit, formState: { errors }, setError } = useForm()
     const router = useRouter()
-
     const studentId = router.query.studentId
     const groupId = router.query.groupId
+    const notifyError = useToastify("error", "Hubo un problema al envíar la información")
    
 
     const onSubmit = async data => {
@@ -52,11 +55,10 @@ export default function FormParent() {
         if (parentInfo.success === true) {
             router.push(`/grouplist/${groupId}/${studentId}`)
         } else {
-            (window.alert("Hubo un problema al envíar la información"))
+            notifyError()
         }
 
     }
-    console.log("soy el studentId en formParent", studentId)
 
 
     return (
@@ -208,6 +210,7 @@ export default function FormParent() {
                 </div>
 
             </form>
+            <ToastContainer/>
         </div>
     )
 }
