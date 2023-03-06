@@ -49,9 +49,7 @@ export default function FormParent() {
             },
             method: "POST",
           });
-        console.log(joy)
 
-        console.log('info', parentInfo)
         if (parentInfo.success === true) {
             router.push(`/grouplist/${groupId}/${studentId}`)
         } else {

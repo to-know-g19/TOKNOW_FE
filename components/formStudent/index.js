@@ -29,15 +29,12 @@ export default function FormStudent() {
         })
         const teacherInfo = await result.json()
 
-        console.log('info', teacherInfo)
         if (teacherInfo.success === true) {
             router.push(`/grouplist/${groupId}`)
         } else {
             notifyError()
         }
-
     }
-    console.log("soy el groupId en formStudent", groupId)
 
 
     return (
