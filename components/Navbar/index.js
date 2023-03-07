@@ -6,9 +6,11 @@ import logo from '../../public/img/logos/logo.svg'
 /* styles */
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState, useEffect } from "react";
+//icons
 import { SlClose } from "react-icons/sl";
 import { FaBars } from "react-icons/fa";
 import { SidebarData } from "../SideBar/SidebarData";
+import { GoSignOut } from "react-icons/go"
 
 
 export default function Navbar() {
@@ -57,7 +59,12 @@ export default function Navbar() {
                             </li>
                         )
                     })}
-
+                    <li className="nav-text">
+                        <Link href={"/"}>
+                            <GoSignOut />
+                            <div className="nav-span">Cerrar sesión</div>
+                        </Link>
+                    </li>
                 </ul>
             </nav>
 
