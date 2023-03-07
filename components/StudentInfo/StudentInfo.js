@@ -17,6 +17,7 @@ export default function StudentInfo({ student }) {
     useEffect(() => {
 
         const token = localStorage.getItem('token')
+        if (token){
         const userData = JSON.parse(atob(token.split(".")[1]));
         setUserRole(userData.role)
         fetch(`https://api.toknow.online/student/${studentId}`, {
@@ -34,7 +35,7 @@ export default function StudentInfo({ student }) {
 
                 }
 
-            })
+            })}
     }, [router.query])
     console.log("soy la data del del papá", parents)
 
