@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 //toastify imports
 import { ToastContainer } from 'react-toastify'
 import useToastify from '../useToastify'
+import TokenCheck from '../TokenCheck/TokenCheck';
 
 export default function GroupCardDisplay() {
   const [grupos, setGrupos] = useState([]);
@@ -14,6 +15,10 @@ export default function GroupCardDisplay() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
+    if (!token) {
+      router.replace("/")
+      return
+  } else {
     const userData = JSON.parse(atob(token.split(".")[1]));
     const userId = userData.id;
     // console.log('user id', userId)
@@ -36,7 +41,8 @@ export default function GroupCardDisplay() {
             // console.log("Grupos: ", school.groups)
           }
         });
-      });
+      })
+    }
   }, []);
 
   const handleEyeClick = (id) => {
