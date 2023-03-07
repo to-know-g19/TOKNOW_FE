@@ -1,5 +1,5 @@
 /* default */
-import React from 'react'
+import React, {useEffect} from 'react'
 import Link from 'next/link'
 
 /* components */
@@ -7,10 +7,22 @@ import Layout from '../components/Layout'
 import ButtonDonate from '../components/ButtonDonate/ButtonDonate'
 import CardInfoLanding from '../components/CardInfoLanding/CardInfoLanding'
 import FormLogin from '../components/FormLogin/FormLogin'
+//toastify imports
+import { ToastContainer } from 'react-toastify'
+import useToastify from '../components/useToastify'
 
+export default function Home() {
 
+const notifySuccess = useToastify("success", "¡Registro exitoso! Inicia sesión para continuar")
 
-export default function home() {
+useEffect(() => {
+  const notifUserCreated = localStorage.getItem('notifUserCreated')
+  if (notifUserCreated === 'true') {
+    notifySuccess()
+    localStorage.setItem('notifUserCreated', 'false')
+  }
+}, [])
+
   return (
 
     <Layout title='toKnow de la mano con tu hijo' description='Aplicación para escuelas, herramienta para desarrollar una comunicación efectiva en la comunidad'>
@@ -152,7 +164,7 @@ export default function home() {
           </div>
         </div>
       </article>
-
+      <ToastContainer/>
     </Layout>
 
 
