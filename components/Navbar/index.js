@@ -79,13 +79,6 @@ export default function Navbar() {
             <div className="d-flex col-8 col-lg-8 justify-content-center align-items-center">
                 <Link href="/"> <Image src={logo} alt="Logo toKnow" /> </Link>
             </div>
-
-
-            {/* <div className="d-flex  justify-content-center align-items-center">
-                    <div><a href=""><i className="bi bi-bell"><span> <i className="bi bi-plus"></i></span></i></a></div>
-                    <Link href="" label='user'>user</Link>
-                </div> */}
-
         </div>
     )
 }
