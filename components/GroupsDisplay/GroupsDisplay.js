@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import GroupCircle from '../GroupCircle/GroupCircle'
+import { useRouter } from 'next/router';
+import TokenCheck from '../TokenCheck/TokenCheck';
 
 export default function GroupsDisplay() {
 
     const [grupos, setGrupos] = useState([]);
 
-    useEffect(() => {
+    useEffect(() => {   
         const token = localStorage.getItem("token");
+        if(!token){
+            <TokenCheck/>
+        } else {
         const userData = JSON.parse(atob(token.split(".")[1]));
         const userId = userData.id;
         
@@ -30,6 +35,7 @@ export default function GroupsDisplay() {
                     }
                 });
             });
+        }
     }, []);
     
 
