@@ -1,6 +1,7 @@
 /* default */
 import Image from "next/image"
 import Link from 'next/link'
+import {useRouter} from "next/router";
 /* images*/
 import logo from '../../public/img/logos/logo.svg'
 /* styles */
@@ -17,6 +18,7 @@ export default function Navbar() {
     const [sidebar, setSidebar] = useState(false)
     const showSidebar = () => setSidebar(!sidebar)
     const [userRole, setUserRole] = useState("")
+    const router = useRouter()
     useEffect(() => {
         const token = localStorage.getItem("token");
         if (token && token !== "undefined") {
@@ -24,6 +26,11 @@ export default function Navbar() {
             setUserRole(userData.role)
         }
     }, [])
+
+    const handleLogOut = () => {
+        localStorage.removeItem('token')
+        router.push('/')
+      }
 
     return (
 
@@ -59,7 +66,7 @@ export default function Navbar() {
                             </li>
                         )
                     })}
-                    <li className="nav-text">
+                    <li className="nav-text" onClick={handleLogOut}>
                         <Link href={"/"}>
                             <GoSignOut />
                             <div className="nav-span">Cerrar sesión</div>
