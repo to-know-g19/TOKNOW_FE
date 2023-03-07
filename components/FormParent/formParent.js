@@ -134,7 +134,10 @@ export default function FormParent() {
                                     name='phone'
                                     className="form-control"
                                     placeholder='Teléfono'
-                                    {...register("phone")} ></input>
+                                    {...register("phone", { required: true })} ></input>
+                                    {errors.phone && errors.phone.type === "required" && <span className='text-danger'>*El campo es requerido</span>
+
+                                    }
                                 <label>Teléfono</label>
                             </div>
                         </div>
