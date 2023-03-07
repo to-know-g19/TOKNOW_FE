@@ -65,7 +65,8 @@ export default function FormStudent() {
                                 name='matricula'
                                 className="form-control"
                                 placeholder='Matrícula'
-                                {...register("matricula")} ></input>
+                                {...register("matricula", { required: true })} ></input>
+                            {errors.matricula && errors.matricula.type === "required" && <span className='text-danger'>*El campo es requerido</span>}
                             <label>Matrícula</label>
                         </div>
                     </div>
