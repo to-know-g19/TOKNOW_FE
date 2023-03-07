@@ -75,7 +75,8 @@ export default function Registerschool() {
                                     name='cct'
                                     className="form-control"
                                     placeholder='CCT'
-                                    {...register("cct")} ></input>
+                                    {...register("cct", { required: true })} ></input>
+                                {errors.cct && errors.cct.type === "required" && <span className='text-danger'>*Este campo es requerido.</span>}
                                 <label>CCT</label>
                             </div>
                         </div>
@@ -103,7 +104,8 @@ export default function Registerschool() {
                                     name='phoneSchool'
                                     className="form-control"
                                     placeholder='Tel. escolar'
-                                    {...register("phoneSchool")} ></input>
+                                    {...register("phoneSchool", {required: true})} ></input>
+                                {errors.phoneSchool && errors.phoneSchool.type === "required" && <span className='text-danger'>*Este campo es requerido.</span>}
                                 <label>Teléfono</label>
                             </div>
                         </div>
@@ -112,10 +114,12 @@ export default function Registerschool() {
                         <div className='d-flex col-10 col-lg-5 flex-column'>
                             <div className="form-floating mb-3">
                                 <input
+                                    type='text'
                                     name='addressStreet'
                                     className="form-control"
                                     placeholder='Calle'
-                                    {...register("addressStreet")}></input>
+                                    {...register("addressStreet", {required: true})}></input>
+                                {errors.addressStreet && errors.addressStreet.type === "required" && <span className='text-danger'>*Este campo es requerido</span>}
                                 <label>Calle</label>
                             </div>
                         </div>
@@ -128,7 +132,8 @@ export default function Registerschool() {
                                         name='addressNumber'
                                         className="form-control"
                                         placeholder='Número'
-                                        {...register("addressNumber")} ></input>
+                                        {...register("addressNumber", { required: true})} ></input>
+                                    {errors.addressNumber && errors.addressNumber.type === 'required' && <span className='text-danger'>*Este campo es requerido</span>}
                                     <label>Número</label>
                                 </div>
                             </div>
@@ -141,7 +146,8 @@ export default function Registerschool() {
                                         name='postalCode'
                                         className="form-control"
                                         placeholder='Código Postal'
-                                        {...register("postalCode")} ></input>
+                                        {...register("postalCode", { required: true})} ></input>
+                                    {errors.postalCode && errors.postalCode.type === "required" && <span className='text-danger'>*Este campo es requerido</span>}
                                     <label>Código postal</label>
                                 </div>
                             </div>
@@ -154,7 +160,8 @@ export default function Registerschool() {
                                     name='city'
                                     className="form-control"
                                     placeholder='Ciudad'
-                                    {...register("city")} ></input>
+                                    {...register("city", { required: true})} ></input>
+                                {errors.city && errors.city.type === "required" && <span className='text-danger'>*Este campo es requerido</span>}
                                 <label>Ciudad</label>
                             </div>
                         </div>
@@ -166,7 +173,8 @@ export default function Registerschool() {
                                     name='state'
                                     className="form-control"
                                     placeholder='Región/Provincia/Estado'
-                                    {...register("state")} ></input>
+                                    {...register("state", { required: true})} ></input>
+                                {errors.state && errors.state.type === "required" && <span className='text-danger'>*Este campo es requerido</span>}
                                 <label>Región/Provincia/Estado</label>
                             </div>
                         </div>
