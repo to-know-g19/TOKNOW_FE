@@ -6,7 +6,6 @@ import { useRouter } from 'next/router';
 //toastify imports
 import { ToastContainer } from 'react-toastify'
 import useToastify from '../useToastify'
-import TokenCheck from '../TokenCheck/TokenCheck';
 
 export default function GroupCardDisplay() {
   const [grupos, setGrupos] = useState([]);

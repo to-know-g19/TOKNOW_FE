@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import GroupCircle from '../GroupCircle/GroupCircle'
-import { useRouter } from 'next/router';
-import TokenCheck from '../TokenCheck/TokenCheck';
 
 export default function GroupsDisplay() {
 
