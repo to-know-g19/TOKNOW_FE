@@ -9,9 +9,7 @@ export default function GroupsDisplay() {
 
     useEffect(() => {   
         const token = localStorage.getItem("token");
-        if(!token){
-            <TokenCheck/>
-        } else {
+        if(token) {
         const userData = JSON.parse(atob(token.split(".")[1]));
         const userId = userData.id;
         

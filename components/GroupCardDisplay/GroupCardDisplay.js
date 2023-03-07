@@ -15,10 +15,7 @@ export default function GroupCardDisplay() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    if (!token) {
-      router.replace("/")
-      return
-  } else {
+    if (token) {
     const userData = JSON.parse(atob(token.split(".")[1]));
     const userId = userData.id;
     // console.log('user id', userId)
