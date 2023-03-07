@@ -11,8 +11,8 @@ import FormLogin from '../components/FormLogin/FormLogin'
 import { ToastContainer } from 'react-toastify'
 import useToastify from '../components/useToastify'
 
-export default function home() {
-  
+export default function Home() {
+
 const notifySuccess = useToastify("success", "¡Registro exitoso! Inicia sesión para continuar")
 
 useEffect(() => {
