@@ -4,14 +4,16 @@ import { useForm } from "react-hook-form"
 import { useRouter } from 'next/router'
 /* styles */
 import 'bootstrap/dist/css/bootstrap.css'
-
 /* components */
 import Layout from '../components/Layout';
-
+//toastify imports
+import { ToastContainer } from 'react-toastify';
+import useToastify from '../components/useToastify';
 
 export default function Index() {
     const { register, handleSubmit, formState: { errors }, setError } = useForm()
     const router = useRouter()
+    const notifyError =useToastify("error", "Este correo ya está registrado")
     const onSubmit = async data => {
         if (data.password !== data.confirmPassword) {
             setError("confirmPassword", {
@@ -50,7 +52,7 @@ export default function Index() {
 
         if (!userInfo.succes) {
             //success está escrito con 1 "s" en el back. checarlo
-            window.alert('Este correo ya está registrado')
+            notifyError()
         } else { router.push("/") }
     }
 
@@ -145,6 +147,7 @@ export default function Index() {
                     <button className='btn-form col-4' type='submit'>Registrarse</button>
                 </form>
             </div>
+            <ToastContainer/>
         </Layout>
     )
 }
