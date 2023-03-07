@@ -1,20 +1,24 @@
 /* default */
 import Image from "next/image"
 import Link from 'next/link'
+import {useRouter} from "next/router";
 /* images*/
 import logo from '../../public/img/logos/logo.svg'
 /* styles */
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState, useEffect } from "react";
+//icons
 import { SlClose } from "react-icons/sl";
 import { FaBars } from "react-icons/fa";
 import { SidebarData } from "../SideBar/SidebarData";
+import { GoSignOut } from "react-icons/go"
 
 
 export default function Navbar() {
     const [sidebar, setSidebar] = useState(false)
     const showSidebar = () => setSidebar(!sidebar)
     const [userRole, setUserRole] = useState("")
+    const router = useRouter()
     useEffect(() => {
         const token = localStorage.getItem("token");
         if (token && token !== "undefined") {
@@ -22,6 +26,11 @@ export default function Navbar() {
             setUserRole(userData.role)
         }
     }, [])
+
+    const handleLogOut = () => {
+        localStorage.removeItem('token')
+        router.push('/')
+      }
 
     return (
 
@@ -57,7 +66,12 @@ export default function Navbar() {
                             </li>
                         )
                     })}
-
+                    <li className="nav-text" onClick={handleLogOut}>
+                        <Link href={"/"}>
+                            <GoSignOut />
+                            <div className="nav-span">Cerrar sesión</div>
+                        </Link>
+                    </li>
                 </ul>
             </nav>
 
@@ -65,13 +79,6 @@ export default function Navbar() {
             <div className="d-flex col-8 col-lg-8 justify-content-center align-items-center">
                 <Link href="/"> <Image src={logo} alt="Logo toKnow" /> </Link>
             </div>
-
-
-            {/* <div className="d-flex  justify-content-center align-items-center">
-                    <div><a href=""><i className="bi bi-bell"><span> <i className="bi bi-plus"></i></span></i></a></div>
-                    <Link href="" label='user'>user</Link>
-                </div> */}
-
         </div>
     )
 }
