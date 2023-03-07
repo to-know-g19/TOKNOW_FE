@@ -53,7 +53,9 @@ export default function Index() {
         if (!userInfo.succes) {
             //success está escrito con 1 "s" en el back. checarlo
             notifyError()
-        } else { router.push("/") }
+        } else { 
+            localStorage.setItem('notifUserCreated', 'true')
+            router.push("/") }
     }
 
     return (
