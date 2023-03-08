@@ -5,8 +5,9 @@ export default function GroupsDisplay() {
 
     const [grupos, setGrupos] = useState([]);
 
-    useEffect(() => {
+    useEffect(() => {   
         const token = localStorage.getItem("token");
+        if(token) {
         const userData = JSON.parse(atob(token.split(".")[1]));
         const userId = userData.id;
         
@@ -30,6 +31,7 @@ export default function GroupsDisplay() {
                     }
                 });
             });
+        }
     }, []);
     
 

@@ -14,6 +14,7 @@ export default function GroupCardDisplay() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
+    if (token) {
     const userData = JSON.parse(atob(token.split(".")[1]));
     const userId = userData.id;
     // console.log('user id', userId)
@@ -36,7 +37,8 @@ export default function GroupCardDisplay() {
             // console.log("Grupos: ", school.groups)
           }
         });
-      });
+      })
+    }
   }, []);
 
   const handleEyeClick = (id) => {

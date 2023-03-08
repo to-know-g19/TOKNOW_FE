@@ -59,6 +59,7 @@ export default function GroupDetail() {
     };
     useEffect(() => {
         const token = localStorage.getItem('token')
+        if (token) {
         const userData = JSON.parse(atob(token.split(".")[1]));
         const userRole = userData.role;
         setUserRole(userData.role)
@@ -74,7 +75,7 @@ export default function GroupDetail() {
             }
         }
         setRoute(route)
-
+    }
     }, [])
 
     return (

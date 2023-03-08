@@ -24,6 +24,12 @@ export default function Navbar() {
         if (token && token !== "undefined") {
             const userData = JSON.parse(atob(token.split(".")[1]));
             setUserRole(userData.role)
+        } else {
+            /* función para checar token y si no hay empujar a home*/
+            if (!token) {
+                router.replace("/")
+                return
+            }
         }
     }, [])
 
