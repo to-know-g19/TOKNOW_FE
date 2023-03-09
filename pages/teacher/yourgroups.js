@@ -23,16 +23,16 @@ export default function Yourgroups() {
     })
       .then(response => response.json())
       .then(data => {
-        console.log('data-t/yougroups', data)
+        // console.log('data-t/yougroups', data)
         const userGroups = [];
         if (data.data) {
           const allGroups = data.data.groups
-          console.log('allGroups-t/yourgroups', allGroups)
+          // console.log('allGroups-t/yourgroups', allGroups)
           allGroups.forEach(group => {
             group.teachers.forEach(teacher => {
               if (teacher._id === userId) {
                 userGroups.push(group)
-                console.log('grupo t/yourgroups', group)
+                // console.log('grupo t/yourgroups', group)
               }
             })
           })
