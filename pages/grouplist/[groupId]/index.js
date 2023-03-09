@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
+//components
 import Layout from '../../../components/Layout'
 import TeacherRectangle from '../../../components/teacherRectangle/TeacherRectangle'
-import Link from 'next/link'
+import ArrowGoBack from '../../../components/ArrowGoBack/ArrowGoBack'
 /* icon imports*/
 import { FaUserCircle } from 'react-icons/fa';
 import { AiFillPlusCircle } from 'react-icons/ai';
-import { BsArrowLeftCircle } from 'react-icons/bs';
-import ArrowGoBack from '../../../components/ArrowGoBack/ArrowGoBack'
 //toastify imports
 import { ToastContainer } from 'react-toastify'
 import useToastify from '../../../components/useToastify'
@@ -44,7 +44,6 @@ export default function GroupDetail() {
     }, [router.query])
     const handleEyeClick = (groupId, userId, strRutaExtra) => {
         router.push(`/grouplist/${groupId}/${strRutaExtra}${userId}`)
-        console.log('funciona el eyeClic')
     };
 
     const handleTrashClick = (strRoute, userId) => {
