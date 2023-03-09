@@ -54,11 +54,9 @@ export default function Yourgroups() {
       <Layout>
         <div className='d-flex flex-column align-items-center'>
 
-          <div className='d-flex col-lg-12 justify-content-around'>
             <ArrowGoBack
               btnTxtModal={<h4>TUS GRUPOS</h4>}
               route={''} />
-          </div>
 
           <div className='d-flex col-12 col-lg-10 flex-wrap justify-content-around'>
             <div className='col-9 col-lg-5'>
