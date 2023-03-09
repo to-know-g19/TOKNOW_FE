@@ -82,7 +82,7 @@ export default function GroupCardDisplay() {
           btnTxtModal={<ModalExample />}
           route={'/registergroup'} />
 
-        <div className='d-flex col-lg-10 flex-wrap justify-content-around'>
+        <div className='d-flex col-12 col-lg-10 flex-wrap justify-content-around'>
           {grupos.map(grupo => (
             //removí el return reemplazando las llaves despues de la flecha con parentesis
             // <Link className='col-lg-5' href={'/grouplist/' + grupo._id} key={grupo._id} style={{ textDecoration: 'none' }} >
