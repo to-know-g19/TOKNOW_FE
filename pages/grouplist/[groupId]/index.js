@@ -8,6 +8,9 @@ import { FaUserCircle } from 'react-icons/fa';
 import { AiFillPlusCircle } from 'react-icons/ai';
 import { BsArrowLeftCircle } from 'react-icons/bs';
 import ArrowGoBack from '../../../components/ArrowGoBack/ArrowGoBack'
+//toastify imports
+import { ToastContainer } from 'react-toastify'
+import useToastify from '../../../components/useToastify'
 
 export default function GroupDetail() {
     const router = useRouter()
@@ -16,6 +19,8 @@ export default function GroupDetail() {
     const [students, setStudents] = useState([])
     const [route, setRoute] = useState("")
     const [userRole, setUserRole] = useState("")
+    const notifySuccessTeach = useToastify("success", "Profesor eliminado con exito")
+    const notifySuccessStud = useToastify("success", "Estudiante eliminado con exito")
 
     useEffect(() => {
 
@@ -53,29 +58,49 @@ export default function GroupDetail() {
         })
             .then(response => {
                 if (response.ok === true) {
+                    //se toma el argumento que reciba el handler en la card
+                    //y se usa para la lógica de setear un item para las notificaciones
+                    if (strRoute === "teacher") {
+                        localStorage.setItem("notifTeachDeletion", "true")
+                    } else {
+                        if (strRoute === "student") {
+                            localStorage.setItem("notifStudDeletion", "true")
+                        }
+                    }
                     window.location.reload();
                 }
             })
     };
     useEffect(() => {
+        const notifTeachDeletion = localStorage.getItem('notifTeachDeletion')
+        const notifStudDeletion = localStorage.getItem('notifStudDeletion')
+        if (notifTeachDeletion === 'true') {
+            notifySuccessTeach()
+            localStorage.setItem('notifTeachDeletion', 'false')
+          }
+          if (notifStudDeletion === 'true') {
+            notifySuccessStud()
+            localStorage.setItem('notifStudDeletion', 'false')
+          }
+
         const token = localStorage.getItem('token')
         if (token) {
-        const userData = JSON.parse(atob(token.split(".")[1]));
-        const userRole = userData.role;
-        setUserRole(userData.role)
-        //condición para rutas de componente ArrowGoBack
-        let route = ("")
-        if (userRole == "admin") {
-            route = "/grouplist"
-        } else {
-            if (userRole == "parent") {
-                route = "/parent/yourgroups"
+            const userData = JSON.parse(atob(token.split(".")[1]));
+            const userRole = userData.role;
+            setUserRole(userData.role)
+            //condición para rutas de componente ArrowGoBack
+            let route = ("")
+            if (userRole == "admin") {
+                route = "/grouplist"
             } else {
-                route = "/teacher/yourgroups"
+                if (userRole == "parent") {
+                    route = "/parent/yourgroups"
+                } else {
+                    route = "/teacher/yourgroups"
+                }
             }
+            setRoute(route)
         }
-        setRoute(route)
-    }
     }, [])
 
     return (
@@ -83,8 +108,8 @@ export default function GroupDetail() {
             <Layout>
                 <div>
                     <ArrowGoBack
-                    route={`${route}`}/>
-                    
+                        route={`${route}`} />
+
                     <div className='d-flex flex-column flex-lg-row justify-content-lg-around'>
                         <div className='d-flex flex-column col-lg-5 align-items-center'>
                             <div className='d-flex col-lg-8' >
@@ -159,7 +184,7 @@ export default function GroupDetail() {
                     <li>materia 4</li>
                     <li>materia 5</li>
                 </ul> */}
-
+            <ToastContainer/>
             </Layout>
         </>
     )
