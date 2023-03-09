@@ -7,6 +7,8 @@ export default function Announcements() {
             <div>
                 <div>announcements</div>
                 <CardAnnouncement/>
+                <CardAnnouncement/>
+                <CardAnnouncement/>
             </div>
         </Layout>
     )
