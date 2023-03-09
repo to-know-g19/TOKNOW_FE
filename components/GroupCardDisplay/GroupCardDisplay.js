@@ -11,6 +11,7 @@ export default function GroupCardDisplay() {
   const [grupos, setGrupos] = useState([]);
   const router = useRouter()
   const notifySuccess = useToastify("success", "Registro de grupo exitoso")
+  const notifySuccessGroupDelete = useToastify("success", "Grupo eliminado con éxito")
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -57,16 +58,23 @@ export default function GroupCardDisplay() {
       .then(response => {
         // console.log('response en delete group', response)
         if (response.ok === true) {
+          localStorage.setItem('notifGroupDeletion', 'true')
           window.location.reload();
+
         }
       })
   }
 
   useEffect(() => {
     const notifGroupCreation = localStorage.getItem('notifGroupCreation')
+    const notifGroupDeletion = localStorage.getItem('notifGroupDeletion')
     if (notifGroupCreation === 'true') {
       notifySuccess()
       localStorage.setItem('notifGroupCreation', 'false')
+    }
+    if (notifGroupDeletion === 'true') {
+      notifySuccessGroupDelete()
+      localStorage.setItem('notifGroupDeletion', 'false')
     }
   }, [])
 
