@@ -2,12 +2,14 @@
 
 .card-announce {
     border-style:inset ;
-    border-color: gray;
+    border-color: black;
     border-width: 1px;
     border-radius: .5rem;
 
     &__user-img{
-        height: 2.2rem;
-        width: 2.2rem;
+        height: 2rem;
+        width: 2rem;
+        // margin-left:.8rem
+        
     }
 }
