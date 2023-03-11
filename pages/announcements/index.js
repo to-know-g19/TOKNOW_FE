@@ -11,6 +11,7 @@ export default function Announcements() {
                     route={""} />
 
                 <CardAnnouncement
+                    coverimg={"../img/Frame1.png"}
                     userName={"carlos Francisco Arteaga"}
                     role={"admin"}
                     date={"17 de noviembre"}
