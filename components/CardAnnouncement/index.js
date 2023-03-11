@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaUserCircle } from 'react-icons/fa';
 
-export default function Index() {
+export default function Index(props) {
     return (
         <div>
             <div className='d-flex mb-4 mt-3 justify-content-center'>
@@ -16,21 +16,21 @@ export default function Index() {
 
                             <div className='d-flex flex-column '>
                                 <div className='pt-3'>
-                                    Carlos Francisco Arteaga Peregrina
+                                    {props.userName}
                                 </div>
                                 <div>
-                                    09 de marzo 2023
+                                    {props.date}
                                 </div>
                             </div>
 
                             <div className='d-flex pt-3 p-2 p-lg-3 '>
-                                Administrador
+                                {props.role}
                             </div> 
                         </div>
 
-                        <div className='p-3 p-lg-4'>
-                            Suspensión de labores el día 20 de noviembre
-                        </div>
+                        <h4 className='p-3 p-lg-4'>
+                            {props.announcementTitle}
+                        </h4>
                     </div>
                 </div>
 

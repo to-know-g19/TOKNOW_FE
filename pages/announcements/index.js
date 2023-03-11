@@ -6,9 +6,12 @@ export default function Announcements() {
         <Layout>
             <div>
                 <div>announcements</div>
-                <CardAnnouncement/>
-                <CardAnnouncement/>
-                <CardAnnouncement/>
+                <CardAnnouncement
+                userName={"carlos Francisco Arteaga"}
+                role={"admin"}
+                date={"17 de noviembre"}
+                announcementTitle={"Suspensión de labores el día 20 de noviembre"}/>
+
             </div>
         </Layout>
     )
