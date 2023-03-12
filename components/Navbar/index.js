@@ -1,16 +1,16 @@
 /* default */
 import Image from "next/image"
 import Link from 'next/link'
-import {useRouter} from "next/router";
+import {useRouter} from "next/router"
 /* images*/
 import logo from '../../public/img/logos/logo.svg'
 /* styles */
-import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { useState, useEffect } from "react";
+import 'bootstrap/dist/css/bootstrap.min.css'
+import React, { useState, useEffect } from "react"
 //icons
-import { SlClose } from "react-icons/sl";
-import { FaBars } from "react-icons/fa";
-import { SidebarData } from "../SideBar/SidebarData";
+import { SlClose } from "react-icons/sl"
+import { FaBars } from "react-icons/fa"
+import { SidebarData } from "../SideBar/SidebarData"
 import { GoSignOut } from "react-icons/go"
 
 
@@ -20,13 +20,15 @@ export default function Navbar() {
     const [userRole, setUserRole] = useState("")
     const router = useRouter()
     useEffect(() => {
-        const token = localStorage.getItem("token");
+        const token = localStorage.getItem("token")
+        const currentPath = router.pathname
         if (token && token !== "undefined") {
-            const userData = JSON.parse(atob(token.split(".")[1]));
+            const userData = JSON.parse(atob(token.split(".")[1]))
             setUserRole(userData.role)
         } else {
-            /* función para checar token y si no hay empujar a home*/
-            if (!token) {
+            /* función para checar token. si no hay Y la ruta no es /register
+             entonces empujar a home*/
+            if (!token && currentPath !== "/register") {
                 router.replace("/")
                 return
             }
