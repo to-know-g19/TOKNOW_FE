@@ -17,6 +17,27 @@ export default function Announcements() {
                     date={"17 de noviembre"}
                     announcementTitle={"Suspensión de labores el día 20 de noviembre"} />
 
+                <CardAnnouncement
+                    coverimg={"../img/Frame1.png"}
+                    userName={"carlos Francisco Arteaga"}
+                    role={"admin"}
+                    date={"17 de noviembre"}
+                    announcementTitle={"Suspensión de labores el día 20 de noviembre"} />
+
+                <CardAnnouncement
+                    coverimg={"../img/Frame1.png"}
+                    userName={"carlos Francisco Arteaga"}
+                    role={"admin"}
+                    date={"17 de noviembre"}
+                    announcementTitle={"Suspensión de labores el día 20 de noviembre"} />
+                    
+                <CardAnnouncement
+                    coverimg={"../img/Frame1.png"}
+                    userName={"carlos Francisco Arteaga"}
+                    role={"admin"}
+                    date={"17 de noviembre"}
+                    announcementTitle={"Suspensión de labores el día 20 de noviembre"} />
+
             </div>
         </Layout>
     )
