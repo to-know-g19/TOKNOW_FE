@@ -9,7 +9,7 @@ export default function Index(props) {
                 <div className='card-announce d-flex col-11 col-lg-7 bg-light'>
                     <div className='d-flex flex-column flex-lg-column col-12 col-lg-12'>
                         <div className='card-announce__img-wrapper'>
-                            <img
+                            <image
                                 className='card-announce__img-wrapper__cover-img bg-white'
                                 src={props.coverimg}
                             />
