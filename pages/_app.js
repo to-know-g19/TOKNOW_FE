@@ -17,6 +17,7 @@ import '../components/GroupCardDisplay/groupCardDisplay.scss'
 import '../pages/grouplist/[groupId]/groupId.scss'
 import '../components/Layout/layout.scss'
 import '../components/CardAnnouncement/cardAnnouncement.scss'
+import '../components/PostAnnouncement/postAnnouncement.scss'
 
 /*toastify notifications*/
 import 'react-toastify/dist/ReactToastify.css';
