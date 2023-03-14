@@ -53,10 +53,10 @@ export default function Announcements() {
 
                 {announceInfo.map(announce => (
                     <Link href="/announcements/[announceId]"
-                        as={`/announcements/${announce._id}`}  >
+                        as={`/announcements/${announce._id}`} key={announce.key} >
 
                         <CardAnnouncement
-                            key={announce.key}
+                            
                             coverimg={"/img/kid&parent.jpeg"}
                             userName={announce.user.name}
                             role={announce.user.role}
