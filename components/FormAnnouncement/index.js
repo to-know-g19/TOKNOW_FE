@@ -29,8 +29,10 @@ export default function FormAnnouncement() {
             )
         })
         const announcementResult = await result.json()
-        console.log("soy res de anuncios", announcementResult)
+        // console.log("soy res de anuncios", announcementResult)
+        // lógica para mandar notificación a /announcements donde se revisa el item
         if (announcementResult.success === true) {
+            localStorage.setItem('notifAnnounceCreation', 'true')
             router.push(`/announcements`)
         } else {
             notifyError()

@@ -1,8 +1,23 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Layout from '../../components/Layout'
 import CardAnnouncement from '../../components/CardAnnouncement'
 import ArrowGoBack from '../../components/ArrowGoBack/ArrowGoBack'
+//toastify imports
+import { ToastContainer } from 'react-toastify'
+import useToastify from '../../components/useToastify'
+
 export default function Announcements() {
+
+    const notifySuccess = useToastify("success", "¡Anuncio creado con éxito!")
+    useEffect(() => {
+        const notifAnnounceCreation = localStorage.getItem('notifAnnounceCreation')
+
+        if (notifAnnounceCreation === "true") {
+            notifySuccess()
+            localStorage.setItem('notifAnnounceCreation', 'false')
+        }
+
+    }, [])
     return (
         <Layout>
             <div>
@@ -39,6 +54,7 @@ export default function Announcements() {
                     announcementTitle={"Suspensión de labores el día 20 de noviembre"} />
 
             </div>
+            <ToastContainer/>
         </Layout>
     )
 }
