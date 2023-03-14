@@ -10,9 +10,7 @@ import useToastify from '../useToastify'
 export default function FormAnnouncement() {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const router = useRouter()
-
     const notifyError = useToastify("error", "Hubo un problema al envíar la información")
-
 
     const onSubmit = async data => {
         const token = localStorage.getItem('token')
@@ -52,19 +50,19 @@ export default function FormAnnouncement() {
 
                         <div className='d-flex bg-light border border-dark rounded col-12 col-lg-12 flex-column justify-content-center align-items-center'>
                             <div className='col-11 col-lg-8 mt-5 mb-5'>
-                                <button className=''>
+                                {/* <button className=''>
                                     Agregar imagen
-                                </button>
+                                </button> */}
 
                                 <div className="form-floating">
                                     <input
                                         name='announcementTitle'
                                         className="mt-5 form-control "
                                         placeholder='Titulo'
-                                        {...register("announcementTitle", { required: true, minLength: 2, maxLength: 20 })} ></input>
+                                        {...register("announcementTitle", { required: true, minLength: 2, maxLength: 60 })} ></input>
                                     {errors.announcementTitle && errors.announcementTitle.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
                                     {errors.announcementTitle && errors.announcementTitle.type === "minLength" && <span className='text-danger'>*El campo requiere al menos 2 caracteres</span>}
-                                    {errors.announcementTitle && errors.announcementTitle.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 21 caracteres</span>}
+                                    {errors.announcementTitle && errors.announcementTitle.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 60 caracteres</span>}
                                     <label>Titulo</label>
                                 </div>
 
@@ -74,8 +72,6 @@ export default function FormAnnouncement() {
                                         className="mt-4 mb-5 form-control"
                                         placeholder='Información'
                                         {...register("announcementText", { maxLength: 300 })} ></input>
-                                    {/* {errors.announcementText && errors.announcementText.type === "required" && <span className='text-danger'>*El campo es requerido.</span>} */}
-                                    {/* {errors.announcementText && errors.announcementText.type === "minLength" && <span className='text-danger'>*El campo requiere al menos 4 caracteres</span>} */}
                                     {errors.announcementText && errors.announcementText.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 300 caracteres</span>}
                                     <label>Información sobre tu anuncio</label>
                                 </div>
