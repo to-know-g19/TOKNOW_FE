@@ -56,7 +56,7 @@ export default function Navbar() {
             </div>
 
             {/* SIDEBAR */}
-            <nav className={sidebar ? 'nav-menu active' : 'nav-menu'} >
+            <nav className= {sidebar ? 'nav-menu active border-right' : 'nav-menu'} >
                 <ul className="nav-menu-items" onClick={showSidebar}>
                     <li className="navbar-toggle">
                         <a className="menu-bars">
