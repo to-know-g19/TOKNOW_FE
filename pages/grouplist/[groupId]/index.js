@@ -21,6 +21,7 @@ export default function GroupDetail() {
     const [userRole, setUserRole] = useState("")
     const notifySuccessTeach = useToastify("success", "Profesor eliminado con exito")
     const notifySuccessStud = useToastify("success", "Estudiante eliminado con exito")
+    const notifySuccessAnnouncement = useToastify("success", "¡Anuncio creado con éxito!")
 
     useEffect(() => {
 
@@ -73,14 +74,19 @@ export default function GroupDetail() {
     useEffect(() => {
         const notifTeachDeletion = localStorage.getItem('notifTeachDeletion')
         const notifStudDeletion = localStorage.getItem('notifStudDeletion')
+        const notifAnnounceCreation = localStorage.getItem('notifAnnounceCreation')
         if (notifTeachDeletion === 'true') {
             notifySuccessTeach()
             localStorage.setItem('notifTeachDeletion', 'false')
-          }
-          if (notifStudDeletion === 'true') {
+        }
+        if (notifStudDeletion === 'true') {
             notifySuccessStud()
             localStorage.setItem('notifStudDeletion', 'false')
-          }
+        }
+        if (notifAnnounceCreation === "true") {
+            notifySuccessAnnouncement()
+            localStorage.setItem('notifAnnounceCreation', 'false')
+        }
 
         const token = localStorage.getItem('token')
         if (token) {
@@ -107,6 +113,10 @@ export default function GroupDetail() {
             <Layout>
                 <div>
                     <ArrowGoBack
+                        btnTxtModal={
+                            <Link href={'/grouplist/[groupId]/newgroupannouncement'} as={`/grouplist/${groupId}/newgroupannouncement`} >
+                                <button className='btn-form'>Crear Anuncio</button>
+                            </Link>}
                         route={`${route}`} />
 
                     <div className='d-flex flex-column flex-lg-row justify-content-lg-around'>
@@ -183,7 +193,7 @@ export default function GroupDetail() {
                     <li>materia 4</li>
                     <li>materia 5</li>
                 </ul> */}
-            <ToastContainer/>
+                <ToastContainer />
             </Layout>
         </>
     )
