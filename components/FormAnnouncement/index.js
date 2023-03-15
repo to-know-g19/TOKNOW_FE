@@ -88,6 +88,22 @@ export default function FormAnnouncement() {
                                     {errors.announcementText && errors.announcementText.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 600 caracteres</span>}
                                 </div>
 
+                                {/* campo escondido con d-none pero necesario para tomar id de grupo y enviarlo
+                                    en formulario del anuncio */}
+                                { !!groupId &&
+                                    <div className='d-none d-flex col-12 col-lg-5 flex-column'>
+                                        <div className="form-floating mb-3">
+                                            <select
+                                                name='group'
+                                                className="form-control form-select"
+                                                {...register("group")} >
+                                                <option value={groupId}></option>
+
+                                            </select>
+                                            <label>aqui va el group ID</label>
+                                        </div>
+                                    </div>}
+
                             </div>
                         </div>
                         <div className='d-flex col-lg-4'>
