@@ -44,7 +44,11 @@ export default function FormAnnouncement() {
         // lógica para mandar notificación a /announcements donde se revisa el item
         if (announcementResult.success === true) {
             localStorage.setItem('notifAnnounceCreation', 'true')
-            router.push(`/announcements`)
+            if (!!groupId) {
+                router.push(`/grouplist/${groupId}`)
+            } else {
+                router.push(`/announcements`)
+            }
         } else {
             notifyError()
         }
@@ -90,7 +94,7 @@ export default function FormAnnouncement() {
 
                                 {/* campo escondido con d-none pero necesario para tomar id de grupo y enviarlo
                                     en formulario del anuncio */}
-                                { !!groupId &&
+                                {!!groupId &&
                                     <div className='d-none d-flex col-12 col-lg-5 flex-column'>
                                         <div className="form-floating mb-3">
                                             <select
