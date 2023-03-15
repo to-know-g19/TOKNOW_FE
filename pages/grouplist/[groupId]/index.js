@@ -21,6 +21,7 @@ export default function GroupDetail() {
     const [userRole, setUserRole] = useState("")
     const notifySuccessTeach = useToastify("success", "Profesor eliminado con exito")
     const notifySuccessStud = useToastify("success", "Estudiante eliminado con exito")
+    const notifySuccessAnnouncement = useToastify("success", "¡Anuncio creado con éxito!")
 
     useEffect(() => {
 
@@ -73,6 +74,7 @@ export default function GroupDetail() {
     useEffect(() => {
         const notifTeachDeletion = localStorage.getItem('notifTeachDeletion')
         const notifStudDeletion = localStorage.getItem('notifStudDeletion')
+        const notifAnnounceCreation = localStorage.getItem('notifAnnounceCreation')
         if (notifTeachDeletion === 'true') {
             notifySuccessTeach()
             localStorage.setItem('notifTeachDeletion', 'false')
@@ -80,6 +82,10 @@ export default function GroupDetail() {
         if (notifStudDeletion === 'true') {
             notifySuccessStud()
             localStorage.setItem('notifStudDeletion', 'false')
+        }
+        if (notifAnnounceCreation === "true") {
+            notifySuccessAnnouncement()
+            localStorage.setItem('notifAnnounceCreation', 'false')
         }
 
         const token = localStorage.getItem('token')

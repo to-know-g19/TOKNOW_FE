@@ -40,10 +40,11 @@ export default function FormAnnouncement() {
             )
         })
         const announcementResult = await result.json()
-        // console.log("soy res de anuncios", announcementResult)
+
         // lógica para mandar notificación a /announcements donde se revisa el item
         if (announcementResult.success === true) {
             localStorage.setItem('notifAnnounceCreation', 'true')
+            // si existe un groupId en el router entonces se hace push al grupo con ese groupId
             if (!!groupId) {
                 router.push(`/grouplist/${groupId}`)
             } else {
