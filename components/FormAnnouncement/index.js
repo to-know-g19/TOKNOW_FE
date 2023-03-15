@@ -49,7 +49,7 @@ export default function FormAnnouncement() {
                     <form onSubmit={handleSubmit(onSubmit)} className='d-flex mt-3  col-11 col-lg-10 flex-column'>
 
                         <div className='d-flex bg-light border border-dark rounded col-12 col-lg-12 flex-column justify-content-center align-items-center'>
-                            <div className='col-11 col-lg-8 mt-5 mb-5'>
+                            <div className='col-11 col-lg-10 mt-2 mb-5'>
                                 {/* <button className=''>
                                     Agregar imagen
                                 </button> */}
@@ -57,23 +57,22 @@ export default function FormAnnouncement() {
                                 <div className="form-floating">
                                     <input
                                         name='announcementTitle'
-                                        className="mt-5 form-control "
+                                        className="mt-4 form-control "
                                         placeholder='Titulo'
-                                        {...register("announcementTitle", { required: true, minLength: 2, maxLength: 60 })} ></input>
+                                        {...register("announcementTitle", { required: true, minLength: 2, maxLength: 80 })} ></input>
                                     {errors.announcementTitle && errors.announcementTitle.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
                                     {errors.announcementTitle && errors.announcementTitle.type === "minLength" && <span className='text-danger'>*El campo requiere al menos 2 caracteres</span>}
-                                    {errors.announcementTitle && errors.announcementTitle.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 60 caracteres</span>}
+                                    {errors.announcementTitle && errors.announcementTitle.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 80 caracteres</span>}
                                     <label>Titulo</label>
                                 </div>
 
-                                <div className="form-floating ">
-                                    <input
+                                <div>
+                                    <textarea
                                         name='announcementText'
-                                        className="mt-4 mb-5 form-control"
-                                        placeholder='Información'
-                                        {...register("announcementText", { maxLength: 300 })} ></input>
-                                    {errors.announcementText && errors.announcementText.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 300 caracteres</span>}
-                                    <label>Información sobre tu anuncio</label>
+                                        className="announcement-text mt-4 form-control"
+                                        placeholder='Información sobre tu anuncio'
+                                        {...register("announcementText", { maxLength: 600 })} ></textarea>
+                                    {errors.announcementText && errors.announcementText.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 600 caracteres</span>}
                                 </div>
 
                             </div>
