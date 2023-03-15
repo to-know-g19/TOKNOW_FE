@@ -47,16 +47,19 @@ export default function Announcements() {
     return (
         <Layout>
             <div>
-                <ArrowGoBack
-                    btnTxtModal={<h4>Tablero de anuncios</h4>}
-                    route={""} />
 
+                <div className= "d-flex mt-4 justify-content-center col-12 col-lg-12" >
+                    <div className='d-flex col-11 col-lg-10 justify-content-between align-items-baseline'>
+                        <h4>Tablero de anuncios</h4>
+                        <button className='btn-form bg-success'>Nuevo anuncio</button>
+                    </div>
+                </div>
                 {announceInfo.map(announce => (
                     <Link href="/announcements/[announceId]"
                         as={`/announcements/${announce._id}`} key={announce.key} >
 
                         <CardAnnouncement
-                            
+
                             coverimg={"/img/kid&parent.jpeg"}
                             userName={announce.user.name}
                             role={announce.user.role}
