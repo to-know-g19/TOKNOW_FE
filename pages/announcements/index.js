@@ -40,7 +40,7 @@ export default function Announcements() {
                     console.log(data)
                     const allAnnouncements = data.data.announcement
                     console.log("anuncios", allAnnouncements)
-                    setAnnounceInfo(allAnnouncements)
+                    setAnnounceInfo(allAnnouncements.reverse())
                 })
         }
     }, []);
