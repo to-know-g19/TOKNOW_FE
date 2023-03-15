@@ -48,7 +48,7 @@ export default function Announcements() {
         <Layout>
             <div>
 
-                <div className="d-flex mt-4 justify-content-center col-12 col-lg-12" >
+                <div className="d-flex mt-3 justify-content-center col-12 col-lg-12" >
                     <div className='d-flex col-11 col-lg-10 justify-content-between align-items-baseline'>
                         <h4>Tablero de anuncios</h4>
                         <Link href={"/announcements/newannouncement"}>
