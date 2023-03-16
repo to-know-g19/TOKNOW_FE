@@ -4,12 +4,14 @@ import Layout from '../../../components/Layout'
 import PostAnnouncement from '../../../components/PostAnnouncement'
 import { useRouter } from 'next/router';
 import CommentBox from '../../../components/CommentBox';
+import AllComments from '../../../components/AllComments';
 
 
 export default function AnnouncementId() {
     const router = useRouter()
     const announceId = router.query.announceId
     const [announceInfo, setAnnounceInfo] = useState({})
+    const [commentsInfo, setCommentsInfo] = useState([])
 
     //petición a la api para setear anuncios
     useEffect(() => {
@@ -29,6 +31,8 @@ export default function AnnouncementId() {
                     const announcement = data.data.announcementById
                     console.log("anuncio details", announcement)
                     setAnnounceInfo(announcement)
+                    console.log('comenntssss', announcement.replies)
+                    setCommentsInfo(announcement.replies)
                 }
             })
 
@@ -51,6 +55,7 @@ export default function AnnouncementId() {
                             announcementTitle={announceInfo.announcementTitle}
                             textInfo={announceInfo.announcementText}
                             component={<CommentBox/>}
+                            component2={<AllComments/>}
                         />}
                 </div>
             </div>
