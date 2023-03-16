@@ -42,6 +42,7 @@ export default function PostAnnouncement(props) {
                             {props.textInfo}
                         </p>
                         {props.component}
+                        {props.component2}
                     </div>
                 </div>
 
