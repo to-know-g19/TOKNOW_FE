@@ -115,7 +115,11 @@ export default function GroupDetail() {
                     <ArrowGoBack
                         btnTxtModal={
                             <Link href={'/grouplist/[groupId]/newgroupannouncement'} as={`/grouplist/${groupId}/newgroupannouncement`} >
-                                <button className='btn-form'>Crear Anuncio</button>
+                                <button className='btn-form bg-success'>Crear Anuncio</button>
+                            </Link>}
+                        btnTxtModal2nd={
+                            <Link href={'/grouplist/[groupId]/newgroupannouncement'} as={`/grouplist/${groupId}/newgroupannouncement`} >
+                                <button className='btn-form'>Anuncios grupales</button>
                             </Link>}
                         route={`${route}`} />
 
