@@ -56,14 +56,14 @@ export default function GroupAnnouncements() {
           route={`/grouplist/${groupId}`} 
         />
         {announceInfo.map(announce => (
-          <Link href="/announcements/[announceId]"
-            as={`/announcements/${announce._id}`} key={announce.key} >
+          <Link href="/grouplist/[groupId]/groupannouncements/[groupAnnouncementId]"
+            as={`/grouplist/${groupId}/groupannouncements/${announce._id}`} style={{ textDecoration: 'none' }} key={announce.key} >
 
             <CardAnnouncement
               coverimg={"/img/kid&parent.jpeg"}
               userName={announce.user.name}
               role={announce.user.role}
-              date={"--fecha--"}
+              // date={"--fecha--"}
               announcementTitle={announce.announcementTitle} />
           </Link>
         ))}
