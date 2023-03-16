@@ -3,6 +3,7 @@ import ArrowGoBack from '../../../components/ArrowGoBack/ArrowGoBack'
 import Layout from '../../../components/Layout'
 import PostAnnouncement from '../../../components/PostAnnouncement'
 import { useRouter } from 'next/router';
+import CommentBox from '../../../components/CommentBox';
 
 
 export default function AnnouncementId() {
@@ -49,6 +50,7 @@ export default function AnnouncementId() {
                             date={"17 de noviembre"}
                             announcementTitle={announceInfo.announcementTitle}
                             textInfo={announceInfo.announcementText}
+                            component={<CommentBox/>}
                         />}
                 </div>
             </div>
