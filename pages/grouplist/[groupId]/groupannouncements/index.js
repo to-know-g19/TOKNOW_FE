@@ -31,7 +31,7 @@ export default function GroupAnnouncements() {
     const token = localStorage.getItem("token");
     if (token) {
       //groupId anuncios
-      fetch(`https://api.toknow.online/group/${groupId}`, {
+      fetch(`https://api.toknow.online/announcement`, {
         mode: "cors",
         headers: {
           "Content-type": "application/json",
@@ -40,7 +40,7 @@ export default function GroupAnnouncements() {
       })
         .then(response => response.json())
         .then(data => {
-          const allAnnouncements = data.data.groupById.announcements
+          const allAnnouncements = data.data.announcement
           setAnnounceInfo(allAnnouncements.reverse())
         })
     }
