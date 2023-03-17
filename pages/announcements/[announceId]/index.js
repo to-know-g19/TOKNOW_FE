@@ -56,8 +56,14 @@ export default function AnnouncementId() {
                             textInfo={announceInfo.announcementText}
                             component={<CommentBox/>}
                             component2={commentsInfo.length > 0 &&
-                                commentsInfo.map((comment, index) => (
-                                    <AllComments key={index} comment={comment} />
+                                commentsInfo.map(comment => (
+                                    <AllComments 
+                                    // key={index} 
+                                    // comment={comment}
+                                    // userName={}
+                                    // role
+                                    textInfo={comment.message} 
+                                     />
                                 ))}
                         />}
                 </div>

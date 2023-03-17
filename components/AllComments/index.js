@@ -4,32 +4,6 @@ import { FaUserCircle } from 'react-icons/fa';
 
 export default function AllComments(props) {
 
-    // const router = useRouter()
-    // const announceId = router.query.announceId
-    // const [commentInfo, setCommentInfo] = useState({})
-
-    // //petición a la api
-    // useEffect(() => {
-    //     const token = localStorage.getItem("token");
-
-    //     fetch(`https://api.toknow.online/announcement/${announceId}`, {
-    //         mode: "cors",
-    //         headers: {
-    //             "Content-type": "application/json",
-    //             "Authorization": `Bearer ${token}`
-    //         },
-    //     })
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             if (data.data) {
-    //                 console.log("info para comentarios", data.data.announcementById.replies)
-    //                 const comments = data.data.announcementById.replies
-    //                 setCommentInfo(comments)
-    //             }
-    //         })
-
-    // }, [router.query]);
-
 
     return (
         <div>
