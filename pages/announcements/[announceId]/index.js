@@ -46,7 +46,7 @@ export default function AnnouncementId() {
                             coverimg={"/img/kid&parent.jpeg"}
                             userName={announceInfo.user.name}
                             role={announceInfo.user.role}
-                            date={"17 de noviembre"}
+                            date={"--fecha--"}
                             announcementTitle={announceInfo.announcementTitle}
                             textInfo={announceInfo.announcementText}
                         />}

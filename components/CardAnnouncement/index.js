@@ -8,12 +8,12 @@ export default function Index(props) {
 
                 <div className='card-announce d-flex col-11 col-lg-7 bg-light'>
                     <div className='d-flex flex-column flex-lg-column col-12 col-lg-12'>
-                        <div className='card-announce__img-wrapper'>
+                        {/* <div className='card-announce__img-wrapper'>
                             <img
                                 className='card-announce__img-wrapper__cover-img bg-white'
                                 src={props.coverimg}
                             />
-                        </div>
+                        </div> */}
                         <div className='d-flex'>
                             <div className='p-2 pt-lg-4 d-flex justify-content-center align-items-center '>
                                 <FaUserCircle className='card-announce__user-img' />

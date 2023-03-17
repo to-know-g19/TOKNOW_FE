@@ -63,7 +63,7 @@ export default function GroupAnnouncements() {
               coverimg={"/img/kid&parent.jpeg"}
               userName={announce.user.name}
               role={announce.user.role}
-              // date={"--fecha--"}
+              date={"--fecha--"}
               announcementTitle={announce.announcementTitle} />
           </Link>
         ))}
