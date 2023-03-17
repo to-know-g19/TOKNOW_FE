@@ -1,10 +1,13 @@
 import React from 'react'
 import { useForm } from "react-hook-form"
 import { FaUserCircle } from 'react-icons/fa';
+import {useRouter} from 'next/router'
 
 export default function CommentBox(props) {
     const { register, handleSubmit, formState: { errors } } = useForm()
-
+    const router = useRouter()
+    const announcementId = router.query.announceId
+    console.log('the id of the announcement', announcementId)
     // const notifyError = useToastify("error", "Hubo un problema al envíar la información")
 
     const onSubmit = async data => {
@@ -22,20 +25,7 @@ export default function CommentBox(props) {
             )
         })
         const replyResult = await result.json()
-        console.log(replyResult)
-
-        // // lógica para mandar notificación a /announcements donde se revisa el item
-        // if (announcementResult.success === true) {
-        //     localStorage.setItem('notifAnnounceCreation', 'true')
-        //     // si existe un groupId en el router entonces se hace push al grupo con ese groupId
-        //     if (!!groupId) {
-        //         router.push(`/grouplist/${groupId}`)
-        //     } else {
-        //         router.push(`/announcements`)
-        //     }
-        // } else {
-        //     notifyError()
-        // }
+        // console.log('soy reply c:', replyResult)
 
     }
 
@@ -46,10 +36,24 @@ export default function CommentBox(props) {
                     name='message'
                     className='post-announce d-flex col-12 col-lg-11 bg-white'
                     placeholder='Agrega un comentario'
-                    {...register("message", { maxLength: 600 })}></textarea>
-                    {errors.message && errors.message.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 600 caracteres</span>}
+                    {...register("message", { maxLength: 600 })}>
+                </textarea>
+                {errors.message && errors.message.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 600 caracteres</span>}
+                {/* campo escondido con d-none pero necesario para tomar id de anuncio y enviarlo
+                    en formulario del reply */}
+                <div className='d-none d-flex col-12 col-lg-5 flex-column'>
+                    <div className="form-floating mb-3">
+                        <select
+                            name='announcement'
+                            className="form-control form-select"
+                            {...register("announcement")} >
+                            <option value={announcementId}></option>
 
-                
+                        </select>
+                        <label>aqui va el group ID</label>
+                    </div>
+                </div>
+
                 <div className='d-flex col-5'>
                     <button className='btn-form' type='submit'> Publicar </button>
                 </div>
