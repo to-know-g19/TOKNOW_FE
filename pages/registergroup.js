@@ -21,9 +21,9 @@ export default function Registergroup() {
     return (
 
         <Layout>
-            <div className='fullscreen'>
-                <GroupsDisplay />
+            <div>
                 <FormGroup />
+                <GroupsDisplay />
             </div>
         </Layout>
 

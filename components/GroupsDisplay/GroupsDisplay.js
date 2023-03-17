@@ -5,11 +5,12 @@ export default function GroupsDisplay() {
 
     const [grupos, setGrupos] = useState([]);
 
-    useEffect(() => {
+    useEffect(() => {   
         const token = localStorage.getItem("token");
+        if(token) {
         const userData = JSON.parse(atob(token.split(".")[1]));
         const userId = userData.id;
-        console.log('user id', userId)
+        
     
         fetch(`https://api.toknow.online/school`, {
             mode: "cors",
@@ -20,24 +21,25 @@ export default function GroupsDisplay() {
         })
             .then(response => response.json())
             .then(data => {
-                console.log("soy data", data);
+                
                 const schools = data.data.schools;
-                console.log("soy schools", schools);
+                
                 schools.forEach(school => {
-                    if (school.user._id === userId) {
+                    if (school.user !== null && school.user._id === userId) {
                         setGrupos(school.groups);
-                        console.log("Grupos: ", school.groups);
+                        
                     }
                 });
             });
+        }
     }, []);
     
 
     return (
         <>
 
-                <div className='group-Wrapper d-flex'>
-                    <div className='groups-container d-flex justify-content-center'>
+                <div className='group-Wrapper d-flex justify-content-center flex-wrap'>
+                    <div className='groups-container d-flex col-lg-6 flex-wrap justify-content-center'>
                         {grupos.map(grupo => {
                             return <GroupCircle key={grupo._id} grade={grupo.grade} group={grupo.name} />
                         })}

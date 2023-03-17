@@ -3,12 +3,15 @@ import { useForm } from "react-hook-form"
 import 'bootstrap/dist/css/bootstrap.css'
 import { useRouter } from 'next/router'
 import ArrowGoBack from '../ArrowGoBack/ArrowGoBack'
+//toastify imports
+import { ToastContainer } from 'react-toastify'
+import useToastify from '../useToastify'
 
 export default function FormStudent() {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const router = useRouter()
-
     const groupId = router.query.groupId
+    const notifyError = useToastify("error", "Hubo un problema al envíar la información")
 
     const onSubmit = async data => {
 
@@ -26,27 +29,23 @@ export default function FormStudent() {
         })
         const teacherInfo = await result.json()
 
-        console.log('info', teacherInfo)
         if (teacherInfo.success === true) {
             router.push(`/grouplist/${groupId}`)
         } else {
-            (window.alert("Hubo un problema al envíar la información"))
+            notifyError()
         }
-
     }
-    console.log("soy el groupId en formStudent", groupId)
 
 
     return (
-
-        <div className='d-flex flex-column align-items-center col-12 justify-content-center '>
+        <div className='d-flex flex-column align-items-center col-lg-12 justify-content-center'>
             <ArrowGoBack
             btnTxtModal={<h4>Datos del alumno</h4>}
             route={`/grouplist/${groupId}`}/>
-            <form onSubmit={handleSubmit(onSubmit)} className='d-flex mt-3 col-10 flex-column align-items-center justify-content-center'>
-                <div className='col-10 d-flex flex-wrap justify-content-around'>
+            <form onSubmit={handleSubmit(onSubmit)} className='d-flex mt-3 col-lg-10 flex-column align-items-center justify-content-center'>
+                <div className='col-lg-10 d-flex flex-wrap justify-content-around'>
 
-                    <div className='d-flex col-5 flex-column'>
+                    <div className='d-flex col-8 col-lg-5 flex-column'>
                         <div className="form-floating mb-3">
                             <input
                                 name='name'
@@ -60,18 +59,19 @@ export default function FormStudent() {
                         </div>
                     </div>
 
-                    <div className='d-flex col-5 flex-column'>
+                    <div className='d-flex col-8 col-lg-5 flex-column'>
                         <div className="form-floating mb-3">
                             <input
                                 name='matricula'
                                 className="form-control"
                                 placeholder='Matrícula'
-                                {...register("matricula")} ></input>
+                                {...register("matricula", { required: true })} ></input>
+                            {errors.matricula && errors.matricula.type === "required" && <span className='text-danger'>*El campo es requerido</span>}
                             <label>Matrícula</label>
                         </div>
                     </div>
 
-                    <div className='d-flex col-5 flex-column'>
+                    <div className='d-flex col-8 col-lg-5 flex-column'>
                         <div className="form-floating mb-3">
                             <input
                                 name='lastNameA'
@@ -86,7 +86,7 @@ export default function FormStudent() {
                     </div>
 
 
-                    <div className='d-flex col-5 flex-column'>
+                    <div className='d-flex col-8 col-lg-5 flex-column'>
                         <div className="form-floating mb-3">
                             <input
                                 name='lastNameB'
@@ -111,7 +111,7 @@ export default function FormStudent() {
                         </div>
                     </div> */}
 
-                    <div className='d-none d-flex col-5 flex-column'>
+                    <div className='d-none d-flex col-8 col-lg-5 flex-column'>
                         <div className="form-floating mb-3">
                             <select
                                 name='groups'
@@ -132,6 +132,7 @@ export default function FormStudent() {
                 </div>
 
             </form>
+            <ToastContainer/>
         </div>
     )
 }

@@ -23,16 +23,16 @@ export default function Yourgroups() {
     })
       .then(response => response.json())
       .then(data => {
-        console.log('data-Parent/yougroups', data)
+        // console.log('data-Parent/yougroups', data)
         if (data.data) {
           const allStudents = data.data.students
-          console.log('allStudents-parent/yourgroups', allStudents)
+          // console.log('allStudents-parent/yourgroups', allStudents)
           allStudents.forEach(student => {
             student.parents.forEach( parent => {
               if (parent._id === userId) {
-                console.log('student parent/yourgroups', student)
+                // console.log('student parent/yourgroups', student)
                 student.groups.forEach(group => {
-                    console.log('grupo del alumno', group)
+                    // console.log('grupo del alumno', group)
                     setGrupos([group])
                 })
               }
@@ -55,14 +55,12 @@ export default function Yourgroups() {
       <Layout>
         <div className='d-flex flex-column align-items-center'>
 
-          <div className='d-flex col-lg-12 justify-content-around'>
             <ArrowGoBack
               btnTxtModal={<h4>TUS GRUPOS</h4>}
               route={''} />
-          </div>
 
-          <div className='d-flex col-lg-10 flex-wrap justify-content-around'>
-            <div className='col-lg-5'>
+          <div className='d-flex col-12 col-lg-10 flex-wrap justify-content-around'>
+            <div className='col-9 col-lg-5'>
             {grupos.map(grupo => (
               
                 <GroupCard

@@ -16,7 +16,7 @@ export default function GroupCard(props) {
   return (
 
     <div className='groupCard mt-4 mb-3 col-lg-12'>
-      <div className='d-flex m-4'>
+      <div className='d-flex m-4 justify-content-around'>
 
         <div className='col-lg-6 d-flex justify-content-center'>
           {/* CAMBIAR NOMBRE DE CLASE Y agregar estilo para crecer en card sin afectar ventana registergrupos*/}
@@ -39,16 +39,18 @@ export default function GroupCard(props) {
 
       </div>
       <div className='groupCard__footer d-flex justify-content-center'>
-        <div className='groupCard__footer__icons d-flex col-lg-11 p-3 justify-content-between'>
-          <button onClick={props.onEyeClick} className='btn btn-outline-primary'>
-            <FaRegEye />
-          </button>
+        <div className='groupCard__footer__icons d-flex col-11 col-lg-11 p-3 justify-content-between'>
 
           {(userRole == "admin") ?
             <button onClick={props.onTrashClick} className='btn btn-outline-danger'>
               <BsFillTrashFill />
             </button> : <p></p>
           }
+
+          <button onClick={props.onEyeClick} className='btn btn-outline-primary'>
+            <FaRegEye />
+          </button>
+
         </div>
       </div>
     </div>

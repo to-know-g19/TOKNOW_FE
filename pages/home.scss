@@ -1,13 +1,14 @@
 @import '../styles/globals.scss';
 
 .sectionOneHome{
-    gap: 3rem;
-    height: 24.625rem;
-
+    padding: 1.5rem 2rem 2rem 2rem;
+    text-align: justify;
+    // height: 24.625rem;
 }
+
 .landingSubtitle{
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 .landingLogin{
     color: $text-darkblue;
@@ -24,27 +25,32 @@
 
 .sectionTwoHome {
     background-color: $bg-orange;
-    // height: 21.688rem;
-    gap: 6rem;
+    padding: 3rem;
+    // gap: 7rem;
+    text-align: justify;
 }
 .sectionThreeHome{
     color: $text-darkblue;
     background-color: $bg-lightblue;
-    height: 12.563rem;
+    text-align: justify;
+    // height: 12.563rem;
+    padding: 3rem;
 }
 
 .landingPicture{
-    height: 27.6rem;
+    height: 100%;
     width: 100%;
 }
 .landingTextNextToImg{
     color: $text-darkblue;
-    padding: 1rem;
+    padding: 3rem;
+    text-align: justify;
 
 }
 .landingLogoNextToImg{
     height: 3.5rem;
     width:16rem ;
+    margin:1rem 0rem 1rem 0rem
 }
 
 .sectionFiveHome{
@@ -61,18 +67,27 @@
 }
 .sectionSevenHome{
     flex-wrap: wrap;
+    padding: 2rem 2rem 2rem 2rem;
+    text-align: justify;
 }
 .FAQ{
-    padding: 3rem;
+    padding: 1rem 1.5rem 1rem 1.5rem;
+    &__title{
+        font-weight: bold;
+    }
 }
 
 .btn-form{
     margin: 1rem;
     width: 7rem;
-    height: 2rem;
+    height: 3rem;
     color:white;
     background-color: $bg-blue;
     border-radius: 10px;
     font-weight:500;
     border-style: none;
+}
+
+.links{
+text-decoration: none;
 }

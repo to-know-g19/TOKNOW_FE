@@ -4,14 +4,16 @@ import { useForm } from "react-hook-form"
 import { useRouter } from 'next/router'
 /* styles */
 import 'bootstrap/dist/css/bootstrap.css'
-
 /* components */
 import Layout from '../components/Layout';
-
+//toastify imports
+import { ToastContainer } from 'react-toastify';
+import useToastify from '../components/useToastify';
 
 export default function Index() {
     const { register, handleSubmit, formState: { errors }, setError } = useForm()
     const router = useRouter()
+    const notifyError =useToastify("error", "Este correo ya está registrado")
     const onSubmit = async data => {
         if (data.password !== data.confirmPassword) {
             setError("confirmPassword", {
@@ -50,17 +52,19 @@ export default function Index() {
 
         if (!userInfo.succes) {
             //success está escrito con 1 "s" en el back. checarlo
-            window.alert('Este correo ya está registrado')
-        } else { router.push("/") }
+            notifyError()
+        } else { 
+            localStorage.setItem('notifUserCreated', 'true')
+            router.push("/") }
     }
 
     return (
         <Layout title='toKnow cambiando la comunicación escolar' description='Registro para escuelas, herramienta para desarrollar una comunicación efectiva en la comunidad'>
-            <div className='fullscreen'>
-                <form onSubmit={handleSubmit(onSubmit)} className='d-flex mt-3 flex-column align-items-center'>
+            <div>
+                <form onSubmit={handleSubmit(onSubmit)} className='d-flex col-12 mt-3 flex-column justify-content-center align-items-center'>
 
-                    <h4>Registrate y comienza a administrar tu escuela</h4>
-                    <div className='mt-3 col-lg-4'>
+                    <h4 className='p-3'>Regístrate como administrador</h4>
+                    <div className='mt-3 col-10 col-lg-4'>
                         <h5>Datos del responsable</h5>
                         <div>
                             <div className='d-flex flex-column'>
@@ -145,6 +149,7 @@ export default function Index() {
                     <button className='btn-form col-4' type='submit'>Registrarse</button>
                 </form>
             </div>
+            <ToastContainer/>
         </Layout>
     )
 }
