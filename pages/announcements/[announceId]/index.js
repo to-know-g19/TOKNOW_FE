@@ -26,7 +26,7 @@ export default function AnnouncementId() {
         })
             .then(response => response.json())
             .then(data => {
-                console.log("la data", data)
+                // console.log("la data", data)
                 if (data.data) {
                     const announcement = data.data.announcementById
                     console.log("anuncio details", announcement)
@@ -55,7 +55,10 @@ export default function AnnouncementId() {
                             announcementTitle={announceInfo.announcementTitle}
                             textInfo={announceInfo.announcementText}
                             component={<CommentBox/>}
-                            component2={<AllComments/>}
+                            component2={commentsInfo.length > 0 &&
+                                commentsInfo.map((comment, index) => (
+                                    <AllComments key={index} comment={comment} />
+                                ))}
                         />}
                 </div>
             </div>
