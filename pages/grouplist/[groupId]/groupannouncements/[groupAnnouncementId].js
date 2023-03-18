@@ -11,7 +11,6 @@ export default function AnnouncementId() {
     const router = useRouter()
     const groupId = router.query.groupId
     const announceId = router.query.groupAnnouncementId
-    console.log("ojo",announceId)
     const [announceInfo, setAnnounceInfo] = useState({})
     const [repliesInfo, setRepliesInfo] = useState([])
 
@@ -31,10 +30,8 @@ export default function AnnouncementId() {
                 // console.log("la data", data)
                 if (data.data) {
                     const announcement = data.data.announcementById
-                    console.log("anuncio dentro de grupos", announcement)
                     setAnnounceInfo(announcement)
                     const replies = announcement.replies
-                    console.log("respuestas en anuncio", replies)
                     setRepliesInfo(replies)
                 }
             })

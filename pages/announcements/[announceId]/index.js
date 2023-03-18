@@ -29,9 +29,9 @@ export default function AnnouncementId() {
                 // console.log("la data", data)
                 if (data.data) {
                     const announcement = data.data.announcementById
-                    console.log("anuncio details", announcement)
+                    
                     setAnnounceInfo(announcement)
-                    console.log('comenntssss', announcement.replies)
+                    
                     setCommentsInfo(announcement.replies)
                 }
             })

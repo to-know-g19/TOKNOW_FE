@@ -7,7 +7,8 @@ export default function CommentBox(props) {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const router = useRouter()
     const routesQuery = router.query
-    console.log("rutas en router.query", routesQuery)
+    // console.log("rutas en router.query", routesQuery)
+
     //función para identificar si al form se le pasa el id de un anucio
     //en /announcements o en /groupannouncements
     const announcementId = () => {
@@ -19,9 +20,9 @@ export default function CommentBox(props) {
             }
         }
     }
+    // console.log('the id of the announcement', announcementId())
  
     
-    console.log('the id of the announcement', announcementId())
     // const notifyError = useToastify("error", "Hubo un problema al envíar la información")
 
     const onSubmit = async data => {
@@ -39,7 +40,7 @@ export default function CommentBox(props) {
             )
         })
         const replyResult = await result.json()
-        console.log('soy reply c:', replyResult)
+        //AGREGAR NOTIFICACIÓN Y REFRESH DE PAGINA CUANDO SEA SUCCESS O FAILED
 
     }
 
