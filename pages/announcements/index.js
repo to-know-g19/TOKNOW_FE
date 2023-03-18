@@ -56,7 +56,7 @@ export default function Announcements() {
                         <Link href={"/announcements/newannouncement"}>
                             <button className='btn-form bg-success'>Nuevo anuncio</button>
                         </Link>
-                        <Link href={"/grouplist"} className="arrow-go-back">
+                        <Link href={"/grouplist"} className="arrow-go-back d-flex align-items-center">
                             <BsArrowRightCircle />
                         </Link>
 
