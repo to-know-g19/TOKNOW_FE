@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import { FaUserCircle } from 'react-icons/fa';
 // import { useRouter } from 'next/router';
 
@@ -7,13 +7,14 @@ export default function AllComments(props) {
 
     return (
         <div>
-            <div className='d-flex flex-column m-4 m-lg-5 '>
+            <div className='d-flex flex-column justify-content-center  align-items-center mb-4'>
 
-                <div className='post-announce d-flex col-11 col-lg-7 bg-light'>
+                <div className='post-announce d-flex col-11 col-lg-11 bg-light'>
                     <div className='d-flex flex-column flex-lg-column col-12 col-lg-12'>
 
-                        <div className='d-flex p-2'>
-                            <div className='p-2 pt-lg-4 d-flex justify-content-center align-items-center '>
+                        <div className='d-flex '>
+                            {/* removí p-2 */}
+                            <div className='p-2 pt-lg-2 d-flex justify-content-center align-items-center '>
                                 <FaUserCircle className='post-announce__user-img' />
                             </div>
 
@@ -30,10 +31,12 @@ export default function AllComments(props) {
                                 {props.role}
                             </div>
                         </div>
-
-                        <p className='p-2'>
-                            {props.textInfo}
-                        </p>
+                        <div className='d-flex col-lg-12 justify-content-center'>
+                            <p className='col-11'>
+                                {/* removí padding */}
+                                {props.textInfo}
+                            </p>
+                        </div>
                     </div>
                 </div>
 

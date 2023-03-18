@@ -60,7 +60,7 @@ export default function AnnouncementId() {
                                     <AllComments 
                                     // key={index} 
                                     // comment={comment}
-                                    // userName={}
+                                    userName={comment.user}
                                     // role
                                     textInfo={comment.message} 
                                      />
