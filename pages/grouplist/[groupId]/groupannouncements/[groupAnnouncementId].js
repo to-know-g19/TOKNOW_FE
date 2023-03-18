@@ -3,13 +3,15 @@ import ArrowGoBack from '../../../../components/ArrowGoBack/ArrowGoBack';
 import Layout from '../../../../components/Layout';
 import PostAnnouncement from '../../../../components/PostAnnouncement'
 import { useRouter } from 'next/router';
+import AllComments from '../../../../components/AllComments';
+import CommentBox from '../../../../components/CommentBox';
 
 
 export default function AnnouncementId() {
     const router = useRouter()
     const groupId = router.query.groupId
     const announceId = router.query.groupAnnouncementId
-    console.log('ojo', router.query)
+    console.log("ojo",announceId)
     const [announceInfo, setAnnounceInfo] = useState({})
 
     //petición a la api para setear anuncios
@@ -25,10 +27,10 @@ export default function AnnouncementId() {
         })
             .then(response => response.json())
             .then(data => {
-                console.log("la data", data)
+                // console.log("la data", data)
                 if (data.data) {
                     const announcement = data.data.announcementById
-                    console.log("anuncio details", announcement)
+                    console.log("anuncio dentro de grupos", announcement)
                     setAnnounceInfo(announcement)
                 }
             })
@@ -51,6 +53,13 @@ export default function AnnouncementId() {
                             date={"17 de noviembre"}
                             announcementTitle={announceInfo.announcementTitle}
                             textInfo={announceInfo.announcementText}
+                            component={<CommentBox />}
+                            component2={announceInfo.replies.lenght > 0 &&
+                                announceInfo.replies.map(reply => (
+                                    <AllComments 
+                                    textInfo={reply.message}
+                                    />
+                                ))}
                         />}
                 </div>
             </div>

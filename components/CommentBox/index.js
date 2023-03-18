@@ -6,8 +6,22 @@ import {useRouter} from 'next/router'
 export default function CommentBox(props) {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const router = useRouter()
-    const announcementId = router.query.announceId
-    console.log('the id of the announcement', announcementId)
+    const routesQuery = router.query
+    console.log("rutas en router.query", routesQuery)
+    //función para identificar si al form se le pasa el id de un anucio
+    //en /announcements o en /groupannouncements
+    const announcementId = () => {
+        if (routesQuery.announceId) {
+            return routesQuery.announceId
+        } else {
+            if (routesQuery.groupAnnouncementId) {
+                return routesQuery.groupAnnouncementId
+            }
+        }
+    }
+ 
+    
+    console.log('the id of the announcement', announcementId())
     // const notifyError = useToastify("error", "Hubo un problema al envíar la información")
 
     const onSubmit = async data => {
@@ -25,7 +39,7 @@ export default function CommentBox(props) {
             )
         })
         const replyResult = await result.json()
-        // console.log('soy reply c:', replyResult)
+        console.log('soy reply c:', replyResult)
 
     }
 
@@ -47,7 +61,7 @@ export default function CommentBox(props) {
                             name='announcement'
                             className="form-control form-select"
                             {...register("announcement")} >
-                            <option value={announcementId}></option>
+                            <option value={announcementId()}></option>
 
                         </select>
                         <label>aqui va el group ID</label>
