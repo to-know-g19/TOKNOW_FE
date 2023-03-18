@@ -35,7 +35,7 @@ export default function AnnouncementId() {
                     const announcement = data.data.announcementById
                     setAnnounceInfo(announcement)
                     const replies = announcement.replies
-                    setRepliesInfo(replies)
+                    setRepliesInfo(replies.reverse())
                 }
             })
 

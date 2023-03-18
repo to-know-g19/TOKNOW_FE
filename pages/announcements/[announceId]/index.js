@@ -35,7 +35,7 @@ export default function AnnouncementId() {
                     
                     setAnnounceInfo(announcement)
                     
-                    setCommentsInfo(announcement.replies)
+                    setCommentsInfo(announcement.replies.reverse())
                 }
             })
 
