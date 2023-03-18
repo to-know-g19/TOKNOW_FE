@@ -3,18 +3,23 @@ import ArrowGoBack from '../../../../components/ArrowGoBack/ArrowGoBack';
 import Layout from '../../../../components/Layout';
 import PostAnnouncement from '../../../../components/PostAnnouncement'
 import { useRouter } from 'next/router';
+import AllComments from '../../../../components/AllComments';
+import CommentBox from '../../../../components/CommentBox';
+import { ToastContainer } from 'react-toastify';
+import useToastify from '../../../../components/useToastify';
 
 
 export default function AnnouncementId() {
     const router = useRouter()
     const groupId = router.query.groupId
     const announceId = router.query.groupAnnouncementId
-    console.log('ojo', router.query)
     const [announceInfo, setAnnounceInfo] = useState({})
+    const [repliesInfo, setRepliesInfo] = useState([])
+    const notifySuccess = useToastify("success", "Comentario publicado")
 
     //petición a la api para setear anuncios
     useEffect(() => {
-        const token = localStorage.getItem("token");
+        const token = localStorage.getItem("token")
 
         fetch(`https://api.toknow.online/announcement/${announceId}`, {
             mode: "cors",
@@ -25,15 +30,24 @@ export default function AnnouncementId() {
         })
             .then(response => response.json())
             .then(data => {
-                console.log("la data", data)
+                // console.log("la data", data)
                 if (data.data) {
                     const announcement = data.data.announcementById
-                    console.log("anuncio details", announcement)
                     setAnnounceInfo(announcement)
+                    const replies = announcement.replies
+                    setRepliesInfo(replies.reverse())
                 }
             })
 
     }, [router.query]);
+
+    useEffect(()=> {
+        const notifCommentCreation = localStorage.getItem("notifCommentCreation")
+        if (notifCommentCreation === "true") {
+            notifySuccess() 
+            localStorage.setItem('notifCommentCreation', 'false')
+        }
+    })
     return (
         <Layout>
             <div>
@@ -51,9 +65,18 @@ export default function AnnouncementId() {
                             date={"--fecha--"}
                             announcementTitle={announceInfo.announcementTitle}
                             textInfo={announceInfo.announcementText}
+                            component={<CommentBox />}
+                            component2={repliesInfo.length > 0 &&
+                                repliesInfo.map(reply => (
+                                    <AllComments 
+                                    key={reply.id} 
+                                    textInfo={reply.message}
+                                    />
+                                ))}
                         />}
                 </div>
             </div>
+            <ToastContainer />
         </Layout>
     )
 }

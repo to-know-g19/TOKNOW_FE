@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaUserCircle } from 'react-icons/fa';
+import CommentBox from '../CommentBox';
 
 export default function PostAnnouncement(props) {
     return (
@@ -40,6 +41,8 @@ export default function PostAnnouncement(props) {
                         <p className='p-4 pb-5'>
                             {props.textInfo}
                         </p>
+                        {props.component}
+                        {props.component2}
                     </div>
                 </div>
 

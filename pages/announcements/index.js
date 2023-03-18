@@ -37,9 +37,9 @@ export default function Announcements() {
             })
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data)
+                    // console.log(data)
                     const allAnnouncements = data.data.announcement
-                    console.log("anuncios", allAnnouncements)
+                    // console.log("anuncios", allAnnouncements)
                     setAnnounceInfo(allAnnouncements.reverse())
                 })
         }
