@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm } from "react-hook-form"
-import { FaUserCircle } from 'react-icons/fa';
 import {useRouter} from 'next/router'
+import useToastify from '../useToastify';
 
 export default function CommentBox(props) {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const router = useRouter()
     const routesQuery = router.query
-    // console.log("rutas en router.query", routesQuery)
+    const notifyError = useToastify("error", "hubo un problema al enviar la información")
 
     //función para identificar si al form se le pasa el id de un anucio
     //en /announcements o en /groupannouncements
@@ -22,8 +22,6 @@ export default function CommentBox(props) {
     }
     // console.log('the id of the announcement', announcementId())
  
-    
-    // const notifyError = useToastify("error", "Hubo un problema al envíar la información")
 
     const onSubmit = async data => {
         const token = localStorage.getItem('token')
@@ -40,9 +38,21 @@ export default function CommentBox(props) {
             )
         })
         const replyResult = await result.json()
-        //AGREGAR NOTIFICACIÓN Y REFRESH DE PAGINA CUANDO SEA SUCCESS O FAILED
-
+        if (replyResult.success === true){
+            localStorage.setItem("notifCommentCreation", "true")
+            window.location.reload()
+        } else {
+            notifyError()
+        }      
     }
+
+    // useEffect(()=> {
+    //     const notifCommentCreation = localStorage.getItem("notifCommentCreation")
+    //     if (notifCommentCreation === "true") {
+    //         notifySuccess() 
+    //         localStorage.setItem('notifCommentCreation', 'false')
+    //     }
+    // })
 
     return (
         <div className='d-flex justify-content-center'>
@@ -74,6 +84,7 @@ export default function CommentBox(props) {
                 </div>
 
             </form>
+            
         </div>
     )
 }

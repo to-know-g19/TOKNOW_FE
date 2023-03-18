@@ -5,6 +5,8 @@ import PostAnnouncement from '../../../components/PostAnnouncement'
 import { useRouter } from 'next/router';
 import CommentBox from '../../../components/CommentBox';
 import AllComments from '../../../components/AllComments';
+import { ToastContainer } from 'react-toastify';
+import useToastify from '../../../components/useToastify';
 
 
 export default function AnnouncementId() {
@@ -12,10 +14,11 @@ export default function AnnouncementId() {
     const announceId = router.query.announceId
     const [announceInfo, setAnnounceInfo] = useState({})
     const [commentsInfo, setCommentsInfo] = useState([])
+    const notifySuccess = useToastify("success", "Comentario publicado")
 
     //petición a la api para setear anuncios
     useEffect(() => {
-        const token = localStorage.getItem("token");
+        const token = localStorage.getItem("token")
 
         fetch(`https://api.toknow.online/announcement/${announceId}`, {
             mode: "cors",
@@ -36,7 +39,16 @@ export default function AnnouncementId() {
                 }
             })
 
-    }, [router.query]);
+    }, [router.query])
+
+    useEffect(()=> {
+        const notifCommentCreation = localStorage.getItem("notifCommentCreation")
+        if (notifCommentCreation === "true") {
+            notifySuccess() 
+            localStorage.setItem('notifCommentCreation', 'false')
+        }
+    })
+
     return (
         <Layout>
             <div>
@@ -68,6 +80,7 @@ export default function AnnouncementId() {
                         />}
                 </div>
             </div>
+            <ToastContainer />
         </Layout>
     )
 }
