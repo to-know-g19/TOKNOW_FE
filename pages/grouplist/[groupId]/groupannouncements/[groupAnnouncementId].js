@@ -13,6 +13,7 @@ export default function AnnouncementId() {
     const announceId = router.query.groupAnnouncementId
     console.log("ojo",announceId)
     const [announceInfo, setAnnounceInfo] = useState({})
+    const [repliesInfo, setRepliesInfo] = useState([])
 
     //petición a la api para setear anuncios
     useEffect(() => {
@@ -32,6 +33,9 @@ export default function AnnouncementId() {
                     const announcement = data.data.announcementById
                     console.log("anuncio dentro de grupos", announcement)
                     setAnnounceInfo(announcement)
+                    const replies = announcement.replies
+                    console.log("respuestas en anuncio", replies)
+                    setRepliesInfo(replies)
                 }
             })
 
@@ -54,8 +58,8 @@ export default function AnnouncementId() {
                             announcementTitle={announceInfo.announcementTitle}
                             textInfo={announceInfo.announcementText}
                             component={<CommentBox />}
-                            component2={announceInfo.replies.lenght > 0 &&
-                                announceInfo.replies.map(reply => (
+                            component2={repliesInfo.length > 0 &&
+                                repliesInfo.map(reply => (
                                     <AllComments 
                                     textInfo={reply.message}
                                     />
