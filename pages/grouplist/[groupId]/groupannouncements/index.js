@@ -8,6 +8,8 @@ import ArrowGoBack from '../../../../components/ArrowGoBack/ArrowGoBack'
 //toastify imports
 import { ToastContainer } from 'react-toastify'
 import useToastify from '../../../../components/useToastify'
+//icons
+import {BsPlusCircle } from 'react-icons/bs';
 
 
 export default function GroupAnnouncements() {
@@ -49,9 +51,9 @@ export default function GroupAnnouncements() {
     <Layout>
       <div>
         <ArrowGoBack
-          btnTxtModal={<h4>Tablero de anuncios</h4>}
+          btnTxtModal={<h4>Anuncios grupales</h4>}
           btnTxtModal2nd={<Link href={`/grouplist/${groupId}/newgroupannouncement`}>
-            <button className='btn-form bg-success'>Nuevo anuncio</button>
+            <button className='btn-form bg-success'>Anuncio <BsPlusCircle/></button>
           </Link>}
           route={`/grouplist/${groupId}`} 
         />

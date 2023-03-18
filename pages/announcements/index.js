@@ -7,6 +7,9 @@ import ArrowGoBack from '../../components/ArrowGoBack/ArrowGoBack'
 //toastify imports
 import { ToastContainer } from 'react-toastify'
 import useToastify from '../../components/useToastify'
+//icons
+import { BsArrowRightCircle } from 'react-icons/bs';
+import {BsPlusCircle } from 'react-icons/bs';
 
 export default function Announcements() {
 
@@ -49,11 +52,17 @@ export default function Announcements() {
             <div>
 
                 <div className="d-flex mt-3 justify-content-center col-12 col-lg-12" >
-                    <div className='d-flex col-11 col-lg-10 justify-content-between align-items-baseline'>
-                        <h4>Tablero de anuncios</h4>
-                        <Link href={"/announcements/newannouncement"}>
-                            <button className='btn-form bg-success'>Nuevo anuncio</button>
+                    <div className='d-flex col-11 col-lg-8 justify-content-between align-items-center'>
+                        <div className='d-flex col-9 align-items-center'>
+                            <h4>Anuncios escolares </h4>
+                            <Link href={"/announcements/newannouncement"}>
+                                <button className='btn-form bg-success'>Anuncio <BsPlusCircle/></button>
+                            </Link>
+                        </div>
+                        <Link href={"/grouplist"} className="arrow-go-back d-flex align-items-center">
+                            <BsArrowRightCircle />
                         </Link>
+
                     </div>
                 </div>
                 {announceInfo.map(announce => (

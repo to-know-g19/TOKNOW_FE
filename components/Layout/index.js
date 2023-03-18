@@ -26,7 +26,7 @@ export default function Layout({ children, title, ...props }) {
         <title>{title}</title>
       </Head>
       <div className='conteiner'>
-        <div className="row">
+        <div className="">
           <div className="col">
             <div className='wwrapper'>
             <Header />
