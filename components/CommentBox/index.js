@@ -45,11 +45,11 @@ export default function CommentBox(props) {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit(onSubmit)} className='d-flex flex-column m-4 m-lg-5 '>
+        <div className='d-flex justify-content-center'>
+            <form onSubmit={handleSubmit(onSubmit)} className='d-flex col-11 flex-column align-items-end'>
                 <textarea
                     name='message'
-                    className='post-announce d-flex col-12 col-lg-11 bg-white'
+                    className='post-announce d-flex col-12 col-lg-12 bg-white'
                     placeholder='Agrega un comentario'
                     {...register("message", { maxLength: 600 })}>
                 </textarea>
@@ -69,7 +69,7 @@ export default function CommentBox(props) {
                     </div>
                 </div>
 
-                <div className='d-flex col-5'>
+                <div className='d-flex col-12 justify-content-end'>
                     <button className='btn-form' type='submit'> Publicar </button>
                 </div>
 
