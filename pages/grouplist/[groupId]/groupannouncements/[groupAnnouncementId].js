@@ -58,6 +58,7 @@ export default function AnnouncementId() {
                             component2={repliesInfo.length > 0 &&
                                 repliesInfo.map(reply => (
                                     <AllComments 
+                                    key={reply.id} 
                                     textInfo={reply.message}
                                     />
                                 ))}

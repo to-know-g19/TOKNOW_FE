@@ -58,7 +58,7 @@ export default function AnnouncementId() {
                             component2={commentsInfo.length > 0 &&
                                 commentsInfo.map(comment => (
                                     <AllComments 
-                                    // key={index} 
+                                    key={comment.id} 
                                     // comment={comment}
                                     userName={comment.user}
                                     // role
