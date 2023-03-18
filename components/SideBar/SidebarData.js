@@ -9,15 +9,9 @@ import { RiParentFill } from "react-icons/ri";
 
 export const SidebarData = [
   {
-    title: 'Home',
-    path: '/',
-    icon: <AiFillHome/>,
-    className: 'nav-text',
-  },
-  {
     title: 'Grupos',
     path: '/grouplist',
-    icon: <RiFolderUserFill/>,
+    icon: <AiFillHome/>,
     className: 'nav-text',
   },
   {
@@ -26,6 +20,12 @@ export const SidebarData = [
     icon: <MdOutlineMessage/>,
     className: 'nav-text',
   },
+  // {
+  //   title: 'Grupos',
+  //   path: '/grouplist',
+  //   icon: <RiFolderUserFill/>,
+  //   className: 'nav-text',
+  // },
   // {
   //   title: 'Profesores',
   //   path: '/teachers',

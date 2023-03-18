@@ -74,10 +74,10 @@ export default function Index() {
                                         name='name'
                                         className="form-control"
                                         placeholder='Nombre'
-                                        {...register("name", { required: true, minLength: 2, maxLength: 20 })} ></input>
+                                        {...register("name", { required: true, minLength: 2, maxLength: 50 })} ></input>
                                     {errors.name && errors.name.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
                                     {errors.name && errors.name.type === "minLength" && <span className='text-danger'>*El campo requiere más de 1 caracter</span>}
-                                    {errors.name && errors.name.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 21 caracteres</span>}
+                                    {errors.name && errors.name.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 51 caracteres</span>}
                                     <label>Nombre</label>
                                 </div>
                             </div>
@@ -106,9 +106,9 @@ export default function Index() {
                                         name='password'
                                         className="form-control"
                                         placeholder='Contraseña'
-                                        {...register("password", { required: true, minLength: 3, maxLength: 30 })} ></input>
+                                        {...register("password", { required: true, minLength: 6, maxLength: 30 })} ></input>
                                     {errors.password && errors.password.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
-                                    {errors.password && errors.password.type === "minLength" && <span className='text-danger'>*El campo requiere más de 3 caracteres.</span>}
+                                    {errors.password && errors.password.type === "minLength" && <span className='text-danger'>*El campo requiere más de 5 caracteres.</span>}
                                     {errors.password && errors.password.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 31 caracteres.</span>}
                                     <label>Contraseña</label>
                                 </div>
@@ -120,10 +120,10 @@ export default function Index() {
                                 name='confirmPassword'
                                 className="form-control"
                                 placeholder='Confirme su contraseña'
-                                {...register("confirmPassword", { required: true, minLength: 3, maxLength: 30 })} >
+                                {...register("confirmPassword", { required: true, minLength: 6, maxLength: 30 })} >
                             </input>
                             {errors.confirmPassword && errors.confirmPassword.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
-                            {errors.confirmPassword && errors.confirmPassword.type === "minLength" && <span className='text-danger'>*El campo requiere más de 3 caracteres.</span>}
+                            {errors.confirmPassword && errors.confirmPassword.type === "minLength" && <span className='text-danger'>*El campo requiere más de 5 caracteres.</span>}
                             {errors.confirmPassword && errors.confirmPassword.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 31 caracteres.</span>}
                             {errors.confirmPassword && errors.confirmPassword.type === "passwordMismatch" && <span className='text-danger'>{errors.confirmPassword.message}</span>}
                             <label>Confirme su contraseña</label>

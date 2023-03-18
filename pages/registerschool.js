@@ -29,7 +29,7 @@ export default function Registerschool() {
         console.log(schoolInfo)
         // agregar estado de success o fail de peticion
         if (schoolInfo.success === true) {
-            router.push("/registergroup")
+            router.push("/announcements")
         } else {
             (window.alert("Hubo un problema al envíar la información"))
         }

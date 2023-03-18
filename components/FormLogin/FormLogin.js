@@ -11,7 +11,7 @@ import useToastify from '../useToastify'
 
 export default function FormLogin() {
   const { register, handleSubmit, formState: { errors } } = useForm()
-  const [selectedRole, setSelectedRole] = useState('parent')
+  const [selectedRole, setSelectedRole] = useState('user')
   const router = useRouter()
   //handle de radio buttons
   const handleRoleChange = (event) => {
@@ -78,7 +78,7 @@ export default function FormLogin() {
             router.push("/parent/yourgroups")
           } else {
             if (user && user.school) {
-              router.push("/grouplist")
+              router.push("/announcements")
             } else {
               router.push("/registerschool")
             }
