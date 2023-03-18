@@ -25,7 +25,7 @@ export default function Layout({ children, title, ...props }) {
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <title>{title}</title>
       </Head>
-      <div className='conteiner'>
+      <div data-bs-theme="light" className='conteiner'>
         <div className="">
           <div className="col">
             <div className='wwrapper'>
