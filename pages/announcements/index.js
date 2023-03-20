@@ -30,9 +30,7 @@ export default function Announcements() {
     useEffect(() => {
         const token = localStorage.getItem("token");
         const userData = JSON.parse(atob(token.split(".")[1]));
-        console.log('the user data',userData)
         const userSchoolId = userData.schoolId._id
-        console.log('the school',userSchoolId)
         if (token) {
 
             fetch(`https://api.toknow.online/announcement/school/${userSchoolId}`, {
@@ -44,9 +42,9 @@ export default function Announcements() {
             })
                 .then(response => response.json())
                 .then(data => {
-                    console.log("data de announcementt/school/id",data)
-                    const allAnnouncements = data.data.announcement
-                    console.log("anuncios", allAnnouncements)
+                    // console.log("data de announcement/school/id",data)
+                    const allAnnouncements = data.data.announcementsFound
+                    // console.log("anuncios", allAnnouncements)
                     setAnnounceInfo(allAnnouncements.reverse())
                 })
         }
@@ -71,13 +69,13 @@ export default function Announcements() {
                 </div>
                 {announceInfo.map(announce => (
                     <Link href="/announcements/[announceId]"
-                        as={`/announcements/${announce._id}`} key={announce.key} >
+                        as={`/announcements/${announce._id}`} key={announce.key} style={{textDecoration: 'none'}} >
 
                         <CardAnnouncement
                             coverimg={"/img/kid&parent.jpeg"}
-                            userName={announce.user.name}
-                            role={announce.user.role}
-                            date={"--fecha--"}
+                            userName={announce.user}
+                            role={'rol aquí'}
+                            date={announce.createdAt}
                             announcementTitle={announce.announcementTitle} />
                     </Link>
                 ))}
