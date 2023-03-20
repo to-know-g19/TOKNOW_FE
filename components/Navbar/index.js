@@ -1,7 +1,7 @@
 /* default */
 import Image from "next/image"
 import Link from 'next/link'
-import {useRouter} from "next/router"
+import { useRouter } from "next/router"
 /* images*/
 import logo from '../../public/img/logos/logo.svg'
 /* styles */
@@ -37,8 +37,13 @@ export default function Navbar() {
 
     const handleLogOut = () => {
         localStorage.removeItem('token')
-        router.push('/')
-      }
+        const currentPath = router.pathname
+        if (currentPath == '/') {
+            window.location.reload()
+        } else {
+            router.push('/')
+        }
+    }
 
     return (
 
@@ -56,7 +61,7 @@ export default function Navbar() {
             </div>
 
             {/* SIDEBAR */}
-            <nav className= {sidebar ? 'nav-menu active border-right' : 'nav-menu'} >
+            <nav className={sidebar ? 'nav-menu active border-right' : 'nav-menu'} >
                 <ul className="nav-menu-items" onClick={showSidebar}>
                     <li className="navbar-toggle">
                         <a className="menu-bars">
