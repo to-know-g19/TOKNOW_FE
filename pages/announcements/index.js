@@ -55,29 +55,36 @@ export default function Announcements() {
             <div>
                 <div className="d-flex mt-3 justify-content-center col-12 col-lg-12" >
                     <div className='d-flex col-11 col-lg-8 justify-content-between align-items-center'>
-                        <div className='d-flex col-9 align-items-center'>
+                        <div className='d-flex col-8 col-lg-10 align-items-center'>
                             <h4>Anuncios escolares </h4>
                             <Link href={"/announcements/newannouncement"}>
                                 <button className='btn-form bg-success'>Anuncio <BsPlusCircle /></button>
                             </Link>
                         </div>
-                        <Link href={"/grouplist"} className="arrow-go-back d-flex align-items-center">
-                            <BsArrowRightCircle />
-                        </Link>
-
+                        <div className='col-4'>
+                            <Link href={"/grouplist"} className="d-flex align-items-center">
+                                <button className='btn-form'>Grupos <BsArrowRightCircle /></button>
+                            </Link>
+                        </div>
                     </div>
                 </div>
-                {announceInfo.map(announce => (
-                    <Link href="/announcements/[announceId]"
-                        as={`/announcements/${announce._id}`} key={announce.key} style={{ textDecoration: 'none' }} >
-                        <CardAnnouncement
-                            // coverimg={"/img/kid&parent.jpeg"}
-                            userName={announce.user}
-                            role={'rol aquí'}
-                            date={format(new Date(announce.createdAt), 'dd/MM/yyyy')}
-                            announcementTitle={announce.announcementTitle} />
-                    </Link>
-                ))}
+                {(announceInfo.length > 0) ?
+                    announceInfo.map(announce => (
+                        <Link href="/announcements/[announceId]"
+                            as={`/announcements/${announce._id}`} key={announce.key} style={{ textDecoration: 'none' }} >
+                            <CardAnnouncement
+                                // coverimg={"/img/kid&parent.jpeg"}
+                                userName={announce.user}
+                                role={'rol aquí'}
+                                date={format(new Date(announce.createdAt), 'dd/MM/yyyy')}
+                                announcementTitle={announce.announcementTitle} />
+                        </Link>
+                    )) : <div className="d-flex justify-content-center " >
+                        <h6 className='col-10 alert alert-primary' role="alert">
+                            Aún no hay anuncios escolares publicados
+                        </h6>
+                    </div>
+                }
 
             </div>
             <ToastContainer />

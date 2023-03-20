@@ -16,29 +16,29 @@ export default function GroupCardDisplay() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-    const userData = JSON.parse(atob(token.split(".")[1]));
-    const userId = userData.id;
-    // console.log('user id', userId)
+      const userData = JSON.parse(atob(token.split(".")[1]));
+      const userId = userData.id;
+      // console.log('user id', userId)
 
-    fetch(`https://api.toknow.online/school`, {
-      mode: "cors",
-      headers: {
-        "Content-type": "application/json",
-        "Authorization": `Bearer ${token}`
-      }
-    })
-      .then(response => response.json())
-      .then(data => {
-
-        const schools = data.data.schools
-
-        schools.forEach(school => {
-          if (school.user !== null && school.user._id === userId) {
-            setGrupos(school.groups);
-            // console.log("Grupos: ", school.groups)
-          }
-        });
+      fetch(`https://api.toknow.online/school`, {
+        mode: "cors",
+        headers: {
+          "Content-type": "application/json",
+          "Authorization": `Bearer ${token}`
+        }
       })
+        .then(response => response.json())
+        .then(data => {
+
+          const schools = data.data.schools
+
+          schools.forEach(school => {
+            if (school.user !== null && school.user._id === userId) {
+              setGrupos(school.groups);
+              // console.log("Grupos: ", school.groups)
+            }
+          });
+        })
     }
   }, []);
 
@@ -91,18 +91,24 @@ export default function GroupCardDisplay() {
           route={'/registergroup'} />
 
         <div className='d-flex col-12 col-lg-10 flex-wrap justify-content-around'>
-          {grupos.map(grupo => (
-            //removí el return reemplazando las llaves despues de la flecha con parentesis
-            // <Link className='col-lg-5' href={'/grouplist/' + grupo._id} key={grupo._id} style={{ textDecoration: 'none' }} >
-            <div className='col-9 col-lg-5' key={grupo._id}>
-              <GroupCard
+          {(grupos.length > 0) ?
+            grupos.map(grupo => (
+              //removí el return reemplazando las llaves despues de la flecha con parentesis
+              // <Link className='col-lg-5' href={'/grouplist/' + grupo._id} key={grupo._id} style={{ textDecoration: 'none' }} >
+              <div className='col-9 col-lg-5' key={grupo._id}>
+                <GroupCard
 
-                grade={grupo.grade}
-                group={grupo.name}
-                onEyeClick={() => handleEyeClick(grupo._id)}
-                onTrashClick={() => handleTrashClick(grupo._id)} />
+                  grade={grupo.grade}
+                  group={grupo.name}
+                  onEyeClick={() => handleEyeClick(grupo._id)}
+                  onTrashClick={() => handleTrashClick(grupo._id)} />
+              </div>
+            )) : <div className="d-flex justify-content-center pt-4" >
+              <h6 className='col-lg-12 col-11 alert alert-primary' role="alert">
+                Presiona el botón de Grupo+ para comenzar a crear grupos en tu escuela
+              </h6>
             </div>
-          ))}
+          }
 
         </div>
       </div>

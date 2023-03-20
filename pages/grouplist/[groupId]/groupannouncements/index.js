@@ -10,7 +10,7 @@ import ArrowGoBack from '../../../../components/ArrowGoBack/ArrowGoBack'
 import { ToastContainer } from 'react-toastify'
 import useToastify from '../../../../components/useToastify'
 //icons
-import {BsPlusCircle } from 'react-icons/bs';
+import { BsPlusCircle } from 'react-icons/bs';
 
 
 export default function GroupAnnouncements() {
@@ -43,9 +43,10 @@ export default function GroupAnnouncements() {
       })
         .then(response => response.json())
         .then(data => {
-          if(data.data){
-          const allAnnouncements = data.data.announcementsFound
-          setAnnounceInfo(allAnnouncements.reverse())}
+          if (data.data) {
+            const allAnnouncements = data.data.announcementsFound
+            setAnnounceInfo(allAnnouncements.reverse())
+          }
         })
     }
   }, [router.query]);
@@ -55,22 +56,28 @@ export default function GroupAnnouncements() {
         <ArrowGoBack
           btnTxtModal={<h4>Anuncios grupales</h4>}
           btnTxtModal2nd={<Link href={`/grouplist/${groupId}/newgroupannouncement`}>
-            <button className='btn-form bg-success'>Anuncio <BsPlusCircle/></button>
+            <button className='btn-form bg-success'>Anuncio <BsPlusCircle /></button>
           </Link>}
-          route={`/grouplist/${groupId}`} 
+          route={`/grouplist/${groupId}`}
         />
-        {announceInfo.map(announce => (
-          <Link href="/grouplist/[groupId]/groupannouncements/[groupAnnouncementId]"
-            as={`/grouplist/${groupId}/groupannouncements/${announce._id}`} style={{ textDecoration: 'none' }} key={announce.key} >
+        {(announceInfo.length > 0) ?
+          announceInfo.map(announce => (
+            <Link href="/grouplist/[groupId]/groupannouncements/[groupAnnouncementId]"
+              as={`/grouplist/${groupId}/groupannouncements/${announce._id}`} style={{ textDecoration: 'none' }} key={announce.key} >
 
-            <CardAnnouncement
-              // coverimg={"/img/kid&parent.jpeg"}
-              userName={announce.user}
-              role={'-rol aquí-'}
-              date={format(new Date(announce.createdAt), 'dd/MM/yyyy')}
-              announcementTitle={announce.announcementTitle} />
-          </Link>
-        ))}
+              <CardAnnouncement
+                // coverimg={"/img/kid&parent.jpeg"}
+                userName={announce.user}
+                role={'-rol aquí-'}
+                date={format(new Date(announce.createdAt), 'dd/MM/yyyy')}
+                announcementTitle={announce.announcementTitle} />
+            </Link>
+          )) : <div className="d-flex justify-content-center " >
+            <h6 className='col-10 alert alert-primary' role="alert">
+              Aún no hay anuncios grupales publicados
+            </h6>
+          </div>
+        }
 
       </div>
       <ToastContainer />
