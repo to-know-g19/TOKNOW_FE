@@ -55,16 +55,17 @@ export default function Announcements() {
             <div>
                 <div className="d-flex mt-3 justify-content-center col-12 col-lg-12" >
                     <div className='d-flex col-11 col-lg-8 justify-content-between align-items-center'>
-                        <div className='d-flex col-9 align-items-center'>
+                        <div className='d-flex col-8 col-lg-10 align-items-center'>
                             <h4>Anuncios escolares </h4>
                             <Link href={"/announcements/newannouncement"}>
                                 <button className='btn-form bg-success'>Anuncio <BsPlusCircle /></button>
                             </Link>
                         </div>
-                        <Link href={"/grouplist"} className="d-flex align-items-center">
-                            <button className='btn-form'>Grupos <BsArrowRightCircle /></button>
-                        </Link>
-
+                        <div className='col-4'>
+                            <Link href={"/grouplist"} className="d-flex align-items-center">
+                                <button className='btn-form'>Grupos <BsArrowRightCircle /></button>
+                            </Link>
+                        </div>
                     </div>
                 </div>
                 {(announceInfo.length > 0) ?
