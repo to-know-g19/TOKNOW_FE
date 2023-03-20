@@ -67,17 +67,23 @@ export default function Announcements() {
 
                     </div>
                 </div>
-                {announceInfo.map(announce => (
-                    <Link href="/announcements/[announceId]"
-                        as={`/announcements/${announce._id}`} key={announce.key} style={{ textDecoration: 'none' }} >
-                        <CardAnnouncement
-                            // coverimg={"/img/kid&parent.jpeg"}
-                            userName={announce.user}
-                            role={'rol aquí'}
-                            date={format(new Date(announce.createdAt), 'dd/MM/yyyy')}
-                            announcementTitle={announce.announcementTitle} />
-                    </Link>
-                ))}
+                {(announceInfo.length > 0) ?
+                    announceInfo.map(announce => (
+                        <Link href="/announcements/[announceId]"
+                            as={`/announcements/${announce._id}`} key={announce.key} style={{ textDecoration: 'none' }} >
+                            <CardAnnouncement
+                                // coverimg={"/img/kid&parent.jpeg"}
+                                userName={announce.user}
+                                role={'rol aquí'}
+                                date={format(new Date(announce.createdAt), 'dd/MM/yyyy')}
+                                announcementTitle={announce.announcementTitle} />
+                        </Link>
+                    )) : <div className="d-flex justify-content-center " >
+                        <h6 className='col-10 alert alert-primary' role="alert">
+                            Aún no hay anuncios escolares publicados
+                        </h6>
+                    </div>
+                }
 
             </div>
             <ToastContainer />
