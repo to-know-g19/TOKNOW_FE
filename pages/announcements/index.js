@@ -29,9 +29,13 @@ export default function Announcements() {
     //petición a la api para setear anuncios
     useEffect(() => {
         const token = localStorage.getItem("token");
+        const userData = JSON.parse(atob(token.split(".")[1]));
+        console.log('the user data',userData)
+        const userSchoolId = userData.schoolId._id
+        console.log('the school',userSchoolId)
         if (token) {
 
-            fetch(`https://api.toknow.online/announcement`, {
+            fetch(`https://api.toknow.online/announcement/school/${userSchoolId}`, {
                 mode: "cors",
                 headers: {
                     "Content-type": "application/json",
@@ -40,9 +44,9 @@ export default function Announcements() {
             })
                 .then(response => response.json())
                 .then(data => {
-                    // console.log(data)
+                    console.log("data de announcementt/school/id",data)
                     const allAnnouncements = data.data.announcement
-                    // console.log("anuncios", allAnnouncements)
+                    console.log("anuncios", allAnnouncements)
                     setAnnounceInfo(allAnnouncements.reverse())
                 })
         }
