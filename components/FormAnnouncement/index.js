@@ -63,7 +63,7 @@ export default function FormAnnouncement() {
             <Layout>
                 <div className='d-flex flex-column align-items-center col-12 justify-content-center '>
                     <ArrowGoBack
-                        btnTxtModal={<h4>Crear nuevo anuncio</h4>}
+                        btnTxtModal={(!!groupId)? <h4>Crear anuncio grupal</h4> : <h4>Crear anuncio escolar</h4>}
                         route={route()} />
                     <form onSubmit={handleSubmit(onSubmit)} className='d-flex mt-3  col-11 col-lg-10 flex-column'>
 
