@@ -91,7 +91,8 @@ export default function GroupCardDisplay() {
           route={'/registergroup'} />
 
         <div className='d-flex col-12 col-lg-10 flex-wrap justify-content-around'>
-          {grupos.map(grupo => (
+          { (grupos.length > 0) ?
+          grupos.map(grupo => (
             //removí el return reemplazando las llaves despues de la flecha con parentesis
             // <Link className='col-lg-5' href={'/grouplist/' + grupo._id} key={grupo._id} style={{ textDecoration: 'none' }} >
             <div className='col-9 col-lg-5' key={grupo._id}>
@@ -102,7 +103,8 @@ export default function GroupCardDisplay() {
                 onEyeClick={() => handleEyeClick(grupo._id)}
                 onTrashClick={() => handleTrashClick(grupo._id)} />
             </div>
-          ))}
+          )) : <h5 className='bg-info p-2 rounded text-white'>Presiona el botón de Grupo+ para comenzar a crear grupos en tu escuela</h5>
+        }
 
         </div>
       </div>
