@@ -9,7 +9,8 @@ import { ToastContainer } from 'react-toastify'
 import useToastify from '../../components/useToastify'
 //icons
 import { BsArrowRightCircle } from 'react-icons/bs';
-import {BsPlusCircle } from 'react-icons/bs';
+import { BsPlusCircle } from 'react-icons/bs';
+import { format } from 'date-fns';
 
 export default function Announcements() {
 
@@ -29,9 +30,11 @@ export default function Announcements() {
     //petición a la api para setear anuncios
     useEffect(() => {
         const token = localStorage.getItem("token");
+        const userData = JSON.parse(atob(token.split(".")[1]));
+        const userSchoolId = userData.schoolId._id
         if (token) {
 
-            fetch(`https://api.toknow.online/announcement`, {
+            fetch(`https://api.toknow.online/announcement/school/${userSchoolId}`, {
                 mode: "cors",
                 headers: {
                     "Content-type": "application/json",
@@ -40,8 +43,8 @@ export default function Announcements() {
             })
                 .then(response => response.json())
                 .then(data => {
-                    // console.log(data)
-                    const allAnnouncements = data.data.announcement
+                    // console.log("data de announcement/school/id",data)
+                    const allAnnouncements = data.data.announcementsFound
                     // console.log("anuncios", allAnnouncements)
                     setAnnounceInfo(allAnnouncements.reverse())
                 })
@@ -50,13 +53,12 @@ export default function Announcements() {
     return (
         <Layout>
             <div>
-
                 <div className="d-flex mt-3 justify-content-center col-12 col-lg-12" >
                     <div className='d-flex col-11 col-lg-8 justify-content-between align-items-center'>
                         <div className='d-flex col-9 align-items-center'>
                             <h4>Anuncios escolares </h4>
                             <Link href={"/announcements/newannouncement"}>
-                                <button className='btn-form bg-success'>Anuncio <BsPlusCircle/></button>
+                                <button className='btn-form bg-success'>Anuncio <BsPlusCircle /></button>
                             </Link>
                         </div>
                         <Link href={"/grouplist"} className="arrow-go-back d-flex align-items-center">
@@ -67,13 +69,12 @@ export default function Announcements() {
                 </div>
                 {announceInfo.map(announce => (
                     <Link href="/announcements/[announceId]"
-                        as={`/announcements/${announce._id}`} key={announce.key} >
-
+                        as={`/announcements/${announce._id}`} key={announce.key} style={{ textDecoration: 'none' }} >
                         <CardAnnouncement
-                            coverimg={"/img/kid&parent.jpeg"}
-                            userName={announce.user.name}
-                            role={announce.user.role}
-                            date={"--fecha--"}
+                            // coverimg={"/img/kid&parent.jpeg"}
+                            userName={announce.user}
+                            role={'rol aquí'}
+                            date={format(new Date(announce.createdAt), 'dd/MM/yyyy')}
                             announcementTitle={announce.announcementTitle} />
                     </Link>
                 ))}

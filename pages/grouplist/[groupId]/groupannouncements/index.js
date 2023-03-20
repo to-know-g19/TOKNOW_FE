@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { format } from 'date-fns';
 //components
 import Layout from '../../../../components/Layout'
 import CardAnnouncement from '../../../../components/CardAnnouncement'
@@ -33,7 +34,7 @@ export default function GroupAnnouncements() {
     const token = localStorage.getItem("token");
     if (token) {
       //groupId anuncios
-      fetch(`https://api.toknow.online/announcement`, {
+      fetch(`https://api.toknow.online/announcement/group/${groupId}`, {
         mode: "cors",
         headers: {
           "Content-type": "application/json",
@@ -42,11 +43,12 @@ export default function GroupAnnouncements() {
       })
         .then(response => response.json())
         .then(data => {
-          const allAnnouncements = data.data.announcement
-          setAnnounceInfo(allAnnouncements.reverse())
+          if(data.data){
+          const allAnnouncements = data.data.announcementsFound
+          setAnnounceInfo(allAnnouncements.reverse())}
         })
     }
-  }, []);
+  }, [router.query]);
   return (
     <Layout>
       <div>
@@ -62,10 +64,10 @@ export default function GroupAnnouncements() {
             as={`/grouplist/${groupId}/groupannouncements/${announce._id}`} style={{ textDecoration: 'none' }} key={announce.key} >
 
             <CardAnnouncement
-              coverimg={"/img/kid&parent.jpeg"}
-              userName={announce.user.name}
-              role={announce.user.role}
-              date={"--fecha--"}
+              // coverimg={"/img/kid&parent.jpeg"}
+              userName={announce.user}
+              role={'-rol aquí-'}
+              date={format(new Date(announce.createdAt), 'dd/MM/yyyy')}
               announcementTitle={announce.announcementTitle} />
           </Link>
         ))}
