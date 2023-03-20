@@ -9,7 +9,8 @@ import { ToastContainer } from 'react-toastify'
 import useToastify from '../../components/useToastify'
 //icons
 import { BsArrowRightCircle } from 'react-icons/bs';
-import {BsPlusCircle } from 'react-icons/bs';
+import { BsPlusCircle } from 'react-icons/bs';
+import { format } from 'date-fns';
 
 export default function Announcements() {
 
@@ -52,13 +53,12 @@ export default function Announcements() {
     return (
         <Layout>
             <div>
-
                 <div className="d-flex mt-3 justify-content-center col-12 col-lg-12" >
                     <div className='d-flex col-11 col-lg-8 justify-content-between align-items-center'>
                         <div className='d-flex col-9 align-items-center'>
                             <h4>Anuncios escolares </h4>
                             <Link href={"/announcements/newannouncement"}>
-                                <button className='btn-form bg-success'>Anuncio <BsPlusCircle/></button>
+                                <button className='btn-form bg-success'>Anuncio <BsPlusCircle /></button>
                             </Link>
                         </div>
                         <Link href={"/grouplist"} className="arrow-go-back d-flex align-items-center">
@@ -69,13 +69,12 @@ export default function Announcements() {
                 </div>
                 {announceInfo.map(announce => (
                     <Link href="/announcements/[announceId]"
-                        as={`/announcements/${announce._id}`} key={announce.key} style={{textDecoration: 'none'}} >
-
+                        as={`/announcements/${announce._id}`} key={announce.key} style={{ textDecoration: 'none' }} >
                         <CardAnnouncement
-                            coverimg={"/img/kid&parent.jpeg"}
+                            // coverimg={"/img/kid&parent.jpeg"}
                             userName={announce.user}
                             role={'rol aquí'}
-                            date={announce.createdAt}
+                            date={format(new Date(announce.createdAt), 'dd/MM/yyyy')}
                             announcementTitle={announce.announcementTitle} />
                     </Link>
                 ))}
