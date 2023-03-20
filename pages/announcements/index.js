@@ -61,8 +61,8 @@ export default function Announcements() {
                                 <button className='btn-form bg-success'>Anuncio <BsPlusCircle /></button>
                             </Link>
                         </div>
-                        <Link href={"/grouplist"} className="arrow-go-back d-flex align-items-center">
-                            <BsArrowRightCircle />
+                        <Link href={"/grouplist"} className="d-flex align-items-center">
+                            <button className='btn-form'>Grupos <BsArrowRightCircle /></button>
                         </Link>
 
                     </div>
