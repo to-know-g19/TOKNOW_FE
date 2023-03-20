@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { format } from 'date-fns';
 //components
 import Layout from '../../../../components/Layout'
 import CardAnnouncement from '../../../../components/CardAnnouncement'
@@ -42,12 +43,12 @@ export default function GroupAnnouncements() {
       })
         .then(response => response.json())
         .then(data => {
-          console.log('data de groupAnnouncements', data)
+          if(data.data){
           const allAnnouncements = data.data.announcementsFound
-          setAnnounceInfo(allAnnouncements.reverse())
+          setAnnounceInfo(allAnnouncements.reverse())}
         })
     }
-  }, []);
+  }, [router.query]);
   return (
     <Layout>
       <div>
@@ -63,10 +64,10 @@ export default function GroupAnnouncements() {
             as={`/grouplist/${groupId}/groupannouncements/${announce._id}`} style={{ textDecoration: 'none' }} key={announce.key} >
 
             <CardAnnouncement
-              coverimg={"/img/kid&parent.jpeg"}
-              userName={announce.user.name}
-              role={announce.user.role}
-              date={"--fecha--"}
+              // coverimg={"/img/kid&parent.jpeg"}
+              userName={announce.user}
+              role={'-rol aquí-'}
+              date={format(new Date(announce.createdAt), 'dd/MM/yyyy')}
               announcementTitle={announce.announcementTitle} />
           </Link>
         ))}
