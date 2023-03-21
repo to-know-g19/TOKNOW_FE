@@ -44,6 +44,7 @@ export default function AnnouncementId() {
                         }
                     }
                     const replies = announcement.replies
+                    console.log("respuestas", replies)
                     setRepliesInfo(replies.reverse())
                 }
             })
@@ -79,6 +80,9 @@ export default function AnnouncementId() {
                                 repliesInfo.map(reply => (
                                     <AllComments
                                         key={reply.id}
+                                        userName={"-nombre-"}
+                                        role={reply.teacher ? "Profesor" : reply.parent ? "Tutor" : "Administrador"}
+                                        date={format(new Date(announceInfo.createdAt), 'dd/MM/yyyy')}
                                         textInfo={reply.message}
                                     />
                                 ))}
