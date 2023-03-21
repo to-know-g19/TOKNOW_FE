@@ -7,6 +7,7 @@ import AllComments from '../../../../components/AllComments';
 import CommentBox from '../../../../components/CommentBox';
 import { ToastContainer } from 'react-toastify';
 import useToastify from '../../../../components/useToastify';
+import { format } from 'date-fns';
 
 
 export default function AnnouncementId() {
@@ -15,6 +16,7 @@ export default function AnnouncementId() {
     const announceId = router.query.groupAnnouncementId
     const [announceInfo, setAnnounceInfo] = useState({})
     const [repliesInfo, setRepliesInfo] = useState([])
+    const [posterInfo, setPosterInfo] = useState((""))
     const notifySuccess = useToastify("success", "Comentario publicado")
 
     //petición a la api para setear anuncios
@@ -34,6 +36,13 @@ export default function AnnouncementId() {
                 if (data.data) {
                     const announcement = data.data.announcementById
                     setAnnounceInfo(announcement)
+                    if (announcement.user) {
+                        setPosterInfo(announcement.user.name)
+                    } else {
+                        if (announcement.teacher) {
+                            setPosterInfo(`${announcement.teacher.name} ${announcement.teacher.lastNameA} ${announcement.teacher.lastNameB}`)
+                        }
+                    }
                     const replies = announcement.replies
                     setRepliesInfo(replies.reverse())
                 }
@@ -41,10 +50,10 @@ export default function AnnouncementId() {
 
     }, [router.query]);
 
-    useEffect(()=> {
+    useEffect(() => {
         const notifCommentCreation = localStorage.getItem("notifCommentCreation")
         if (notifCommentCreation === "true") {
-            notifySuccess() 
+            notifySuccess()
             localStorage.setItem('notifCommentCreation', 'false')
         }
     })
@@ -57,23 +66,25 @@ export default function AnnouncementId() {
                         btnTxtModal={<h4>Anuncio</h4>}
                         route={`/grouplist/${groupId}/groupannouncements/`} />
 
-                    {!!announceInfo.user &&
+                    {(!!posterInfo) &&
                         <PostAnnouncement
                             coverimg={"/img/kid&parent.jpeg"}
-                            userName={announceInfo.user.name}
-                            role={announceInfo.user.role}
-                            date={"--fecha--"}
+                            userName={posterInfo}
+                            role={(!!announceInfo.user) ? "Administrador" : "Profesor"}
+                            date={format(new Date(announceInfo.createdAt), 'dd/MM/yyyy')}
                             announcementTitle={announceInfo.announcementTitle}
                             textInfo={announceInfo.announcementText}
                             component={<CommentBox />}
                             component2={repliesInfo.length > 0 &&
                                 repliesInfo.map(reply => (
-                                    <AllComments 
-                                    key={reply.id} 
-                                    textInfo={reply.message}
+                                    <AllComments
+                                        key={reply.id}
+                                        textInfo={reply.message}
                                     />
                                 ))}
-                        />}
+                        />
+
+                    }
                 </div>
             </div>
             <ToastContainer />
