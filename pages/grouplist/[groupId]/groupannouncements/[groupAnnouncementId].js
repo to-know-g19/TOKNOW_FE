@@ -78,11 +78,12 @@ export default function AnnouncementId() {
                             component={<CommentBox />}
                             component2={repliesInfo.length > 0 &&
                                 repliesInfo.map(reply => (
+
                                     <AllComments
                                         key={reply.id}
-                                        userName={"-nombre-"}
+                                        userName={"id del usuario para hacer fetch y obtener su nombre"}
                                         role={reply.teacher ? "Profesor" : reply.parent ? "Tutor" : "Administrador"}
-                                        date={format(new Date(announceInfo.createdAt), 'dd/MM/yyyy')}
+                                        date={format(new Date(reply.createdAt), 'dd/MM/yyyy')}
                                         textInfo={reply.message}
                                     />
                                 ))}
