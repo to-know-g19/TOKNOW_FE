@@ -126,9 +126,10 @@ export default function Announcements() {
                     <div className='d-flex col-11 col-lg-8 justify-content-between align-items-center'>
                         <div className='d-flex col-8 col-lg-10 align-items-center'>
                             <h4>Anuncios escolares </h4>
+                            {(userDataRole !== "parent") &&
                             <Link href={"/announcements/newannouncement"}>
                                 <button className='btn-form bg-success'>Anuncio <BsPlusCircle /></button>
-                            </Link>
+                            </Link>}
                         </div>
                         <div className='col-4'>
                             <Link href={`${routeBtnGroups()}`} className="d-flex align-items-center" style={{textDecoration:"none"}}>
