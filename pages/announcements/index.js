@@ -126,8 +126,8 @@ export default function Announcements() {
                             as={`/announcements/${announce._id}`} key={announce.key} style={{ textDecoration: 'none' }} >
                             <CardAnnouncement
                                 // coverimg={"/img/kid&parent.jpeg"}
-                                userName={announce.user}
-                                role={'rol aquí'}
+                                userName={"id de usuario para traer info"}
+                                role={(!!announce.user) ? "Administrador" : "Profesor"}
                                 date={format(new Date(announce.createdAt), 'dd/MM/yyyy')}
                                 announcementTitle={announce.announcementTitle} />
                         </Link>
