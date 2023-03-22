@@ -81,7 +81,7 @@ export default function AnnouncementId() {
 
                                     <AllComments
                                         key={reply.id}
-                                        userName={"id del usuario para hacer fetch y obtener su nombre"}
+                                        userId={reply.parent || reply.teacher || reply.user}
                                         role={reply.teacher ? "Profesor" : reply.parent ? "Tutor" : "Administrador"}
                                         date={format(new Date(reply.createdAt), 'dd/MM/yyyy')}
                                         textInfo={reply.message}

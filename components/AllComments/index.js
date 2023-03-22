@@ -1,9 +1,41 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { FaUserCircle } from 'react-icons/fa';
 // import { useRouter } from 'next/router';
 
 export default function AllComments(props) {
+const [userName, setUserName] = useState("")
+useEffect (()=>{
+    const token = localStorage.getItem("token")
 
+    let url = `https://api.toknow.online/user/${props.userId}`
+    if (props.role === "Profesor"){
+        url = `https://api.toknow.online/teacher/${props.userId}`
+    } else if (props.role === "Tutor"){
+       url = `https://api.toknow.online/parent/${props.userId}`
+    }
+    
+    fetch(url, {
+        mode: "cors",
+        headers: {
+            "Content-type": "application/json",
+            "Authorization": `Bearer ${token}`
+        },
+    })
+        .then(response => response.json())
+        .then(data => { data.data
+            const userData = data.data.parentById || data.data.userById || data.data.teacherById
+            console.log("rol:", props.role, "data:", userData)
+            let name = userData.name
+            if(userData.lastNameA) {
+                name = `${name} ${userData.lastNameA}`
+            }
+            if(userData.lastNameB) {
+                name = `${name} ${userData.lastNameB}`
+            }
+            setUserName(name)
+
+})
+},)
 
     return (
         <div>
@@ -20,7 +52,7 @@ export default function AllComments(props) {
 
                             <div className='d-flex flex-column '>
                                 <div className='pt-3'>
-                                    {props.userName}
+                                    {userName}
                                 </div>
                                 <div>
                                     {props.date}
