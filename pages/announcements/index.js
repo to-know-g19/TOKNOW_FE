@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import Link from 'next/link'
 //components
 import Layout from '../../components/Layout'
@@ -13,9 +13,10 @@ import { BsPlusCircle } from 'react-icons/bs';
 import { format } from 'date-fns';
 
 export default function Announcements() {
-
     const [announceInfo, setAnnounceInfo] = useState([])
+    const [userSchoolId, setUserSchoolId] = useState("")
     const notifySuccess = useToastify("success", "¡Anuncio creado con éxito!")
+    console.log('userSchoolId', userSchoolId)
 
     //check de item que viene desde newAnnouncement para notificación de anuncio creado
     useEffect(() => {
@@ -28,13 +29,44 @@ export default function Announcements() {
     }, [])
 
     //petición a la api para setear anuncios
+    const fetchAnnouncements = useCallback(() => {
+        const token = localStorage.getItem("token");
+        fetch(`https://api.toknow.online/announcement/school/${userSchoolId}`, {
+            mode: "cors",
+            headers: {
+                "Content-type": "application/json",
+                "Authorization": `Bearer ${token}`
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log("anuncios de schoolId", data)
+                const allAnnouncements = data.data.announcementsFound;
+                setAnnounceInfo(allAnnouncements.reverse());
+            });
+    }, [userSchoolId]);
+
     useEffect(() => {
         const token = localStorage.getItem("token");
         const userData = JSON.parse(atob(token.split(".")[1]));
-        const userSchoolId = userData.schoolId._id
-        if (token) {
+        console.log("user data", userData)
+        const userRole = () => {
+            if (userData.role === "admin") {
+                return "user";
+            } else {
+                if (userData.role === "parent") {
+                    return "parent";
+                } else {
+                    if (userData.role === "teacher") {
+                        return "teacher";
+                    }
+                }
+            }
+        };
+        const userId = userData.id;
 
-            fetch(`https://api.toknow.online/announcement/school/${userSchoolId}`, {
+        if (token) {
+            fetch(`https://api.toknow.online/${userRole()}/${userId}`, {
                 mode: "cors",
                 headers: {
                     "Content-type": "application/json",
@@ -43,13 +75,32 @@ export default function Announcements() {
             })
                 .then(response => response.json())
                 .then(data => {
-                    // console.log("data de announcement/school/id",data)
-                    const allAnnouncements = data.data.announcementsFound
-                    // console.log("anuncios", allAnnouncements)
-                    setAnnounceInfo(allAnnouncements.reverse())
-                })
+                    if (data.data) {
+                        const userFetchedInfo = data.data
+                        console.log('fetchedInfo', userFetchedInfo)
+                        let schoolId = ''
+                        if (userFetchedInfo.userById) {
+                            schoolId = userFetchedInfo.userById.school._id;
+                        }else {
+                            if(userFetchedInfo.teacherById){
+                                schoolId = userFetchedInfo.teacherById.school
+                            } else {
+                                if (userFetchedInfo.parentById){
+                                    schoolId = userFetchedInfo.parentById.school
+                                }
+                            }
+                        }
+                          setUserSchoolId(schoolId);
+                    }
+                });
         }
     }, []);
+
+    useEffect(() => {
+        if (userSchoolId) {
+            fetchAnnouncements();
+        }
+    }, [fetchAnnouncements, userSchoolId]);
     return (
         <Layout>
             <div>
