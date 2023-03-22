@@ -49,7 +49,7 @@ export default function Announcements() {
     useEffect(() => {
         const token = localStorage.getItem("token");
         const userData = JSON.parse(atob(token.split(".")[1]));
-        console.log("user data", userData)
+        console.log("user data del token", userData)
         const userRole = () => {
             if (userData.role === "admin") {
                 return "user";
@@ -75,23 +75,24 @@ export default function Announcements() {
             })
                 .then(response => response.json())
                 .then(data => {
+                    console.log("soy data del fetch al usuario", data)
+                    let schoolId = ''
                     if (data.data) {
                         const userFetchedInfo = data.data
                         console.log('fetchedInfo', userFetchedInfo)
-                        let schoolId = ''
                         if (userFetchedInfo.userById) {
                             schoolId = userFetchedInfo.userById.school._id;
-                        }else {
-                            if(userFetchedInfo.teacherById){
+                        } else {
+                            if (userFetchedInfo.teacherById) {
                                 schoolId = userFetchedInfo.teacherById.school
-                            } else {
-                                if (userFetchedInfo.parentById){
-                                    schoolId = userFetchedInfo.parentById.school
-                                }
                             }
                         }
-                          setUserSchoolId(schoolId);
+                    } else {
+                        if (userData.role === "parent") {
+                            schoolId = userData.schoolId
+                        }
                     }
+                    setUserSchoolId(schoolId);
                 });
         }
     }, []);
