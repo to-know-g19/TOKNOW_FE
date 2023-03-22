@@ -74,7 +74,7 @@ export default function GroupAnnouncements() {
 
               <CardAnnouncement
                 // coverimg={"/img/kid&parent.jpeg"}
-                userName={"id de usuario para traer info"}
+                userId={announce.user || announce.teacher}
                 role={(!!announce.user) ? "Administrador" : "Profesor"}
                 date={format(new Date(announce.createdAt), 'dd/MM/yyyy')}
                 announcementTitle={announce.announcementTitle} />

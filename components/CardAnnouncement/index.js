@@ -1,7 +1,40 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { FaUserCircle } from 'react-icons/fa';
 
 export default function Index(props) {
+    const [userName, setUserName] = useState("")
+    useEffect(() => {
+        const token = localStorage.getItem("token")
+
+        let url = `https://api.toknow.online/user/${props.userId}`
+        if (props.role === "Profesor") {
+            url = `https://api.toknow.online/teacher/${props.userId}`
+        }
+
+        fetch(url, {
+            mode: "cors",
+            headers: {
+                "Content-type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
+        })
+            .then(response => response.json())
+            .then(data => {
+                data.data
+                // console.log("SOY LA DATA:", data)
+                const userData = data.data.userById || data.data.teacherById
+                // console.log("rol:", props.role, "data:", userData)
+                let name = userData.name
+                if (userData.lastNameA) {
+                    name = `${name} ${userData.lastNameA}`
+                }
+                if (userData.lastNameB) {
+                    name = `${name} ${userData.lastNameB}`
+                }
+                setUserName(name)
+
+            })
+    },)
     return (
         <div>
             <div className='d-flex flex-column mb-4 mt-3 align-items-center justify-content-center'>
@@ -21,7 +54,7 @@ export default function Index(props) {
 
                             <div className='d-flex flex-column '>
                                 <div className='pt-3'>
-                                    {props.userName}
+                                    {userName}
                                 </div>
                                 <div>
                                     {props.date}
