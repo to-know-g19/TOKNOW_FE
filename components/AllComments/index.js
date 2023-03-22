@@ -24,8 +24,9 @@ export default function AllComments(props) {
             .then(response => response.json())
             .then(data => {
                 data.data
+                // console.log("SOY LA DATA:", data)
                 const userData = data.data.parentById || data.data.userById || data.data.teacherById
-                console.log("rol:", props.role, "data:", userData)
+                // console.log("rol:", props.role, "data:", userData)
                 let name = userData.name
                 if (userData.lastNameA) {
                     name = `${name} ${userData.lastNameA}`
