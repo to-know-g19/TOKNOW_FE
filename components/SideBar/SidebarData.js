@@ -8,14 +8,14 @@ import { RiParentFill } from "react-icons/ri";
 
 
 export const SidebarData = [
+  // {
+  //   title: 'Grupos',
+  //   path: '/grouplist',
+  //   icon: <AiFillHome/>,
+  //   className: 'nav-text',
+  // },
   {
-    title: 'Grupos',
-    path: '/grouplist',
-    icon: <AiFillHome/>,
-    className: 'nav-text',
-  },
-  {
-    title: 'Anuncios',
+    title: 'Anuncios Esc.',
     path: '/announcements',
     icon: <MdOutlineMessage/>,
     className: 'nav-text',
