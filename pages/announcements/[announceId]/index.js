@@ -85,8 +85,9 @@ export default function AnnouncementId() {
                                     <AllComments 
                                     key={comment.id} 
                                     // comment={comment}
-                                    userName={comment.user}
-                                    // role
+                                    userName={"id para traer info"}
+                                    role={comment.teacher ? "Profesor" : comment.parent ? "Tutor" : "Administrador"}
+                                    date={format(new Date(comment.createdAt), 'dd/MM/yyyy')}
                                     textInfo={comment.message} 
                                      />
                                 ))}
