@@ -14,6 +14,7 @@ export default function AnnouncementId() {
     const announceId = router.query.announceId
     const [announceInfo, setAnnounceInfo] = useState({})
     const [commentsInfo, setCommentsInfo] = useState([])
+    const [posterInfo, setPosterInfo] = useState((""))
     const notifySuccess = useToastify("success", "Comentario publicado")
 
     //petición a la api para setear anuncios
@@ -32,8 +33,18 @@ export default function AnnouncementId() {
                 // console.log("la data", data)
                 if (data.data) {
                     const announcement = data.data.announcementById
-                    
                     setAnnounceInfo(announcement)
+                    if(announcement.user){
+                        setPosterInfo(announcement.user.name)
+                    } else {
+                        if(announcement.teacher){
+                            setPosterInfo(announcement.teacher.name)
+                        } else {
+                            if(announcement.parent){
+                                setPosterInfo(announcement.parent.name)
+                            }
+                        }
+                    }
                     
                     setCommentsInfo(announcement.replies.reverse())
                 }

@@ -44,7 +44,7 @@ export default function AnnouncementId() {
                         }
                     }
                     const replies = announcement.replies
-                    console.log("respuestas", replies)
+                    
                     setRepliesInfo(replies.reverse())
                 }
             })
