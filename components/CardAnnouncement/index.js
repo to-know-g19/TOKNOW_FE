@@ -49,7 +49,11 @@ export default function Index(props) {
                         </div> */}
                         <div className='d-flex'>
                             <div className='p-2 pt-lg-4 d-flex justify-content-center align-items-center '>
-                                <FaUserCircle className='card-announce__user-img' />
+                            <img className='card-announce__user-img'
+                                    src={`https://api.dicebear.com/5.x/fun-emoji/svg?seed=${props.userId}`}
+                                    alt="avatar"
+                                />
+                                
                             </div>
 
                             <div className='d-flex flex-column '>
