@@ -72,10 +72,10 @@ export default function FormLogin() {
       }
       else {
         if (userRole === "teacher") {
-          router.push("/teacher/yourgroups")
+          router.push("/announcements")
         } else {
           if (userRole === "parent") {
-            router.push("/parent/yourgroups")
+            router.push("/announcements")
           } else {
             if (user && user.school) {
               router.push("/announcements")

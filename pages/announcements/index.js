@@ -15,6 +15,7 @@ import { format } from 'date-fns';
 export default function Announcements() {
     const [announceInfo, setAnnounceInfo] = useState([])
     const [userSchoolId, setUserSchoolId] = useState("")
+    const [userDataRole, setUserDataRole] = useState("")
     const notifySuccess = useToastify("success", "¡Anuncio creado con éxito!")
     console.log('userSchoolId', userSchoolId)
 
@@ -49,6 +50,7 @@ export default function Announcements() {
     useEffect(() => {
         const token = localStorage.getItem("token");
         const userData = JSON.parse(atob(token.split(".")[1]));
+        setUserDataRole(userData.role)
         console.log("user data del token", userData)
         const userRole = () => {
             if (userData.role === "admin") {
@@ -102,6 +104,21 @@ export default function Announcements() {
             fetchAnnouncements();
         }
     }, [fetchAnnouncements, userSchoolId]);
+
+    const routeBtnGroups = () => {
+        if(userDataRole === "admin"){
+            return "/grouplist"
+        } else {
+            if(userDataRole === "teacher"){
+                return "/teacher/yourgroups"
+            } else {
+                if(userDataRole === "parent") {
+                    return "/parent/yourgroups"
+                }
+            }
+        }
+    }
+    
     return (
         <Layout>
             <div>
@@ -109,12 +126,13 @@ export default function Announcements() {
                     <div className='d-flex col-11 col-lg-8 justify-content-between align-items-center'>
                         <div className='d-flex col-8 col-lg-10 align-items-center'>
                             <h4>Anuncios escolares </h4>
+                            {(userDataRole !== "parent") &&
                             <Link href={"/announcements/newannouncement"}>
                                 <button className='btn-form bg-success'>Anuncio <BsPlusCircle /></button>
-                            </Link>
+                            </Link>}
                         </div>
                         <div className='col-4'>
-                            <Link href={"/grouplist"} className="d-flex align-items-center">
+                            <Link href={`${routeBtnGroups()}`} className="d-flex align-items-center" style={{textDecoration:"none"}}>
                                 <button className='btn-form'>Grupos <BsArrowRightCircle /></button>
                             </Link>
                         </div>

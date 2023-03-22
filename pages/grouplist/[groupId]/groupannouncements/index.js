@@ -17,6 +17,7 @@ export default function GroupAnnouncements() {
   const router = useRouter()
   const groupId = router.query.groupId
   const [announceInfo, setAnnounceInfo] = useState([])
+  const [userRole, setUserRole] = useState("")
   const notifySuccess = useToastify("success", "¡Anuncio creado con éxito!")
 
   //check de item que viene desde newAnnouncement para notificación de anuncio creado
@@ -32,6 +33,8 @@ export default function GroupAnnouncements() {
   //petición a la api para setear anuncios
   useEffect(() => {
     const token = localStorage.getItem("token");
+    const userData = JSON.parse(atob(token.split(".")[1]));
+    setUserRole(userData.role)
     if (token) {
       //groupId anuncios
       fetch(`https://api.toknow.online/announcement/group/${groupId}`, {
@@ -56,9 +59,12 @@ export default function GroupAnnouncements() {
       <div>
         <ArrowGoBack
           btnTxtModal={<h4>Anuncios grupales</h4>}
-          btnTxtModal2nd={<Link href={`/grouplist/${groupId}/newgroupannouncement`}>
-            <button className='btn-form bg-success'>Anuncio <BsPlusCircle /></button>
-          </Link>}
+          btnTxtModal2nd={
+            userRole !== "parent" ? (
+              <Link href={`/grouplist/${groupId}/newgroupannouncement`}>
+                <button className='btn-form bg-success'>Anuncio <BsPlusCircle /></button>
+              </Link>) : null
+          }
           route={`/grouplist/${groupId}`}
         />
         {(announceInfo.length > 0) ?
