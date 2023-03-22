@@ -131,7 +131,7 @@ export default function Announcements() {
                             </Link>
                         </div>
                         <div className='col-4'>
-                            <Link href={`${routeBtnGroups()}`} className="d-flex align-items-center" >
+                            <Link href={`${routeBtnGroups()}`} className="d-flex align-items-center" style={{textDecoration:"none"}}>
                                 <button className='btn-form'>Grupos <BsArrowRightCircle /></button>
                             </Link>
                         </div>
