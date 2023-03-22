@@ -70,7 +70,7 @@ export default function Navbar() {
                     </li>
 
                     <li className="nav-text">
-                        <Link href={userRole ==="teacher" ? "/grouplist" : userRole ==="teacher" ? "/teacher/yourgroups" : "/parent/yourgroups"}>
+                        <Link href={userRole ==="admin" ? "/grouplist" : userRole ==="teacher" ? "/teacher/yourgroups" : "/parent/yourgroups"}>
                             <AiFillHome />
                             <div className="nav-span">Grupos</div>
                         </Link>
