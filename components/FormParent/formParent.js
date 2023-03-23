@@ -63,7 +63,7 @@ export default function FormParent() {
 
         <div className='d-flex flex-column align-items-center col-12 justify-content-center '>
             <ArrowGoBack
-                btnTxtModal={<h4>Datos de Madre/Padre/Tutor</h4>}
+                btnTxtModal={<h4>Datos del Tutor</h4>}
                 route={`/grouplist/${groupId}/${studentId}`} />
             <form onSubmit={handleSubmit(onSubmit)} className='d-flex mt-3 col-lg-10 flex-column align-items-center justify-content-center'>
                 <div className='col-10 d-flex flex-wrap justify-content-around'>
@@ -174,14 +174,14 @@ export default function FormParent() {
                             <label>Confirme su contraseña</label>
                         </div>
                     </div>
-
+                    {/* valor escondido */}
                     <div className='d-none d-flex col-5 flex-column'>
                         <div className="form-floating mb-3">
                             <select
                                 name='role'
                                 className="form-control form-select"
                                 {...register("role", { required: true })} >
-                                <option value="parent">Madre/Padre/Tutor</option>
+                                <option value="parent"></option>
                             </select>
                             {errors.grade && errors.grade.type === "required" && <span className='text-danger'>*Selecciona un rol</span>}
                             <label>Rol</label>

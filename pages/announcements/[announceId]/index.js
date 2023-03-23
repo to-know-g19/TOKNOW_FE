@@ -68,12 +68,13 @@ export default function AnnouncementId() {
                 <div>
                     <ArrowGoBack
                         //agregar botón para ir al formulario de creación
-                        btnTxtModal={<h4>Anuncio</h4>}
+                        btnTxtModal={<h4>Anuncio escolar</h4>}
                         route={"/announcements"} />
 
                     {(!!posterInfo) &&
                         <PostAnnouncement
-                            coverimg={"/img/kid&parent.jpeg"}
+                            coverimg={announceInfo.image}
+                            userId={announceInfo.user?._id || announceInfo.teacher._id}
                             userName={posterInfo}
                             role={(!!announceInfo.user) ? "Administrador" : "Profesor"}
                             date={format(new Date(announceInfo.createdAt), 'dd/MM/yyyy')}

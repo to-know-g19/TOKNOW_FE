@@ -18,7 +18,7 @@ export default function AnnouncementId() {
     const [repliesInfo, setRepliesInfo] = useState([])
     const [posterInfo, setPosterInfo] = useState((""))
     const notifySuccess = useToastify("success", "Comentario publicado")
-
+console.log("anuncio info", announceInfo)
     //petición a la api para setear anuncios
     useEffect(() => {
         const token = localStorage.getItem("token")
@@ -64,12 +64,13 @@ export default function AnnouncementId() {
                 <div>
                     <ArrowGoBack
                         //agregar botón para ir al formulario de creación
-                        btnTxtModal={<h4>Anuncio</h4>}
+                        btnTxtModal={<h4>Anuncio grupal</h4>}
                         route={`/grouplist/${groupId}/groupannouncements/`} />
 
                     {(!!posterInfo) &&
                         <PostAnnouncement
-                            // coverimg={"/img/kid&parent.jpeg"}
+                            coverimg={announceInfo.image}
+                            userId={announceInfo.user?._id || announceInfo.teacher._id}
                             userName={posterInfo}
                             role={(!!announceInfo.user) ? "Administrador" : "Profesor"}
                             date={format(new Date(announceInfo.createdAt), 'dd/MM/yyyy')}

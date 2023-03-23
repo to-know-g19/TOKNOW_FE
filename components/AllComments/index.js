@@ -50,7 +50,7 @@ export default function AllComments(props) {
                             {/* removí p-2 */}
                             <div className='p-2 pt-lg-2 d-flex justify-content-center align-items-center '>
                                 {/* <FaUserCircle className='post-announce__user-img' /> */}
-                                <img className='post-announce__user-img'
+                                <img className='rounded-circle post-announce__user-img'
                                     src={`https://api.dicebear.com/5.x/fun-emoji/svg?seed=${props.userId}`}
                                     alt="avatar"
                                 />
