@@ -6,12 +6,12 @@ async function sendEmail(req, res) {
   try {
     await sendgrid.send({
       to: `${req.body.email}`, 
-      from: "kike-koala@toknow.online",
-      subject: "Welcome toKnow Community",
+      from: "fran-y-kike@toknow.online",
+      subject: "Bienvenid@s a la comunidad toKnow",
       html: `<!doctype html>
       <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
         <head>
-          <title>Welcome dear Kodemia community with Sendgrid for Next.js</title>
+          <title>Bienvenid@s a la g19 de Kodemia community con Sendgrid for Next.js</title>
       
           <!--[if !mso]>
       
@@ -160,7 +160,7 @@ async function sendEmail(req, res) {
       
       <!-->
           <div id="emailPreHeader" style="mso-hide:all; visibility:hidden; opacity:0; color:transparent; mso-line-height-rule:exactly; line-height:0; font-size:0px; overflow:hidden; border-width:0; display:none !important;">
-            Discover more with toknow. Complete your profile and get started
+            Descubre el potencial que toKnow te ofrece!!
           </div>
           <div style="display: none; max-height: 0px; overflow: hidden;">
             &nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌
@@ -296,7 +296,7 @@ async function sendEmail(req, res) {
                                         <td align="left" class="text-container" style="font-size:0px;padding:0px 10px 10px 0px;word-break:break-word;">
                                           <div class="mktEditable" id="ktext-hlj794ns8" style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:32px;letter-spacing:none;line-height:1.2;text-align:left;color:#202124;">
                                             <div style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:32px;letter-spacing:none;line-height:1.2;text-align:left;color:#202124;">
-                                              <p style="margin: 0 0; mso-line-height-alt: 38px;">Welcome to&nbsp;<br>toKnow app Community</p>
+                                              <p style="margin: 0 0; mso-line-height-alt: 38px;">Bienvenid@ a la&nbsp;<br>comunidad toKnow</p>
                                             </div>
                                           </div>
                                         </td>
@@ -307,7 +307,7 @@ async function sendEmail(req, res) {
                                             <div style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:18px;letter-spacing:none;line-height:1.75;text-align:left;color:#5F6368;">
                                               <p style="margin: 0 0; mso-line-height-alt: 32px;">To start using the toknow app please visit:
                                               <br />
-                                              https://toknow-fe.vercel.app/ 
+                                              https://toknow.online/ 
                                               </p>
                                             </div>
                                           </div>
@@ -318,9 +318,9 @@ async function sendEmail(req, res) {
                                           <div>
       
                                             <!--[if mso]><table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;"><tr><td align="left"><a:roundrect xmlns:a="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href=
-      "https://toknow-fe.vercel.app/" fillcolor="#1A73E8" arcsize="8%" style="v-text-anchor:middle;width:105.75pt;height:36pt;" stroke="f" 
+      "https://toknow.online/" fillcolor="#1A73E8" arcsize="8%" style="v-text-anchor:middle;width:105.75pt;height:36pt;" stroke="f" 
       ><w:anchorlock/><a:textbox inset="25px,0,25px,0"><span style="color:#ffffff; font-family:sans-serif, Arial; font-size:16px"><![endif]-->
-                                            <a href="https://toknow-fe.vercel.app/" style="display: inline-block; background: #1A73E8; color: #FFFFFF; font-family: 'Google Sans', sans-serif; font-size: 16px; font-weight: bold; line-height: 1.5; margin: 0; text-align: left; text-decoration: none; text-transform: none; padding: 12px 25px 12px 25px; mso-padding-alt: 0px; border-radius: 4px; mso-border-alt: none; box-sizing: border-box; mso-line-height-alt: 48px;" target="_blank" width="141">Go to toknow app</a>
+                                            <a href="https://toknow.online/" style="display: inline-block; background: #1A73E8; color: #FFFFFF; font-family: 'Google Sans', sans-serif; font-size: 16px; font-weight: bold; line-height: 1.5; margin: 0; text-align: left; text-decoration: none; text-transform: none; padding: 12px 25px 12px 25px; mso-padding-alt: 0px; border-radius: 4px; mso-border-alt: none; box-sizing: border-box; mso-line-height-alt: 48px;" target="_blank" width="141">Entrar a la app</a>
       
                                             <!--[if mso]></span></a:textbox></a:roundrect></td></tr></table><![endif]-->
       
@@ -328,7 +328,7 @@ async function sendEmail(req, res) {
       
       <!-->
                                             <div class="mktEditable" id="button-plain-text-hblbs96p6" style="mso-hide:all; visibility:hidden; opacity:0; color:transparent; mso-line-height-rule:exactly; line-height:0; font-size:0px; overflow:hidden; border-width:0; display:none !important;">
-                                              Go to toknow app [[https://toknow-fe.vercel.app/]]
+                                              Entrar a la app [[https://toknow.online]]
                                             </div>
       
                                             <!--<![endif]-->
@@ -411,7 +411,7 @@ async function sendEmail(req, res) {
                                         <td align="center" class="text-container" style="font-size:0px;padding:0px 0px 10px 0px;word-break:break-word;">
                                           <div class="mktEditable" id="ktext-ajmvfo0j8" style="font-family:'Google Sans', sans-serif;font-size:28px;letter-spacing:none;line-height:1.2;text-align:center;color:#202124;">
                                             <div style="font-family:'Google Sans', sans-serif;font-size:28px;letter-spacing:none;line-height:1.2;text-align:center;color:#202124;">
-                                              <p style="margin: 0 0; mso-line-height-alt: 34px;">Welcome to&nbsp;<br>toKnow Community</p>
+                                              <p style="margin: 0 0; mso-line-height-alt: 34px;">Bienvenid@ a la &nbsp;<br> comunidad toKnow</p>
                                             </div>
                                           </div>
                                         </td>
@@ -420,15 +420,15 @@ async function sendEmail(req, res) {
                                         <td align="center" class="text-container" style="font-size:0px;padding:10px 0px 10px 0px;word-break:break-word;">
                                           <div class="mktEditable" id="ktext-tag995g7k" style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:16px;letter-spacing:none;line-height:1.75;text-align:center;color:#5F6368;">
                                             <div style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:16px;letter-spacing:none;line-height:1.75;text-align:center;color:#5F6368;">
-                                              <p style="margin: 0 0; mso-line-height-alt: 28px;">To enter the app use the following credentials:
+                                              <p style="margin: 0 0; mso-line-height-alt: 28px;">Tus datos para ingresar a la aplicación son:
                                               <br />
-                                              name: ${req.body.fullname},
+                                              nombre: ${req.body.fullname},
                                               <br />
-                                              email: ${req.body.email},
+                                              correo: ${req.body.email},
                                               <br />
-                                              please visit:
+                                              Puedes ingresar dando click en:
                                               <br />
-                                               https://toknow-fe.vercel.app/</p>
+                                               https://toknow.online/</p>
                                             </div>
                                           </div>
                                         </td>
@@ -440,7 +440,7 @@ async function sendEmail(req, res) {
                                             <!--[if mso]><table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;"><tr><td align="center"><a:roundrect xmlns:a="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href=
       "https://mail.thinkwithgoogle.com/dc/sw2Jv2lliV95Sp9FKmB-yk9n2CCc1w7JrXRK_U_6bTcUC9NIKTmRsmd_GSXwMtaVk8_Xbt8XssvgLUVjQtd_80UoONb6YSpHMfYNcOKbGwGQvd3iiCmglGKE_L36vvg8RzaDyqYm2fSagn2_cWszHNTYuBUMgVphx03hUOaPTXys4YyGplar5j_UEeOGVVT4tT-Hh_7lictkrzt0tOsFk0-VItjrUMiiFpjM0TgchKYfw1RNv1u2DpzU8Vavfe8W/MTcyLUdPUC04MTEAAAGHtF6BZXSELDirVPJN9L-R6jbSGm9wTch5hpISrYBbeHKokdoCD8uT4LiTSwUlUiKh4_0E0Zs=" fillcolor="#1A73E8" arcsize="8%" style="v-text-anchor:middle;width:105.75pt;height:36pt;" stroke="f" 
       ><w:anchorlock/><a:textbox inset="0,0,0,0"><center style="color:#ffffff; font-family:sans-serif, Arial; font-size:16px"><![endif]-->
-                                            <a href="https://toknow-fe.vercel.app/" style="display: inline-block; background: #1A73E8; color: #FFFFFF; font-family: 'Google Sans', sans-serif; font-size: 16px; font-weight: bold; line-height: 1.5; margin: 0; text-align: center; text-decoration: none; text-transform: none; padding: 12px 25px 12px 25px; mso-padding-alt: 0px; border-radius: 4px; mso-border-alt: none; box-sizing: border-box; mso-line-height-alt: 48px;" target="_blank" width="141">Go to app</a>
+                                            <a href="https://toknow.online" style="display: inline-block; background: #1A73E8; color: #FFFFFF; font-family: 'Google Sans', sans-serif; font-size: 16px; font-weight: bold; line-height: 1.5; margin: 0; text-align: center; text-decoration: none; text-transform: none; padding: 12px 25px 12px 25px; mso-padding-alt: 0px; border-radius: 4px; mso-border-alt: none; box-sizing: border-box; mso-line-height-alt: 48px;" target="_blank" width="141">Ir a la app</a>
       
                                             <!--[if mso]></center></a:textbox></a:roundrect></td></tr></table><![endif]-->
       
@@ -448,7 +448,7 @@ async function sendEmail(req, res) {
       
       <!-->
                                             <div class="mktEditable" id="button-plain-text-j6hz37oxe" style="mso-hide:all; visibility:hidden; opacity:0; color:transparent; mso-line-height-rule:exactly; line-height:0; font-size:0px; overflow:hidden; border-width:0; display:none !important;">
-                                              Go to app [[https://toknow-fe.vercel.app/]]
+                                              Entrar a la app [[https://toknow.online]]
                                             </div>
       
                                             <!--<![endif]-->
@@ -462,14 +462,14 @@ async function sendEmail(req, res) {
                                               <tr>
                                                 <td style="width:400px;">
                                                   <div class="mktoImg" id="kimage-wy5zukpxy" mktolockimgsize="true" mktolockimgstyle="false">
-                                                    <a href="https://mail.thinkwithgoogle.com/dc/sw2Jv2lliV95Sp9FKmB-yk9n2CCc1w7JrXRK_U_6bTcUC9NIKTmRsmd_GSXwMtaVk8_Xbt8XssvgLUVjQtd_80UoONb6YSpHMfYNcOKbGwGQvd3iiCmglGKE_L36vvg8RzaDyqYm2fSagn2_cWszHNTYuBUMgVphx03hUOaPTXys4YyGplar5j_UEeOGVVT4tT-Hh_7lictkrzt0tOsFk0-VItjrUMiiFpjM0TgchKb1mryPeTJwIAYEoMnBRQqb/MTcyLUdPUC04MTEAAAGHtF6BZXSELDirVPJN9L-R6jbSGm9wTch5hpISrYBbeHKokdoCD8uT4LiTSwUlUiKh4_0E0Zs=" target="_blank" style="text-decoration: none; color: #1A73E8;"><img alt="A Black woman with long hair holds a giant clipboard upright as her Latino associate checks off list items with an oversized pencil. Behind them, a white woman interacts with her mobile phone." height="auto" src="https://lp.thinkwithgoogle.com/rs/googlemst2/images/SAgUdtplowzhF5vZKyOlLN5wbdCGsIPu39i5Pste.gif" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="400"></a>
+                                                    <a href="https://toknow.online/" target="_blank" style="text-decoration: none; color: #1A73E8;"><img alt="A Black woman with long hair holds a giant clipboard upright as her Latino associate checks off list items with an oversized pencil. Behind them, a white woman interacts with her mobile phone." height="auto" src="https://lp.thinkwithgoogle.com/rs/googlemst2/images/SAgUdtplowzhF5vZKyOlLN5wbdCGsIPu39i5Pste.gif" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="400"></a>
                                                   </div>
       
                                                   <!--[if !mso 9]>
       
       <!-->
                                                   <div class="mktEditable" id="image-plain-text-8rm8621sq" style="mso-hide:all; visibility:hidden; opacity:0; color:transparent; mso-line-height-rule:exactly; line-height:0; font-size:0px; overflow:hidden; border-width:0; display:none !important;">
-                                                    [ A Black woman with long hair holds a giant clipboard upright as her Latino associate checks off list items with an oversized pencil. Behind them, a white woman interacts with her mobile phone. ] [[https://www.thinkwithgoogle.com/login/?utm_medium=email&amp;utm_source=d-onboarding&amp;utm_team=twg-us&amp;utm_campaign=TwG-US-ONB-2022-Q2-00-Welcome-Campaign&amp;utm_content=img-banner]]
+                                                    [ A Black woman with long hair holds a giant clipboard upright as her Latino associate checks off list items with an oversized pencil. Behind them, a white woman interacts with her mobile phone. ] [[https://toknow.online/]]
                                                   </div>
       
                                                   <!--<![endif]-->
@@ -569,7 +569,7 @@ async function sendEmail(req, res) {
                                       <td align="center" class="text-container" style="font-size:0px;padding:0px 0px 0px 0px;word-break:break-word;">
                                         <div class="mktEditable" id="ktext-g0vstkm5s" style="font-family:'Google Sans', sans-serif;font-size:28px;letter-spacing:none;line-height:1.2;text-align:center;color:#202124;">
                                           <div style="font-family:'Google Sans', sans-serif;font-size:28px;letter-spacing:none;line-height:1.2;text-align:center;color:#202124;">
-                                            <p style="margin: 0 0; mso-line-height-alt: 34px;">What you can find</p>
+                                            <p style="margin: 0 0; mso-line-height-alt: 34px;">Qué vas a encontrar:</p>
                                           </div>
                                         </div>
                                       </td>
@@ -709,7 +709,7 @@ async function sendEmail(req, res) {
                                                   <td align="left" class="text-container" style="font-size:0px;padding:15px 0px 5px 10px;word-break:break-word;">
                                                     <div class="mktEditable" id="ktext-0a7b16ep9" style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:16px;font-weight:bold;letter-spacing:none;line-height:1.5;text-align:left;color:#202124;">
                                                       <div style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:16px;font-weight:bold;letter-spacing:none;line-height:1.5;text-align:left;color:#202124;">
-                                                        <p style="margin: 0 0; mso-line-height-alt: 24px;"><strong>Weekly school updates</strong></p>
+                                                        <p style="margin: 0 0; mso-line-height-alt: 24px;"><strong>Noticias escolares</strong></p>
                                                       </div>
                                                     </div>
                                                   </td>
@@ -718,7 +718,7 @@ async function sendEmail(req, res) {
                                                   <td align="left" class="text-container" style="font-size:0px;padding:0px 0px 10px 10px;word-break:break-word;">
                                                     <div class="mktEditable" id="ktext-2h8ns6sfi" style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:16px;letter-spacing:none;line-height:1.75;text-align:left;color:#5F6368;">
                                                       <div style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:16px;letter-spacing:none;line-height:1.75;text-align:left;color:#5F6368;">
-                                                        <p style="margin: 0 0; mso-line-height-alt: 28px;">Timely insights that move our community foward</p>
+                                                        <p style="margin: 0 0; mso-line-height-alt: 28px;">Comunicados oficiales y las últimas noticias</p>
                                                       </div>
                                                     </div>
                                                   </td>
@@ -862,7 +862,7 @@ async function sendEmail(req, res) {
                                                   <td align="left" class="text-container" style="font-size:0px;padding:15px 0px 5px 10px;word-break:break-word;">
                                                     <div class="mktEditable" id="ktext-f53q2w215" style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:16px;font-weight:bold;letter-spacing:none;line-height:1.5;text-align:left;color:#202124;">
                                                       <div style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:16px;font-weight:bold;letter-spacing:none;line-height:1.5;text-align:left;color:#202124;">
-                                                        <p style="margin: 0 0; mso-line-height-alt: 24px;">Useful information about near events</p>
+                                                        <p style="margin: 0 0; mso-line-height-alt: 24px;">Información útil de los próximos eventos</p>
                                                       </div>
                                                     </div>
                                                   </td>
@@ -871,7 +871,7 @@ async function sendEmail(req, res) {
                                                   <td align="left" class="text-container" style="font-size:0px;padding:0px 0px 10px 10px;word-break:break-word;">
                                                     <div class="mktEditable" id="ktext-xuwqr1tj6" style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:16px;letter-spacing:none;line-height:1.75;text-align:left;color:#5F6368;">
                                                       <div style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:16px;letter-spacing:none;line-height:1.75;text-align:left;color:#5F6368;">
-                                                        <p style="margin: 0 0; mso-line-height-alt: 28px;">Here you will find useful information about near events for your group or even the school</p>
+                                                        <p style="margin: 0 0; mso-line-height-alt: 28px;">Aquí encontrarás información útil sobre actividades y eventos cercanos, de la escuela y del grupo</p>
                                                       </div>
                                                     </div>
                                                   </td>
@@ -1015,7 +1015,7 @@ async function sendEmail(req, res) {
                                                   <td align="left" class="text-container" style="font-size:0px;padding:15px 0px 5px 10px;word-break:break-word;">
                                                     <div class="mktEditable" id="ktext-mfricbh6n" style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:16px;font-weight:bold;letter-spacing:none;line-height:1.5;text-align:left;color:#202124;">
                                                       <div style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:16px;font-weight:bold;letter-spacing:none;line-height:1.5;text-align:left;color:#202124;">
-                                                        <p style="margin: 0 0; mso-line-height-alt: 24px;">Grades for each student</p>
+                                                        <p style="margin: 0 0; mso-line-height-alt: 24px;">Canal de dudas con profesores de grupo</p>
                                                       </div>
                                                     </div>
                                                   </td>
@@ -1024,7 +1024,7 @@ async function sendEmail(req, res) {
                                                   <td align="left" class="text-container" style="font-size:0px;padding:0px 0px 10px 10px;word-break:break-word;">
                                                     <div class="mktEditable" id="ktext-b5zttuvr7" style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:16px;letter-spacing:none;line-height:1.75;text-align:left;color:#5F6368;">
                                                       <div style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:16px;letter-spacing:none;line-height:1.75;text-align:left;color:#5F6368;">
-                                                        <p style="margin: 0 0; mso-line-height-alt: 28px;">Grades can be useful to monitor students progress and assess opportunity areas on time</p>
+                                                        <p style="margin: 0 0; mso-line-height-alt: 28px;">Canal de comunicación directo con los profesores de grupo para atender dudas específicas de tareas, examenes y calificaciones</p>
                                                       </div>
                                                     </div>
                                                   </td>
@@ -1168,7 +1168,7 @@ async function sendEmail(req, res) {
                                                   <td align="left" class="text-container" style="font-size:0px;padding:15px 0px 5px 10px;word-break:break-word;">
                                                     <div class="mktEditable" id="ktext-wp279az6d" style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:16px;font-weight:bold;letter-spacing:none;line-height:1.5;text-align:left;color:#202124;">
                                                       <div style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:16px;font-weight:bold;letter-spacing:none;line-height:1.5;text-align:left;color:#202124;">
-                                                        <p style="margin: 0 0; mso-line-height-alt: 24px;">Best digital practices&nbsp;</p>
+                                                        <p style="margin: 0 0; mso-line-height-alt: 24px;">Desarrollo de habilidades digitales&nbsp;</p>
                                                       </div>
                                                     </div>
                                                   </td>
@@ -1177,7 +1177,7 @@ async function sendEmail(req, res) {
                                                   <td align="left" class="text-container" style="font-size:0px;padding:0px 0px 10px 10px;word-break:break-word;">
                                                     <div class="mktEditable" id="ktext-0uixk8aby" style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:16px;letter-spacing:none;line-height:1.75;text-align:left;color:#5F6368;">
                                                       <div style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:16px;letter-spacing:none;line-height:1.75;text-align:left;color:#5F6368;">
-                                                        <p style="margin: 0 0; mso-line-height-alt: 28px;">Tips to get the most out of your digital tools when kids are at home</p>
+                                                        <p style="margin: 0 0; mso-line-height-alt: 28px;">Tips para mejorar los resultados de tus hijos en las herramientas tecnológicas</p>
                                                       </div>
                                                     </div>
                                                   </td>
@@ -1321,7 +1321,7 @@ async function sendEmail(req, res) {
                                                   <td align="left" class="text-container" style="font-size:0px;padding:15px 0px 5px 10px;word-break:break-word;">
                                                     <div class="mktEditable" id="ktext-db8c3iuku" style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:16px;font-weight:bold;letter-spacing:none;line-height:1.5;text-align:left;color:#202124;">
                                                       <div style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:16px;font-weight:bold;letter-spacing:none;line-height:1.5;text-align:left;color:#202124;">
-                                                        <p style="margin: 0 0; mso-line-height-alt: 24px;">Creative inspiration</p>
+                                                        <p style="margin: 0 0; mso-line-height-alt: 24px;">Vinculación</p>
                                                       </div>
                                                     </div>
                                                   </td>
@@ -1330,7 +1330,7 @@ async function sendEmail(req, res) {
                                                   <td align="left" class="text-container" style="font-size:0px;padding:0px 0px 10px 10px;word-break:break-word;">
                                                     <div class="mktEditable" id="ktext-obe4boo1t" style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:16px;letter-spacing:none;line-height:1.75;text-align:left;color:#5F6368;">
                                                       <div style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:16px;letter-spacing:none;line-height:1.75;text-align:left;color:#5F6368;">
-                                                        <p style="margin: 0 0; mso-line-height-alt: 28px;">We like to share stories and hear academic successful insights</p>
+                                                        <p style="margin: 0 0; mso-line-height-alt: 28px;">La vinculación con la comunidad escolar nunca había sido tan importante</p>
                                                       </div>
                                                     </div>
                                                   </td>
@@ -1430,7 +1430,7 @@ async function sendEmail(req, res) {
                                               <td align="left" class="text-container" style="font-size:0px;padding:0px 0px 0px 0px;word-break:break-word;">
                                                 <div class="mktEditable" id="ktext-yaq521hsi" style="font-family:'Google Sans', sans-serif;font-size:28px;letter-spacing:none;line-height:1.2;text-align:left;color:#202124;">
                                                   <div style="font-family:'Google Sans', sans-serif;font-size:28px;letter-spacing:none;line-height:1.2;text-align:left;color:#202124;">
-                                                    <p style="margin: 0 0; mso-line-height-alt: 34px;">Discover the toknow app today</p>
+                                                    <p style="margin: 0 0; mso-line-height-alt: 34px;">Disfruta de los beneficios que toKnow te ofrece!!</p>
                                                   </div>
                                                 </div>
                                               </td>
@@ -1442,7 +1442,7 @@ async function sendEmail(req, res) {
                                                   <!--[if mso]><table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;"><tr><td align="left"><a:roundrect xmlns:a="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href=
       "https://mail.thinkwithgoogle.com/dc/sw2Jv2lliV95Sp9FKmB-yk9n2CCc1w7JrXRK_U_6bTcvd-GC1xCHffLSkRA9B3DqspmDnlOvj5Cdpj04iJ4KwjlWxnKlxGwEM4ozKZ6vrXOYuLpCRnvmErV6hkD-sLXqtQ0VwnFHYLn9AaYRupPHAIrZCyjxyRg5X0G6m0OVhbUoNwSjy8RpIyeVQvoukjakeHvY7fPOpOGxwh1L9eM5qwaw1eWpVKqUVChfzdsyLcPJTuhIaObZPk8oPJEtRpVT/MTcyLUdPUC04MTEAAAGHtF6BZXSELDirVPJN9L-R6jbSGm9wTch5hpISrYBbeHKokdoCD8uT4LiTSwUlUiKh4_0E0Zs=" fillcolor="#1A73E8" arcsize="8%" style="v-text-anchor:middle;width:103.5pt;height:36pt;" stroke="f" 
       ><w:anchorlock/><a:textbox inset="0,0,0,0"><center style="color:#ffffff; font-family:sans-serif, Arial; font-size:16px"><![endif]-->
-                                                  <a href="https://toknow-fe.vercel.app/" style="display: inline-block; background: #1A73E8; color: #FFFFFF; font-family: 'Google Sans', sans-serif; font-size: 16px; font-weight: bold; line-height: 1.5; margin: 0; text-align: center; text-decoration: none; text-transform: none; padding: 12px 25px 12px 25px; mso-padding-alt: 0px; border-radius: 4px; mso-border-alt: none; box-sizing: border-box; mso-line-height-alt: 48px;" target="_blank" width="138">Explore now </a>
+                                                  <a href="https://toknow.online/" style="display: inline-block; background: #1A73E8; color: #FFFFFF; font-family: 'Google Sans', sans-serif; font-size: 16px; font-weight: bold; line-height: 1.5; margin: 0; text-align: center; text-decoration: none; text-transform: none; padding: 12px 25px 12px 25px; mso-padding-alt: 0px; border-radius: 4px; mso-border-alt: none; box-sizing: border-box; mso-line-height-alt: 48px;" target="_blank" width="138">Explorar app</a>
       
                                                   <!--[if mso]></center></a:textbox></a:roundrect></td></tr></table><![endif]-->
       
@@ -1450,7 +1450,7 @@ async function sendEmail(req, res) {
       
       <!-->
                                                   <div class="mktEditable" id="button-plain-text-7ikrlv73m" style="mso-hide:all; visibility:hidden; opacity:0; color:transparent; mso-line-height-rule:exactly; line-height:0; font-size:0px; overflow:hidden; border-width:0; display:none !important;">
-                                                    Go to app [[https://toknow-fe.vercel.app/]]
+                                                    Entrar a la app [[https://toknow.online]]
                                                   </div>
       
                                                   <!--<![endif]-->
@@ -1509,7 +1509,7 @@ async function sendEmail(req, res) {
                                               <td align="center" class="text-container" style="font-size:0px;padding:0px 0px 0px 0px;word-break:break-word;">
                                                 <div class="mktEditable" id="ktext-8uf0z0fxo" style="font-family:'Google Sans', sans-serif;font-size:28px;letter-spacing:none;line-height:1.2;text-align:center;color:#202124;">
                                                   <div style="font-family:'Google Sans', sans-serif;font-size:28px;letter-spacing:none;line-height:1.2;text-align:center;color:#202124;">
-                                                    <p style="margin: 0 0; mso-line-height-alt: 34px;">Discover the toknow app today</p>
+                                                    <p style="margin: 0 0; mso-line-height-alt: 34px;">Descubre los beneficios que toKnow te ofrece</p>
                                                   </div>
                                                 </div>
                                               </td>
@@ -1519,9 +1519,9 @@ async function sendEmail(req, res) {
                                                 <div>
       
                                                   <!--[if mso]><table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" style="border-spacing:0;border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;"><tr><td align="center"><a:roundrect xmlns:a="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href=
-      "https://toknow-fe.vercel.app/" fillcolor="#1A73E8" arcsize="8%" style="v-text-anchor:middle;width:103.5pt;height:36pt;" stroke="f" 
+      "https://toknow.online/" fillcolor="#1A73E8" arcsize="8%" style="v-text-anchor:middle;width:103.5pt;height:36pt;" stroke="f" 
       ><w:anchorlock/><a:textbox inset="0,0,0,0"><center style="color:#ffffff; font-family:sans-serif, Arial; font-size:16px"><![endif]-->
-                                                  <a href="https://toknow-fe.vercel.app/" style="display: inline-block; background: #1A73E8; color: #FFFFFF; font-family: 'Google Sans', sans-serif; font-size: 16px; font-weight: bold; line-height: 1.5; margin: 0; text-align: center; text-decoration: none; text-transform: none; padding: 12px 25px 12px 25px; mso-padding-alt: 0px; border-radius: 4px; mso-border-alt: none; box-sizing: border-box; mso-line-height-alt: 48px;" target="_blank" width="138">Explore the app now </a>
+                                                  <a href="https://toknow.online/" style="display: inline-block; background: #1A73E8; color: #FFFFFF; font-family: 'Google Sans', sans-serif; font-size: 16px; font-weight: bold; line-height: 1.5; margin: 0; text-align: center; text-decoration: none; text-transform: none; padding: 12px 25px 12px 25px; mso-padding-alt: 0px; border-radius: 4px; mso-border-alt: none; box-sizing: border-box; mso-line-height-alt: 48px;" target="_blank" width="138">Explorar app</a>
       
                                                   <!--[if mso]></center></a:textbox></a:roundrect></td></tr></table><![endif]-->
       
@@ -1529,7 +1529,7 @@ async function sendEmail(req, res) {
       
       <!-->
                                                   <div class="mktEditable" id="button-plain-text-add6a89hh" style="mso-hide:all; visibility:hidden; opacity:0; color:transparent; mso-line-height-rule:exactly; line-height:0; font-size:0px; overflow:hidden; border-width:0; display:none !important;">
-                                                    Explore the app now [[https://toknow-fe.vercel.app/]]
+                                                    Explorar app [[https://toknow.online]]
                                                   </div>
       
                                                   <!--<![endif]-->
@@ -1585,7 +1585,6 @@ async function sendEmail(req, res) {
                                                 <td align="left" class="text-container" style="font-size:0px;padding:0px 0px 0px 0px;word-break:break-word;">
                                                   <div class="mktEditable" id="ktext-0q0hjyo5h" style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:12px;letter-spacing:none;line-height:1.5;text-align:left;color:#5F6368;">
                                                     <div style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:12px;letter-spacing:none;line-height:1.5;text-align:left;color:#5F6368;">
-                                                      <p style="margin: 0 0; mso-line-height-alt: 18px;"><span style="font-size: 12px;"><a href="#" target="_blank" rel="noopener" style="color: rgb(26, 115, 232); text-decoration: none;">View as webpage</a></span></p>
                                                     </div>
                                                   </div>
                                                 </td>
@@ -1594,24 +1593,13 @@ async function sendEmail(req, res) {
                                                 <td align="left" class="text-container" style="font-size:0px;padding:15px 0px 0px 0px;word-break:break-word;">
                                                   <div class="mktEditable" id="ktext-074re7g16" style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:12px;letter-spacing:none;line-height:1.5;text-align:left;color:#5F6368;">
                                                     <div style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:12px;letter-spacing:none;line-height:1.5;text-align:left;color:#5F6368;">
-                                                      <p style="margin: 0 0; mso-line-height-alt: 18px;"><span style="font-size: 12px;">Received this email from a friend? <a href=
-      "#" target="_blank" rel="noopener" style="color: rgb(26, 115, 232); text-decoration: none;"
-      >Subscribe here.</a>&nbsp;Check out more content on <a href=
-      "https://mail.thinkwithgoogle.com/dc/sw2Jv2lliV95Sp9FKmB-yk9n2CCc1w7JrXRK_U_6bTf8OSGFFb3tJorUd-AAsWw4t37YatjsgV3TP3YESYDkthcPu_dLIp_O3xZRj5fEl9lpGfSCoSOY9urpa6xGywRw_WSwB7_4dMd5Au-zKw3ivi7DmB_AmGmF_lWax_-j_lwBEAzvxn3S_zMag_lM6r8pSNBHYYdmdh_LkT6px-pShdJbFuR4IqgxfNDsvkiqIgC03rb5NdXuJvh8t0BJ4kCl/MTcyLUdPUC04MTEAAAGHtF6BZXSELDirVPJN9L-R6jbSGm9wTch5hpISrYBbeHKokdoCD8uT4LiTSwUlUiKh4_0E0Zs=" target="_blank" rel="noopener" style="color: rgb(26, 115, 232); text-decoration: none;"
-      >Think with Google.</a></span></p>
+                                                      
                                                     </div>
                                                   </div>
                                                 </td>
                                               </tr>
                                               <tr>
                                                 <td align="left" class="text-container" style="font-size:0px;padding:15px 0px 10px 0px;word-break:break-word;">
-                                                  <div class="mktEditable" id="ktext-2396z1ba1" style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:12px;letter-spacing:none;line-height:1.5;text-align:left;color:#5F6368;">
-                                                    <div style="font-family: Roboto, Helvetica, Arial, sans-serif; font-size: 12px; letter-spacing: none; line-height: 1.5; text-align: left; color: #5f6368;">
-                                                      <p style="margin: 0 0; mso-line-height-alt: 18px;">This email was sent to mike@reallygoodemails.com because you signed up for the latest from Think with Google. If you don‘t want to receive this newsletter in the future, please <a href="#" target="_blank" rel="noopener" style="color: #1a73e8; text-decoration: none;">unsubscribe here</a> (this is a one-click opt-out).</p>
-                                                      <p style="margin: 0 0; mso-line-height-alt: 18px;">&nbsp;</p>
-                                                      <p style="margin: 0 0; mso-line-height-alt: 18px;">© 2022 Google LLC. All Rights Reserved. Google and the Google logo are trademarks of Google LLC. www.google.com 1600 Amphitheatre Parkway, Mountain View, CA 94043.</p>
-                                                    </div>
-                                                  </div>
                                                 </td>
                                               </tr>
                                               <tr>
@@ -1633,7 +1621,7 @@ async function sendEmail(req, res) {
                                                 <td align="left" class="text-container" style="font-size:0px;padding:0px 0px 0px 0px;word-break:break-word;">
                                                   <div class="mktEditable" id="ktext-os5k4013b" style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:14px;font-weight:bold;letter-spacing:none;line-height:1.5;text-align:left;color:#5F6368;">
                                                     <div style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:14px;font-weight:bold;letter-spacing:none;line-height:1.5;text-align:left;color:#5F6368;">
-                                                      <p style="margin: 0 0; mso-line-height-alt: 21px;"><strong><span style="font-size: 14px;">Follow us</span></strong></p>
+                                                      <p style="margin: 0 0; mso-line-height-alt: 21px;"><strong><span style="font-size: 14px;">Derechos reservados</span></strong></p>
                                                     </div>
                                                   </div>
                                                 </td>
