@@ -140,9 +140,8 @@ export default function FormAnnouncement() {
                                 {uppy && (
                                     <Dashboard
                                         uppy={uppy}
-                                        //limitar a que solo sea una imagen (propiedad limit maybe)
                                         plugins={["Webcam"]}
-                                        theme="auto"
+                                        theme="light"
                                         width={"100%"}
                                         inline={false}
                                         trigger={"#uppy"}
