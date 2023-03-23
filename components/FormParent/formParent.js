@@ -174,14 +174,14 @@ export default function FormParent() {
                             <label>Confirme su contraseña</label>
                         </div>
                     </div>
-
+                    {/* valor escondido */}
                     <div className='d-none d-flex col-5 flex-column'>
                         <div className="form-floating mb-3">
                             <select
                                 name='role'
                                 className="form-control form-select"
                                 {...register("role", { required: true })} >
-                                <option value="parent">Madre/Padre/Tutor</option>
+                                <option value="parent"></option>
                             </select>
                             {errors.grade && errors.grade.type === "required" && <span className='text-danger'>*Selecciona un rol</span>}
                             <label>Rol</label>
