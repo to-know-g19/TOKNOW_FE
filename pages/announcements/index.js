@@ -17,7 +17,7 @@ export default function Announcements() {
     const [userSchoolId, setUserSchoolId] = useState("")
     const [userDataRole, setUserDataRole] = useState("")
     const notifySuccess = useToastify("success", "¡Anuncio creado con éxito!")
-    console.log('userSchoolId', userSchoolId)
+    // console.log('userSchoolId', userSchoolId)
 
     //check de item que viene desde newAnnouncement para notificación de anuncio creado
     useEffect(() => {
@@ -51,7 +51,7 @@ export default function Announcements() {
         const token = localStorage.getItem("token");
         const userData = JSON.parse(atob(token.split(".")[1]));
         setUserDataRole(userData.role)
-        console.log("user data del token", userData)
+        // console.log("user data del token", userData)
         const userRole = () => {
             if (userData.role === "admin") {
                 return "user";
@@ -83,16 +83,16 @@ export default function Announcements() {
                         const userFetchedInfo = data.data
                         console.log('fetchedInfo', userFetchedInfo)
                         if (userFetchedInfo.userById) {
-                            schoolId = userFetchedInfo.userById.school._id;
+                            schoolId = userFetchedInfo.userById.school._id
                         } else {
                             if (userFetchedInfo.teacherById) {
                                 schoolId = userFetchedInfo.teacherById.school
+                            } else {
+                                if(userFetchedInfo.parentById) {
+                                    schoolId = userFetchedInfo.parentById.school
+                                }
                             }
-                        }
-                    } else {
-                        if (userData.role === "parent") {
-                            schoolId = userData.schoolId
-                        }
+                        } 
                     }
                     setUserSchoolId(schoolId);
                 });
@@ -144,7 +144,7 @@ export default function Announcements() {
                             as={`/announcements/${announce._id}`} key={announce.key} style={{ textDecoration: 'none' }} >
                             <CardAnnouncement
                                 // coverimg={"/img/kid&parent.jpeg"}
-                                userName={"id de usuario para traer info"}
+                                userId={announce.user || announce.teacher}
                                 role={(!!announce.user) ? "Administrador" : "Profesor"}
                                 date={format(new Date(announce.createdAt), 'dd/MM/yyyy')}
                                 announcementTitle={announce.announcementTitle} />
