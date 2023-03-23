@@ -7,6 +7,7 @@ import CommentBox from '../../../components/CommentBox';
 import AllComments from '../../../components/AllComments';
 import { ToastContainer } from 'react-toastify';
 import useToastify from '../../../components/useToastify';
+import { format } from 'date-fns';
 
 
 export default function AnnouncementId() {
@@ -14,6 +15,7 @@ export default function AnnouncementId() {
     const announceId = router.query.announceId
     const [announceInfo, setAnnounceInfo] = useState({})
     const [commentsInfo, setCommentsInfo] = useState([])
+    const [posterInfo, setPosterInfo] = useState((""))
     const notifySuccess = useToastify("success", "Comentario publicado")
 
     //petición a la api para setear anuncios
@@ -32,8 +34,19 @@ export default function AnnouncementId() {
                 // console.log("la data", data)
                 if (data.data) {
                     const announcement = data.data.announcementById
-                    
+                    // console.log("soy info dentro del anuncio", announcement)
                     setAnnounceInfo(announcement)
+                    if(announcement.user){
+                        setPosterInfo(announcement.user.name)
+                    } else {
+                        if(announcement.teacher){
+                            setPosterInfo(`${announcement.teacher.name} ${announcement.teacher.lastNameA} ${announcement.teacher.lastNameB}`)
+                        } else {
+                            if(announcement.parent){
+                                setPosterInfo(`${announcement.parent.name} ${announcement.parent.lastNameA} ${announcement.parent.lastNameB}`)
+                            }
+                        }
+                    }
                     
                     setCommentsInfo(announcement.replies.reverse())
                 }
@@ -58,12 +71,12 @@ export default function AnnouncementId() {
                         btnTxtModal={<h4>Anuncio</h4>}
                         route={"/announcements"} />
 
-                    {!!announceInfo.user &&
+                    {(!!posterInfo) &&
                         <PostAnnouncement
                             coverimg={"/img/kid&parent.jpeg"}
-                            userName={announceInfo.user.name}
-                            role={announceInfo.user.role}
-                            date={"--fecha--"}
+                            userName={posterInfo}
+                            role={(!!announceInfo.user) ? "Administrador" : "Profesor"}
+                            date={format(new Date(announceInfo.createdAt), 'dd/MM/yyyy')}
                             announcementTitle={announceInfo.announcementTitle}
                             textInfo={announceInfo.announcementText}
                             component={<CommentBox/>}
@@ -72,8 +85,9 @@ export default function AnnouncementId() {
                                     <AllComments 
                                     key={comment.id} 
                                     // comment={comment}
-                                    userName={comment.user}
-                                    // role
+                                    userId={comment.parent || comment.teacher || comment.user}
+                                    role={comment.teacher ? "Profesor" : comment.parent ? "Tutor" : "Administrador"}
+                                    date={format(new Date(comment.createdAt), 'dd/MM/yyyy')}
                                     textInfo={comment.message} 
                                      />
                                 ))}

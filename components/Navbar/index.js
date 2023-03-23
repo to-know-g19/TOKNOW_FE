@@ -1,7 +1,7 @@
 /* default */
 import Image from "next/image"
 import Link from 'next/link'
-import {useRouter} from "next/router"
+import { useRouter } from "next/router"
 /* images*/
 import logo from '../../public/img/logos/logo.svg'
 /* styles */
@@ -12,7 +12,7 @@ import { SlClose } from "react-icons/sl"
 import { FaBars } from "react-icons/fa"
 import { SidebarData } from "../SideBar/SidebarData"
 import { GoSignOut } from "react-icons/go"
-
+import { AiFillHome } from "react-icons/ai";
 
 export default function Navbar() {
     const [sidebar, setSidebar] = useState(false)
@@ -37,26 +37,31 @@ export default function Navbar() {
 
     const handleLogOut = () => {
         localStorage.removeItem('token')
-        router.push('/')
-      }
+        const currentPath = router.pathname
+        if (currentPath == '/') {
+            window.location.reload()
+        } else {
+            router.push('/')
+        }
+    }
 
     return (
 
         <div className="navigation d-flex col-12 col-lg-12 ">
 
             <div className="d-flex col-2 col-lg-2 justify-content-center  align-items-center">
-                {(userRole == "admin") ?
+                {(userRole) ?
                     <Link onClick={showSidebar} href="#">
                         <div className="navigation__navmenuBG d-flex justify-content-center  align-items-center">
 
                             <FaBars />
                         </div>
-                    </Link> : <p></p>
+                    </Link> : null
                 }
             </div>
 
             {/* SIDEBAR */}
-            <nav className= {sidebar ? 'nav-menu active border-right' : 'nav-menu'} >
+            <nav className={sidebar ? 'nav-menu active border-right' : 'nav-menu'} >
                 <ul className="nav-menu-items" onClick={showSidebar}>
                     <li className="navbar-toggle">
                         <a className="menu-bars">
@@ -64,6 +69,12 @@ export default function Navbar() {
                         </a>
                     </li>
 
+                    <li className="nav-text">
+                        <Link href={userRole ==="admin" ? "/grouplist" : userRole ==="teacher" ? "/teacher/yourgroups" : "/parent/yourgroups"}>
+                            <AiFillHome />
+                            <div className="nav-span">Grupos</div>
+                        </Link>
+                    </li>
                     {SidebarData.map((item, index) => {
                         return (
                             <li key={index} className={item.className}>
