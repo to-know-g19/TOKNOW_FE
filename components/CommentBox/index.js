@@ -80,7 +80,7 @@ export default function CommentBox(props) {
                 </div>
 
                 <div className='d-flex col-12 justify-content-end'>
-                    <button className='btn-form' type='submit'> Publicar </button>
+                    <button className='btn-form' type='submit'> Comentar </button>
                 </div>
 
             </form>

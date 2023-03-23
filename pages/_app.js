@@ -19,6 +19,9 @@ import '../components/Layout/layout.scss'
 import '../components/CardAnnouncement/cardAnnouncement.scss'
 import '../components/PostAnnouncement/postAnnouncement.scss'
 import '../components/FormAnnouncement/FormAnnouncement.scss'
+import "@uppy/core/dist/style.css";
+import "@uppy/dashboard/dist/style.css";
+import "@uppy/webcam/dist/style.css";
 
 /*toastify notifications*/
 import 'react-toastify/dist/ReactToastify.css';

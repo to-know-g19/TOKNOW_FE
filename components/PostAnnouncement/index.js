@@ -12,7 +12,7 @@ export default function PostAnnouncement(props) {
                         <div className='post-announce__img-wrapper'>
                             <img
                                 className='post-announce__img-wrapper__cover-img bg-white'
-                                src={`https://picsum.photos/800/300`}
+                                src={props.coverimg || `https://picsum.photos/800/300`}
                             />
                         </div>
                         <div className='d-flex p-2'>
