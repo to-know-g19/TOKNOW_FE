@@ -183,7 +183,7 @@ export default function FormTeacher() {
                                     name='tipoProfesor'
                                     className="form-control form-select"
                                     {...register("tipoProfesor", { required: true })}>
-                                    <option value="">Materia</option>
+                                    <option value=""></option>
                                     <option value="titular">Titular</option>
                                     <option value="educacion fisica">Educación física</option>
                                     <option value="ingles">Inglés</option>

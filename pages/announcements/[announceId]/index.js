@@ -68,7 +68,7 @@ export default function AnnouncementId() {
                 <div>
                     <ArrowGoBack
                         //agregar botón para ir al formulario de creación
-                        btnTxtModal={<h4>Anuncio</h4>}
+                        btnTxtModal={<h4>Anuncio escolar</h4>}
                         route={"/announcements"} />
 
                     {(!!posterInfo) &&
