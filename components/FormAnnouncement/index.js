@@ -78,7 +78,7 @@ export default function FormAnnouncement() {
                 "Authorization": `Bearer ${token}`
             },
             body: JSON.stringify(
-                {...data, image:imageUrl}
+                { ...data, image: imageUrl }
             )
         })
         const announcementResult = await result.json()
@@ -135,21 +135,24 @@ export default function FormAnnouncement() {
                                         {...register("announcementText", { maxLength: 600 })} ></textarea>
                                     {errors.announcementText && errors.announcementText.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 600 caracteres</span>}
                                 </div>
-                                {imageUrl && <img className='' src={imageUrl}/>}
-                                
-                                <button id={"uppy"}>Subir archivo</button>
-                             {uppy && (
-                                 <Dashboard
-                                     uppy={uppy}
-                                     //limitar a que solo sea una imagen (propiedad limit maybe)
-                                     plugins={["Webcam"]}
-                                     theme="auto"
-                                     width={"100%"}
-                                     inline={false}
-                                     trigger={"#uppy"}
-                                 />
-                             )}
 
+                                <p className='d-flex btn-form bg-success justify-content-center align-items-center' id={"uppy"}>Subir archivo</p>
+                                {uppy && (
+                                    <Dashboard
+                                        uppy={uppy}
+                                        //limitar a que solo sea una imagen (propiedad limit maybe)
+                                        plugins={["Webcam"]}
+                                        theme="auto"
+                                        width={"100%"}
+                                        inline={false}
+                                        trigger={"#uppy"}
+                                    />
+                                )}
+                                <div className='d-flex'>
+                                    <div className='col-12'>
+                                    {imageUrl && <img className='img-fluid' src={imageUrl} />}
+                                    </div>
+                                </div>
                                 {/* Solo se usa cuando se llama a este componente en la ruta dentro de un anuncio
                                 campo escondido con d-none pero necesario para tomar id de grupo y enviarlo
                                     en formulario del anuncio */}
@@ -171,7 +174,7 @@ export default function FormAnnouncement() {
                         </div>
 
 
-                        
+
                         <div className='d-flex col-lg-4'>
                             <button className='btn-form' type='submit'> Publicar </button>
                         </div>
