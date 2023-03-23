@@ -167,7 +167,7 @@ export default function StudentInfo({ student }) {
                                 {(userRole == "admin") ?
                                     <p><Link href="/grouplist/[groupId]/[studentId]/parent/addparent"
                                         as={`/grouplist/${groupId}/${studentId}/parent/addparent`}>
-                                        <button className='btn-form'>Registrar</button> </Link> </p> : <p></p>
+                                        <button className='btn-form'>Registrar tutor</button> </Link> </p> : <p></p>
                                 }
                             </div>
                         }
