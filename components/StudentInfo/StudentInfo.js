@@ -162,12 +162,12 @@ export default function StudentInfo({ student }) {
                                     />
                                     // </Link>
                                 )
-                            }) : <div>
+                            }) : <div className='d-flex flex-column align-items-center'>
                                 <p>Aún no hay un tutor registrado.  </p>
                                 {(userRole == "admin") ?
                                     <p><Link href="/grouplist/[groupId]/[studentId]/parent/addparent"
                                         as={`/grouplist/${groupId}/${studentId}/parent/addparent`}>
-                                        Clic aquí para registrar </Link> </p> : <p></p>
+                                        <button className='btn-form'>Registrar</button> </Link> </p> : <p></p>
                                 }
                             </div>
                         }
