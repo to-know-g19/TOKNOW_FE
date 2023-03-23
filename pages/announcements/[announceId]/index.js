@@ -73,7 +73,7 @@ export default function AnnouncementId() {
 
                     {(!!posterInfo) &&
                         <PostAnnouncement
-                            coverimg={"/img/kid&parent.jpeg"}
+                            coverimg={announceInfo.image}
                             userName={posterInfo}
                             role={(!!announceInfo.user) ? "Administrador" : "Profesor"}
                             date={format(new Date(announceInfo.createdAt), 'dd/MM/yyyy')}
