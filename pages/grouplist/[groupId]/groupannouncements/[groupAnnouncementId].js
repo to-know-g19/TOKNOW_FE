@@ -64,7 +64,7 @@ export default function AnnouncementId() {
                 <div>
                     <ArrowGoBack
                         //agregar botón para ir al formulario de creación
-                        btnTxtModal={<h4>Anuncio</h4>}
+                        btnTxtModal={<h4>Anuncio grupal</h4>}
                         route={`/grouplist/${groupId}/groupannouncements/`} />
 
                     {(!!posterInfo) &&
