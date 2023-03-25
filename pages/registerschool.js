@@ -25,8 +25,9 @@ export default function Registerschool() {
             )
         })
         const schoolInfo = await result.json()
+        console.log('school info resultado del registro de escuela', schoolInfo.data.newToken)
+        localStorage.setItem('token', schoolInfo.data.newToken)
         //log de success:true/false de parte del back
-        console.log(schoolInfo)
         // agregar estado de success o fail de peticion
         if (schoolInfo.success === true) {
             router.push("/announcements")
