@@ -49,10 +49,9 @@ export default function FormLogin() {
     } else {
       //desencriptando el token para acceder a su info
       const userData = JSON.parse(atob(token.split(".")[1]));
-      const userId = userData.id
+
       const userRole = userData.role
-      console.log('soy id en tkn', userId)
-      console.log('soy rol en tkn', userRole)
+
 
       // Fetch de users para filtrar con el mail que haga match
       let usersResult = await fetch(`https://api.toknow.online/user`, {
