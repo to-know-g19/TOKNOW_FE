@@ -18,6 +18,8 @@ export default function Navbar() {
     const [sidebar, setSidebar] = useState(false)
     const showSidebar = () => setSidebar(!sidebar)
     const [userRole, setUserRole] = useState("")
+    const [userId, setUserId] = useState("")
+    const [userName, setUserName] = useState("")
     const router = useRouter()
     useEffect(() => {
         const token = localStorage.getItem("token")
@@ -25,6 +27,7 @@ export default function Navbar() {
         if (token && token !== "undefined") {
             const userData = JSON.parse(atob(token.split(".")[1]))
             setUserRole(userData.role)
+            setUserId(userData.id)
         } else {
             /* función para checar token. si no hay Y la ruta no es /register
              entonces empujar a home*/
@@ -35,6 +38,46 @@ export default function Navbar() {
         }
     }, [])
 
+    useEffect(() => {
+        const token = localStorage.getItem("token")
+        if (token && token !== "undefined") {
+            let url = `https://api.toknow.online/user/${userId}`
+            if (userRole === "teacher") {
+                url = `https://api.toknow.online/teacher/${userId}`
+            } else if (userRole === "parent") {
+                url = `https://api.toknow.online/parent/${userId}`
+            }
+
+            fetch(url, {
+                mode: "cors",
+                headers: {
+                    "Content-type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                },
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.data) {
+
+                        // console.log("SOY LA DATA:", data)
+                        const userData = data.data.parentById || data.data.userById || data.data.teacherById
+                        
+                        let name =""
+                        if(userData && userData.name){
+                           name = userData.name
+                        }
+                        if (userData && userData.lastNameA) {
+                            name = `${name} ${userData.lastNameA}`
+                        }
+                        if (userData && userData.lastNameB) {
+                            name = `${name} ${userData.lastNameB}`
+                        }
+                        setUserName(name)
+                    }
+
+                })
+        }
+    }, [])
     const handleLogOut = () => {
         localStorage.removeItem('token')
         const currentPath = router.pathname
@@ -68,9 +111,11 @@ export default function Navbar() {
                             <SlClose />
                         </a>
                     </li>
-
+                    <span>/imagen/</span>
+                    <span>{userRole === "admin" ? "Administrador" : userRole === "teacher" ? "Profesor" : "Tutor"}</span>
+                    <p className="nav-text">{userName}</p>
                     <li className="nav-text">
-                        <Link href={userRole ==="admin" ? "/grouplist" : userRole ==="teacher" ? "/teacher/yourgroups" : "/parent/yourgroups"}>
+                        <Link href={userRole === "admin" ? "/grouplist" : userRole === "teacher" ? "/teacher/yourgroups" : "/parent/yourgroups"}>
                             <AiFillHome />
                             <div className="nav-span">Grupos</div>
                         </Link>
