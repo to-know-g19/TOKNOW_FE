@@ -17,9 +17,9 @@ import { AiFillHome } from "react-icons/ai";
 export default function Navbar() {
     const [sidebar, setSidebar] = useState(false)
     const showSidebar = () => setSidebar(!sidebar)
+    const [userName, setUserName] = useState("")
     const [userRole, setUserRole] = useState("")
     const [userId, setUserId] = useState("")
-    const [userName, setUserName] = useState("")
     const router = useRouter()
     useEffect(() => {
         const token = localStorage.getItem("token")
@@ -47,7 +47,6 @@ export default function Navbar() {
             } else if (userRole === "parent") {
                 url = `https://api.toknow.online/parent/${userId}`
             }
-
             fetch(url, {
                 mode: "cors",
                 headers: {
@@ -58,23 +57,21 @@ export default function Navbar() {
                 .then(response => response.json())
                 .then(data => {
                     if (data.data) {
-
-                        // console.log("SOY LA DATA:", data)
                         const userData = data.data.parentById || data.data.userById || data.data.teacherById
-                        
-                        let name =""
-                        if(userData && userData.name){
-                           name = userData.name
+                        if (userData) {
+                            let name = ""
+                            if (userData && userData.name) {
+                                name = userData.name
+                            }
+                            if (userData && userData.lastNameA) {
+                                name = `${name} ${userData.lastNameA}`
+                            }
+                            if (userData && userData.lastNameB) {
+                                name = `${name} ${userData.lastNameB}`
+                            }
+                            setUserName(name)
                         }
-                        if (userData && userData.lastNameA) {
-                            name = `${name} ${userData.lastNameA}`
-                        }
-                        if (userData && userData.lastNameB) {
-                            name = `${name} ${userData.lastNameB}`
-                        }
-                        setUserName(name)
                     }
-
                 })
         }
     }, [])
@@ -111,9 +108,23 @@ export default function Navbar() {
                             <SlClose />
                         </a>
                     </li>
-                    <span>/imagen/</span>
-                    <span>{userRole === "admin" ? "Administrador" : userRole === "teacher" ? "Profesor" : "Tutor"}</span>
-                    <p className="nav-text">{userName}</p>
+
+                    {/* Información del usuario mostrada en sideBar */}
+                    <div className="userInfoSideBar">
+                        <span>
+                            <div className='d-flex gap-2 align-items-center '>
+                                {/* <FaUserCircle className='post-announce__user-img' /> */}
+                                <img className='rounded-circle post-announce__user-img'
+                                    src={`https://api.dicebear.com/5.x/fun-emoji/svg?seed=${userId}`}
+                                    alt="avatar"
+                                />
+                                <span>{userRole === "admin" ? "Administrador" : userRole === "teacher" ? "Profesor" : "Tutor"}</span>
+                            </div> 
+                        </span>
+                        <p className="nav-text">{userName}</p>
+                    </div>
+
+                    {/* iconos con Link de sideBar */}
                     <li className="nav-text">
                         <Link href={userRole === "admin" ? "/grouplist" : userRole === "teacher" ? "/teacher/yourgroups" : "/parent/yourgroups"}>
                             <AiFillHome />
