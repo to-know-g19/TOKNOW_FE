@@ -11,12 +11,14 @@ import { AiFillPlusCircle } from 'react-icons/ai';
 //toastify imports
 import { ToastContainer } from 'react-toastify'
 import useToastify from '../../../components/useToastify'
+import GroupCircle from '../../../components/GroupCircle/GroupCircle'
 
 export default function GroupDetail() {
     const router = useRouter()
     const groupId = router.query.groupId
     const [teachers, setTeachers] = useState([])
     const [students, setStudents] = useState([])
+    const [groupInfo, setGroupInfo] = useState({})
     const [route, setRoute] = useState("")
     const [userRole, setUserRole] = useState("")
     const notifySuccessTeach = useToastify("success", "Profesor eliminado con exito")
@@ -38,15 +40,15 @@ export default function GroupDetail() {
                 if (data.data) {
                     setTeachers(data.data.groupById.teachers)
                     setStudents(data.data.groupById.students)
-                    console.log('holis', data.data.groupById)
-
+                    setGroupInfo(data.data.groupById)
                 }
-
+                
             })
-    }, [router.query])
-    const handleEyeClick = (groupId, userId, strRutaExtra) => {
-        router.push(`/grouplist/${groupId}/${strRutaExtra}${userId}`)
-    };
+        }, [router.query])
+        const handleEyeClick = (groupId, userId, strRutaExtra) => {
+            router.push(`/grouplist/${groupId}/${strRutaExtra}${userId}`)
+        };
+        console.log(groupInfo)
 
     const handleTrashClick = (strRoute, userId) => {
         const token = localStorage.getItem("token");
@@ -114,13 +116,16 @@ export default function GroupDetail() {
             <Layout>
                 <div>
                     <ArrowGoBack
-                        btnTxtModal={
+                        btnTxtModal={<GroupCircle
+                            grade={groupInfo.grade}
+                            group={groupInfo.name}/>}
+                        btnTxtModal2nd={
                             userRole !== "parent" ? (
                                 <Link href={'/grouplist/[groupId]/newgroupannouncement'} as={`/grouplist/${groupId}/newgroupannouncement`} >
                                     <button className='btn-form bg-success'>Crear Anuncio</button>
                                 </Link>) : null
                         }
-                        btnTxtModal2nd={
+                        btnTxtModal3={
                             <Link href={'/grouplist/[groupId]/groupannouncements'} as={`/grouplist/${groupId}/groupannouncements`} >
                                 <button className='btn-form'>Anuncios grupales</button>
                             </Link>}
