@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form"
 import { useRouter } from 'next/router'
 import ArrowGoBack from '../ArrowGoBack/ArrowGoBack'
 import Layout from '../Layout/index'
+import GroupCircle from '../GroupCircle/GroupCircle'
 //toastify imports
 import { ToastContainer } from 'react-toastify'
 import useToastify from '../useToastify'
@@ -15,13 +16,31 @@ import { Dashboard } from "@uppy/react";
 export default function FormAnnouncement() {
     //uppy
     const [uppy, setUppy] = useState();
-    const [imageUrl, setImageUrl] = useState(
-
-    );
+    const [imageUrl, setImageUrl] = useState();
+    const [groupInfo, setGroupInfo] = useState({})
 
     const { register, handleSubmit, formState: { errors } } = useForm()
     const router = useRouter()
     const groupId = router.query.groupId
+
+    useEffect(() => {
+
+        const token = localStorage.getItem('token')
+        fetch(`https://api.toknow.online/group/${groupId}`, {
+            mode: 'cors',
+            headers: {
+                'Content-type': 'application/json',
+                "Authorization": `Bearer ${token}`
+            },
+        })
+            .then((response) => response.json())
+            .then(data => {
+                if (data.data) {
+                    setGroupInfo(data.data.groupById)
+                }
+                
+            })
+        }, [router.query])
 
     // //función para checar si se accede al formulario desde un grupo checando el router.query
     // //si hay groupId se accedió desde el grupo, si no, desde la página de anuncios
@@ -105,7 +124,10 @@ export default function FormAnnouncement() {
             <Layout>
                 <div className='d-flex flex-column align-items-center col-12 justify-content-center '>
                     <ArrowGoBack
-                        btnTxtModal={(!!groupId) ? <h4>Crear anuncio grupal</h4> : <h4>Crear anuncio escolar</h4>}
+                        btnTxtModal={<GroupCircle
+                            grade={groupInfo.grade}
+                            group={groupInfo.name}/>}
+                        btnTxtModal2nd={(!!groupId) ? <h4>Crear anuncio grupal</h4> : <h4>Crear anuncio escolar</h4>}
                         route={route()} />
                     <form onSubmit={handleSubmit(onSubmit)} className='d-flex mt-3  col-11 col-lg-10 flex-column'>
 
