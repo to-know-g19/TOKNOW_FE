@@ -69,14 +69,19 @@ export default function Navbar() {
                             if (userData && userData.lastNameB) {
                                 name = `${name} ${userData.lastNameB}`
                             }
-                            setUserName(name)
+                            if (name.length > 0) {
+                                localStorage.setItem("usrnm", name)
+                                setUserName(localStorage.getItem('usrnm'))
+                            }
                         }
                     }
                 })
-        }
-    }, [])
+            } 
+        }, [])
+        console.log("soy el userName",userName)
     const handleLogOut = () => {
         localStorage.removeItem('token')
+        localStorage.removeItem('usrnm')
         const currentPath = router.pathname
         if (currentPath == '/') {
             window.location.reload()
@@ -84,6 +89,7 @@ export default function Navbar() {
             router.push('/')
         }
     }
+
 
     return (
 
@@ -119,9 +125,9 @@ export default function Navbar() {
                                     alt="avatar"
                                 />
                                 <span>{userRole === "admin" ? "Administrador" : userRole === "teacher" ? "Profesor" : "Tutor"}</span>
-                            </div> 
+                            </div>
                         </span>
-                        <p className="nav-text">{userName}</p>
+                        <p className="nav-text">{(!!userName) ? userName : ""}</p>
                     </div>
 
                     {/* iconos con Link de sideBar */}
