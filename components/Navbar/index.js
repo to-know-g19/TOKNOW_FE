@@ -78,7 +78,7 @@ export default function Navbar() {
                 })
             } 
         }, [])
-        console.log("soy el userName",userName)
+        // console.log("soy el userName",userName)
     const handleLogOut = () => {
         localStorage.removeItem('token')
         localStorage.removeItem('usrnm')

@@ -17,7 +17,6 @@ export default function Announcements() {
     const [userSchoolId, setUserSchoolId] = useState("")
     const [userDataRole, setUserDataRole] = useState("")
     const notifySuccess = useToastify("success", "¡Anuncio creado con éxito!")
-    // console.log('userSchoolId', userSchoolId)
 
     //check de item que viene desde newAnnouncement para notificación de anuncio creado
     useEffect(() => {
@@ -41,7 +40,7 @@ export default function Announcements() {
         })
             .then(response => response.json())
             .then(data => {
-                console.log("anuncios de schoolId", data)
+                
                 const allAnnouncements = data.data.announcementsFound;
                 setAnnounceInfo(allAnnouncements.reverse());
             });
@@ -51,7 +50,7 @@ export default function Announcements() {
         const token = localStorage.getItem("token");
         const userData = JSON.parse(atob(token.split(".")[1]));
         setUserDataRole(userData.role)
-        // console.log("user data del token", userData)
+        
         const userRole = () => {
             if (userData.role === "admin") {
                 return "user";
@@ -77,11 +76,11 @@ export default function Announcements() {
             })
                 .then(response => response.json())
                 .then(data => {
-                    console.log("soy data del fetch al usuario", data)
+                   
                     let schoolId = ''
                     if (data.data) {
                         const userFetchedInfo = data.data
-                        console.log('fetchedInfo', userFetchedInfo)
+                        
                         if (userFetchedInfo.userById) {
                             schoolId = userFetchedInfo.userById.school._id
                         } else {
