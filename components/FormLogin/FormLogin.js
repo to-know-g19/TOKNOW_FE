@@ -38,8 +38,6 @@ export default function FormLogin() {
       body: JSON.stringify({ ...data, role: data.role })
     })
     const response = await result.json()
-    console.log("i am the response", response)
-    console.log("i am the data", data)
     const token = response.token
     //poner en local storage 
     localStorage.setItem("token", token)
@@ -49,10 +47,9 @@ export default function FormLogin() {
     } else {
       //desencriptando el token para acceder a su info
       const userData = JSON.parse(atob(token.split(".")[1]));
-      const userId = userData.id
+
       const userRole = userData.role
-      console.log('soy id en tkn', userId)
-      console.log('soy rol en tkn', userRole)
+
 
       // Fetch de users para filtrar con el mail que haga match
       let usersResult = await fetch(`https://api.toknow.online/user`, {

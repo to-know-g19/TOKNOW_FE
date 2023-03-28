@@ -17,7 +17,9 @@ import { AiFillHome } from "react-icons/ai";
 export default function Navbar() {
     const [sidebar, setSidebar] = useState(false)
     const showSidebar = () => setSidebar(!sidebar)
+    const [userName, setUserName] = useState("")
     const [userRole, setUserRole] = useState("")
+    const [userId, setUserId] = useState("")
     const router = useRouter()
     useEffect(() => {
         const token = localStorage.getItem("token")
@@ -25,6 +27,7 @@ export default function Navbar() {
         if (token && token !== "undefined") {
             const userData = JSON.parse(atob(token.split(".")[1]))
             setUserRole(userData.role)
+            setUserId(userData.id)
         } else {
             /* función para checar token. si no hay Y la ruta no es /register
              entonces empujar a home*/
@@ -35,8 +38,50 @@ export default function Navbar() {
         }
     }, [])
 
+    useEffect(() => {
+        const token = localStorage.getItem("token")
+        if (token && token !== "undefined") {
+            let url = `https://api.toknow.online/user/${userId}`
+            if (userRole === "teacher") {
+                url = `https://api.toknow.online/teacher/${userId}`
+            } else if (userRole === "parent") {
+                url = `https://api.toknow.online/parent/${userId}`
+            }
+            fetch(url, {
+                mode: "cors",
+                headers: {
+                    "Content-type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                },
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.data) {
+                        const userData = data.data.parentById || data.data.userById || data.data.teacherById
+                        if (userData) {
+                            let name = ""
+                            if (userData && userData.name) {
+                                name = userData.name
+                            }
+                            if (userData && userData.lastNameA) {
+                                name = `${name} ${userData.lastNameA}`
+                            }
+                            if (userData && userData.lastNameB) {
+                                name = `${name} ${userData.lastNameB}`
+                            }
+                            if (name.length > 0) {
+                                localStorage.setItem("usrnm", name)
+                                setUserName(localStorage.getItem('usrnm'))
+                            }
+                        }
+                    }
+                })
+            } 
+        }, [])
+        // console.log("soy el userName",userName)
     const handleLogOut = () => {
         localStorage.removeItem('token')
+        localStorage.removeItem('usrnm')
         const currentPath = router.pathname
         if (currentPath == '/') {
             window.location.reload()
@@ -44,6 +89,7 @@ export default function Navbar() {
             router.push('/')
         }
     }
+
 
     return (
 
@@ -69,8 +115,24 @@ export default function Navbar() {
                         </a>
                     </li>
 
+                    {/* Información del usuario mostrada en sideBar */}
+                    <div className="userInfoSideBar">
+                        <span>
+                            <div className='d-flex gap-2 align-items-center '>
+                                {/* <FaUserCircle className='post-announce__user-img' /> */}
+                                <img className='rounded-circle post-announce__user-img'
+                                    src={`https://api.dicebear.com/5.x/fun-emoji/svg?seed=${userId}`}
+                                    alt="avatar"
+                                />
+                                <span>{userRole === "admin" ? "Administrador" : userRole === "teacher" ? "Profesor" : "Tutor"}</span>
+                            </div>
+                        </span>
+                        <p className="nav-text">{(!!userName) ? userName : ""}</p>
+                    </div>
+
+                    {/* iconos con Link de sideBar */}
                     <li className="nav-text">
-                        <Link href={userRole ==="admin" ? "/grouplist" : userRole ==="teacher" ? "/teacher/yourgroups" : "/parent/yourgroups"}>
+                        <Link href={userRole === "admin" ? "/grouplist" : userRole === "teacher" ? "/teacher/yourgroups" : "/parent/yourgroups"}>
                             <AiFillHome />
                             <div className="nav-span">Grupos</div>
                         </Link>

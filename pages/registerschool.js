@@ -25,15 +25,16 @@ export default function Registerschool() {
             )
         })
         const schoolInfo = await result.json()
-        //log de success:true/false de parte del back
-        console.log(schoolInfo)
+        
+        localStorage.setItem('token', schoolInfo.data.newToken)
+
         // agregar estado de success o fail de peticion
         if (schoolInfo.success === true) {
             router.push("/announcements")
         } else {
             (window.alert("Hubo un problema al envíar la información"))
         }
-        // router.push("/registergroup")
+
     }
 
 
