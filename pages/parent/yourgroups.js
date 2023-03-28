@@ -14,7 +14,7 @@ export default function Yourgroups() {
     const userId = userData.id;
     // console.log('user id', userId)
 
-    fetch(`https://api.toknow.online/student`, {
+    fetch(`https://api.toknow.online/parent/${userId}`, {
       mode: "cors",
       headers: {
         "Content-type": "application/json",
@@ -23,22 +23,9 @@ export default function Yourgroups() {
     })
       .then(response => response.json())
       .then(data => {
-        // console.log('data-Parent/yougroups', data)
         if (data.data) {
-          const allStudents = data.data.students
-          // console.log('allStudents-parent/yourgroups', allStudents)
-          allStudents.forEach(student => {
-            student.parents.forEach( parent => {
-              if (parent._id === userId) {
-                // console.log('student parent/yourgroups', student)
-                student.groups.forEach(group => {
-                    // console.log('grupo del alumno', group)
-                    setGrupos([group])
-                })
-              }
-            })
-          })
-
+          const parentGroups = data.data.parentById.groups
+          setGrupos(parentGroups)
         }
       }
       );
