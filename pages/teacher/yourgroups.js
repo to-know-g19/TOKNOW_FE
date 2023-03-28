@@ -14,7 +14,7 @@ export default function Yourgroups() {
     const userId = userData.id;
     // console.log('user id', userId)
 
-    fetch(`https://api.toknow.online/group`, {
+    fetch(`https://api.toknow.online/teacher/${userId}`, {
       mode: "cors",
       headers: {
         "Content-type": "application/json",
@@ -23,21 +23,10 @@ export default function Yourgroups() {
     })
       .then(response => response.json())
       .then(data => {
-        // console.log('data-t/yougroups', data)
-        const userGroups = [];
         if (data.data) {
-          const allGroups = data.data.groups
-          // console.log('allGroups-t/yourgroups', allGroups)
-          allGroups.forEach(group => {
-            group.teachers.forEach(teacher => {
-              if (teacher._id === userId) {
-                userGroups.push(group)
-                // console.log('grupo t/yourgroups', group)
-              }
-            })
-          })
-          setGrupos(userGroups)
-
+          const teacherGroups = data.data.teacherById.groups
+          console.log("this is it", teacherGroups)
+          setGrupos(teacherGroups)
         }
       }
       );
@@ -54,23 +43,23 @@ export default function Yourgroups() {
       <Layout>
         <div className='d-flex flex-column align-items-center'>
 
-            <ArrowGoBack
-              btnTxtModal={<h4>TUS GRUPOS</h4>}
-              route={''} />
+          <ArrowGoBack
+            btnTxtModal={<h4>TUS GRUPOS</h4>}
+            route={''} />
 
           <div className='d-flex col-12 col-lg-10 flex-wrap justify-content-around'>
             <div className='col-9 col-lg-5'>
-            {grupos.map(grupo => (
-              //removí el return reemplazando las llaves despues de la flecha con parentesis
-              // <Link className='col-lg-5' href={'/grouplist/' + grupo._id} key={grupo._id} style={{ textDecoration: 'none' }} >
+              {grupos.map(grupo => (
+                //removí el return reemplazando las llaves despues de la flecha con parentesis
+                // <Link className='col-lg-5' href={'/grouplist/' + grupo._id} key={grupo._id} style={{ textDecoration: 'none' }} >
                 <GroupCard
                   key={grupo._id}
                   grade={grupo.grade}
                   group={grupo.name}
                   onEyeClick={() => handleEyeClick(grupo._id)}
                 />
-                ))}
-                </div>
+              ))}
+            </div>
           </div>
         </div>
       </Layout>
