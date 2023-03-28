@@ -12,7 +12,7 @@ import { AiFillPlusCircle } from 'react-icons/ai';
 import { ToastContainer } from 'react-toastify'
 import useToastify from '../../../components/useToastify'
 import GroupCircle from '../../../components/GroupCircle/GroupCircle'
-import GroupInfo from '../../../components/GroupInfoCircle'
+import GroupInfoCircle from '../../../components/GroupInfoCircle'
 
 export default function GroupDetail() {
     const router = useRouter()
@@ -116,7 +116,7 @@ export default function GroupDetail() {
             <Layout>
                 <div>
                     <ArrowGoBack
-                        btnTxtModal={<GroupInfo/>}
+                        btnTxtModal={<GroupInfoCircle/>}
                         btnTxtModal2nd={
                             userRole !== "parent" ? (
                                 <Link href={'/grouplist/[groupId]/newgroupannouncement'} as={`/grouplist/${groupId}/newgroupannouncement`} >

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import GroupCircle from '../GroupCircle/GroupCircle'
 import { useRouter } from 'next/router'
 
-export default function GroupInfo() {
+export default function GroupInfoCircle() {
     const [groupInfo, setGroupInfo] = useState({})
     const router = useRouter()
     useEffect(() => {
