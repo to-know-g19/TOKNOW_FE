@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { FaRegEye } from "react-icons/fa";
+import { BsPencilSquare } from "react-icons/bs";
 import { BsFillTrashFill } from "react-icons/bs";
 import { FaUserCircle } from 'react-icons/fa';
 
@@ -48,7 +48,7 @@ export default function GroupCard(props) {
           }
 
           <button onClick={props.onEyeClick} className='btn btn-outline-primary'>
-            <FaRegEye />
+            <BsPencilSquare />
           </button>
 
         </div>

@@ -38,8 +38,6 @@ export default function FormLogin() {
       body: JSON.stringify({ ...data, role: data.role })
     })
     const response = await result.json()
-    console.log("i am the response", response)
-    console.log("i am the data", data)
     const token = response.token
     //poner en local storage 
     localStorage.setItem("token", token)
