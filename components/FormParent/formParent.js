@@ -188,7 +188,7 @@ export default function FormParent() {
                         </div>
                     </div>
 
-                    {/* campo escondido con d-none pero necesario para tomar id de grupo y enviarlo
+                    {/* campo escondido con d-none pero necesario para tomar id de student y enviarlo
                     en formulario del teacher */}
                     <div className='d-none d-flex col-5 flex-column'>
                         <div className="form-floating mb-3">
@@ -199,8 +199,23 @@ export default function FormParent() {
                                 <option value={studentId}></option>
 
                             </select>
-                            {errors.students && errors.students.type === "required" && <span className='text-danger'>*Selecciona un grado</span>}
+                            {errors.students && errors.students.type === "required" && <span className='text-danger'>**studentId*</span>}
                             <label>aqui va el student ID</label>
+                        </div>
+                    </div>
+                    {/* campo escondido con d-none pero necesario para tomar id de grupo y enviarlo
+                    en formulario del teacher */}
+                    <div className='d-none d-flex col-5 flex-column'>
+                        <div className="form-floating mb-3">
+                            <select
+                                name='groups'
+                                className="form-control form-select"
+                                {...register("groups")} >
+                                <option value={groupId}></option>
+
+                            </select>
+                            {errors.groups && errors.groups.type === "required" && <span className='text-danger'>**groupId**</span>}
+                            <label>aqui va el group ID</label>
                         </div>
                     </div>
 
