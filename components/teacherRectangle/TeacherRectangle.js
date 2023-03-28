@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { FaUserCircle } from 'react-icons/fa';
-import { FaRegEye } from 'react-icons/fa';
+import { BsPencilSquare } from 'react-icons/bs';
 import { BsFillTrashFill } from 'react-icons/bs';
 
 export default function TeacherRectangle( props ) {
@@ -37,7 +37,7 @@ export default function TeacherRectangle( props ) {
           </button> : <p></p>
           }
           <button onClick={props.onEyeClick} className='btn btn-outline-primary'>
-            <FaRegEye />
+            <BsPencilSquare />
           </button>
         </div>
 
