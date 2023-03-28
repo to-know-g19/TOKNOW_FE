@@ -29,6 +29,10 @@ export default function GroupDetail() {
     useEffect(() => {
 
         const token = localStorage.getItem('token')
+        const userData = JSON.parse(atob(token.split(".")[1]));
+        const userRole = userData.role;
+        const userId = userData.id;
+        console.log("soy el rol goe:", userRole)
         fetch(`https://api.toknow.online/group/${groupId}`, {
             mode: 'cors',
             headers: {
@@ -40,16 +44,27 @@ export default function GroupDetail() {
             .then(data => {
                 if (data.data) {
                     setTeachers(data.data.groupById.teachers)
-                    setStudents(data.data.groupById.students)
+                    if (userRole === "parent") {
+                        const parentStudents = data.data.groupById.students.filter(student =>
+                            student.parents.includes(userId)
+                        )
+                        setStudents(parentStudents)
+                        console.log("los studen del paren:", parentStudents)
+                    } else {
+                        setStudents(data.data.groupById.students)
+                    }
                     setGroupInfo(data.data.groupById)
                 }
-                
-            })
-        }, [router.query])
-        const handleEyeClick = (groupId, userId, strRutaExtra) => {
-            router.push(`/grouplist/${groupId}/${strRutaExtra}${userId}`)
-        };
 
+            })
+    }, [router.query])
+
+    //handler para accerder a la info -con parametros a definir
+    const handleEyeClick = (groupId, userId, strRutaExtra) => {
+        router.push(`/grouplist/${groupId}/${strRutaExtra}${userId}`)
+    };
+
+    //handler para borrar -con parametros a definir
     const handleTrashClick = (strRoute, userId) => {
         const token = localStorage.getItem("token");
         fetch(`https://api.toknow.online/${strRoute}/${userId}`, {
@@ -74,6 +89,8 @@ export default function GroupDetail() {
                 }
             })
     };
+
+    //estado de notificaciones toastify
     useEffect(() => {
         const notifTeachDeletion = localStorage.getItem('notifTeachDeletion')
         const notifStudDeletion = localStorage.getItem('notifStudDeletion')
