@@ -12,6 +12,7 @@ import Uppy from "@uppy/core";
 import Transloadit from "@uppy/transloadit";
 import Webcam from "@uppy/webcam";
 import { Dashboard } from "@uppy/react";
+import GroupInfoCircle from '../GroupInfoCircle'
 
 export default function FormAnnouncement() {
     //uppy
@@ -124,9 +125,7 @@ export default function FormAnnouncement() {
             <Layout>
                 <div className='d-flex flex-column align-items-center col-12 justify-content-center '>
                     <ArrowGoBack
-                        btnTxtModal={<GroupCircle
-                            grade={groupInfo.grade}
-                            group={groupInfo.name}/>}
+                        btnTxtModal={<GroupInfoCircle/>}
                         btnTxtModal2nd={(!!groupId) ? <h4>Crear anuncio grupal</h4> : <h4>Crear anuncio escolar</h4>}
                         route={route()} />
                     <form onSubmit={handleSubmit(onSubmit)} className='d-flex mt-3  col-11 col-lg-10 flex-column'>

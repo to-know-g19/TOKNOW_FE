@@ -116,7 +116,6 @@ export default function GroupDetail() {
             <Layout>
                 <div>
                     <ArrowGoBack
-                        btnTxtModal={<GroupInfoCircle/>}
                         btnTxtModal2nd={
                             userRole !== "parent" ? (
                                 <Link href={'/grouplist/[groupId]/newgroupannouncement'} as={`/grouplist/${groupId}/newgroupannouncement`} >
