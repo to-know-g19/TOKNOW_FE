@@ -25,7 +25,6 @@ export default function Yourgroups() {
       .then(data => {
         if (data.data) {
           const parentGroups = data.data.parentById.groups
-          console.log("soy los grupos del fetch al aprentID",data)
           setGrupos(parentGroups)
         }
       }
