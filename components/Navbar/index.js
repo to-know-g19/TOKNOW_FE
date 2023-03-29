@@ -21,6 +21,7 @@ export default function Navbar() {
     const [userRole, setUserRole] = useState("")
     const [userId, setUserId] = useState("")
     const router = useRouter()
+
     useEffect(() => {
         const token = localStorage.getItem("token")
         const currentPath = router.pathname
@@ -38,47 +39,6 @@ export default function Navbar() {
         }
     }, [])
 
-    useEffect(() => {
-        const token = localStorage.getItem("token")
-        if (token && token !== "undefined") {
-            let url = `https://api.toknow.online/user/${userId}`
-            if (userRole === "teacher") {
-                url = `https://api.toknow.online/teacher/${userId}`
-            } else if (userRole === "parent") {
-                url = `https://api.toknow.online/parent/${userId}`
-            }
-            fetch(url, {
-                mode: "cors",
-                headers: {
-                    "Content-type": "application/json",
-                    "Authorization": `Bearer ${token}`
-                },
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.data) {
-                        const userData = data.data.parentById || data.data.userById || data.data.teacherById
-                        if (userData) {
-                            let name = ""
-                            if (userData && userData.name) {
-                                name = userData.name
-                            }
-                            if (userData && userData.lastNameA) {
-                                name = `${name} ${userData.lastNameA}`
-                            }
-                            if (userData && userData.lastNameB) {
-                                name = `${name} ${userData.lastNameB}`
-                            }
-                            if (name.length > 0) {
-                                localStorage.setItem("usrnm", name)
-                                setUserName(localStorage.getItem('usrnm'))
-                            }
-                        }
-                    }
-                })
-            } 
-        }, [])
-        // console.log("soy el userName",userName)
     const handleLogOut = () => {
         localStorage.removeItem('token')
         localStorage.removeItem('usrnm')
@@ -89,7 +49,10 @@ export default function Navbar() {
             router.push('/')
         }
     }
-
+    //obteniendo username del localstorage para usar en sideBar
+    useEffect(() => {
+        setUserName(localStorage.getItem('usrnm'))
+    })
 
     return (
 
@@ -127,7 +90,9 @@ export default function Navbar() {
                                 <span>{userRole === "admin" ? "Administrador" : userRole === "teacher" ? "Profesor" : "Tutor"}</span>
                             </div>
                         </span>
-                        <p className="nav-text">{(!!userName) ? userName : ""}</p>
+                        {userName && userName.length > 0 &&
+                            <p className="nav-text">{userName}</p>
+                        }
                     </div>
 
                     {/* iconos con Link de sideBar */}

@@ -40,7 +40,7 @@ export default function Announcements() {
         })
             .then(response => response.json())
             .then(data => {
-                
+
                 const allAnnouncements = data.data.announcementsFound;
                 setAnnounceInfo(allAnnouncements.reverse());
             });
@@ -50,7 +50,7 @@ export default function Announcements() {
         const token = localStorage.getItem("token");
         const userData = JSON.parse(atob(token.split(".")[1]));
         setUserDataRole(userData.role)
-        
+
         const userRole = () => {
             if (userData.role === "admin") {
                 return "user";
@@ -76,22 +76,22 @@ export default function Announcements() {
             })
                 .then(response => response.json())
                 .then(data => {
-                   
+
                     let schoolId = ''
                     if (data.data) {
                         const userFetchedInfo = data.data
-                        
+
                         if (userFetchedInfo.userById) {
                             schoolId = userFetchedInfo.userById.school._id
                         } else {
                             if (userFetchedInfo.teacherById) {
                                 schoolId = userFetchedInfo.teacherById.school
                             } else {
-                                if(userFetchedInfo.parentById) {
+                                if (userFetchedInfo.parentById) {
                                     schoolId = userFetchedInfo.parentById.school
                                 }
                             }
-                        } 
+                        }
                     }
                     setUserSchoolId(schoolId);
                 });
@@ -105,19 +105,63 @@ export default function Announcements() {
     }, [fetchAnnouncements, userSchoolId]);
 
     const routeBtnGroups = () => {
-        if(userDataRole === "admin"){
+        if (userDataRole === "admin") {
             return "/grouplist"
         } else {
-            if(userDataRole === "teacher"){
+            if (userDataRole === "teacher") {
                 return "/teacher/yourgroups"
             } else {
-                if(userDataRole === "parent") {
+                if (userDataRole === "parent") {
                     return "/parent/yourgroups"
                 }
             }
         }
     }
-    
+    //useEffect para conseguir el nombre del usuario dependiendo de rol e insertar en localstorage
+    useEffect(() => {
+        const token = localStorage.getItem("token")
+        const userData = JSON.parse(atob(token.split(".")[1]))
+        const userRole = userData.role
+        const userId = userData.id
+        if (token && token !== "undefined") {
+            let url = `https://api.toknow.online/user/${userId}`
+            if (userRole === "teacher") {
+                url = `https://api.toknow.online/teacher/${userId}`
+            } else if (userRole === "parent") {
+                url = `https://api.toknow.online/parent/${userId}`
+            }
+            fetch(url, {
+                mode: "cors",
+                headers: {
+                    "Content-type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                },
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.data) {
+                        const userData = data.data.parentById || data.data.userById || data.data.teacherById
+                        if (userData) {
+                            let name = ""
+                            if (userData && userData.name) {
+                                name = userData.name
+                            }
+                            if (userData && userData.lastNameA) {
+                                name = `${name} ${userData.lastNameA}`
+                            }
+                            if (userData && userData.lastNameB) {
+                                name = `${name} ${userData.lastNameB}`
+                            }
+                            if (name.length > 0) {
+                                localStorage.setItem("usrnm", name)
+
+                            }
+                        }
+                    }
+                })
+        }
+    }, [])
+
     return (
         <Layout>
             <div>
@@ -126,12 +170,12 @@ export default function Announcements() {
                         <div className='d-flex col-8 col-lg-10 align-items-center'>
                             <h4>Anuncios escolares </h4>
                             {(userDataRole !== "parent") &&
-                            <Link href={"/announcements/newannouncement"}>
-                                <button className='btn-form bg-success'>Anuncio <BsPlusCircle /></button>
-                            </Link>}
+                                <Link href={"/announcements/newannouncement"}>
+                                    <button className='btn-form bg-success'>Anuncio <BsPlusCircle /></button>
+                                </Link>}
                         </div>
                         <div className='col-4'>
-                            <Link href={`${routeBtnGroups()}`} className="d-flex align-items-center" style={{textDecoration:"none"}}>
+                            <Link href={`${routeBtnGroups()}`} className="d-flex align-items-center" style={{ textDecoration: "none" }}>
                                 <button className='btn-form'>Grupos <BsArrowRightCircle /></button>
                             </Link>
                         </div>
