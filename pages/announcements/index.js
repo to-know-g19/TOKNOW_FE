@@ -117,6 +117,50 @@ export default function Announcements() {
             }
         }
     }
+    //useEffect para conseguir el nombre del usuario dependiendo de rol e insertar en localstorage
+    useEffect(() => {
+        const token = localStorage.getItem("token")
+        const userData = JSON.parse(atob(token.split(".")[1]))
+        const userRole = userData.role
+        const userId = userData.id
+        if (token && token !== "undefined") {
+            let url = `https://api.toknow.online/user/${userId}`
+            if (userRole === "teacher") {
+                url = `https://api.toknow.online/teacher/${userId}`
+            } else if (userRole === "parent") {
+                url = `https://api.toknow.online/parent/${userId}`
+            }
+            fetch(url, {
+                mode: "cors",
+                headers: {
+                    "Content-type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                },
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.data) {
+                        const userData = data.data.parentById || data.data.userById || data.data.teacherById
+                        if (userData) {
+                            let name = ""
+                            if (userData && userData.name) {
+                                name = userData.name
+                            }
+                            if (userData && userData.lastNameA) {
+                                name = `${name} ${userData.lastNameA}`
+                            }
+                            if (userData && userData.lastNameB) {
+                                name = `${name} ${userData.lastNameB}`
+                            }
+                            if (name.length > 0) {
+                                localStorage.setItem("usrnm", name)
+                                
+                            }
+                        }
+                    }
+                })
+        }
+    }, [])
     
     return (
         <Layout>
