@@ -40,7 +40,7 @@ export default function Announcements() {
         })
             .then(response => response.json())
             .then(data => {
-                
+
                 const allAnnouncements = data.data.announcementsFound;
                 setAnnounceInfo(allAnnouncements.reverse());
             });
@@ -50,7 +50,7 @@ export default function Announcements() {
         const token = localStorage.getItem("token");
         const userData = JSON.parse(atob(token.split(".")[1]));
         setUserDataRole(userData.role)
-        
+
         const userRole = () => {
             if (userData.role === "admin") {
                 return "user";
@@ -76,22 +76,22 @@ export default function Announcements() {
             })
                 .then(response => response.json())
                 .then(data => {
-                   
+
                     let schoolId = ''
                     if (data.data) {
                         const userFetchedInfo = data.data
-                        
+
                         if (userFetchedInfo.userById) {
                             schoolId = userFetchedInfo.userById.school._id
                         } else {
                             if (userFetchedInfo.teacherById) {
                                 schoolId = userFetchedInfo.teacherById.school
                             } else {
-                                if(userFetchedInfo.parentById) {
+                                if (userFetchedInfo.parentById) {
                                     schoolId = userFetchedInfo.parentById.school
                                 }
                             }
-                        } 
+                        }
                     }
                     setUserSchoolId(schoolId);
                 });
@@ -105,13 +105,13 @@ export default function Announcements() {
     }, [fetchAnnouncements, userSchoolId]);
 
     const routeBtnGroups = () => {
-        if(userDataRole === "admin"){
+        if (userDataRole === "admin") {
             return "/grouplist"
         } else {
-            if(userDataRole === "teacher"){
+            if (userDataRole === "teacher") {
                 return "/teacher/yourgroups"
             } else {
-                if(userDataRole === "parent") {
+                if (userDataRole === "parent") {
                     return "/parent/yourgroups"
                 }
             }
@@ -154,14 +154,14 @@ export default function Announcements() {
                             }
                             if (name.length > 0) {
                                 localStorage.setItem("usrnm", name)
-                                
+
                             }
                         }
                     }
                 })
         }
     }, [])
-    
+
     return (
         <Layout>
             <div>
@@ -170,12 +170,12 @@ export default function Announcements() {
                         <div className='d-flex col-8 col-lg-10 align-items-center'>
                             <h4>Anuncios escolares </h4>
                             {(userDataRole !== "parent") &&
-                            <Link href={"/announcements/newannouncement"}>
-                                <button className='btn-form bg-success'>Anuncio <BsPlusCircle /></button>
-                            </Link>}
+                                <Link href={"/announcements/newannouncement"}>
+                                    <button className='btn-form bg-success'>Anuncio <BsPlusCircle /></button>
+                                </Link>}
                         </div>
                         <div className='col-4'>
-                            <Link href={`${routeBtnGroups()}`} className="d-flex align-items-center" style={{textDecoration:"none"}}>
+                            <Link href={`${routeBtnGroups()}`} className="d-flex align-items-center" style={{ textDecoration: "none" }}>
                                 <button className='btn-form'>Grupos <BsArrowRightCircle /></button>
                             </Link>
                         </div>

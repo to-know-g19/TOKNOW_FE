@@ -21,6 +21,7 @@ export default function Navbar() {
     const [userRole, setUserRole] = useState("")
     const [userId, setUserId] = useState("")
     const router = useRouter()
+
     useEffect(() => {
         const token = localStorage.getItem("token")
         const currentPath = router.pathname
@@ -38,7 +39,6 @@ export default function Navbar() {
         }
     }, [])
 
-    // console.log("soy el userName",userName)
     const handleLogOut = () => {
         localStorage.removeItem('token')
         localStorage.removeItem('usrnm')
@@ -50,7 +50,7 @@ export default function Navbar() {
         }
     }
     //obteniendo username del localstorage para usar en sideBar
-    useEffect(()=> {
+    useEffect(() => {
         setUserName(localStorage.getItem('usrnm'))
     })
 
