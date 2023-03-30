@@ -305,7 +305,13 @@ async function sendEmail(req, res) {
                                         <td align="left" class="text-container" style="font-size:0px;padding:10px 10px 10px 0px;word-break:break-word;">
                                           <div class="mktEditable" id="ktext-h15van7m6" style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:18px;letter-spacing:none;line-height:1.75;text-align:left;color:#5F6368;">
                                             <div style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:18px;letter-spacing:none;line-height:1.75;text-align:left;color:#5F6368;">
-                                              <p style="margin: 0 0; mso-line-height-alt: 32px;">To start using the toknow app please visit:
+                                              <p style="margin: 0 0; mso-line-height-alt: 32px;">Tus datos para ingresar a la app son:
+                                              <br />
+                                              nombre: ${req.body.fullname},
+                                              <br />
+                                              correo: ${req.body.email},
+                                              <br />
+                                              Puedes ingresar dando click en:
                                               <br />
                                               https://toknow.online/ 
                                               </p>
@@ -520,7 +526,7 @@ async function sendEmail(req, res) {
                                       <td align="left" class="text-container" style="font-size:0px;padding:0px 0px 0px 0px;word-break:break-word;">
                                         <div class="mktEditable" id="ktext-j9b7zvpws" style="font-family:'Google Sans', sans-serif;font-size:28px;letter-spacing:none;line-height:1.2;text-align:left;color:#202124;">
                                           <div style="font-family:'Google Sans', sans-serif;font-size:28px;letter-spacing:none;line-height:1.2;text-align:left;color:#202124;">
-                                            <p style="margin: 0 0; mso-line-height-alt: 34px;">What you can find</p>
+                                            <p style="margin: 0 0; mso-line-height-alt: 34px;">Qué vas a encontrar:</p>
                                           </div>
                                         </div>
                                       </td>
