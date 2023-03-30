@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from "react-hook-form"
 import 'bootstrap/dist/css/bootstrap.css'
 import { useRouter } from 'next/router'
@@ -13,7 +13,25 @@ export default function FormParent() {
     const studentId = router.query.studentId
     const groupId = router.query.groupId
     const notifyError = useToastify("error", "Hubo un problema al envíar la información")
-   
+    const [studentName, setStudentName] = useState("")
+    
+    useEffect(() => {
+        const token = localStorage.getItem('token')
+        fetch(`https://api.toknow.online/student/${studentId}`,{
+            mode: 'cors',
+            headers: {
+                'content-type': 'application/json',
+                "Authorization": `Bearer ${token}`
+            }
+        })
+        .then((response) => response.json() )
+        .then(data => {
+            if(data.data){
+                const parentStudent = data.data.studentById
+                setStudentName(`${parentStudent.name} ${parentStudent.lastNameA} ${parentStudent.lastNameB}`)
+            }
+        })
+    })
 
     const onSubmit = async data => {
         const token = localStorage.getItem('token')
@@ -63,7 +81,7 @@ export default function FormParent() {
 
         <div className='d-flex flex-column align-items-center col-12 justify-content-center '>
             <ArrowGoBack
-                btnTxtModal={<h4>Datos del Tutor</h4>}
+                btnTxtModal={<h4>Datos del Tutor de {studentName}</h4>}
                 route={`/grouplist/${groupId}/${studentId}`} />
             <form onSubmit={handleSubmit(onSubmit)} className='d-flex mt-3 col-lg-10 flex-column align-items-center justify-content-center'>
                 <div className='col-10 d-flex flex-wrap justify-content-around'>
