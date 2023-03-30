@@ -6,6 +6,23 @@
     border-width: 1px;
     border-radius: .5rem;
     color: $text-darkblue;
+    position:relative;
+    &__counter{
+        position: absolute;
+        z-index: 1;
+        height: 3rem;
+        width: 3rem;
+
+        &__number{
+            color:white;
+            background-color: $primary-color;
+            height: 1.4rem;
+            width: 1.4rem;
+            border-radius: 50%;
+
+            
+        }
+    }
 
     &__circle {
         height: 6rem;
@@ -17,10 +34,10 @@
         height: 2.4rem;
         width: 2.4rem;
         &__teacher{
-            color: $darkblue;
+            color: $bg-lightblue;
         }
         &__student{
-            color: $primary-color;
+            color: $secundary-color;
         }
     }
     &__footer {

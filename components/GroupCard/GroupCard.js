@@ -27,13 +27,32 @@ export default function GroupCard(props) {
         </div>
 
         <div className='col-lg-6 d-flex flex-column align-items-center justify-content-around'>
-          <div className='d-flex col-lg-8 justify-content-around align-items-center'>
-            <FaUserCircle className='groupCard__user groupCard__user__teacher' />
-            Profesor
+
+          <div className='d-flex col-lg-9 justify-content-between align-items-center'>
+            <div className='d-flex'>
+              <div className='groupCard__counter d-flex justify-content-end' >
+                <p className='groupCard__counter__number d-flex justify-content-center align-items-center'>
+                  25
+                </p>
+              </div>
+              <FaUserCircle className='groupCard__user groupCard__user__teacher' />
+            </div>
+            <div>
+              Profesores
+            </div>
           </div>
-          <div className='d-flex col-lg-8 justify-content-around align-items-center'>
-            <FaUserCircle className='groupCard__user groupCard__user__student' />
-            Alumnos
+          <div className='d-flex col-lg-9 justify-content-between align-items-center'>
+            <div className='d-flex'>
+              <div className='groupCard__counter d-flex justify-content-end' >
+                <p className='groupCard__counter__number d-flex justify-content-center align-items-center'>
+                  25
+                </p>
+              </div>
+              <FaUserCircle className='groupCard__user groupCard__user__student' />
+            </div>
+            <div>
+              Alumnos
+            </div>
           </div>
         </div>
 
