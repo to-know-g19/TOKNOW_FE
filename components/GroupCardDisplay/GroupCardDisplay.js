@@ -9,6 +9,7 @@ import useToastify from '../useToastify'
 
 export default function GroupCardDisplay() {
   const [grupos, setGrupos] = useState([]);
+  const [schoolName, setSchoolName] = useState("");
   const router = useRouter()
   const notifySuccess = useToastify("success", "Registro de grupo exitoso")
   const notifySuccessGroupDelete = useToastify("success", "Grupo eliminado con éxito")
@@ -31,7 +32,8 @@ export default function GroupCardDisplay() {
           if (data.data) {
             const school = data.data.school
             if (school.user !== null) {
-              setGrupos(school.groups);
+              setGrupos(school.groups)
+              setSchoolName(school.nameSchool)
             }
           }
         })
@@ -81,7 +83,7 @@ export default function GroupCardDisplay() {
     <>
 
       <div className='d-flex flex-column align-items-center'>
-
+      <div className='pt-3 d-flex col-10 col-lg-9'>{<h3>Escuela {schoolName}</h3> }</div>
         <ArrowGoBack
           btnTxtModal={<ModalExample />}
           route={'/registergroup'} />
