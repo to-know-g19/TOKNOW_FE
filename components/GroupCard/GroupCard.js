@@ -32,7 +32,7 @@ export default function GroupCard(props) {
             <div className='d-flex col-5'>
               <div className='groupCard__counter d-flex justify-content-end' >
                 <p className='groupCard__counter__number d-flex justify-content-center align-items-center'>
-                  25
+                  {props.teacherCounter}
                 </p>
               </div>
               <FaUserCircle className='groupCard__user groupCard__user__teacher' />
@@ -45,7 +45,7 @@ export default function GroupCard(props) {
             <div className='d-flex col-5'>
               <div className='groupCard__counter d-flex justify-content-end' >
                 <p className='groupCard__counter__number d-flex justify-content-center align-items-center'>
-                  25
+                  {props.studentCounter}
                 </p>
               </div>
               <FaUserCircle className='groupCard__user groupCard__user__student' />
