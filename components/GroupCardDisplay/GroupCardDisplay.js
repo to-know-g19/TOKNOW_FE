@@ -102,7 +102,7 @@ export default function GroupCardDisplay() {
                   group={grupo.name}
                   onEyeClick={() => handleEyeClick(grupo._id)}
                   onTrashClick={() => handleTrashClick(grupo._id)} 
-                  teacherCounter={grupo.teachers.length}
+                  teacherCounter={(grupo.teachers.length > 3) ? "3" : grupo.teachers.length}
                   studentCounter={grupo.students.length}
                   />
               </div>
