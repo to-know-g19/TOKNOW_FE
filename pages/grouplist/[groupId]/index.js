@@ -136,12 +136,12 @@ export default function GroupDetail() {
                         btnTxtModal2nd={
                             userRole !== "parent" ? (
                                 <Link href={'/grouplist/[groupId]/newgroupannouncement'} as={`/grouplist/${groupId}/newgroupannouncement`} >
-                                    <button className='btn-form bg-success'>Crear Anuncio</button>
+                                    <button className='btn-form-groupId bg-success'>Crear Anuncio</button>
                                 </Link>) : null
                         }
                         btnTxtModal3={
                             <Link href={'/grouplist/[groupId]/groupannouncements'} as={`/grouplist/${groupId}/groupannouncements`} >
-                                <button className='btn-form'>Anuncios grupales</button>
+                                <button className='btn-form-groupId'>Anuncios grupales</button>
                             </Link>}
                         route={`${route}`} />
 

@@ -45,7 +45,7 @@ export default function FormStudent() {
             <form onSubmit={handleSubmit(onSubmit)} className='d-flex mt-3 col-lg-10 flex-column align-items-center justify-content-center'>
                 <div className='col-lg-10 d-flex flex-wrap justify-content-around'>
 
-                    <div className='d-flex col-8 col-lg-5 flex-column'>
+                    <div className='d-flex col-9 col-lg-5 flex-column'>
                         <div className="form-floating mb-3">
                             <input
                                 name='name'
@@ -59,7 +59,7 @@ export default function FormStudent() {
                         </div>
                     </div>
 
-                    <div className='d-flex col-8 col-lg-5 flex-column'>
+                    <div className='d-flex col-9 col-lg-5 flex-column'>
                         <div className="form-floating mb-3">
                             <input
                                 name='matricula'
@@ -71,7 +71,7 @@ export default function FormStudent() {
                         </div>
                     </div>
 
-                    <div className='d-flex col-8 col-lg-5 flex-column'>
+                    <div className='d-flex col-9 col-lg-5 flex-column'>
                         <div className="form-floating mb-3">
                             <input
                                 name='lastNameA'
@@ -86,7 +86,7 @@ export default function FormStudent() {
                     </div>
 
 
-                    <div className='d-flex col-8 col-lg-5 flex-column'>
+                    <div className='d-flex col-9 col-lg-5 flex-column'>
                         <div className="form-floating mb-3">
                             <input
                                 name='lastNameB'
@@ -111,7 +111,7 @@ export default function FormStudent() {
                         </div>
                     </div> */}
 
-                    <div className='d-none d-flex col-8 col-lg-5 flex-column'>
+                    <div className='d-none d-flex col-9 col-lg-5 flex-column'>
                         <div className="form-floating mb-3">
                             <select
                                 name='groups'

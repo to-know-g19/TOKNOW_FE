@@ -40,14 +40,14 @@ export default function FormTeacher() {
 
         const joy = await fetch("/api/sendgrid", {
             body: JSON.stringify({
-              email: data.email,
-              fullname: data.name,
+                email: data.email,
+                fullname: data.name,
             }),
             headers: {
-              "Content-Type": "application/json",
+                "Content-Type": "application/json",
             },
             method: "POST",
-          });
+        });
         // console.log(joy)
 
         // console.log('info /teach', teacherInfo)
@@ -68,131 +68,129 @@ export default function FormTeacher() {
             <ArrowGoBack
                 btnTxtModal={<h4>Datos del profesor</h4>}
                 route={`/grouplist/${groupId}`} />
-            <form onSubmit={handleSubmit(onSubmit)} className='d-flex mt-3 col-10 flex-column align-items-center justify-content-center'>
+            <form onSubmit={handleSubmit(onSubmit)} className='d-flex mt-3 col-lg-10 flex-column align-items-center justify-content-center'>
                 <div className='col-10 d-flex flex-wrap justify-content-around'>
 
-                    <div className='d-flex col-12 col-lg-5 flex-column justify-content-center align-items-center'>
-                        <div className='d-flex col-11 col-lg-12 flex-column'>
-                            <div className="form-floating mb-3">
-                                <input
-                                    name='name'
-                                    className="form-control"
-                                    placeholder='Nombre'
-                                    {...register("name", { required: true, minLength: 2, maxLength: 20 })} ></input>
-                                {errors.name && errors.name.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
-                                {errors.name && errors.name.type === "minLength" && <span className='text-danger'>*El campo requiere al menos 2 caracteres</span>}
-                                {errors.name && errors.name.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 21 caracteres</span>}
-                                <label>Nombre</label>
-                            </div>
-                        </div>
 
-                        <div className='d-flex col-11 col-lg-12 flex-column'>
-                            <div className="form-floating mb-3">
-                                <input
-                                    name='lastNameA'
-                                    className="form-control"
-                                    placeholder='Apellido Paterno'
-                                    {...register("lastNameA", { required: true, minLength: 2, maxLength: 20 })} ></input>
-                                {errors.lastNameA && errors.lastNameA.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
-                                {errors.lastNameA && errors.lastNameA.type === "minLength" && <span className='text-danger'>*El campo requiere al menos 2 caracteres</span>}
-                                {errors.lastNameA && errors.lastNameA.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 21 caracteres</span>}
-                                <label>Apellido Paterno</label>
-                            </div>
-                        </div>
-
-                        <div className='d-flex col-11 col-lg-12 flex-column'>
-                            <div className="form-floating mb-3">
-                                <input
-                                    name='lastNameB'
-                                    className="form-control"
-                                    placeholder='Apellido Materno'
-                                    {...register("lastNameB", { required: true, minLength: 2, maxLength: 20 })} ></input>
-                                {errors.lastNameB && errors.lastNameB.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
-                                {errors.lastNameB && errors.lastNameB.type === "minLength" && <span className='text-danger'>*El campo requiere al menos 2 caracteres</span>}
-                                {errors.lastNameB && errors.lastNameB.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 21 caracteres</span>}
-                                <label>Apellido Materno</label>
-                            </div>
-                        </div>
-
-                        <div className='d-flex col-11 col-lg-12 flex-column '>
-                            <div className="form-floating mb-3">
-                                <input
-                                    type='number'
-                                    name='phone'
-                                    className="form-control"
-                                    placeholder='Teléfono'
-                                    {...register("phone", { required: true })} ></input>
-                                {errors.phone && errors.phone.type === "required" && <span className='text-danger'>*El campo es requerido.</span>
-
-                                }
-                                <label>Teléfono</label>
-                            </div>
+                    <div className='d-flex col-11 col-lg-5 flex-column'>
+                        <div className="form-floating mb-3">
+                            <input
+                                name='name'
+                                className="form-control"
+                                placeholder='Nombre'
+                                {...register("name", { required: true, minLength: 2, maxLength: 20 })} ></input>
+                            {errors.name && errors.name.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
+                            {errors.name && errors.name.type === "minLength" && <span className='text-danger'>*El campo requiere al menos 2 caracteres</span>}
+                            {errors.name && errors.name.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 21 caracteres</span>}
+                            <label>Nombre</label>
                         </div>
                     </div>
 
-                    <div className='d-flex col-12 col-lg-5 flex-column justify-content-center align-items-center'>
-                        <div className='d-flex col-11 col-lg-12 flex-column'>
-                            <div className="form-floating mb-3">
-                                <input
-                                    type="email"
-                                    name='email'
-                                    className="form-control"
-                                    placeholder='Correo'
-                                    {...register("email", { required: true })} ></input>
-                                {errors.email && errors.email.type === "required" && <span className='text-danger'>*El campo es requerido</span>}
-                                <label>Correo</label>
-                            </div>
-                        </div>
-
-                        <div className='d-flex col-11 col-lg-12 flex-column'>
-                            <div className="form-floating mb-3">
-                                <input
-                                    name='password'
-                                    type='password'
-                                    className="form-control"
-                                    placeholder='Contraseña'
-                                    {...register("password", { required: true, minLength: 3, maxLength: 20 })} ></input>
-                                {errors.password && errors.password.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
-                                {errors.password && errors.password.type === "minLength" && <span className='text-danger'>*El campo requiere al menos 3 caracteres</span>}
-                                {errors.password && errors.password.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 21 caracteres</span>}
-                                <label>Contraseña</label>
-                            </div>
-                        </div>
-
-                        <div className='d-flex col-11 col-lg-12 flex-column'>
-                            <div className="form-floating mb-3">
-                                <input
-                                    type='password'
-                                    name='confirmPassword'
-                                    className="form-control"
-                                    placeholder='Confirme su contraseña'
-                                    {...register("confirmPassword", { required: true, minLength: 3, maxLength: 30 })} >
-                                </input>
-                                {errors.confirmPassword && errors.confirmPassword.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
-                                {errors.confirmPassword && errors.confirmPassword.type === "minLength" && <span className='text-danger'>*El campo requiere más de 3 caracteres.</span>}
-                                {errors.confirmPassword && errors.confirmPassword.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 31 caracteres.</span>}
-                                {errors.confirmPassword && errors.confirmPassword.type === "passwordMismatch" && <span className='text-danger'>{errors.confirmPassword.message}</span>}
-                                <label>Confirme su contraseña</label>
-                            </div>
-                        </div>
-
-                        <div className='d-flex col-11 col-lg-12 flex-column'>
-                            {/* tiene que cumplir uno de la lista en el back.*/}
-                            <div className="form-floating mb-3">
-                                <select
-                                    name='tipoProfesor'
-                                    className="form-control form-select"
-                                    {...register("tipoProfesor", { required: true })}>
-                                    <option value=""></option>
-                                    <option value="titular">Titular</option>
-                                    <option value="educacion fisica">Educación física</option>
-                                    <option value="ingles">Inglés</option>
-                                </select>
-                                {errors.tipoProfesor && errors.tipoProfesor.type === "required" && <span className='text-danger'>*Selecciona el tipo de profesor</span>}
-                                <label>Tipo de profesor</label>
-                            </div>
+                    <div className='d-flex col-11 col-lg-5 flex-column'>
+                        <div className="form-floating mb-3">
+                            <input
+                                type="email"
+                                name='email'
+                                className="form-control"
+                                placeholder='Correo'
+                                {...register("email", { required: true })} ></input>
+                            {errors.email && errors.email.type === "required" && <span className='text-danger'>*El campo es requerido</span>}
+                            <label>Correo</label>
                         </div>
                     </div>
+
+                    <div className='d-flex col-11 col-lg-5 flex-column'>
+                        <div className="form-floating mb-3">
+                            <input
+                                name='lastNameA'
+                                className="form-control"
+                                placeholder='Apellido Paterno'
+                                {...register("lastNameA", { required: true, minLength: 2, maxLength: 20 })} ></input>
+                            {errors.lastNameA && errors.lastNameA.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
+                            {errors.lastNameA && errors.lastNameA.type === "minLength" && <span className='text-danger'>*El campo requiere al menos 2 caracteres</span>}
+                            {errors.lastNameA && errors.lastNameA.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 21 caracteres</span>}
+                            <label>Apellido Paterno</label>
+                        </div>
+                    </div>
+
+                    <div className='d-flex col-11 col-lg-5 flex-column '>
+                        <div className="form-floating mb-3">
+                            <input
+                                type='number'
+                                name='phone'
+                                className="form-control"
+                                placeholder='Teléfono'
+                                {...register("phone", { required: true })} ></input>
+                            {errors.phone && errors.phone.type === "required" && <span className='text-danger'>*El campo es requerido.</span>
+
+                            }
+                            <label>Teléfono</label>
+                        </div>
+                    </div>
+
+                    <div className='d-flex col-11 col-lg-5 flex-column'>
+                        <div className="form-floating mb-3">
+                            <input
+                                name='lastNameB'
+                                className="form-control"
+                                placeholder='Apellido Materno'
+                                {...register("lastNameB", { required: true, minLength: 2, maxLength: 20 })} ></input>
+                            {errors.lastNameB && errors.lastNameB.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
+                            {errors.lastNameB && errors.lastNameB.type === "minLength" && <span className='text-danger'>*El campo requiere al menos 2 caracteres</span>}
+                            {errors.lastNameB && errors.lastNameB.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 21 caracteres</span>}
+                            <label>Apellido Materno</label>
+                        </div>
+                    </div>
+
+                    <div className='d-flex col-11 col-lg-5 flex-column'>
+                        <div className="form-floating mb-3">
+                            <input
+                                name='password'
+                                type='password'
+                                className="form-control"
+                                placeholder='Contraseña'
+                                {...register("password", { required: true, minLength: 3, maxLength: 20 })} ></input>
+                            {errors.password && errors.password.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
+                            {errors.password && errors.password.type === "minLength" && <span className='text-danger'>*El campo requiere al menos 3 caracteres</span>}
+                            {errors.password && errors.password.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 21 caracteres</span>}
+                            <label>Contraseña</label>
+                        </div>
+                    </div>
+
+                    <div className='d-flex col-11 col-lg-5 flex-column'>
+                        <div className="form-floating mb-3">
+                            <input
+                                type='password'
+                                name='confirmPassword'
+                                className="form-control"
+                                placeholder='Confirme su contraseña'
+                                {...register("confirmPassword", { required: true, minLength: 3, maxLength: 30 })} >
+                            </input>
+                            {errors.confirmPassword && errors.confirmPassword.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
+                            {errors.confirmPassword && errors.confirmPassword.type === "minLength" && <span className='text-danger'>*El campo requiere más de 3 caracteres.</span>}
+                            {errors.confirmPassword && errors.confirmPassword.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 31 caracteres.</span>}
+                            {errors.confirmPassword && errors.confirmPassword.type === "passwordMismatch" && <span className='text-danger'>{errors.confirmPassword.message}</span>}
+                            <label>Confirme su contraseña</label>
+                        </div>
+                    </div>
+
+                    <div className='d-flex col-11 col-lg-5 flex-column'>
+                        {/* tiene que cumplir uno de la lista en el back.*/}
+                        <div className="form-floating mb-3">
+                            <select
+                                name='tipoProfesor'
+                                className="form-control form-select"
+                                {...register("tipoProfesor", { required: true })}>
+                                <option value=""></option>
+                                <option value="titular">Titular</option>
+                                <option value="educacion fisica">Educación física</option>
+                                <option value="ingles">Inglés</option>
+                            </select>
+                            {errors.tipoProfesor && errors.tipoProfesor.type === "required" && <span className='text-danger'>*Selecciona el tipo de profesor</span>}
+                            <label>Tipo de profesor</label>
+                        </div>
+                    </div>
+
 
                     <div className='d-none d-flex col-8 col-lg-5 flex-column'>
                         <div className="form-floating mb-3">
@@ -229,7 +227,7 @@ export default function FormTeacher() {
                 </div>
 
             </form>
-            <ToastContainer/>
+            <ToastContainer />
         </div>
     )
 }

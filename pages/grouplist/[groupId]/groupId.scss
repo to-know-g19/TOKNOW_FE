@@ -1,8 +1,12 @@
 @import '../../../styles/globals.scss';
 
-// .user-circle{
-//     font-size: 3rem;
-//     &__teacher{
-//         color: aqua;
-//     }
-// }
+.btn-form-groupId{
+    margin: .5rem;
+    width: 6.5rem;
+    height: 3rem;
+    color:white;
+    background-color: $bg-blue;
+    border-radius: 10px;
+    font-weight:500;
+    border-style: none;
+}
