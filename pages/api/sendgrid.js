@@ -309,7 +309,7 @@ async function sendEmail(req, res) {
                                               <br />
                                               Tu correo para ingresar a la app es:
                                               <br />
-                                              ${req.body.email},
+                                              ${req.body.email}
                                               <br />
                                               Puedes ingresar dando click en:
                                               </p>
@@ -428,7 +428,7 @@ async function sendEmail(req, res) {
                                               <br />
                                               Tu correo para ingresar a la app es:
                                               <br />
-                                              correo: ${req.body.email},
+                                              ${req.body.email}
                                               <br />
                                               Puedes ingresar dando click en:
                                             </div>
