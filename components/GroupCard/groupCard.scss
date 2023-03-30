@@ -16,8 +16,8 @@
         &__number{
             color:white;
             background-color: $primary-color;
-            height: 1.3rem;
-            width: 1.3rem;
+            height: 1.4rem;
+            width: 1.4rem;
             border-radius: 50%;
 
             
@@ -28,6 +28,7 @@
         height: 6rem;
         width: 6rem;
         margin: 0rem; //para quitar el margin que tiene en css de GroupCircle
+        font-size: x-large;
     }
 
     &__user{
