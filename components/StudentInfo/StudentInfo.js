@@ -4,13 +4,10 @@ import Link from 'next/link'
 import TeacherRectangle from '../teacherRectangle/TeacherRectangle'
 
 export default function StudentInfo({ student }) {
-    const { name, lastNameA, lastNameB, matricula, dateOfBirth } = student
-    //    aquí todo el router y peticiones para la card del parent
+    const { name, lastNameA, lastNameB, matricula } = student
     const router = useRouter()
     const studentId = router.query.studentId
     const groupId = router.query.groupId
-    // console.log('soy student id:', studentId)
-    // console.log('soy grupo id:', groupId)
     const [parents, setParents] = useState([])
     const [userRole, setUserRole] = useState('')
 
@@ -30,19 +27,14 @@ export default function StudentInfo({ student }) {
             .then((response) => response.json())
             .then(data => {
                 if (data.data) {
-
                     setParents(data.data.studentById.parents)
-                    console.log("soy la data del del papá", data.data.studentById.parents)
-
                 }
-
             })}
     }, [])
 
     const handleEyeClick = (groupId, student, strRutaExtra, userId) => {
         const route= (`/grouplist/${groupId}/${student}/${strRutaExtra}/${userId}`)
         router.push(route)
-        console.log(route)
     }
 
     const handleTrashClick = (strRoute, parentId) => {
@@ -55,7 +47,6 @@ export default function StudentInfo({ student }) {
             }
         })
             .then(response => {
-                console.log('response en delete group', response)
                 if (response.ok === true) {
                     window.location.reload()
                 }
@@ -65,12 +56,10 @@ export default function StudentInfo({ student }) {
     return (
 
         <div className='d-flex justify-content-center col-12 flex-column align-items-center'>
-
             <div className='d-flex mt-3 col-lg-10 flex-column align-items-center justify-content-center'>
                 <div className='col-12 d-flex flex-wrap justify-content-around'>
-
                     <div className='d-flex col-12 col-lg-5 flex-column justify-content-center align-items-center'>
-
+                        
                         <div className='d-flex col-11 col-lg-12 flex-column'>
                             <div className="form-floating mb-3">
                                 <span
@@ -121,27 +110,8 @@ export default function StudentInfo({ student }) {
                                 <label>Matrícula</label>
                             </div>
                         </div>
-
                     </div>
-
-
-                    {/* <div className='d-flex col-5 flex-column'>
-                        <div className="form-floating mb-3">
-                            <span
-                                type='date'
-                                name='dateOfBirth'
-                                className="form-control"
-                                placeholder='Ej. 24011996'
-                            >{dateOfBirth}</span>
-                            <label>Fecha nacimiento</label>
-                        </div>
-                    </div> */}
-
-                    {/* link al parent */}
-
                 </div>
-
-
                 <div className='d-flex col-lg-10 flex-wrap justify-content-around'>
 
                     <div className='d-flex col-10 col-lg-5 flex-column align-items-center justify-content-center'>
@@ -149,19 +119,15 @@ export default function StudentInfo({ student }) {
                         {(parents.length) ?
                             parents.map(parent => {
                                 return (
-                                    // <Link href="/grouplist/[groupId]/[studentId]/parent/[parentId]"
-                                    //     as={`/grouplist/${groupId}/${studentId}/parent/${parent._id}`} key={parent._id} style={{ textDecoration: 'none' }} >
                                     <TeacherRectangle
                                         key={parent._id}
                                         name={parent.name}
                                         lastNameA={parent.lastNameA}
                                         lastNameB={parent.lastNameB}
                                         tipoProfesor={parent.tipoProfesor}
-                                        // al dejar la ruta parent(carpeta) hay error. pero al cambiarlo por otra palabra manda al enlace
                                         onEyeClick={() => handleEyeClick(groupId, studentId, "parent", parent._id)}
                                         onTrashClick={() => handleTrashClick("parent", parent._id)}
                                     />
-                                    // </Link>
                                 )
                             }) : <div className='d-flex flex-column align-items-center'>
                                 <p>Aún no hay un tutor registrado.  </p>
