@@ -48,7 +48,6 @@ export default function GroupAnnouncements() {
         .then(data => {
           if (data.data) {
             const allAnnouncements = data.data.announcementsFound
-            console.log("info de all anuncios ruta /groupannouncements", allAnnouncements)
             setAnnounceInfo(allAnnouncements.reverse())
           }
         })

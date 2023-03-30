@@ -25,13 +25,9 @@ export default function Teacher() {
                     setTeacher(data.data.teacherById)
                 }
 
-                console.log("soy la data.data", data.data)
-                // console.log("soy la data.data.groupById.teachers", data.data.groupById.teachers)
-
             })
     }, [router.query])
-    console.log("soy info en teachers dentro del groups", teacher)
-    console.log("soy el routerquery groupId", groupId)
+
 
     return (
         <>

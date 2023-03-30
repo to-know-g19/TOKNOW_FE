@@ -29,14 +29,8 @@ export default function Parent() {
                     const parentStudentName = `${parentStudent.name} ${parentStudent.lastNameA} ${parentStudent.lastNameB}`
                     setStudentName(parentStudentName)
                 }
-
-                console.log("soy la data.data", data.data)
-                // console.log("soy la data.data.groupById.teachers", data.data.groupById.teachers)
-
             })
     }, [router.query])
-    console.log("soy info en parents(parentsById) dentro del groups", parent)
-    // console.log("soy el routerquery groupId", groupId)
 
     return (
         <>

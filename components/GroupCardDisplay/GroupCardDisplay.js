@@ -35,7 +35,6 @@ export default function GroupCardDisplay() {
           schools.forEach(school => {
             if (school.user !== null && school.user._id === userId) {
               setGrupos(school.groups);
-              console.log("Grupos: ", school.groups)
             }
           });
         })
