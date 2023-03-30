@@ -305,15 +305,13 @@ async function sendEmail(req, res) {
                                         <td align="left" class="text-container" style="font-size:0px;padding:10px 10px 10px 0px;word-break:break-word;">
                                           <div class="mktEditable" id="ktext-h15van7m6" style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:18px;letter-spacing:none;line-height:1.75;text-align:left;color:#5F6368;">
                                             <div style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:18px;letter-spacing:none;line-height:1.75;text-align:left;color:#5F6368;">
-                                              <p style="margin: 0 0; mso-line-height-alt: 32px;">Tus datos para ingresar a la app son:
+                                              <p style="margin: 0 0; mso-line-height-alt: 32px;">Hola ${req.body.fullname}
                                               <br />
-                                              nombre: ${req.body.fullname},
+                                              Tu correo para ingresar a la app es:
                                               <br />
-                                              correo: ${req.body.email},
+                                              ${req.body.email},
                                               <br />
                                               Puedes ingresar dando click en:
-                                              <br />
-                                              https://toknow.online/ 
                                               </p>
                                             </div>
                                           </div>
@@ -426,15 +424,13 @@ async function sendEmail(req, res) {
                                         <td align="center" class="text-container" style="font-size:0px;padding:10px 0px 10px 0px;word-break:break-word;">
                                           <div class="mktEditable" id="ktext-tag995g7k" style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:16px;letter-spacing:none;line-height:1.75;text-align:center;color:#5F6368;">
                                             <div style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:16px;letter-spacing:none;line-height:1.75;text-align:center;color:#5F6368;">
-                                              <p style="margin: 0 0; mso-line-height-alt: 28px;">Tus datos para ingresar a la aplicación son:
+                                              <p style="margin: 0 0; mso-line-height-alt: 28px;">Hola ${req.body.fullname} 
                                               <br />
-                                              nombre: ${req.body.fullname},
+                                              Tu correo para ingresar a la app es:
                                               <br />
                                               correo: ${req.body.email},
                                               <br />
                                               Puedes ingresar dando click en:
-                                              <br />
-                                               https://toknow.online/</p>
                                             </div>
                                           </div>
                                         </td>
@@ -1636,7 +1632,6 @@ async function sendEmail(req, res) {
                                                 <td align="left" class="text-container" style="font-size:0px;padding:15px 0px 0px 0px;word-break:break-word;">
                                                   <div class="mktEditable" id="ktext-d0233zj5j" style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:14px;letter-spacing:none;line-height:1.3;text-align:left;color:#5F6368;">
                                                     <div style="font-family:Roboto, Helvetica, Arial, sans-serif;font-size:14px;letter-spacing:none;line-height:1.3;text-align:left;color:#5F6368;">
-                                                      <p style="margin: 0 0; mso-line-height-alt: 18px;"><a href="https://mail.thinkwithgoogle.com/dc/fG5-PlwEnZR-IoSdwCtjInBOEnkCOl-88iHvoC1GNZyy0coz9bmmnInNnnlK-vkeg2XoTP0zjVMxpGJru1dOG6Kw3jEyZ86obb3w0nt43V5zyTm_QeHa6LIOClERhTMy9snO-fbjhdz6Yp2ft-GS2y98POvH8bz3iqobLA0aQtdnmxdYDxcDJMKzsbH1xcL_eI0HFEopXD2gg94HzLtn7WnH0CwdJy09TE8FAu0D1WvV-n_Gp5AsKl82Shxwreg1Dqck47zgOBObL1EHfOa0Ag==/MTcyLUdPUC04MTEAAAGHtF6BZXSELDirVPJN9L-R6jbSGm9wTch5hpISrYBbeHKokdoCD8uT4LiTSwUlUiKh4_0E0Zs=" target="_blank" rel="noopener" style="color: rgb(26, 115, 232); text-decoration: none;">LinkedIn</a> &nbsp; &nbsp;<a href="https://mail.thinkwithgoogle.com/dc/qRrMJDEUlv6ss-mBIC1z6qyIBzl8nGDcOAR7bZCR8Bz2_t9hU-yS8-0G4Ei5b9oIQTAl2n1Iqs8U_bH2gDn1UDSpzLcbjkfHCrHBMNIWjBNRtn8xNuiqVEBIp0mYuqKxkAk_DsQ4BKNkmZHG9njV21M8Y-6-_iBCkse_nrJmiglkM4IzwL7jzd-AYgflVJJ5_vZrNEpTQ9XMP4MPXhm8i6bI6tdk3wbh6peN13rLeDgCiggp-vrk6eNROjyGUhOE/MTcyLUdPUC04MTEAAAGHtF6BZXSELDirVPJN9L-R6jbSGm9wTch5hpISrYBbeHKokdoCD8uT4LiTSwUlUiKh4_0E0Zs=" target="_blank" rel="noopener" style="color: rgb(26, 115, 232); text-decoration: none;">Twitter</a> &nbsp; &nbsp;<a href="https://mail.thinkwithgoogle.com/dc/uq3EykqQY7h0Yyhe2BWhMOQoLnY-FVPjcOSpRoBt7oqXjAh6y4jHsHjagTZLvynxJf8d8wisOXsCTN-RCJrR55NqjhaXZsxksTQJha3pidJ2izHIp6YCjj3Di_cmlel6_VkK3ojSY8OluFq_pwSgkric6DqT1MzuEhdBb0FNmms8b1Ny5H0Jg7Cpww5xUF1NfB4vZ1EC5ba4TtzmQploQzxmlI1agANRwh8FdLDF7MbNFIFkoQWOLc099SLtKWLa/MTcyLUdPUC04MTEAAAGHtF6BZXSELDirVPJN9L-R6jbSGm9wTch5hpISrYBbeHKokdoCD8uT4LiTSwUlUiKh4_0E0Zs=" target="_blank" rel="noopener" style="color: rgb(26, 115, 232); text-decoration: none;">Facebook</a> &nbsp; &nbsp;<a href="https://mail.thinkwithgoogle.com/dc/M9Y3nowLDCcEv8uSbJAkae4uwFGHNyVe4QjWxdp2Wt94zmKb2PJRQ814pJWHHf2Ipl37Au_0AlD871XhsBoA5KPWZZLbfUr75mamaG4Gk9OlhfqmH5NsGBlhZvb3I1rbfMHxdSih0k6kLXlU74Px8vkq6K05Bho07fXNhYrCL0jIqnnluTSTcc1VFxGjz1tHbG0pyuAgPLjTdTGvR9pUgj0n_uT2bQnupg_mgG31mui5QiplqfsVN4D1GYs5K8x-/MTcyLUdPUC04MTEAAAGHtF6BZXSELDirVPJN9L-R6jbSGm9wTch5hpISrYBbeHKokdoCD8uT4LiTSwUlUiKh4_0E0Zs=" target="_blank" rel="noopener" style="color: rgb(26, 115, 232); text-decoration: none;">YouTube</a></p>
                                                     </div>
                                                   </div>
                                                 </td>
