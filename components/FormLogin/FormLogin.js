@@ -60,7 +60,7 @@ export default function FormLogin() {
         },
       })
       const usersData = await usersResult.json()
-      console.log("users data", usersData)
+
 
       //necesito acceder al usuario por medio del correo al que estoy proporcionando para ver si tiene school.
       const user = usersData.data.userAll.find(user => user.email === data.email)

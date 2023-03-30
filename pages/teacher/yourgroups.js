@@ -24,7 +24,7 @@ export default function Yourgroups() {
       .then(data => {
         if (data.data) {
           const teacherGroups = data.data.teacherById.groups
-          console.log("grupos:", data.data.teacherById.groups)
+          // console.log("grupos:", data.data.teacherById.groups)
           setGrupos(teacherGroups)
         }
       }
