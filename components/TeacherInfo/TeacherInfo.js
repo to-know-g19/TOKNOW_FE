@@ -7,11 +7,11 @@ export default function TeacherInfo({teacher}) {
         <div className='d-flex col-12 flex-column justify-content-center align-items-center'>
 
             <form className='d-flex mt-3 col-lg-10 flex-column align-items-center justify-content-center'>
-                <div className='col-12 d-flex flex-wrap justify-content-around'>
+                <div className='col-10 d-flex flex-wrap justify-content-around'>
 
-                    <div className='d-flex col-12 col-lg-5 flex-column justify-content-center align-items-center'>
+                   
 
-                        <div className='d-flex col-11 col-lg-12 flex-column'>
+                        <div className='d-flex col-11 col-lg-5 flex-column'>
                             <div className="form-floating mb-3">
                                 <span
                                     name='name'
@@ -23,7 +23,7 @@ export default function TeacherInfo({teacher}) {
                             </div>
                         </div>
 
-                        <div className='d-flex col-11 col-lg-12 flex-column'>
+                        <div className='d-flex col-11 col-lg-5 flex-column'>
                             <div className="form-floating mb-3">
                                 <span
                                     name='lastNameA'
@@ -35,7 +35,7 @@ export default function TeacherInfo({teacher}) {
                             </div>
                         </div>
 
-                        <div className='d-flex col-11 col-lg-12 flex-column'>
+                        <div className='d-flex col-11 col-lg-5 flex-column'>
                             <div className="form-floating mb-3">
                                 <span
                                     name='lastNameB'
@@ -47,11 +47,8 @@ export default function TeacherInfo({teacher}) {
                             </div>
                         </div>
 
-                    </div>
 
-                    <div className='d-flex col-12 col-lg-5 flex-column justify-content-center align-items-center'>
-
-                        <div className='d-flex col-11 col-lg-12 flex-column'>
+                        <div className='d-flex col-11 col-lg-5 flex-column'>
                             <div className="form-floating mb-3">
                                 <span
                                     type="email"
@@ -64,7 +61,7 @@ export default function TeacherInfo({teacher}) {
                             </div>
                         </div>
 
-                        <div className='d-flex col-11 col-lg-12 flex-column '>
+                        <div className='d-flex col-11 col-lg-5 flex-column '>
                             <div className="form-floating mb-3">
                                 <span
                                     type='number'
@@ -76,7 +73,7 @@ export default function TeacherInfo({teacher}) {
                             </div>
                         </div>
 
-                        <div className='d-flex col-11 col-lg-12 flex-column'>
+                        <div className='d-flex col-11 col-lg-5 flex-column'>
                             {/* tiene que cumplir uno de la lista en el back. hacer con desplegable */}
                             <div className="form-floating mb-3">
                                 <span
@@ -87,46 +84,6 @@ export default function TeacherInfo({teacher}) {
                                 <label>Tipo de profesor</label>
                             </div>
                         </div>
-
-                    </div>
-
-                    {/* <div className='d-flex col-5 flex-column'>
-                        <div className="form-floating mb-3">
-                            <span
-                                name='matricula'
-                                className="form-control"
-                                placeholder='Matrícula'
-                                >{matricula}</span>
-                            <label>Matrícula</label>
-                        </div>
-                    </div> */}
-
-
-
-                    {/* <div className='d-flex col-5 flex-column'>
-                     
-                        <div className="form-floating mb-3">
-                            <span
-                                type='number'
-                                name='dateOfBirth'
-                                className="form-control"
-                                placeholder='Ej. 24011996'
-                                >{dateOfBirth}</span>
-                            <label>Fecha nacimiento</label>
-                        </div>
-                    </div> */}
-
-
-                    {/* <div className='d-flex col-5 flex-column'>
-                        <div className="form-floating mb-3">
-                            <span
-                                name='bio'
-                                className="form-control"
-                                placeholder='Bio'
-                                >{bio}</span>
-                            <label>Bio</label>
-                        </div>
-                    </div> */}
 
                     <div className='d-flex col-5 flex-column d-none'>
                         <div className="form-floating mb-3">

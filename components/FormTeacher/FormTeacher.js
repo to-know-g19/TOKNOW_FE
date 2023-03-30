@@ -89,16 +89,17 @@ export default function FormTeacher() {
                     <div className='d-flex col-11 col-lg-5 flex-column'>
                         <div className="form-floating mb-3">
                             <input
-                                name='lastNameA'
+                                type="email"
+                                name='email'
                                 className="form-control"
-                                placeholder='Apellido Paterno'
-                                {...register("lastNameA", { required: true, minLength: 2, maxLength: 20 })} ></input>
-                            {errors.lastNameA && errors.lastNameA.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
-                            {errors.lastNameA && errors.lastNameA.type === "minLength" && <span className='text-danger'>*El campo requiere al menos 2 caracteres</span>}
-                            {errors.lastNameA && errors.lastNameA.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 21 caracteres</span>}
-                            <label>Apellido Paterno</label>
+                                placeholder='Correo'
+                                {...register("email", { required: true })} ></input>
+                            {errors.email && errors.email.type === "required" && <span className='text-danger'>*El campo es requerido</span>}
+                            <label>Correo</label>
                         </div>
                     </div>
+
+
 
                     <div className='d-flex col-11 col-lg-5 flex-column'>
                         <div className="form-floating mb-3">
@@ -129,18 +130,17 @@ export default function FormTeacher() {
                         </div>
                     </div>
 
-
-
                     <div className='d-flex col-11 col-lg-5 flex-column'>
                         <div className="form-floating mb-3">
                             <input
-                                type="email"
-                                name='email'
+                                name='lastNameA'
                                 className="form-control"
-                                placeholder='Correo'
-                                {...register("email", { required: true })} ></input>
-                            {errors.email && errors.email.type === "required" && <span className='text-danger'>*El campo es requerido</span>}
-                            <label>Correo</label>
+                                placeholder='Apellido Paterno'
+                                {...register("lastNameA", { required: true, minLength: 2, maxLength: 20 })} ></input>
+                            {errors.lastNameA && errors.lastNameA.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
+                            {errors.lastNameA && errors.lastNameA.type === "minLength" && <span className='text-danger'>*El campo requiere al menos 2 caracteres</span>}
+                            {errors.lastNameA && errors.lastNameA.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 21 caracteres</span>}
+                            <label>Apellido Paterno</label>
                         </div>
                     </div>
 
