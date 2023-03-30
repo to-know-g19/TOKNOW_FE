@@ -18,7 +18,7 @@ export default function GroupCard(props) {
     <div className='groupCard mt-4 mb-3 col-lg-12'>
       <div className='d-flex m-4 justify-content-around'>
 
-        <div className='col-lg-6 d-flex justify-content-center'>
+        <div className='col-6 d-flex justify-content-center'>
           {/* CAMBIAR NOMBRE DE CLASE Y agregar estilo para crecer en card sin afectar ventana registergrupos*/}
           <div className='groupInfo groupCard__circle'>
             <p>{props.grade}</p>
@@ -26,10 +26,10 @@ export default function GroupCard(props) {
           </div>
         </div>
 
-        <div className='col-lg-6 d-flex flex-column align-items-center justify-content-around'>
+        <div className='col-6 d-flex flex-column align-items-center justify-content-around'>
 
-          <div className='d-flex col-lg-9 justify-content-between align-items-center'>
-            <div className='d-flex'>
+          <div className='d-flex col-lg-9 col-12 align-items-center'>
+            <div className='d-flex col-5'>
               <div className='groupCard__counter d-flex justify-content-end' >
                 <p className='groupCard__counter__number d-flex justify-content-center align-items-center'>
                   25
@@ -37,12 +37,12 @@ export default function GroupCard(props) {
               </div>
               <FaUserCircle className='groupCard__user groupCard__user__teacher' />
             </div>
-            <div>
+            <div className='col-7'>
               Profesores
             </div>
           </div>
-          <div className='d-flex col-lg-9 justify-content-between align-items-center'>
-            <div className='d-flex'>
+          <div className='d-flex col-lg-9 col-12 align-items-center'>
+            <div className='d-flex col-5'>
               <div className='groupCard__counter d-flex justify-content-end' >
                 <p className='groupCard__counter__number d-flex justify-content-center align-items-center'>
                   25
@@ -50,7 +50,7 @@ export default function GroupCard(props) {
               </div>
               <FaUserCircle className='groupCard__user groupCard__user__student' />
             </div>
-            <div>
+            <div className='col-7'>
               Alumnos
             </div>
           </div>
