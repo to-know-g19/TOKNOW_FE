@@ -14,26 +14,27 @@ export default function StudentInfo({ student }) {
     useEffect(() => {
 
         const token = localStorage.getItem('token')
-        if (token){
-        const userData = JSON.parse(atob(token.split(".")[1]));
-        setUserRole(userData.role)
-        fetch(`https://api.toknow.online/student/${studentId}`, {
-            mode: 'cors',
-            headers: {
-                'Content-type': 'application/json',
-                "Authorization": `Bearer ${token}`
-            },
-        })
-            .then((response) => response.json())
-            .then(data => {
-                if (data.data) {
-                    setParents(data.data.studentById.parents)
-                }
-            })}
+        if (token) {
+            const userData = JSON.parse(atob(token.split(".")[1]));
+            setUserRole(userData.role)
+            fetch(`https://api.toknow.online/student/${studentId}`, {
+                mode: 'cors',
+                headers: {
+                    'Content-type': 'application/json',
+                    "Authorization": `Bearer ${token}`
+                },
+            })
+                .then((response) => response.json())
+                .then(data => {
+                    if (data.data) {
+                        setParents(data.data.studentById.parents)
+                    }
+                })
+        }
     }, [])
 
     const handleEyeClick = (groupId, student, strRutaExtra, userId) => {
-        const route= (`/grouplist/${groupId}/${student}/${strRutaExtra}/${userId}`)
+        const route = (`/grouplist/${groupId}/${student}/${strRutaExtra}/${userId}`)
         router.push(route)
     }
 
@@ -55,66 +56,63 @@ export default function StudentInfo({ student }) {
 
     return (
 
-        <div className='d-flex justify-content-center col-12 flex-column align-items-center'>
-            <div className='d-flex mt-3 col-lg-10 flex-column align-items-center justify-content-center'>
-                <div className='col-12 d-flex flex-wrap justify-content-around'>
-                    <div className='d-flex col-12 col-lg-5 flex-column justify-content-center align-items-center'>
-                        
-                        <div className='d-flex col-11 col-lg-12 flex-column'>
-                            <div className="form-floating mb-3">
-                                <span
-                                    name='name'
-                                    className="form-control"
-                                    placeholder='Nombre'
-                                >{name}</span>
+        <div className='d-flex justify-content-center col-12'>
 
-                                <label>Nombre</label>
-                            </div>
+            <div className='d-flex mt-3 col-10 flex-column align-items-center justify-content-center'>
+
+                <div className='col-10 flex-column flex-lg-row d-flex flex-wrap justify-content-around'>
+
+                    <div className='d-flex col-lg-5 flex-column'>
+                        <div className="form-floating mb-3">
+                            <span
+                                name='name'
+                                className="form-control"
+                                placeholder='Nombre'
+                            >{name}</span>
+
+                            <label>Nombre</label>
                         </div>
-
-                        <div className='d-flex col-11 col-lg-12 flex-column'>
-                            <div className="form-floating mb-3">
-                                <span
-                                    name='lastNameA'
-                                    className="form-control"
-                                    placeholder='Apellido Paterno'
-                                >{lastNameA}</span>
-
-                                <label>Apellido Paterno</label>
-                            </div>
-                        </div>
-
                     </div>
 
-                    <div className='d-flex col-12 col-lg-5 flex-column justify-content-center align-items-center'>
+                    <div className='d-flex col-lg-5 flex-column'>
+                        <div className="form-floating mb-3">
+                            <span
+                                name='lastNameA'
+                                className="form-control"
+                                placeholder='Apellido Paterno'
+                            >{lastNameA}</span>
 
-                        <div className='d-flex col-11 col-lg-12 flex-column'>
-                            <div className="form-floating mb-3">
-                                <span
-                                    name='lastNameB'
-                                    className="form-control"
-                                    placeholder='Apellido Materno'
-                                >{lastNameB}</span>
-
-                                <label>Apellido Materno</label>
-                            </div>
+                            <label>Apellido Paterno</label>
                         </div>
+                    </div>
 
-                        <div className='d-flex col-11 col-lg-12 flex-column'>
-                            <div className="form-floating mb-3">
-                                <span
-                                    name='matricula'
-                                    className="form-control"
-                                    placeholder='Matrícula'
-                                >{matricula}</span>
-                                <label>Matrícula</label>
-                            </div>
+                    <div className='d-flex col-lg-5 flex-column'>
+                        <div className="form-floating mb-3">
+                            <span
+                                name='lastNameB'
+                                className="form-control"
+                                placeholder='Apellido Materno'
+                            >{lastNameB}</span>
+
+                            <label>Apellido Materno</label>
+                        </div>
+                    </div>
+
+                    <div className='d-flex col-lg-5 flex-column'>
+                        <div className="form-floating mb-3">
+                            <span
+                                name='matricula'
+                                className="form-control"
+                                placeholder='Matrícula'
+                            >{matricula}</span>
+                            <label>Matrícula</label>
                         </div>
                     </div>
                 </div>
-                <div className='d-flex col-lg-10 flex-wrap justify-content-around'>
 
-                    <div className='d-flex col-10 col-lg-5 flex-column align-items-center justify-content-center'>
+                <div className='d-flex col-12 col-lg-10 justify-content-around'>
+
+                    <div className='d-flex col-12 col-lg-7 flex-column align-items-center justify-content-center'>
                         <h4>Datos del tutor</h4>
                         {(parents.length) ?
                             parents.map(parent => {
@@ -140,7 +138,7 @@ export default function StudentInfo({ student }) {
                         }
                     </div>
                 </div>
-                
+
 
 
             </div>
