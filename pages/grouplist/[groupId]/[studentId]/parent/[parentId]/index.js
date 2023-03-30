@@ -37,7 +37,7 @@ export default function Parent() {
             {/* <h5>El maestro con id {teacherId} del grupo {groupId} </h5> */}
             <Layout>
                 <div className='d-flex'>
-                    <div className='d-flex flex-column col-lg-12 align-items-center'>
+                    <div className='d-flex flex-column col-12 justify-content-center align-items-center'>
                         <ArrowGoBack
                         btnTxtModal={<h4>Datos del Tutor de {studentName}</h4>}
                         route={`/grouplist/${groupId}/${studentId}`}/>

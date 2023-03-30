@@ -7,9 +7,9 @@ export default function ParentInfo({ parent }) {
         <div className='d-flex justify-content-center col-12  '>
 
             <form className='d-flex mt-3 col-10 flex-column align-items-center justify-content-center'>
-                <div className='col-10 d-flex flex-wrap justify-content-around'>
+                <div className='col-10 flex-column flex-lg-row d-flex flex-wrap justify-content-around'>
 
-                    <div className='d-flex col-5 flex-column'>
+                    <div className='d-flex col-lg-5 flex-column'>
                         <div className="form-floating mb-3">
                             <span
                                 name='name'
@@ -20,7 +20,7 @@ export default function ParentInfo({ parent }) {
                         </div>
                     </div>
 
-                    <div className='d-flex col-5 flex-column'>
+                    <div className='d-flex col-lg-5 flex-column'>
                         <div className="form-floating mb-3">
                             <span
                                 type="email"
@@ -32,7 +32,7 @@ export default function ParentInfo({ parent }) {
                         </div>
                     </div>
 
-                    <div className='d-flex col-5 flex-column'>
+                    <div className='d-flex col-lg-5 flex-column'>
                         <div className="form-floating mb-3">
                             <span
                                 name='lastNameA'
@@ -43,7 +43,7 @@ export default function ParentInfo({ parent }) {
                         </div>
                     </div>
 
-                    <div className='d-flex col-5 flex-column'>
+                    <div className='d-flex col-lg-5 flex-column'>
                         <div className="form-floating mb-3">
                             <span
                                 name='lastNameB'
@@ -55,7 +55,7 @@ export default function ParentInfo({ parent }) {
                         </div>
                     </div>
 
-                    <div className='d-flex col-5 flex-column '>
+                    <div className='d-flex col-lg-5 flex-column '>
                         <div className="form-floating mb-3">
                             <span
                                 type='number'
