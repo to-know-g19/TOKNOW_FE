@@ -4,9 +4,7 @@ import { BsPencilSquare } from 'react-icons/bs';
 import { BsFillTrashFill } from 'react-icons/bs';
 
 export default function TeacherRectangle(props) {
-  // lo envíaba como ({teacher})
-  // const { name, lastNameA, lastNameB, tipoProfesor, onEyeClick } = teacher
-  // console.log("tipo de teacher", tipoProfesor)
+
   const [userRole, setUserRole] = useState("")
   useEffect(() => {
     const token = localStorage.getItem("token");
