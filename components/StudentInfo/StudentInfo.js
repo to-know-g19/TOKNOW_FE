@@ -32,20 +32,21 @@ export default function StudentInfo({ student }) {
                 if (data.data) {
 
                     setParents(data.data.studentById.parents)
+                    console.log("soy la data del del papá", data.data.studentById.parents)
 
                 }
 
             })}
-    }, [router.query])
-    console.log("soy la data del del papá", parents)
+    }, [])
 
     const handleEyeClick = (groupId, student, strRutaExtra, userId) => {
-        router.push(`/grouplist/${groupId}/${student}/${strRutaExtra}/${userId}`)
-        console.log('funciona el eyeClic')
-    };
+        const route= (`/grouplist/${groupId}/${student}/${strRutaExtra}/${userId}`)
+        router.push(route)
+        console.log(route)
+    }
 
     const handleTrashClick = (strRoute, parentId) => {
-        const token = localStorage.getItem("token");
+        const token = localStorage.getItem("token")
         fetch(`https://api.toknow.online/${strRoute}/${parentId}`, {
             method: "DELETE",
             headers: {
@@ -56,7 +57,7 @@ export default function StudentInfo({ student }) {
             .then(response => {
                 console.log('response en delete group', response)
                 if (response.ok === true) {
-                    window.location.reload();
+                    window.location.reload()
                 }
             })
     };
@@ -65,7 +66,7 @@ export default function StudentInfo({ student }) {
 
         <div className='d-flex justify-content-center col-12 flex-column align-items-center'>
 
-            <form className='d-flex mt-3 col-lg-10 flex-column align-items-center justify-content-center'>
+            <div className='d-flex mt-3 col-lg-10 flex-column align-items-center justify-content-center'>
                 <div className='col-12 d-flex flex-wrap justify-content-around'>
 
                     <div className='d-flex col-12 col-lg-5 flex-column justify-content-center align-items-center'>
@@ -176,7 +177,7 @@ export default function StudentInfo({ student }) {
                 
 
 
-            </form>
+            </div>
         </div>
     )
 }

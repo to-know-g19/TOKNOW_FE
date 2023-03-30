@@ -32,7 +32,6 @@ export default function GroupDetail() {
         const userData = JSON.parse(atob(token.split(".")[1]));
         const userRole = userData.role;
         const userId = userData.id;
-        console.log("soy el rol goe:", userRole)
         fetch(`https://api.toknow.online/group/${groupId}`, {
             mode: 'cors',
             headers: {
@@ -49,7 +48,6 @@ export default function GroupDetail() {
                             student.parents.includes(userId)
                         )
                         setStudents(parentStudents)
-                        console.log("los studen del paren:", parentStudents)
                     } else {
                         setStudents(data.data.groupById.students)
                     }
@@ -212,13 +210,6 @@ export default function GroupDetail() {
                     </div>
                 </div>
 
-                {/* <ul>
-                    <li>materia 1</li>
-                    <li>materia 2</li>
-                    <li>materia 3</li>
-                    <li>materia 4</li>
-                    <li>materia 5</li>
-                </ul> */}
                 <ToastContainer />
             </Layout>
         </>
