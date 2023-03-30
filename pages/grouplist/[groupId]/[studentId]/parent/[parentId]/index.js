@@ -8,6 +8,7 @@ export default function Parent() {
     const router = useRouter()
     const { groupId, studentId, parentId } = router.query
     const [parent, setParent] = useState({})
+    const [studentName, setStudentName] = useState("")
 
     useEffect(() => {
 
@@ -24,24 +25,21 @@ export default function Parent() {
             .then(data => {
                 if (data.data) {
                     setParent(data.data.parentById)
+                    const parentStudent = data.data.parentById.students[0]
+                    const parentStudentName = `${parentStudent.name} ${parentStudent.lastNameA} ${parentStudent.lastNameB}`
+                    setStudentName(parentStudentName)
                 }
-
-                console.log("soy la data.data", data.data)
-                // console.log("soy la data.data.groupById.teachers", data.data.groupById.teachers)
-
             })
     }, [router.query])
-    console.log("soy info en parents(parentsById) dentro del groups", parent)
-    // console.log("soy el routerquery groupId", groupId)
 
     return (
         <>
             {/* <h5>El maestro con id {teacherId} del grupo {groupId} </h5> */}
             <Layout>
                 <div className='d-flex'>
-                    <div className='d-flex flex-column col-lg-12 align-items-center'>
+                    <div className='d-flex flex-column col-12 justify-content-center align-items-center'>
                         <ArrowGoBack
-                        btnTxtModal={<h4>Datos de Madre/Padre/Tutor</h4>}
+                        btnTxtModal={<h4>Datos del Tutor de {studentName}</h4>}
                         route={`/grouplist/${groupId}/${studentId}`}/>
 
                         {!!parent &&

@@ -18,7 +18,6 @@ export default function AnnouncementId() {
     const [repliesInfo, setRepliesInfo] = useState([])
     const [posterInfo, setPosterInfo] = useState((""))
     const notifySuccess = useToastify("success", "Comentario publicado")
-console.log("anuncio info", announceInfo)
     //petición a la api para setear anuncios
     useEffect(() => {
         const token = localStorage.getItem("token")
