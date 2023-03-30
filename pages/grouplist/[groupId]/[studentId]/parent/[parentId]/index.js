@@ -8,6 +8,7 @@ export default function Parent() {
     const router = useRouter()
     const { groupId, studentId, parentId } = router.query
     const [parent, setParent] = useState({})
+    const [studentName, setStudentName] = useState("")
 
     useEffect(() => {
 
@@ -24,6 +25,9 @@ export default function Parent() {
             .then(data => {
                 if (data.data) {
                     setParent(data.data.parentById)
+                    const parentStudent = data.data.parentById.students[0]
+                    const parentStudentName = `${parentStudent.name} ${parentStudent.lastNameA} ${parentStudent.lastNameB}`
+                    setStudentName(parentStudentName)
                 }
 
                 console.log("soy la data.data", data.data)
@@ -41,7 +45,7 @@ export default function Parent() {
                 <div className='d-flex'>
                     <div className='d-flex flex-column col-lg-12 align-items-center'>
                         <ArrowGoBack
-                        btnTxtModal={<h4>Datos de Madre/Padre/Tutor</h4>}
+                        btnTxtModal={<h4>Datos del Tutor de {studentName}</h4>}
                         route={`/grouplist/${groupId}/${studentId}`}/>
 
                         {!!parent &&
