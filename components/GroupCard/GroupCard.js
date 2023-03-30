@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { BsPencilSquare } from "react-icons/bs";
 import { BsFillTrashFill } from "react-icons/bs";
-import { FaUserCircle } from 'react-icons/fa';
+import { FaChalkboardTeacher } from 'react-icons/fa';
+import { MdGroups } from 'react-icons/md';
 
 export default function GroupCard(props) {
   const [userRole, setUserRole] = useState("")
@@ -18,7 +19,7 @@ export default function GroupCard(props) {
     <div className='groupCard mt-4 mb-3 col-lg-12'>
       <div className='d-flex m-4 justify-content-around'>
 
-        <div className='col-lg-6 d-flex justify-content-center'>
+        <div className='col-6 d-flex justify-content-center'>
           {/* CAMBIAR NOMBRE DE CLASE Y agregar estilo para crecer en card sin afectar ventana registergrupos*/}
           <div className='groupInfo groupCard__circle'>
             <p>{props.grade}</p>
@@ -26,14 +27,33 @@ export default function GroupCard(props) {
           </div>
         </div>
 
-        <div className='col-lg-6 d-flex flex-column align-items-center justify-content-around'>
-          <div className='d-flex col-lg-8 justify-content-around align-items-center'>
-            <FaUserCircle className='groupCard__user groupCard__user__teacher' />
-            Profesor
+        <div className='col-6 d-flex flex-column align-items-center justify-content-around'>
+
+          <div className='d-flex col-lg-9 col-12 align-items-center'>
+            <div className='d-flex col-5'>
+              <div className='groupCard__counter d-flex justify-content-end' >
+                <p className='groupCard__counter__number d-flex justify-content-center align-items-center'>
+                  {props.teacherCounter}
+                </p>
+              </div>
+              <FaChalkboardTeacher className='groupCard__user groupCard__user__teacher' />
+            </div>
+            <div className='col-7'>
+              Profesores
+            </div>
           </div>
-          <div className='d-flex col-lg-8 justify-content-around align-items-center'>
-            <FaUserCircle className='groupCard__user groupCard__user__student' />
-            Alumnos
+          <div className='d-flex col-lg-9 col-12 align-items-center'>
+            <div className='d-flex col-5'>
+              <div className='groupCard__counter d-flex justify-content-end' >
+                <p className='groupCard__counter__number d-flex justify-content-center align-items-center'>
+                  {props.studentCounter}
+                </p>
+              </div>
+              <MdGroups className='groupCard__user groupCard__user__student' />
+            </div>
+            <div className='col-7'>
+              Alumnos
+            </div>
           </div>
         </div>
 

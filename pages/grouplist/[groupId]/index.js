@@ -7,6 +7,8 @@ import TeacherRectangle from '../../../components/teacherRectangle/TeacherRectan
 import ArrowGoBack from '../../../components/ArrowGoBack/ArrowGoBack'
 /* icon imports*/
 import { FaUserCircle } from 'react-icons/fa';
+import { FaChalkboardTeacher } from 'react-icons/fa';
+import { MdGroups } from 'react-icons/md';
 import { AiFillPlusCircle } from 'react-icons/ai';
 //toastify imports
 import { ToastContainer } from 'react-toastify'
@@ -144,18 +146,19 @@ export default function GroupDetail() {
                         route={`${route}`} />
 
                     <div className='d-flex flex-column flex-lg-row justify-content-lg-around'>
+
                         <div className='d-flex flex-column col-lg-5 align-items-center'>
-                            <div className='d-flex col-lg-8' >
-                                <div className='d-flex col-lg-6 justify-content-between'>
-                                    <div className='d-flex col-8 col-lg-9 justify-content-around'>
-                                        <h4><FaUserCircle className='user-circle user-circle__teacher' /></h4>
-                                        <h4>Profesores</h4>
+                            <div className='d-flex col-5 col-lg-10 justify-content-around' >
+                                <div className='d-flex col-12 col-lg-6 justify-content-around'>
+                                    <h4><FaChalkboardTeacher className='user-circle user-circle__teacher' /></h4>
+                                    <h4>Profesores</h4>
+                                    <div>
+                                        {(userRole == "admin") && (teachers.length < 3) &&
+                                            <Link href="/grouplist/[groupId]/addteacher"
+                                                as={`/grouplist/${groupId}/addteacher`} style={{ textDecoration: 'none' }}><h4><AiFillPlusCircle /></h4>
+                                            </Link>
+                                        }
                                     </div>
-                                    {(userRole == "admin") && (teachers.length < 3) &&
-                                        <Link href="/grouplist/[groupId]/addteacher"
-                                            as={`/grouplist/${groupId}/addteacher`} style={{ textDecoration: 'none' }}><h4><AiFillPlusCircle /></h4>
-                                        </Link>
-                                    }
                                 </div>
                             </div>
                             {(Array.isArray(teachers) && teachers.length > 0) ?
@@ -178,17 +181,17 @@ export default function GroupDetail() {
                             }
                         </div>
                         <div className='d-flex flex-column col-lg-5 align-items-center'>
-                            <div className='d-flex col-lg-8' >
-                                <div className='d-flex col-lg-6 justify-content-between'>
-                                    <div className='d-flex col-8 col-lg-9 justify-content-around'>
-                                        <h4><FaUserCircle className='user-circle user-circle__student' /></h4>
-                                        <h4>Alumnos</h4>
+                            <div className='d-flex col-5 col-lg-10 justify-content-around' >
+                                <div className='d-flex col-12 col-lg-6 justify-content-around'>
+                                    <h4><MdGroups className='user-circle user-circle__student' /></h4>
+                                    <h4>Alumnos</h4>
+                                    <div>
+                                        {(userRole == "admin") ?
+                                            <Link href="/grouplist/[groupId]/addstudent"
+                                                as={`/grouplist/${groupId}/addstudent`} style={{ textDecoration: 'none' }}><h4><AiFillPlusCircle /></h4>
+                                            </Link> : <p></p>
+                                        }
                                     </div>
-                                    {(userRole == "admin") ?
-                                        <Link href="/grouplist/[groupId]/addstudent"
-                                            as={`/grouplist/${groupId}/addstudent`} style={{ textDecoration: 'none' }}><h4><AiFillPlusCircle /></h4>
-                                        </Link> : <p></p>
-                                    }
                                 </div>
                             </div>
                             {(Array.isArray(students) && students.length > 0) ?
