@@ -86,8 +86,8 @@ export default function FormParent() {
             <form onSubmit={handleSubmit(onSubmit)} className='d-flex mt-3 col-lg-10 flex-column align-items-center justify-content-center'>
                 <div className='col-10 d-flex flex-wrap justify-content-around'>
 
-                    <div className='d-flex col-12 col-lg-5 flex-column justify-content-center align-items-center'>
-                        <div className='d-flex col-10 col-lg-12 flex-column'>
+                    
+                        <div className='d-flex col-10 col-lg-5 flex-column'>
                             <div className="form-floating mb-3">
                                 <input
                                     name='name'
@@ -101,7 +101,7 @@ export default function FormParent() {
                             </div>
                         </div>
 
-                        <div className='d-flex col-10 col-lg-12 flex-column'>
+                        <div className='d-flex col-10 col-lg-5 flex-column'>
                             <div className="form-floating mb-3">
                                 <input
                                     name='lastNameA'
@@ -115,7 +115,7 @@ export default function FormParent() {
                             </div>
                         </div>
                     
-                        <div className='d-flex col-10 col-lg-12 flex-column'>
+                        <div className='d-flex col-10 col-lg-5 flex-column'>
                             <div className="form-floating mb-3">
                                 <input
                                     name='lastNameB'
@@ -128,11 +128,11 @@ export default function FormParent() {
                                 <label>Apellido Materno</label>
                             </div>
                         </div>
-                    </div>
+                  
 
-                    <div className='d-flex col-12 col-lg-5 flex-column justify-content-center align-items-center'>
+                   
 
-                        <div className='d-flex col-10 col-lg-12 flex-column'>
+                        <div className='d-flex col-10 col-lg-5 flex-column'>
                             <div className="form-floating mb-3">
                                 <input
                                     type="email"
@@ -145,7 +145,7 @@ export default function FormParent() {
                             </div>
                         </div>
 
-                        <div className='d-flex col-10 col-lg-12 flex-column'>
+                        <div className='d-flex col-10 col-lg-5 flex-column'>
                             <div className="form-floating mb-3">
                                 <input
                                     type='number'
@@ -160,7 +160,7 @@ export default function FormParent() {
                             </div>
                         </div>
 
-                        <div className='d-flex col-10 col-lg-12 flex-column'>
+                        <div className='d-flex col-10 col-lg-5 flex-column'>
                             <div className="form-floating mb-3">
                                 <input
                                     name='password'
@@ -174,7 +174,7 @@ export default function FormParent() {
                                 <label>Contraseña</label>
                             </div>
                         </div>
-                    </div>
+                    
 
                     <div className='d-flex col-10 col-lg-5 flex-column'>
                         <div className="form-floating mb-3">
