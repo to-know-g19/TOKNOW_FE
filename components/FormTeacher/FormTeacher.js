@@ -99,19 +99,17 @@ export default function FormTeacher() {
                         </div>
                     </div>
 
-
-
                     <div className='d-flex col-11 col-lg-5 flex-column'>
                         <div className="form-floating mb-3">
                             <input
-                                name='lastNameB'
+                                name='lastNameA'
                                 className="form-control"
-                                placeholder='Apellido Materno'
-                                {...register("lastNameB", { required: true, minLength: 2, maxLength: 20 })} ></input>
-                            {errors.lastNameB && errors.lastNameB.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
-                            {errors.lastNameB && errors.lastNameB.type === "minLength" && <span className='text-danger'>*El campo requiere al menos 2 caracteres</span>}
-                            {errors.lastNameB && errors.lastNameB.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 21 caracteres</span>}
-                            <label>Apellido Materno</label>
+                                placeholder='Apellido Paterno'
+                                {...register("lastNameA", { required: true, minLength: 2, maxLength: 20 })} ></input>
+                            {errors.lastNameA && errors.lastNameA.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
+                            {errors.lastNameA && errors.lastNameA.type === "minLength" && <span className='text-danger'>*El campo requiere al menos 2 caracteres</span>}
+                            {errors.lastNameA && errors.lastNameA.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 21 caracteres</span>}
+                            <label>Apellido Paterno</label>
                         </div>
                     </div>
 
@@ -133,14 +131,14 @@ export default function FormTeacher() {
                     <div className='d-flex col-11 col-lg-5 flex-column'>
                         <div className="form-floating mb-3">
                             <input
-                                name='lastNameA'
+                                name='lastNameB'
                                 className="form-control"
-                                placeholder='Apellido Paterno'
-                                {...register("lastNameA", { required: true, minLength: 2, maxLength: 20 })} ></input>
-                            {errors.lastNameA && errors.lastNameA.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
-                            {errors.lastNameA && errors.lastNameA.type === "minLength" && <span className='text-danger'>*El campo requiere al menos 2 caracteres</span>}
-                            {errors.lastNameA && errors.lastNameA.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 21 caracteres</span>}
-                            <label>Apellido Paterno</label>
+                                placeholder='Apellido Materno'
+                                {...register("lastNameB", { required: true, minLength: 2, maxLength: 20 })} ></input>
+                            {errors.lastNameB && errors.lastNameB.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
+                            {errors.lastNameB && errors.lastNameB.type === "minLength" && <span className='text-danger'>*El campo requiere al menos 2 caracteres</span>}
+                            {errors.lastNameB && errors.lastNameB.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 21 caracteres</span>}
+                            <label>Apellido Materno</label>
                         </div>
                     </div>
 
