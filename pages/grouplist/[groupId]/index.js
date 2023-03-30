@@ -168,6 +168,7 @@ export default function GroupDetail() {
                                         //     as={`/grouplist/${groupId}/teacher/${teacher._id}`} key={teacher._id} style={{ textDecoration: 'none' }} >
                                         <TeacherRectangle
                                             key={teacher._id}
+                                            userId={teacher._id}
                                             name={teacher.name}
                                             lastNameA={teacher.lastNameA}
                                             lastNameB={teacher.lastNameB}
@@ -199,6 +200,7 @@ export default function GroupDetail() {
                                     return (
                                         <TeacherRectangle
                                             key={student._id}
+                                            userId={student._id}
                                             name={student.name}
                                             lastNameA={student.lastNameA}
                                             lastNameB={student.lastNameB}
