@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { BsPencilSquare } from "react-icons/bs";
 import { BsFillTrashFill } from "react-icons/bs";
-import { FaUserCircle } from 'react-icons/fa';
+import { FaChalkboardTeacher } from 'react-icons/fa';
+import { MdGroups } from 'react-icons/md';
 
 export default function GroupCard(props) {
   const [userRole, setUserRole] = useState("")
@@ -35,7 +36,7 @@ export default function GroupCard(props) {
                   {props.teacherCounter}
                 </p>
               </div>
-              <FaUserCircle className='groupCard__user groupCard__user__teacher' />
+              <FaChalkboardTeacher className='groupCard__user groupCard__user__teacher' />
             </div>
             <div className='col-7'>
               Profesores
@@ -48,7 +49,7 @@ export default function GroupCard(props) {
                   {props.studentCounter}
                 </p>
               </div>
-              <FaUserCircle className='groupCard__user groupCard__user__student' />
+              <MdGroups className='groupCard__user groupCard__user__student' />
             </div>
             <div className='col-7'>
               Alumnos
