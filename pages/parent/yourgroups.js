@@ -55,6 +55,8 @@ export default function Yourgroups() {
                   grade={grupo.grade}
                   group={grupo.name}
                   onEyeClick={() => handleEyeClick(grupo._id)}
+                  teacherCounter={(grupo.teachers.length > 3) ? "3" : grupo.teachers.length}
+                  studentCounter={grupo.students.length}
                 />
                 ))}
                 </div>

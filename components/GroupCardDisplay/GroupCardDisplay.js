@@ -35,7 +35,6 @@ export default function GroupCardDisplay() {
           schools.forEach(school => {
             if (school.user !== null && school.user._id === userId) {
               setGrupos(school.groups);
-              // console.log("Grupos: ", school.groups)
             }
           });
         })
@@ -101,7 +100,10 @@ export default function GroupCardDisplay() {
                   grade={grupo.grade}
                   group={grupo.name}
                   onEyeClick={() => handleEyeClick(grupo._id)}
-                  onTrashClick={() => handleTrashClick(grupo._id)} />
+                  onTrashClick={() => handleTrashClick(grupo._id)} 
+                  teacherCounter={(grupo.teachers.length > 3) ? "3" : grupo.teachers.length}
+                  studentCounter={grupo.students.length}
+                  />
               </div>
             )) : <div className="d-flex justify-content-center pt-4" >
               <h6 className='col-lg-12 col-11 alert alert-primary' role="alert">
