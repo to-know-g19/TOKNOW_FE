@@ -126,7 +126,7 @@ export default function Navbar() {
 
             {/* LOGO ToKnow */}
             <div className="d-flex col-8 col-lg-8 justify-content-center align-items-center">
-                 <Image src={logo} alt="Logo toKnow" /> 
+                 <Link href={(!!token && token !== "undefined") ? "/announcements" : "/"}> <Image src={logo} alt="Logo toKnow" /> </Link>
             </div>
         </div>
     )
