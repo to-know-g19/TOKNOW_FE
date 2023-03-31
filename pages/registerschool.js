@@ -7,7 +7,7 @@ import Layout from '../components/Layout'
 
 
 export default function Registerschool() {
-    const { register, handleSubmit, formState: { errors } } = useForm()
+    const { register, handleSubmit, formState: { errors }, formState } = useForm()
     const router = useRouter()
 
     const onSubmit = async data => {
@@ -183,7 +183,7 @@ export default function Registerschool() {
 
                     </div>
                     <div className='d-flex justify-content-around'>
-                        <button className='btn-form col-12' type='submit'>Registrar escuela</button>
+                        <button className='btn-form col-12' type='submit' disabled={formState.isSubmitting}>Registrar escuela</button>
 
                     </div>
                 </form>

@@ -8,7 +8,7 @@ import { ToastContainer } from 'react-toastify'
 import useToastify from '../useToastify'
 
 export default function FormGroup() {
-    const { register, handleSubmit, formState: { errors } } = useForm()
+    const { register, handleSubmit, formState: { errors }, formState } = useForm()
     const router = useRouter()
     const notifySuccess = useToastify("success", "Registro exitoso. Actualiza o continúa para ver tus grupos")
     const notifyError = useToastify("error", "Hubo un problema al envíar la información")
@@ -102,7 +102,7 @@ export default function FormGroup() {
 
                 </div>
                 <div className='col-lg-2 col-4'>
-                    <Link href='/grouplist'><button className='bg-success btn-form col-12'>Continuar</button></Link>
+                    <Link href='/grouplist'><button className='bg-success btn-form col-12' disabled={formState.isSubmitting} >Continuar</button></Link>
                 </div>
             </form>
             <ToastContainer />

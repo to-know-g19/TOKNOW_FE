@@ -13,6 +13,7 @@ import { FaBars } from "react-icons/fa"
 import { SidebarData } from "../SideBar/SidebarData"
 import { GoSignOut } from "react-icons/go"
 import { AiFillHome } from "react-icons/ai";
+import { set } from "date-fns"
 
 export default function Navbar() {
     const [sidebar, setSidebar] = useState(false)
@@ -21,9 +22,11 @@ export default function Navbar() {
     const [userRole, setUserRole] = useState("")
     const [userId, setUserId] = useState("")
     const router = useRouter()
+    const [token, setToken] = useState("")
 
     useEffect(() => {
         const token = localStorage.getItem("token")
+        setToken(token)
         const currentPath = router.pathname
         if (token && token !== "undefined") {
             const userData = JSON.parse(atob(token.split(".")[1]))
@@ -32,7 +35,7 @@ export default function Navbar() {
         } else {
             /* función para checar token. si no hay Y la ruta no es /register
              entonces empujar a home*/
-            if (!token && currentPath !== "/register") {
+            if (!token && currentPath !== "/register" || token === "undefined" && currentPath !== "/register") {
                 router.replace("/")
                 return
             }
@@ -123,7 +126,7 @@ export default function Navbar() {
 
             {/* LOGO ToKnow */}
             <div className="d-flex col-8 col-lg-8 justify-content-center align-items-center">
-                <Link href="/"> <Image src={logo} alt="Logo toKnow" /> </Link>
+                 <Link href={(!!token && token !== "undefined") ? "/announcements" : "/"}> <Image src={logo} alt="Logo toKnow" /> </Link>
             </div>
         </div>
     )

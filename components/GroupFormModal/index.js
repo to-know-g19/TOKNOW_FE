@@ -7,7 +7,7 @@ import useToastify from '../useToastify'
 
 
 export default function GroupFormModal() {
-    const { register, handleSubmit, formState: { errors } } = useForm()
+    const { register, handleSubmit, formState: { errors }, formState } = useForm()
 
     const notifyError = useToastify("error", "Hubo un problema al envíar la información")
 
@@ -98,7 +98,7 @@ export default function GroupFormModal() {
                     </div>
                     <div className='d-flex col-lg-8 justify-content-end'>
                         <div className='d-flex mt-4 col-lg-4 align-items-end'>
-                            <button className='btn-form col-12' type='submit'>Registrar</button>
+                            <button className='btn-form col-12' type='submit' disabled={formState.isSubmitting}>Registrar</button>
                         </div>
                     </div>
                 </div>

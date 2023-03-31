@@ -20,7 +20,7 @@ export default function Index(props) {
         })
             .then(response => response.json())
             .then(data => {
-                data.data
+                if(data.data){
                 // console.log("SOY LA DATA:", data)
                 const userData = data.data.userById || data.data.teacherById
                 // console.log("rol:", props.role, "data:", userData)
@@ -31,7 +31,7 @@ export default function Index(props) {
                 if (userData.lastNameB) {
                     name = `${name} ${userData.lastNameB}`
                 }
-                setUserName(name)
+                setUserName(name)}
 
             })
     },)
