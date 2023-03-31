@@ -69,6 +69,8 @@ export default function FormAnnouncement() {
         const uppyInstance = new Uppy({
             restrictions: {
                 maxNumberOfFiles: 1, // para que solo pueda subir una imagen
+                allowedFileTypes: ['image/*'],
+                maxFileSize: 5 * 1024 * 1024, // 5MB in bytes
             },
         })
             .use(Transloadit, {
@@ -131,9 +133,6 @@ export default function FormAnnouncement() {
 
                         <div className='d-flex bg-light border border-dark rounded col-12 col-lg-12 flex-column justify-content-center align-items-center'>
                             <div className='col-11 col-lg-10 mt-2 mb-5'>
-                                {/* <button className=''>
-                                    Agregar imagen
-                                </button> */}
 
                                 <div className="form-floating">
                                     <input
@@ -156,7 +155,7 @@ export default function FormAnnouncement() {
                                     {errors.announcementText && errors.announcementText.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 600 caracteres</span>}
                                 </div>
 
-                                <p className='d-flex btn-form bg-success justify-content-center align-items-center' id={"uppy"}>Subir archivo</p>
+                                <p className='d-flex btn-form bg-success justify-content-center align-items-center' id={"uppy"}>Subir imagen</p>
                                 {uppy && (
                                     <Dashboard
                                         uppy={uppy}
@@ -191,8 +190,6 @@ export default function FormAnnouncement() {
 
                             </div>
                         </div>
-
-
 
                         <div className='d-flex col-lg-4'>
                             <button className='btn-form' type='submit'> Publicar </button>
