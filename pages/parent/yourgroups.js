@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 
 export default function Yourgroups() {
   const [grupos, setGrupos] = useState([]);
+  const [schoolName, setSchoolName] = useState("")
   const router = useRouter()
 
   useEffect(() => {
@@ -31,6 +32,30 @@ export default function Yourgroups() {
       );
   }, [router.query]);
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      const userData = JSON.parse(atob(token.split(".")[1]));
+      const schoolId = userData.schoolId
+
+      fetch(`https://api.toknow.online/school/${schoolId}`, {
+        mode: "cors",
+        headers: {
+          "Content-type": "application/json",
+          "Authorization": `Bearer ${token}`
+        }
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.data) {
+            const school = data.data.school
+            if (school.user !== null) {
+              setSchoolName(school.nameSchool)
+            }
+          }
+        })
+    }
+  }, []);
 
   const handleEyeClick = (id) => {
     router.push('/grouplist/' + id)
@@ -41,9 +66,9 @@ export default function Yourgroups() {
     <>
       <Layout>
         <div className='d-flex flex-column align-items-center'>
-
+        <div className='pt-3 d-flex col-10 col-lg-10'>{<h3>Escuela {schoolName}</h3>}</div>
             <ArrowGoBack
-              btnTxtModal={<h4>TUS GRUPOS</h4>}
+              btnTxtModal={<h4>Tus grupos</h4>}
               route={''} />
 
           <div className='d-flex col-12 col-lg-10 flex-wrap justify-content-around'>
@@ -55,7 +80,7 @@ export default function Yourgroups() {
                   grade={grupo.grade}
                   group={grupo.name}
                   onEyeClick={() => handleEyeClick(grupo._id)}
-                  teacherCounter={(grupo.teachers.length > 3) ? "3" : grupo.teachers.length}
+                  teacherCounter={grupo.teachers.length}
                   studentCounter={grupo.students.length}
                 />
                 ))}
