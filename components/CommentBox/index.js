@@ -61,9 +61,11 @@ export default function CommentBox(props) {
                     name='message'
                     className='post-announce d-flex col-12 col-lg-12 bg-white'
                     placeholder='Agrega un comentario'
-                    {...register("message", { maxLength: 600 })}>
+                    {...register("message", {required: true, maxLength: 600 })}>
                 </textarea>
+                {errors.message && errors.message.type === "required" && <span className='text-danger'>*Escribe tu comentario</span>}
                 {errors.message && errors.message.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 600 caracteres</span>}
+               
                 {/* campo escondido con d-none pero necesario para tomar id de anuncio y enviarlo
                     en formulario del reply */}
                 <div className='d-none d-flex col-12 col-lg-5 flex-column'>
