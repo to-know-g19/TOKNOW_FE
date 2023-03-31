@@ -16,7 +16,7 @@ export default function GroupCardDisplay() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    if (token) {
+    if (token && token !== "undefined") {
       const userData = JSON.parse(atob(token.split(".")[1]));
       const schoolId = userData.schoolId
 
