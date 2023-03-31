@@ -20,7 +20,7 @@ export default function FormAnnouncement() {
     const [imageUrl, setImageUrl] = useState();
     const [groupInfo, setGroupInfo] = useState({})
 
-    const { register, handleSubmit, formState: { errors } } = useForm()
+    const { register, handleSubmit, formState: { errors }, formState } = useForm()
     const router = useRouter()
     const groupId = router.query.groupId
 
@@ -192,7 +192,7 @@ export default function FormAnnouncement() {
                         </div>
 
                         <div className='d-flex col-lg-4'>
-                            <button className='btn-form' type='submit'> Publicar </button>
+                            <button className='btn-form' disabled={formState.isSubmitting}   > Publicar </button>
                         </div>
 
                     </form>

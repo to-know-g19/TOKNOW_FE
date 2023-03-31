@@ -4,7 +4,7 @@ import {useRouter} from 'next/router'
 import useToastify from '../useToastify';
 
 export default function CommentBox(props) {
-    const { register, handleSubmit, formState: { errors } } = useForm()
+    const { register, handleSubmit, formState: { errors }, formState } = useForm()
     const router = useRouter()
     const routesQuery = router.query
     const notifyError = useToastify("error", "hubo un problema al enviar la información")
@@ -82,7 +82,7 @@ export default function CommentBox(props) {
                 </div>
 
                 <div className='d-flex col-12 justify-content-end'>
-                    <button className='btn-form' type='submit'> Comentar </button>
+                    <button className='btn-form' type='submit' disabled={formState.isSubmitting} > Comentar </button>
                 </div>
 
             </form>

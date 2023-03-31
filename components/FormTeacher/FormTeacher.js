@@ -9,7 +9,7 @@ import { ToastContainer } from 'react-toastify'
 import useToastify from '../useToastify'
 
 export default function FormTeacher() {
-    const { register, handleSubmit, formState: { errors }, setError } = useForm()
+    const { register, handleSubmit, formState: { errors }, setError, formState } = useForm()
     const router = useRouter()
     const groupId = router.query.groupId
     const notifyError = useToastify("error", "Hubo un problema al envíar la información")
@@ -223,7 +223,7 @@ export default function FormTeacher() {
                 </div>
 
                 <div className='d-flex col-lg-4 justify-content-around'>
-                    <button className='btn-form' type='submit'>Registrar</button>
+                    <button className='btn-form' type='submit' disabled={formState.isSubmitting}>Registrar</button>
                 </div>
 
             </form>

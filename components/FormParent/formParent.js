@@ -8,7 +8,7 @@ import { ToastContainer } from 'react-toastify'
 import useToastify from '../useToastify'
 
 export default function FormParent() {
-    const { register, handleSubmit, formState: { errors }, setError } = useForm()
+    const { register, handleSubmit, formState: { errors }, setError, formState } = useForm()
     const router = useRouter()
     const studentId = router.query.studentId
     const groupId = router.query.groupId
@@ -240,7 +240,7 @@ export default function FormParent() {
                 </div>
 
                 <div className='d-flex col-lg-4 justify-content-around'>
-                    <button className='btn-form' type='submit'> Registrar </button>
+                    <button className='btn-form' type='submit' disabled={formState.isSubmitting}> Registrar </button>
                 </div>
 
             </form>

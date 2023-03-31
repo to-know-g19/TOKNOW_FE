@@ -11,7 +11,7 @@ import { ToastContainer } from 'react-toastify';
 import useToastify from '../components/useToastify';
 
 export default function Index() {
-    const { register, handleSubmit, formState: { errors }, setError } = useForm()
+    const { register, handleSubmit, formState: { errors }, setError, formState } = useForm()
     const router = useRouter()
     const notifyError =useToastify("error", "Este correo ya está registrado")
     const onSubmit = async data => {
@@ -146,7 +146,7 @@ export default function Index() {
 
                     </div>
 
-                    <button className='btn-form col-4' type='submit'>Registrarse</button>
+                    <button className='btn-form col-4' type='submit' disabled={formState.isSubmitting}>Registrarse</button>
                 </form>
             </div>
             <ToastContainer/>
