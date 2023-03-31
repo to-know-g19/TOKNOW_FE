@@ -10,7 +10,7 @@ import useToastify from '../useToastify'
 
 
 export default function FormLogin() {
-  const { register, handleSubmit, formState: { errors } } = useForm()
+  const { register, handleSubmit, formState: { errors }, formState } = useForm()
   const [selectedRole, setSelectedRole] = useState('user')
   const router = useRouter()
   //handle de radio buttons
@@ -161,7 +161,7 @@ export default function FormLogin() {
 
         </div>
         <div className='d-flex justify-content-end'>
-          <button className='btn-form col-5' type='submit'>Ingresar</button>
+          <button className='btn-form col-5' type='submit' disabled={formState.isSubmitting}>Ingresar</button>
           
         </div>
       </form>

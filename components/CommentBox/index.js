@@ -4,7 +4,7 @@ import {useRouter} from 'next/router'
 import useToastify from '../useToastify';
 
 export default function CommentBox(props) {
-    const { register, handleSubmit, formState: { errors } } = useForm()
+    const { register, handleSubmit, formState: { errors }, formState } = useForm()
     const router = useRouter()
     const routesQuery = router.query
     const notifyError = useToastify("error", "hubo un problema al enviar la información")
@@ -61,9 +61,11 @@ export default function CommentBox(props) {
                     name='message'
                     className='post-announce d-flex col-12 col-lg-12 bg-white'
                     placeholder='Agrega un comentario'
-                    {...register("message", { maxLength: 600 })}>
+                    {...register("message", {required: true, maxLength: 600 })}>
                 </textarea>
+                {errors.message && errors.message.type === "required" && <span className='text-danger'>*Escribe tu comentario</span>}
                 {errors.message && errors.message.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 600 caracteres</span>}
+               
                 {/* campo escondido con d-none pero necesario para tomar id de anuncio y enviarlo
                     en formulario del reply */}
                 <div className='d-none d-flex col-12 col-lg-5 flex-column'>
@@ -80,7 +82,7 @@ export default function CommentBox(props) {
                 </div>
 
                 <div className='d-flex col-12 justify-content-end'>
-                    <button className='btn-form' type='submit'> Comentar </button>
+                    <button className='btn-form' type='submit' disabled={formState.isSubmitting} > Comentar </button>
                 </div>
 
             </form>
