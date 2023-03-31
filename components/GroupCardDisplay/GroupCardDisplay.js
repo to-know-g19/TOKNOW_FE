@@ -9,6 +9,7 @@ import useToastify from '../useToastify'
 
 export default function GroupCardDisplay() {
   const [grupos, setGrupos] = useState([]);
+  const [schoolName, setSchoolName] = useState("");
   const router = useRouter()
   const notifySuccess = useToastify("success", "Registro de grupo exitoso")
   const notifySuccessGroupDelete = useToastify("success", "Grupo eliminado con éxito")
@@ -17,10 +18,9 @@ export default function GroupCardDisplay() {
     const token = localStorage.getItem("token");
     if (token) {
       const userData = JSON.parse(atob(token.split(".")[1]));
-      const userId = userData.id;
-      // console.log('user id', userId)
+      const schoolId = userData.schoolId
 
-      fetch(`https://api.toknow.online/school`, {
+      fetch(`https://api.toknow.online/school/${schoolId}`, {
         mode: "cors",
         headers: {
           "Content-type": "application/json",
@@ -29,14 +29,13 @@ export default function GroupCardDisplay() {
       })
         .then(response => response.json())
         .then(data => {
-
-          const schools = data.data.schools
-
-          schools.forEach(school => {
-            if (school.user !== null && school.user._id === userId) {
-              setGrupos(school.groups);
+          if (data.data) {
+            const school = data.data.school
+            if (school.user !== null) {
+              setGrupos(school.groups)
+              setSchoolName(school.nameSchool)
             }
-          });
+          }
         })
     }
   }, []);
@@ -84,7 +83,7 @@ export default function GroupCardDisplay() {
     <>
 
       <div className='d-flex flex-column align-items-center'>
-
+      <div className='pt-3 d-flex col-10 col-lg-9'>{<h3>Escuela {schoolName}</h3> }</div>
         <ArrowGoBack
           btnTxtModal={<ModalExample />}
           route={'/registergroup'} />
@@ -100,10 +99,10 @@ export default function GroupCardDisplay() {
                   grade={grupo.grade}
                   group={grupo.name}
                   onEyeClick={() => handleEyeClick(grupo._id)}
-                  onTrashClick={() => handleTrashClick(grupo._id)} 
+                  onTrashClick={() => handleTrashClick(grupo._id)}
                   teacherCounter={(grupo.teachers.length > 3) ? "3" : grupo.teachers.length}
                   studentCounter={grupo.students.length}
-                  />
+                />
               </div>
             )) : <div className="d-flex justify-content-center pt-4" >
               <h6 className='col-lg-12 col-11 alert alert-primary' role="alert">

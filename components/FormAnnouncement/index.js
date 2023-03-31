@@ -102,7 +102,7 @@ export default function FormAnnouncement() {
             )
         })
         const announcementResult = await result.json()
-        console.log("resultado del posteo", announcementResult)
+
 
         // lógica para mandar notificación a /announcements donde se revisa el item
         if (announcementResult.success === true) {

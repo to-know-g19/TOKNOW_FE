@@ -119,6 +119,7 @@ export default function StudentInfo({ student }) {
                                 return (
                                     <TeacherRectangle
                                         key={parent._id}
+                                        userId={parent._id}
                                         name={parent.name}
                                         lastNameA={parent.lastNameA}
                                         lastNameB={parent.lastNameB}
