@@ -13,6 +13,7 @@ export default function FormTeacher() {
     const router = useRouter()
     const groupId = router.query.groupId
     const notifyError = useToastify("error", "Hubo un problema al envíar la información")
+    const notifyErrorTeacherType = useToastify("error", "Ya existe este tipo de profesor en el grupo")
 
     const onSubmit = async data => {
         const token = localStorage.getItem('token')
@@ -54,6 +55,8 @@ export default function FormTeacher() {
         // console.log('teach /user', userTeacher)
         if (teacherInfo.success === true) {
             router.push(`/grouplist/${groupId}`)
+        } else if (teacherInfo.message === "Ya existe este tipo de profesor en el grupo") {
+            notifyErrorTeacherType()
         } else {
             notifyError()
         }
