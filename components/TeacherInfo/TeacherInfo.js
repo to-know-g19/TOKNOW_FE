@@ -46,6 +46,18 @@ export default function TeacherInfo({ teacher }) {
                         </div>
                     </div>
 
+                    <div className='d-flex col-11 col-lg-5 flex-column'>
+                        <div className="form-floating mb-3">
+                            <span
+                                name='lastNameB'
+                                className="form-control"
+                                placeholder='Apellido Materno'
+                            >{lastNameB}</span>
+
+                            <label>Apellido Materno</label>
+                        </div>
+                    </div>
+
                     <div className='d-flex col-11 col-lg-5 flex-column '>
                         <div className="form-floating mb-3">
                             <span
@@ -58,17 +70,6 @@ export default function TeacherInfo({ teacher }) {
                         </div>
                     </div>
 
-                    <div className='d-flex col-11 col-lg-5 flex-column'>
-                        <div className="form-floating mb-3">
-                            <span
-                                name='lastNameB'
-                                className="form-control"
-                                placeholder='Apellido Materno'
-                            >{lastNameB}</span>
-
-                            <label>Apellido Materno</label>
-                        </div>
-                    </div>
 
                     <div className='d-flex col-11 col-lg-5 flex-column'>
                         {/* tiene que cumplir uno de la lista en el back. hacer con desplegable */}

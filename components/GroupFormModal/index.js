@@ -9,7 +9,8 @@ import useToastify from '../useToastify'
 export default function GroupFormModal() {
     const { register, handleSubmit, formState: { errors }, formState } = useForm()
 
-    const notifyError = useToastify("error", "Hubo un problema al envíar la información")
+    const notifyErrorDoubleGroup = useToastify("error", "Este grupo ya está registrado")
+    const notifyError = useToastify("error", "Hubo un error al enviar la información")
 
     const onSubmit = async data => {
         const token = localStorage.getItem('token')
@@ -31,6 +32,8 @@ export default function GroupFormModal() {
             //en la página de grouplist se checa el item y se cambia a false después de la mostrar la notificación
             localStorage.setItem('notifGroupCreation', 'true')
             window.location.reload()
+        } else if(groupInfo.message === "El grupo ya existe"){
+            notifyErrorDoubleGroup()
         } else {
             notifyError()
         }

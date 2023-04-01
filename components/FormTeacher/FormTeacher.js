@@ -13,6 +13,7 @@ export default function FormTeacher() {
     const router = useRouter()
     const groupId = router.query.groupId
     const notifyError = useToastify("error", "Hubo un problema al envíar la información")
+    const notifyErrorTeacherType = useToastify("error", "Ya existe este tipo de profesor en el grupo")
 
     const onSubmit = async data => {
         const token = localStorage.getItem('token')
@@ -54,6 +55,8 @@ export default function FormTeacher() {
         // console.log('teach /user', userTeacher)
         if (teacherInfo.success === true) {
             router.push(`/grouplist/${groupId}`)
+        } else if (teacherInfo.message === "Ya existe este tipo de profesor en el grupo") {
+            notifyErrorTeacherType()
         } else {
             notifyError()
         }
@@ -113,6 +116,20 @@ export default function FormTeacher() {
                         </div>
                     </div>
 
+                    <div className='d-flex col-11 col-lg-5 flex-column'>
+                        <div className="form-floating mb-3">
+                            <input
+                                name='lastNameB'
+                                className="form-control"
+                                placeholder='Apellido Materno'
+                                {...register("lastNameB", { required: true, minLength: 2, maxLength: 20 })} ></input>
+                            {errors.lastNameB && errors.lastNameB.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
+                            {errors.lastNameB && errors.lastNameB.type === "minLength" && <span className='text-danger'>*El campo requiere al menos 2 caracteres</span>}
+                            {errors.lastNameB && errors.lastNameB.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 21 caracteres</span>}
+                            <label>Apellido Materno</label>
+                        </div>
+                    </div>
+
                     <div className='d-flex col-11 col-lg-5 flex-column '>
                         <div className="form-floating mb-3">
                             <input
@@ -129,19 +146,22 @@ export default function FormTeacher() {
                     </div>
 
                     <div className='d-flex col-11 col-lg-5 flex-column'>
+                        {/* tiene que cumplir uno de la lista en el back.*/}
                         <div className="form-floating mb-3">
-                            <input
-                                name='lastNameB'
-                                className="form-control"
-                                placeholder='Apellido Materno'
-                                {...register("lastNameB", { required: true, minLength: 2, maxLength: 20 })} ></input>
-                            {errors.lastNameB && errors.lastNameB.type === "required" && <span className='text-danger'>*El campo es requerido.</span>}
-                            {errors.lastNameB && errors.lastNameB.type === "minLength" && <span className='text-danger'>*El campo requiere al menos 2 caracteres</span>}
-                            {errors.lastNameB && errors.lastNameB.type === "maxLength" && <span className='text-danger'>*El campo requiere menos de 21 caracteres</span>}
-                            <label>Apellido Materno</label>
+                            <select
+                                name='tipoProfesor'
+                                className="form-control form-select"
+                                {...register("tipoProfesor", { required: true })}>
+                                <option value=""></option>
+                                <option value="titular">Titular</option>
+                                <option value="educacion fisica">Educación física</option>
+                                <option value="ingles">Inglés</option>
+                            </select>
+                            {errors.tipoProfesor && errors.tipoProfesor.type === "required" && <span className='text-danger'>*Selecciona el tipo de profesor</span>}
+                            <label>Tipo de profesor</label>
                         </div>
                     </div>
-
+                    
                     <div className='d-flex col-11 col-lg-5 flex-column'>
                         <div className="form-floating mb-3">
                             <input
@@ -174,22 +194,6 @@ export default function FormTeacher() {
                         </div>
                     </div>
 
-                    <div className='d-flex col-11 col-lg-5 flex-column'>
-                        {/* tiene que cumplir uno de la lista en el back.*/}
-                        <div className="form-floating mb-3">
-                            <select
-                                name='tipoProfesor'
-                                className="form-control form-select"
-                                {...register("tipoProfesor", { required: true })}>
-                                <option value=""></option>
-                                <option value="titular">Titular</option>
-                                <option value="educacion fisica">Educación física</option>
-                                <option value="ingles">Inglés</option>
-                            </select>
-                            {errors.tipoProfesor && errors.tipoProfesor.type === "required" && <span className='text-danger'>*Selecciona el tipo de profesor</span>}
-                            <label>Tipo de profesor</label>
-                        </div>
-                    </div>
 
 
                     <div className='d-none d-flex col-8 col-lg-5 flex-column'>
